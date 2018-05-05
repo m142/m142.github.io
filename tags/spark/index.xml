@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Spark on 思考、记录</title>
+    <link>http://m.l2d.xyz/tags/spark/</link>
+    <description>Recent content in Spark on 思考、记录</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Mon, 14 Sep 2015 22:30:36 +0800</lastBuildDate>
+    
+	<atom:link href="http://m.l2d.xyz/tags/spark/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Windows 下搭建 Spark 源代码阅读环境</title>
+      <link>http://m.l2d.xyz/p/2015/win-spark-src-env/</link>
+      <pubDate>Mon, 14 Sep 2015 22:30:36 +0800</pubDate>
+      
+      <guid>http://m.l2d.xyz/p/2015/win-spark-src-env/</guid>
+      <description>用 Spark 做数据分析也有半年多了，觉得至少应该大致过一下源代码。在 Windows 下搭建环境还是有点不太方便的，把步骤记录一下。
+当然要用 Intellij IDEA (下文简称 Idea )，安装 Scala 插件。另外，也可以把 sbt 插件装上。
+首先下载 Spark 1.5.0 源代码。
+然后在 Idea 里， File -&amp;gt; New -&amp;gt; Project From Existing Source 选择 Spark 解压后的目录， Import project from external model -&amp;gt; Maven，然后一路 Next，等待处理完毕。
+视网络情况而定，不太好的话可能需要半个小时。然后就可以编译 Spark 了：Build -&amp;gt; Rebuild Project
+当然不一定成功，如果报的错误是 Error:(44, 66) not found: type SparkFlumeProtocol val 的话，做如下处理：
+View -&amp;gt; Tool Window -&amp;gt; Maven Projects 选择 Spark Project External Flume Sink， 右键 -&amp;gt; Generate Sources and Update Folders  之后一般就能编译成功了，会有很多 Warning，都可以忽略。</description>
+    </item>
+    
+  </channel>
+</rss>

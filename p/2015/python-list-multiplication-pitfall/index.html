@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Python 列表乘运算的一个陷阱</title>
+	<meta name="description" content="">
+	<meta name="generator" content="Hugo 0.40.2" />
+	<meta property="og:title" content="Python 列表乘运算的一个陷阱" />
+<meta property="og:description" content="先来看下面这段代码：
+a = [[]] * 2 a[0].append(1)  也许你期望 a = [[1], []]，然而，实际上 a = [[1], [1]]。
+为了进一步分析原因，可以把 a 中每个元素的 id 打印出来：
+a = [[]] * 2 print [id(x) for x in a] a[0].append(1) print [id(x) for x in a]  一种可能的输出结果是：
+[140596116844416, 140596116844416] [140596116844416, 140596116844416]  可以发现，a[0] 和 a[1] 的 id 在修改 a[0] 前后都是一样的，也就是说，它们是对同一个对象的引用，修改 a[0] 同时也就修改了 a[1]。
+不过这样说也不完全对，不妨来看下面这段代码：
+a = [1] * 3 print [id(x) for x in a] print a a[0] &#43;= 1 print [id(x) for x in a] print a  可能的输出结果是：" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://m.l2d.xyz/p/2015/python-list-multiplication-pitfall/" />
+
+
+
+<meta property="article:published_time" content="2015-09-22T22:12:18&#43;08:00"/>
+
+<meta property="article:modified_time" content="2015-09-22T22:12:18&#43;08:00"/>
+
+
+
+
+
+
+
+
+
+
+
+	
+	<link rel="dns-prefetch" href="//fonts.googleapis.com">
+	<link rel="dns-prefetch" href="//fonts.gstatic.com">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700">
+	<link rel="stylesheet" href="/css/style.css">
+	<script type="text/javascript" src="/js/scripts.js"></script>
+	<link rel="shortcut icon" href="/favicon.ico">
+	
+</head>
+<body class="body body-right-sidebar">
+	<div class="container container-outer">
+		<header class="header">
+			<div class="container container-inner">
+				<div class="logo" role="banner">
+					<a class="logo__link" href="/" title="思考、记录" rel="home">
+						<div class="logo__title">思考、记录</div>
+						
+					</a>
+				</div>
+			</div>
+			
+<nav class="menu">
+	<ul class="menu__list">
+		<li class="menu__item"><a class="menu__link" href="/about/">ABOUT</a></li>
+		<li class="menu__item menu__item--active"><a class="menu__link" href="/post/">POSTS</a></li>
+	</ul>
+</nav>
+
+		</header>
+		<div class="wrapper clearfix">
+
+<main class="main content">
+	<article class="post">
+		<header class="post__header">
+			<h1 class="post__title">Python 列表乘运算的一个陷阱</h1><div class="post__meta meta">
+<svg class="icon icon-time" width="16" height="14" viewBox="0 0 16 16"><path d="m8-.0000003c-4.4 0-8 3.6-8 8 0 4.4000003 3.6 8.0000003 8 8.0000003 4.4 0 8-3.6 8-8.0000003 0-4.4-3.6-8-8-8zm0 14.4000003c-3.52 0-6.4-2.88-6.4-6.4000003 0-3.52 2.88-6.4 6.4-6.4 3.52 0 6.4 2.88 6.4 6.4 0 3.5200003-2.88 6.4000003-6.4 6.4000003zm.4-10.4000003h-1.2v4.8l4.16 2.5600003.64-1.04-3.6-2.1600003z"/></svg>
+<time class="post__meta-date meta-date" datetime="2015-09-22T22:12:18">2015-09-22</time>
+<span class="post__meta-categories meta-categories">
+	<svg class="icon icon-category" width="16" height="16" viewBox="0 0 16 16"><path d="m7 2l1 2h8v11h-16v-13z"/></svg>
+	<span class="meta-categories__list"><a class="meta-categories__link" href="/categories/rd" rel="category">rd</a></span>
+</span></div>
+		</header>
+		<div class="post__content clearfix">
+			<p>先来看下面这段代码：</p>
+
+<pre><code class="language-python">a = [[]] * 2
+a[0].append(1)
+</code></pre>
+
+<p>也许你期望 <code>a = [[1], []]</code>，然而，实际上 <code>a = [[1], [1]]</code>。</p>
+
+<p>为了进一步分析原因，可以把 a 中每个元素的 id 打印出来：</p>
+
+<pre><code>a = [[]] * 2
+print [id(x) for x in a]
+a[0].append(1)
+print [id(x) for x in a]
+</code></pre>
+
+<p>一种可能的输出结果是：</p>
+
+<pre><code>[140596116844416, 140596116844416]
+[140596116844416, 140596116844416]
+</code></pre>
+
+<p>可以发现，<code>a[0]</code> 和 <code>a[1]</code> 的 id 在修改 <code>a[0]</code> 前后都是一样的，也就是说，它们是对同一个对象的引用，修改 <code>a[0]</code> 同时也就修改了 <code>a[1]</code>。</p>
+
+<p>不过这样说也不完全对，不妨来看下面这段代码：</p>
+
+<pre><code>a = [1] * 3                                                                     
+print [id(x) for x in a]                                                        
+print a                                                                         
+a[0] += 1                                                                       
+print [id(x) for x in a]                                                        
+print a
+</code></pre>
+
+<p>可能的输出结果是：</p>
+
+<pre><code>[24474424, 24474424, 24474424]
+[1, 1, 1]
+[24474400, 24474424, 24474424]
+[2, 1, 1]
+</code></pre>
+
+<p>在这个例子中，<code>a</code> 的 3 个元素的 id 是相同的，但是修改 <code>a[0]</code> 并没有同时修改 <code>a[1]</code> 和 <code>a[2]</code>。这又是什么原因呢？</p>
+
+<p>其实原因很简单，因为 <code>[]</code> 是 <em>mutable</em> 的，而数字 <code>1</code> 是 <em>immutable</em> 的，所以后一种情况下，<code>a[0] += 1</code> 后，<code>a[0]</code> 的 id 改变了。如果我们这时打印 <code>id(2)</code>，将会发现结果就是 24474400 ，因为每个 <em>immutable</em> 对象的 id 都是确定的。</p>
+
+<p>之前看 <a href="http://book.douban.com/subject/3117898/">Python 源码剖析</a> 的时候了解到，当 Python 解释器启动时，会初始化很多 <em>immutable</em> 的对象，比如比较小的整数，0,1,2,&hellip; 之类的，它们的 id 在整个解释器的生命周期内都是固定不变的。最后还是推荐一下这本书，能了解到不少 Python 的实现细节，对写 Python 也有一定的帮助。</p>
+
+		</div>
+		
+<div class="post__tags tags clearfix">
+	<svg class="icon icon-tag" width="16" height="16" viewBox="0 0 16 16"><path d="M16 9.5c0 .373-.24.74-.5 1l-5 5c-.275.26-.634.5-1 .5-.373 0-.74-.24-1-.5L1 8a2.853 2.853 0 0 1-.7-1C.113 6.55 0 5.973 0 5.6V1.4C0 1.034.134.669.401.401.67.134 1.034 0 1.4 0h4.2c.373 0 .95.113 1.4.3.45.187.732.432 1 .7l7.5 7.502c.26.274.5.632.5.998zM3.5 5a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3z"/></svg>
+	<ul class="tags__list">
+		<li class="tags__item"><a class="tags__link btn" href="/tags/python/" rel="tag">python</a></li>
+	</ul>
+</div>
+	</article>
+	
+	
+<nav class="post-nav row clearfix">
+	<div class="post-nav__item post-nav__item--prev col-1-2">
+		<a class="post-nav__link" href="/p/2015/go-cpp-op-precedence/" rel="prev"><span class="post-nav__caption">«&thinsp;Previous</span><p class="post-nav__post-title">Go 和 C/C&#43;&#43; 的运算符优先级问题</p></a>
+	</div>
+	<div class="post-nav__item post-nav__item--next col-1-2">
+		<a class="post-nav__link" href="/p/2015/strongswan-ikev2-vpn/" rel="next"><span class="post-nav__caption">Next&thinsp;»</span><p class="post-nav__post-title">用 strongSwan 搭建 IPsec IKEv2 VPN</p></a>
+	</div>
+</nav>
+	
+</main>
+
+<aside class="sidebar">
+	
+<div class="widget-search widget">
+	<form class="widget-search__form" role="search" method="get" action="https://google.com/search">
+		<label>
+			<input class="widget-search__field" type="search" placeholder="SEARCH..." value="" name="q">
+		</label>
+		<input class="widget-search__submit" type="submit" value="Search">
+		<input type="hidden" name="sitesearch" value="http://m.l2d.xyz/" />
+	</form>
+</div>
+	
+<div class="widget-recent widget">
+	<h4 class="widget__title">Recent Posts</h4>
+	<div class="widget__content">
+		<ul class="widget__list">
+			<li class="widget__item"><a class="widget__link" href="/p/2016/auc-roc/">AUC 和 ROC</a></li>
+			<li class="widget__item"><a class="widget__link" href="/p/2016/python-data-mining/">Python 相关的数据挖掘利器</a></li>
+			<li class="widget__item"><a class="widget__link" href="/p/2016/china-map-shift/">中国的地图偏移问题</a></li>
+			<li class="widget__item"><a class="widget__link" href="/p/2016/aria2/">aria2</a></li>
+			<li class="widget__item"><a class="widget__link" href="/p/2015/entropy-delusion/">关于熵的一点胡思乱想</a></li>
+		</ul>
+	</div>
+</div>
+	
+<div class="widget-categories widget">
+	<h4 class="widget__title">Categories</h4>
+	<div class="widget__content">
+		<ul class="widget__list">
+			<li class="widget__item"><a class="widget__link" href="/categories/digihome">Digihome</a></li>
+			<li class="widget__item"><a class="widget__link" href="/categories/rd">Rd</a></li>
+		</ul>
+	</div>
+</div>
+	
+	
+<div class="widget-taglist widget">
+	<h4 class="widget__title">Tags</h4>
+	<div class="widget__content">
+		<a class="widget-taglist__link widget__link btn" href="/tags/ad" title="Ad">Ad</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/algo" title="Algo">Algo</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/aria2" title="Aria2">Aria2</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/c&#43;&#43;" title="C&#43;&#43;">C&#43;&#43;</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/go" title="Go">Go</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/map" title="Map">Map</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/ml" title="Ml">Ml</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/mobi" title="Mobi">Mobi</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/python" title="Python">Python</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/raspi" title="Raspi">Raspi</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/sec" title="Sec">Sec</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/spark" title="Spark">Spark</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/vpn" title="Vpn">Vpn</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/yy" title="Yy">Yy</a>
+	</div>
+</div>
+</aside>
+	</div>
+		<footer class="footer">
+			<div class="container container-inner">
+				<div class="footer__copyright">&copy; 2018 思考、记录. <span class="footer__copyright-credits">Generated with <a href="https://gohugo.io/" rel="nofollow noopener" target="_blank">Hugo</a> and <a href="https://github.com/Vimux/Mainroad/" rel="nofollow noopener" target="_blank">Mainroad</a> theme.</span></div>
+			</div>
+		</footer>
+	</div>
+
+<script>
+	var navigation = responsiveNav(".menu", {
+		navClass: "menu--collapse",
+	});
+</script>
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+tex2jax: {
+inlineMath: [['$','$'], ['\\(','\\)']],
+displayMath: [['$$','$$']],
+processEscapes: true,
+processEnvironments: true,
+skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+TeX: { equationNumbers: { autoNumber: "AMS" },
+     extensions: ["AMSmath.js", "AMSsymbols.js"] }
+}
+});
+</script>
+
+</body>
+</html>

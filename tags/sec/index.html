@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Sec</title>
+	<meta name="description" content="">
+	<meta name="generator" content="Hugo 0.40.2" />
+	<meta property="og:title" content="Sec" />
+<meta property="og:description" content="思考、记录" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="http://m.l2d.xyz/tags/sec/" />
+
+
+
+<meta property="og:updated_time" content="2015-11-26T22:20:58&#43;08:00"/>
+
+
+
+
+
+
+
+
+
+
+	
+	<link rel="dns-prefetch" href="//fonts.googleapis.com">
+	<link rel="dns-prefetch" href="//fonts.gstatic.com">
+	<link rel="alternate" type="application/rss" href="/tags/sec/index.xml">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700">
+	<link rel="stylesheet" href="/css/style.css">
+	<script type="text/javascript" src="/js/scripts.js"></script>
+	<link rel="shortcut icon" href="/favicon.ico">
+	
+</head>
+<body class="body body-right-sidebar">
+	<div class="container container-outer">
+		<header class="header">
+			<div class="container container-inner">
+				<div class="logo" role="banner">
+					<a class="logo__link" href="/" title="思考、记录" rel="home">
+						<div class="logo__title">思考、记录</div>
+						
+					</a>
+				</div>
+			</div>
+			
+<nav class="menu">
+	<ul class="menu__list">
+		<li class="menu__item"><a class="menu__link" href="/about/">ABOUT</a></li>
+		<li class="menu__item"><a class="menu__link" href="/post/">POSTS</a></li>
+	</ul>
+</nav>
+
+		</header>
+		<div class="wrapper clearfix">
+
+	<main class="main list content" role="main">
+		<header class="page-header">
+			<h1 class="page-header__title">Sec</h1>
+		</header><article class="list__item post">
+	<div class="list__content clearfix">
+		<header class="list__header">
+			<h3 class="list__title post__title ">
+				<a href="/p/2015/how-to-store-password-in-db/" rel="bookmark">数据库中如何保存密码</a>
+			</h3><div class="list__meta meta">
+<svg class="icon icon-time" width="16" height="14" viewBox="0 0 16 16"><path d="m8-.0000003c-4.4 0-8 3.6-8 8 0 4.4000003 3.6 8.0000003 8 8.0000003 4.4 0 8-3.6 8-8.0000003 0-4.4-3.6-8-8-8zm0 14.4000003c-3.52 0-6.4-2.88-6.4-6.4000003 0-3.52 2.88-6.4 6.4-6.4 3.52 0 6.4 2.88 6.4 6.4 0 3.5200003-2.88 6.4000003-6.4 6.4000003zm.4-10.4000003h-1.2v4.8l4.16 2.5600003.64-1.04-3.6-2.1600003z"/></svg>
+<time class="post__meta-date meta-date" datetime="2015-11-26T22:20:58">2015-11-26</time>
+<span class="post__meta-categories meta-categories">
+	<svg class="icon icon-category" width="16" height="16" viewBox="0 0 16 16"><path d="m7 2l1 2h8v11h-16v-13z"/></svg>
+	<span class="meta-categories__list"><a class="meta-categories__link" href="/categories/rd" rel="category">rd</a></span>
+</span></div>
+		</header>
+		<div class="list__excerpt post__content">
+			网站开发一般都会涉及到数据库设计，而数据库设计大多数情况都会涉及到密码的保存。近几年发生过多起网站用户信息泄露事件：CSDN 用户账号及明文密码泄露，网易邮箱过亿用户数据泄露 等等。通过这些事件，大家对网络安全也越来越重视，而信息安全中最重要的一项就是密码，用户如何选择密码和保存密码是另外一个话题，本文主要探讨服务器端（网站）是如何保存密码的。
+下面首先介绍三种安全性较差（不推荐）的保存方法，然后介绍安全性较好（推荐）的保存方法。
+安全性较差 1. 明文保存 最简单的处理方式就是不做处理，用户密码是什么就保存什么。
+CSDN 事件中，官方声明泄露的数据是 2009 年的备份数据库。如果账号是在 2009 年之后注册的，那么就没有遭到泄露，而在那之前的则都泄露了。这就说明在 2009 年数据库备份之前，CSDN 的网站数据库中是把用户密码保存成明文的。
+明文保存当然是最不安全的，尤其是很多人同一个密码会用在多个网站上。而类似 CSDN 这样泄露的数据就会被人利用做成社工库，比如 这个 和 这个 。
+现在的数据库中绝对不应该保存明文密码！
+2. 加密保存 如无特别说明，本文所指的加密都是指可逆加密，如 AES, RSA 等算法的加密方式。
+有时候，为了某些特殊的原因，网站可能需要知道用户的明文密码。但是为了降低密码泄露的风险，会对密码做加密然后保存。在有需要的时候，再将保存的数据解密得到明文密码。
+相对于明文保存，这种方法看起来更安全。但实际上，安全性并没有提高多少。因为，现在安全的中心在于保护加密密钥的安全，一旦加密方法和加密密钥泄露出去了，数据库中加密后的密码就和明文无异了，所以这种方法只不过是将安全性转移了而已，除了为达到某些特殊的目的之外，并没有多大用处。
+根据网上公开的信息，很少看到有采用这种方法的。
+3. 简单哈希保存 相比前两种而言，这种方式在安全性上有很大的提升。因为一般来说哈希是不可逆的，所以即便拿到了数据库中的数据，从哈希值倒推回明文密码的可能性也是很小的。但是这并不意味着绝对安全，因为有其它方式可以破解出明文密码来。
+在实际的使用中，主要有两种不同的使用方法：只对明文密码做哈希；在明文密码上加 盐 ，再做哈希。很显然后一种方法的安全性较高。
+哈希方法的专业称呼是 KDF: Key Derivation Function。下面根据哈希算法的不同，分别介绍。
+3.1 MD5 在早期的网站设计中，由于 MD5 速度快，并且没有出现相应的攻击方法，因此应用最为广泛。然而，速度快是它的优点也是它的最大缺点。因为只需要构造一个表，把常见密码及其对应的 MD5 值保存下来，碰到 MD5 后的密码值，很容易查到原始的明文密码，尤其是在没有加盐或者盐比较简单的情况下。
+现在已经有一些网站提供查找 MD5 对应的原始串的服务，比如 https://crackstation.net/ , http://md5decrypt.net/en/ , https://isc.sans.edu/tools/reversehash.html 等。它们的原理其实就是维护 彩虹表 。比如输入 7cbb3252ba6b7e9c422fac5334d22054 查询出来的原始串是 q1w2e3 ，这也是很常见的一个密码。
+		</div>
+		<div class="list__footer">
+			<a class="list__footer-readmore btn" href="/p/2015/how-to-store-password-in-db/">Read more…</a>
+		</div>
+	</div>
+</article>
+
+		
+	</main>
+
+<aside class="sidebar">
+	
+<div class="widget-search widget">
+	<form class="widget-search__form" role="search" method="get" action="https://google.com/search">
+		<label>
+			<input class="widget-search__field" type="search" placeholder="SEARCH..." value="" name="q">
+		</label>
+		<input class="widget-search__submit" type="submit" value="Search">
+		<input type="hidden" name="sitesearch" value="http://m.l2d.xyz/" />
+	</form>
+</div>
+	
+<div class="widget-recent widget">
+	<h4 class="widget__title">Recent Posts</h4>
+	<div class="widget__content">
+		<ul class="widget__list">
+			<li class="widget__item"><a class="widget__link" href="/p/2016/auc-roc/">AUC 和 ROC</a></li>
+			<li class="widget__item"><a class="widget__link" href="/p/2016/python-data-mining/">Python 相关的数据挖掘利器</a></li>
+			<li class="widget__item"><a class="widget__link" href="/p/2016/china-map-shift/">中国的地图偏移问题</a></li>
+			<li class="widget__item"><a class="widget__link" href="/p/2016/aria2/">aria2</a></li>
+			<li class="widget__item"><a class="widget__link" href="/p/2015/entropy-delusion/">关于熵的一点胡思乱想</a></li>
+		</ul>
+	</div>
+</div>
+	
+<div class="widget-categories widget">
+	<h4 class="widget__title">Categories</h4>
+	<div class="widget__content">
+		<ul class="widget__list">
+			<li class="widget__item"><a class="widget__link" href="/categories/digihome">Digihome</a></li>
+			<li class="widget__item"><a class="widget__link" href="/categories/rd">Rd</a></li>
+		</ul>
+	</div>
+</div>
+	
+	
+<div class="widget-taglist widget">
+	<h4 class="widget__title">Tags</h4>
+	<div class="widget__content">
+		<a class="widget-taglist__link widget__link btn" href="/tags/ad" title="Ad">Ad</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/algo" title="Algo">Algo</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/aria2" title="Aria2">Aria2</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/c&#43;&#43;" title="C&#43;&#43;">C&#43;&#43;</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/go" title="Go">Go</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/map" title="Map">Map</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/ml" title="Ml">Ml</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/mobi" title="Mobi">Mobi</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/python" title="Python">Python</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/raspi" title="Raspi">Raspi</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/sec" title="Sec">Sec</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/spark" title="Spark">Spark</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/vpn" title="Vpn">Vpn</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/yy" title="Yy">Yy</a>
+	</div>
+</div>
+</aside>
+	</div>
+		<footer class="footer">
+			<div class="container container-inner">
+				<div class="footer__copyright">&copy; 2018 思考、记录. <span class="footer__copyright-credits">Generated with <a href="https://gohugo.io/" rel="nofollow noopener" target="_blank">Hugo</a> and <a href="https://github.com/Vimux/Mainroad/" rel="nofollow noopener" target="_blank">Mainroad</a> theme.</span></div>
+			</div>
+		</footer>
+	</div>
+
+<script>
+	var navigation = responsiveNav(".menu", {
+		navClass: "menu--collapse",
+	});
+</script>
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+tex2jax: {
+inlineMath: [['$','$'], ['\\(','\\)']],
+displayMath: [['$$','$$']],
+processEscapes: true,
+processEnvironments: true,
+skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+TeX: { equationNumbers: { autoNumber: "AMS" },
+     extensions: ["AMSmath.js", "AMSsymbols.js"] }
+}
+});
+</script>
+
+</body>
+</html>

@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Ad</title>
+	<meta name="description" content="">
+	<meta name="generator" content="Hugo 0.40.2" />
+	<meta property="og:title" content="Ad" />
+<meta property="og:description" content="思考、记录" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="http://m.l2d.xyz/tags/ad/" />
+
+
+
+<meta property="og:updated_time" content="2015-09-09T22:37:26&#43;08:00"/>
+
+
+
+
+
+
+
+
+
+
+	
+	<link rel="dns-prefetch" href="//fonts.googleapis.com">
+	<link rel="dns-prefetch" href="//fonts.gstatic.com">
+	<link rel="alternate" type="application/rss" href="/tags/ad/index.xml">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700">
+	<link rel="stylesheet" href="/css/style.css">
+	<script type="text/javascript" src="/js/scripts.js"></script>
+	<link rel="shortcut icon" href="/favicon.ico">
+	
+</head>
+<body class="body body-right-sidebar">
+	<div class="container container-outer">
+		<header class="header">
+			<div class="container container-inner">
+				<div class="logo" role="banner">
+					<a class="logo__link" href="/" title="思考、记录" rel="home">
+						<div class="logo__title">思考、记录</div>
+						
+					</a>
+				</div>
+			</div>
+			
+<nav class="menu">
+	<ul class="menu__list">
+		<li class="menu__item"><a class="menu__link" href="/about/">ABOUT</a></li>
+		<li class="menu__item"><a class="menu__link" href="/post/">POSTS</a></li>
+	</ul>
+</nav>
+
+		</header>
+		<div class="wrapper clearfix">
+
+	<main class="main list content" role="main">
+		<header class="page-header">
+			<h1 class="page-header__title">Ad</h1>
+		</header><article class="list__item post">
+	<div class="list__content clearfix">
+		<header class="list__header">
+			<h3 class="list__title post__title ">
+				<a href="/p/2015/mobi-ids/" rel="bookmark">移动平台的用户标识</a>
+			</h3><div class="list__meta meta">
+<svg class="icon icon-time" width="16" height="14" viewBox="0 0 16 16"><path d="m8-.0000003c-4.4 0-8 3.6-8 8 0 4.4000003 3.6 8.0000003 8 8.0000003 4.4 0 8-3.6 8-8.0000003 0-4.4-3.6-8-8-8zm0 14.4000003c-3.52 0-6.4-2.88-6.4-6.4000003 0-3.52 2.88-6.4 6.4-6.4 3.52 0 6.4 2.88 6.4 6.4 0 3.5200003-2.88 6.4000003-6.4 6.4000003zm.4-10.4000003h-1.2v4.8l4.16 2.5600003.64-1.04-3.6-2.1600003z"/></svg>
+<time class="post__meta-date meta-date" datetime="2015-09-09T22:37:26">2015-09-09</time>
+<span class="post__meta-categories meta-categories">
+	<svg class="icon icon-category" width="16" height="16" viewBox="0 0 16 16"><path d="m7 2l1 2h8v11h-16v-13z"/></svg>
+	<span class="meta-categories__list"><a class="meta-categories__link" href="/categories/rd" rel="category">rd</a></span>
+</span></div>
+		</header>
+		<div class="list__excerpt post__content">
+			在 PC 平台上，一般是用 cookie 识别用户，更进一步（流氓）的有 evercookie，如果用户禁用了 cookie，还可以用浏览器的指纹。这些方法一般都能较准确地识别用户，目前 PC 上看到的个性化广告一般都是基于以上几种方法。
+到了移动平台上，情况就大不一样了。首先，第三方 cookie 一般默认是禁用的，然后，cookie 在 in-app 的广告中是没法取到的。这就要求换一种方法。
+iOS 平台上情况相对简单，目前 app 都能获得 IDFA (identifier for advertisers)，所以一般都是靠 IDFA 来识别用户的。但是需要注意的是，在设置里，用户可以重置 IDFA，让自己对外看起来是一个全新的用户。
+Android 平台则相对混乱得多。虽然 Google 提供了 Advertising ID，但是在国内的众多发行版中，Google 服务一般是被阉割的，所以自然没用。其它的有 Android ID，MAC， Device ID 等。stackoverflow 上的这个问题 提供了详细的解答：
+ 调用 TelephonyManager.getDeviceId() 总会返回一个值 带 SIM 卡的 GSM 设备调用 TelephonyManager.getSimSerialNumber() 会返回一个值 所有 CDMA 设备调用 TelephonyManager.getSimSerialNumber() 会返回空值 添加了 Google 账户的设备能取到 ANDROID_ID 添加了 Google 账户的 CDMA 设备 取到的 ANDROID_ID 和调用 TelephonyManager.getDeviceId() 取到的值是相同的  理论上来说 Android ID 是最好的选择，它可以通过下面的代码获取：
+		</div>
+		<div class="list__footer">
+			<a class="list__footer-readmore btn" href="/p/2015/mobi-ids/">Read more…</a>
+		</div>
+	</div>
+</article>
+
+		
+	</main>
+
+<aside class="sidebar">
+	
+<div class="widget-search widget">
+	<form class="widget-search__form" role="search" method="get" action="https://google.com/search">
+		<label>
+			<input class="widget-search__field" type="search" placeholder="SEARCH..." value="" name="q">
+		</label>
+		<input class="widget-search__submit" type="submit" value="Search">
+		<input type="hidden" name="sitesearch" value="http://m.l2d.xyz/" />
+	</form>
+</div>
+	
+<div class="widget-recent widget">
+	<h4 class="widget__title">Recent Posts</h4>
+	<div class="widget__content">
+		<ul class="widget__list">
+			<li class="widget__item"><a class="widget__link" href="/p/2016/auc-roc/">AUC 和 ROC</a></li>
+			<li class="widget__item"><a class="widget__link" href="/p/2016/python-data-mining/">Python 相关的数据挖掘利器</a></li>
+			<li class="widget__item"><a class="widget__link" href="/p/2016/china-map-shift/">中国的地图偏移问题</a></li>
+			<li class="widget__item"><a class="widget__link" href="/p/2016/aria2/">aria2</a></li>
+			<li class="widget__item"><a class="widget__link" href="/p/2015/entropy-delusion/">关于熵的一点胡思乱想</a></li>
+		</ul>
+	</div>
+</div>
+	
+<div class="widget-categories widget">
+	<h4 class="widget__title">Categories</h4>
+	<div class="widget__content">
+		<ul class="widget__list">
+			<li class="widget__item"><a class="widget__link" href="/categories/digihome">Digihome</a></li>
+			<li class="widget__item"><a class="widget__link" href="/categories/rd">Rd</a></li>
+		</ul>
+	</div>
+</div>
+	
+	
+<div class="widget-taglist widget">
+	<h4 class="widget__title">Tags</h4>
+	<div class="widget__content">
+		<a class="widget-taglist__link widget__link btn" href="/tags/ad" title="Ad">Ad</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/algo" title="Algo">Algo</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/aria2" title="Aria2">Aria2</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/c&#43;&#43;" title="C&#43;&#43;">C&#43;&#43;</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/go" title="Go">Go</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/map" title="Map">Map</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/ml" title="Ml">Ml</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/mobi" title="Mobi">Mobi</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/python" title="Python">Python</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/raspi" title="Raspi">Raspi</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/sec" title="Sec">Sec</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/spark" title="Spark">Spark</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/vpn" title="Vpn">Vpn</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/yy" title="Yy">Yy</a>
+	</div>
+</div>
+</aside>
+	</div>
+		<footer class="footer">
+			<div class="container container-inner">
+				<div class="footer__copyright">&copy; 2018 思考、记录. <span class="footer__copyright-credits">Generated with <a href="https://gohugo.io/" rel="nofollow noopener" target="_blank">Hugo</a> and <a href="https://github.com/Vimux/Mainroad/" rel="nofollow noopener" target="_blank">Mainroad</a> theme.</span></div>
+			</div>
+		</footer>
+	</div>
+
+<script>
+	var navigation = responsiveNav(".menu", {
+		navClass: "menu--collapse",
+	});
+</script>
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+tex2jax: {
+inlineMath: [['$','$'], ['\\(','\\)']],
+displayMath: [['$$','$$']],
+processEscapes: true,
+processEnvironments: true,
+skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+TeX: { equationNumbers: { autoNumber: "AMS" },
+     extensions: ["AMSmath.js", "AMSsymbols.js"] }
+}
+});
+</script>
+
+</body>
+</html>

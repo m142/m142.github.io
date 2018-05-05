@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Python on 思考、记录</title>
+    <link>http://m.l2d.xyz/tags/python/</link>
+    <description>Recent content in Python on 思考、记录</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Thu, 25 Feb 2016 22:08:52 +0800</lastBuildDate>
+    
+	<atom:link href="http://m.l2d.xyz/tags/python/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Python 相关的数据挖掘利器</title>
+      <link>http://m.l2d.xyz/p/2016/python-data-mining/</link>
+      <pubDate>Thu, 25 Feb 2016 22:08:52 +0800</pubDate>
+      
+      <guid>http://m.l2d.xyz/p/2016/python-data-mining/</guid>
+      <description>首先需要反省一下自己，对新事物的好奇心不够强烈，很多时候都是浅尝辄止，没有深入去了解，以致错失了很多机会，也让我不能看透很多事情，很多方面不能形成自己的知识积累。是一个极大的缺点，需要改正。
+其实几年前就听说过 IPython，当时以为只是 Python 的另外一个 REPL 终端而已，没有深入去了解。
+平时工作中的数据量都很大，一般都是存储在 HDFS 上，加载到单机上比较费劲，都是用 Spark (之前用 Pig) 去分析，偶尔也会写一些一次性的 Python 脚本，有作图需求时都是把数据分析出来导入 Excel。大部分情况下这样其实还可以。
+只是最近试着参加了 kaggle 上的 Airbnb recruiting 比赛，见识到了 Python 系列工具在数据挖掘中的强大。而且也加深了对 IPython 的认识，尤其是 IPython Notebook (或者叫 Jupyter Notebook) 的强大和便捷。
+NumPy, matplotlib, xgboost 和 scikt-learn 以前也接触过，了解一些。但 Pandas, Seaborn 等还真没用过。看着别人把这些工具耍得贼熟，感觉自己像原始人一样站在一边…… 虽说用 Spark 来搞也没啥问题，但是毕竟有点麻烦。不学习一下真是说不过去，就会被别人远远地抛在后面。
+如果要用 Python 做数据分析相关工作，可以直接装 Anaconda。它打包了很多有用的库，另外可能需要单独装下 xgboost 和 seaborn（或者还有其它的包，试一下就知道）。完成这些后，基于 Python 的数据分析平台环境就搭建好了。具体 Pandas, xgboost, seaborn 等的应用可以查看各自的文档。话说 Pandas 里的 DataFrame 真是很强大，Spark 中新的 ml 库 (替换旧的 mllib) 也大量使用了 DataFrame。
+还有一个强大的工具，Jupyter Notebook.</description>
+    </item>
+    
+    <item>
+      <title>Python 列表乘运算的一个陷阱</title>
+      <link>http://m.l2d.xyz/p/2015/python-list-multiplication-pitfall/</link>
+      <pubDate>Tue, 22 Sep 2015 22:12:18 +0800</pubDate>
+      
+      <guid>http://m.l2d.xyz/p/2015/python-list-multiplication-pitfall/</guid>
+      <description>先来看下面这段代码：
+a = [[]] * 2 a[0].append(1)  也许你期望 a = [[1], []]，然而，实际上 a = [[1], [1]]。
+为了进一步分析原因，可以把 a 中每个元素的 id 打印出来：
+a = [[]] * 2 print [id(x) for x in a] a[0].append(1) print [id(x) for x in a]  一种可能的输出结果是：
+[140596116844416, 140596116844416] [140596116844416, 140596116844416]  可以发现，a[0] 和 a[1] 的 id 在修改 a[0] 前后都是一样的，也就是说，它们是对同一个对象的引用，修改 a[0] 同时也就修改了 a[1]。
+不过这样说也不完全对，不妨来看下面这段代码：
+a = [1] * 3 print [id(x) for x in a] print a a[0] += 1 print [id(x) for x in a] print a  可能的输出结果是：</description>
+    </item>
+    
+  </channel>
+</rss>
