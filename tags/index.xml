@@ -6,7 +6,7 @@
     <description>Recent content in Tags on 思考、记录</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Wed, 09 Sep 2015 22:37:26 +0800</lastBuildDate>
+    <lastBuildDate>Wed, 09 Sep 2015 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="http://m.l2d.xyz/tags/index.xml" rel="self" type="application/rss+xml" />
     
@@ -14,7 +14,7 @@
     <item>
       <title>Ad</title>
       <link>http://m.l2d.xyz/tags/ad/</link>
-      <pubDate>Wed, 09 Sep 2015 22:37:26 +0800</pubDate>
+      <pubDate>Wed, 09 Sep 2015 00:00:00 +0000</pubDate>
       
       <guid>http://m.l2d.xyz/tags/ad/</guid>
       <description></description>
@@ -23,34 +23,34 @@
     <item>
       <title>Algo</title>
       <link>http://m.l2d.xyz/tags/algo/</link>
-      <pubDate>Fri, 11 Sep 2015 22:09:23 +0800</pubDate>
+      <pubDate>Fri, 11 Sep 2015 00:00:00 +0000</pubDate>
       
       <guid>http://m.l2d.xyz/tags/algo/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>Aria2</title>
-      <link>http://m.l2d.xyz/tags/aria2/</link>
-      <pubDate>Sat, 09 Jan 2016 21:13:50 +0800</pubDate>
-      
-      <guid>http://m.l2d.xyz/tags/aria2/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title>C&#43;&#43;</title>
       <link>http://m.l2d.xyz/tags/c&#43;&#43;/</link>
-      <pubDate>Wed, 16 Sep 2015 22:38:05 +0800</pubDate>
+      <pubDate>Wed, 16 Sep 2015 00:00:00 +0000</pubDate>
       
       <guid>http://m.l2d.xyz/tags/c&#43;&#43;/</guid>
       <description></description>
     </item>
     
     <item>
+      <title>Digihome</title>
+      <link>http://m.l2d.xyz/tags/digihome/</link>
+      <pubDate>Sat, 09 Jan 2016 00:00:00 +0000</pubDate>
+      
+      <guid>http://m.l2d.xyz/tags/digihome/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>Go</title>
       <link>http://m.l2d.xyz/tags/go/</link>
-      <pubDate>Wed, 16 Sep 2015 22:38:05 +0800</pubDate>
+      <pubDate>Wed, 16 Sep 2015 00:00:00 +0000</pubDate>
       
       <guid>http://m.l2d.xyz/tags/go/</guid>
       <description></description>
@@ -59,7 +59,7 @@
     <item>
       <title>Map</title>
       <link>http://m.l2d.xyz/tags/map/</link>
-      <pubDate>Mon, 25 Jan 2016 22:52:10 +0800</pubDate>
+      <pubDate>Mon, 25 Jan 2016 00:00:00 +0000</pubDate>
       
       <guid>http://m.l2d.xyz/tags/map/</guid>
       <description></description>
@@ -68,7 +68,7 @@
     <item>
       <title>Ml</title>
       <link>http://m.l2d.xyz/tags/ml/</link>
-      <pubDate>Mon, 28 Mar 2016 22:08:01 +0800</pubDate>
+      <pubDate>Mon, 28 Mar 2016 00:00:00 +0000</pubDate>
       
       <guid>http://m.l2d.xyz/tags/ml/</guid>
       <description></description>
@@ -77,7 +77,7 @@
     <item>
       <title>Mobi</title>
       <link>http://m.l2d.xyz/tags/mobi/</link>
-      <pubDate>Wed, 09 Sep 2015 22:37:26 +0800</pubDate>
+      <pubDate>Wed, 09 Sep 2015 00:00:00 +0000</pubDate>
       
       <guid>http://m.l2d.xyz/tags/mobi/</guid>
       <description></description>
@@ -86,7 +86,7 @@
     <item>
       <title>Python</title>
       <link>http://m.l2d.xyz/tags/python/</link>
-      <pubDate>Thu, 25 Feb 2016 22:08:52 +0800</pubDate>
+      <pubDate>Thu, 25 Feb 2016 00:00:00 +0000</pubDate>
       
       <guid>http://m.l2d.xyz/tags/python/</guid>
       <description></description>
@@ -95,7 +95,7 @@
     <item>
       <title>Raspi</title>
       <link>http://m.l2d.xyz/tags/raspi/</link>
-      <pubDate>Sat, 21 Nov 2015 21:27:45 +0800</pubDate>
+      <pubDate>Sat, 21 Nov 2015 00:00:00 +0000</pubDate>
       
       <guid>http://m.l2d.xyz/tags/raspi/</guid>
       <description></description>
@@ -104,7 +104,7 @@
     <item>
       <title>Sec</title>
       <link>http://m.l2d.xyz/tags/sec/</link>
-      <pubDate>Thu, 26 Nov 2015 22:20:58 +0800</pubDate>
+      <pubDate>Thu, 26 Nov 2015 00:00:00 +0000</pubDate>
       
       <guid>http://m.l2d.xyz/tags/sec/</guid>
       <description></description>
@@ -113,7 +113,7 @@
     <item>
       <title>Spark</title>
       <link>http://m.l2d.xyz/tags/spark/</link>
-      <pubDate>Mon, 14 Sep 2015 22:30:36 +0800</pubDate>
+      <pubDate>Mon, 14 Sep 2015 00:00:00 +0000</pubDate>
       
       <guid>http://m.l2d.xyz/tags/spark/</guid>
       <description></description>
@@ -122,16 +122,25 @@
     <item>
       <title>Vpn</title>
       <link>http://m.l2d.xyz/tags/vpn/</link>
-      <pubDate>Thu, 05 Nov 2015 22:59:57 +0800</pubDate>
+      <pubDate>Sat, 05 May 2018 00:00:00 +0000</pubDate>
       
       <guid>http://m.l2d.xyz/tags/vpn/</guid>
       <description></description>
     </item>
     
     <item>
+      <title>Vps</title>
+      <link>http://m.l2d.xyz/tags/vps/</link>
+      <pubDate>Sat, 05 May 2018 00:00:00 +0000</pubDate>
+      
+      <guid>http://m.l2d.xyz/tags/vps/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>Yy</title>
       <link>http://m.l2d.xyz/tags/yy/</link>
-      <pubDate>Sun, 27 Dec 2015 22:54:12 +0800</pubDate>
+      <pubDate>Sun, 27 Dec 2015 00:00:00 +0000</pubDate>
       
       <guid>http://m.l2d.xyz/tags/yy/</guid>
       <description></description>

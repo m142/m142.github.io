@@ -6,7 +6,7 @@
     <description>Recent content in Go on 思考、记录</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Wed, 16 Sep 2015 22:38:05 +0800</lastBuildDate>
+    <lastBuildDate>Wed, 16 Sep 2015 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="http://m.l2d.xyz/tags/go/index.xml" rel="self" type="application/rss+xml" />
     
@@ -14,7 +14,7 @@
     <item>
       <title>Go 和 C/C&#43;&#43; 的运算符优先级问题</title>
       <link>http://m.l2d.xyz/p/2015/go-cpp-op-precedence/</link>
-      <pubDate>Wed, 16 Sep 2015 22:38:05 +0800</pubDate>
+      <pubDate>Wed, 16 Sep 2015 00:00:00 +0000</pubDate>
       
       <guid>http://m.l2d.xyz/p/2015/go-cpp-op-precedence/</guid>
       <description>一般都是把 Go 看成是现代化的 C，在 C 的基础上做了很多改进，语法更简单，很多语句也更优美了（比如 for）。但是也埋下了一些坑，不注意就会踩到，比如下面的这个运算符优先级的问题。

@@ -6,7 +6,7 @@
     <description>Recent content in Map on 思考、记录</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Mon, 25 Jan 2016 22:52:10 +0800</lastBuildDate>
+    <lastBuildDate>Mon, 25 Jan 2016 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="http://m.l2d.xyz/tags/map/index.xml" rel="self" type="application/rss+xml" />
     
@@ -14,7 +14,7 @@
     <item>
       <title>中国的地图偏移问题</title>
       <link>http://m.l2d.xyz/p/2016/china-map-shift/</link>
-      <pubDate>Mon, 25 Jan 2016 22:52:10 +0800</pubDate>
+      <pubDate>Mon, 25 Jan 2016 00:00:00 +0000</pubDate>
       
       <guid>http://m.l2d.xyz/p/2016/china-map-shift/</guid>
       <description>今天偶然了解到一个好玩，或者说不那么好玩，甚至让人恶心反感的事情，那就是 GPS 在地图上定位的偏移问题。

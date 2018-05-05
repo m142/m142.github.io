@@ -6,7 +6,7 @@
     <description>Recent content in Yy on 思考、记录</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Sun, 27 Dec 2015 22:54:12 +0800</lastBuildDate>
+    <lastBuildDate>Sun, 27 Dec 2015 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="http://m.l2d.xyz/tags/yy/index.xml" rel="self" type="application/rss+xml" />
     
@@ -14,7 +14,7 @@
     <item>
       <title>关于熵的一点胡思乱想</title>
       <link>http://m.l2d.xyz/p/2015/entropy-delusion/</link>
-      <pubDate>Sun, 27 Dec 2015 22:54:12 +0800</pubDate>
+      <pubDate>Sun, 27 Dec 2015 00:00:00 +0000</pubDate>
       
       <guid>http://m.l2d.xyz/p/2015/entropy-delusion/</guid>
       <description>前段时间的一个晚上看了点 PRML ，睡觉时突然考虑起一个问题来：为什么人应该有鲜明的观点，或者说为什么大部分人都喜欢有鲜明观点的人，而好好人、骑墙派则一般不太受欢迎。当时就想，也许可以用熵的概念来解释呢。

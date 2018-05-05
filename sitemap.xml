@@ -3,116 +3,115 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>http://m.l2d.xyz/p/2018/vps-reco/</loc>
+    <lastmod>2018-05-05T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>http://m.l2d.xyz/about/</loc>
     <lastmod>2018-05-01T00:00:00+00:00</lastmod>
   </url>
   
   <url>
     <loc>http://m.l2d.xyz/p/2016/auc-roc/</loc>
-    <lastmod>2016-03-28T22:08:01+08:00</lastmod>
+    <lastmod>2016-03-28T00:00:00+00:00</lastmod>
   </url>
   
   <url>
     <loc>http://m.l2d.xyz/p/2016/python-data-mining/</loc>
-    <lastmod>2016-02-25T22:08:52+08:00</lastmod>
+    <lastmod>2016-02-25T00:00:00+00:00</lastmod>
   </url>
   
   <url>
     <loc>http://m.l2d.xyz/p/2016/china-map-shift/</loc>
-    <lastmod>2016-01-25T22:52:10+08:00</lastmod>
+    <lastmod>2016-01-25T00:00:00+00:00</lastmod>
   </url>
   
   <url>
     <loc>http://m.l2d.xyz/p/2016/aria2/</loc>
-    <lastmod>2016-01-09T21:13:50+08:00</lastmod>
+    <lastmod>2016-01-09T00:00:00+00:00</lastmod>
   </url>
   
   <url>
     <loc>http://m.l2d.xyz/p/2015/entropy-delusion/</loc>
-    <lastmod>2015-12-27T22:54:12+08:00</lastmod>
+    <lastmod>2015-12-27T00:00:00+00:00</lastmod>
   </url>
   
   <url>
     <loc>http://m.l2d.xyz/p/2015/how-to-store-password-in-db/</loc>
-    <lastmod>2015-11-26T22:20:58+08:00</lastmod>
+    <lastmod>2015-11-26T00:00:00+00:00</lastmod>
   </url>
   
   <url>
     <loc>http://m.l2d.xyz/p/2015/openwrt-ddns/</loc>
-    <lastmod>2015-11-22T22:34:39+08:00</lastmod>
+    <lastmod>2015-11-22T00:00:00+00:00</lastmod>
   </url>
   
   <url>
     <loc>http://m.l2d.xyz/p/2015/raspberrypi-my-1st/</loc>
-    <lastmod>2015-11-21T21:27:45+08:00</lastmod>
+    <lastmod>2015-11-21T00:00:00+00:00</lastmod>
   </url>
   
   <url>
     <loc>http://m.l2d.xyz/p/2015/netgear-wndr4300-openwrt-shadowsocks-chinadns/</loc>
-    <lastmod>2015-11-05T22:59:57+08:00</lastmod>
+    <lastmod>2015-11-05T00:00:00+00:00</lastmod>
   </url>
   
   <url>
     <loc>http://m.l2d.xyz/p/2015/strongswan-ikev2-vpn/</loc>
-    <lastmod>2015-09-28T21:13:50+08:00</lastmod>
+    <lastmod>2015-09-28T00:00:00+00:00</lastmod>
   </url>
   
   <url>
     <loc>http://m.l2d.xyz/p/2015/python-list-multiplication-pitfall/</loc>
-    <lastmod>2015-09-22T22:12:18+08:00</lastmod>
+    <lastmod>2015-09-22T00:00:00+00:00</lastmod>
   </url>
   
   <url>
     <loc>http://m.l2d.xyz/p/2015/go-cpp-op-precedence/</loc>
-    <lastmod>2015-09-16T22:38:05+08:00</lastmod>
+    <lastmod>2015-09-16T00:00:00+00:00</lastmod>
   </url>
   
   <url>
     <loc>http://m.l2d.xyz/p/2015/win-spark-src-env/</loc>
-    <lastmod>2015-09-14T22:30:36+08:00</lastmod>
+    <lastmod>2015-09-14T00:00:00+00:00</lastmod>
   </url>
   
   <url>
     <loc>http://m.l2d.xyz/p/2015/crypt-intro/</loc>
-    <lastmod>2015-09-11T22:09:23+08:00</lastmod>
+    <lastmod>2015-09-11T00:00:00+00:00</lastmod>
   </url>
   
   <url>
     <loc>http://m.l2d.xyz/p/2015/mobi-ids/</loc>
-    <lastmod>2015-09-09T22:37:26+08:00</lastmod>
+    <lastmod>2015-09-09T00:00:00+00:00</lastmod>
   </url>
   
   <url>
     <loc>http://m.l2d.xyz/p/2015/luhn-algo/</loc>
-    <lastmod>2015-09-07T21:21:13+08:00</lastmod>
+    <lastmod>2015-09-07T00:00:00+00:00</lastmod>
   </url>
   
   <url>
     <loc>http://m.l2d.xyz/p/2015/hugo-howto/</loc>
-    <lastmod>2015-09-03T16:20:44+08:00</lastmod>
+    <lastmod>2015-09-03T00:00:00+00:00</lastmod>
   </url>
   
   <url>
     <loc>http://m.l2d.xyz/tags/ad/</loc>
-    <lastmod>2015-09-09T22:37:26+08:00</lastmod>
+    <lastmod>2015-09-09T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>http://m.l2d.xyz/tags/algo/</loc>
-    <lastmod>2015-09-11T22:09:23+08:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>http://m.l2d.xyz/tags/aria2/</loc>
-    <lastmod>2016-01-09T21:13:50+08:00</lastmod>
+    <lastmod>2015-09-11T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>http://m.l2d.xyz/tags/c&#43;&#43;/</loc>
-    <lastmod>2015-09-16T22:38:05+08:00</lastmod>
+    <lastmod>2015-09-16T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -122,92 +121,104 @@
   </url>
   
   <url>
+    <loc>http://m.l2d.xyz/tags/digihome/</loc>
+    <lastmod>2016-01-09T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>http://m.l2d.xyz/categories/digihome/</loc>
-    <lastmod>2016-01-09T21:13:50+08:00</lastmod>
+    <lastmod>2015-11-22T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>http://m.l2d.xyz/tags/go/</loc>
-    <lastmod>2015-09-16T22:38:05+08:00</lastmod>
+    <lastmod>2015-09-16T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>http://m.l2d.xyz/tags/map/</loc>
-    <lastmod>2016-01-25T22:52:10+08:00</lastmod>
+    <lastmod>2016-01-25T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>http://m.l2d.xyz/tags/ml/</loc>
-    <lastmod>2016-03-28T22:08:01+08:00</lastmod>
+    <lastmod>2016-03-28T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>http://m.l2d.xyz/tags/mobi/</loc>
-    <lastmod>2015-09-09T22:37:26+08:00</lastmod>
+    <lastmod>2015-09-09T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>http://m.l2d.xyz/post/</loc>
-    <lastmod>2016-03-28T22:08:01+08:00</lastmod>
+    <lastmod>2018-05-05T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>http://m.l2d.xyz/tags/python/</loc>
-    <lastmod>2016-02-25T22:08:52+08:00</lastmod>
+    <lastmod>2016-02-25T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>http://m.l2d.xyz/tags/raspi/</loc>
-    <lastmod>2015-11-21T21:27:45+08:00</lastmod>
+    <lastmod>2015-11-21T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>http://m.l2d.xyz/categories/rd/</loc>
-    <lastmod>2016-03-28T22:08:01+08:00</lastmod>
+    <lastmod>2016-03-28T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>http://m.l2d.xyz/tags/sec/</loc>
-    <lastmod>2015-11-26T22:20:58+08:00</lastmod>
+    <lastmod>2015-11-26T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>http://m.l2d.xyz/tags/spark/</loc>
-    <lastmod>2015-09-14T22:30:36+08:00</lastmod>
+    <lastmod>2015-09-14T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>http://m.l2d.xyz/tags/</loc>
-    <lastmod>2015-09-09T22:37:26+08:00</lastmod>
+    <lastmod>2015-09-09T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>http://m.l2d.xyz/tags/vpn/</loc>
-    <lastmod>2015-11-05T22:59:57+08:00</lastmod>
+    <lastmod>2018-05-05T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://m.l2d.xyz/tags/vps/</loc>
+    <lastmod>2018-05-05T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>http://m.l2d.xyz/tags/yy/</loc>
-    <lastmod>2015-12-27T22:54:12+08:00</lastmod>
+    <lastmod>2015-12-27T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>http://m.l2d.xyz/</loc>
-    <lastmod>2018-05-01T00:00:00+00:00</lastmod>
+    <lastmod>2018-05-05T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   

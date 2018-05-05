@@ -14,7 +14,7 @@
 
 
 
-<meta property="og:updated_time" content="2016-03-28T22:08:01&#43;08:00"/>
+<meta property="og:updated_time" content="2016-03-28T00:00:00&#43;00:00"/>
 
 
 
@@ -67,7 +67,7 @@
 				<a href="/p/2016/auc-roc/" rel="bookmark">AUC 和 ROC</a>
 			</h3><div class="list__meta meta">
 <svg class="icon icon-time" width="16" height="14" viewBox="0 0 16 16"><path d="m8-.0000003c-4.4 0-8 3.6-8 8 0 4.4000003 3.6 8.0000003 8 8.0000003 4.4 0 8-3.6 8-8.0000003 0-4.4-3.6-8-8-8zm0 14.4000003c-3.52 0-6.4-2.88-6.4-6.4000003 0-3.52 2.88-6.4 6.4-6.4 3.52 0 6.4 2.88 6.4 6.4 0 3.5200003-2.88 6.4000003-6.4 6.4000003zm.4-10.4000003h-1.2v4.8l4.16 2.5600003.64-1.04-3.6-2.1600003z"/></svg>
-<time class="post__meta-date meta-date" datetime="2016-03-28T22:08:01">2016-03-28</time>
+<time class="post__meta-date meta-date" datetime="2016-03-28T00:00:00">2016-03-28</time>
 <span class="post__meta-categories meta-categories">
 	<svg class="icon icon-category" width="16" height="16" viewBox="0 0 16 16"><path d="m7 2l1 2h8v11h-16v-13z"/></svg>
 	<span class="meta-categories__list"><a class="meta-categories__link" href="/categories/rd" rel="category">rd</a></span>
@@ -91,7 +91,7 @@ $$ FPR = \frac{FP}{FP + TN}$$ $$ TPR = \frac{TP}{TP+FN} $$ 不妨来看图中的
 				<a href="/p/2016/python-data-mining/" rel="bookmark">Python 相关的数据挖掘利器</a>
 			</h3><div class="list__meta meta">
 <svg class="icon icon-time" width="16" height="14" viewBox="0 0 16 16"><path d="m8-.0000003c-4.4 0-8 3.6-8 8 0 4.4000003 3.6 8.0000003 8 8.0000003 4.4 0 8-3.6 8-8.0000003 0-4.4-3.6-8-8-8zm0 14.4000003c-3.52 0-6.4-2.88-6.4-6.4000003 0-3.52 2.88-6.4 6.4-6.4 3.52 0 6.4 2.88 6.4 6.4 0 3.5200003-2.88 6.4000003-6.4 6.4000003zm.4-10.4000003h-1.2v4.8l4.16 2.5600003.64-1.04-3.6-2.1600003z"/></svg>
-<time class="post__meta-date meta-date" datetime="2016-02-25T22:08:52">2016-02-25</time>
+<time class="post__meta-date meta-date" datetime="2016-02-25T00:00:00">2016-02-25</time>
 <span class="post__meta-categories meta-categories">
 	<svg class="icon icon-category" width="16" height="16" viewBox="0 0 16 16"><path d="m7 2l1 2h8v11h-16v-13z"/></svg>
 	<span class="meta-categories__list"><a class="meta-categories__link" href="/categories/rd" rel="category">rd</a></span>
@@ -108,6 +108,32 @@ NumPy, matplotlib, xgboost 和 scikt-learn 以前也接触过，了解一些。�
 		</div>
 		<div class="list__footer">
 			<a class="list__footer-readmore btn" href="/p/2016/python-data-mining/">Read more…</a>
+		</div>
+	</div>
+</article><article class="list__item post">
+	<div class="list__content clearfix">
+		<header class="list__header">
+			<h3 class="list__title post__title ">
+				<a href="/p/2015/win-spark-src-env/" rel="bookmark">Windows 下搭建 Spark 源代码阅读环境</a>
+			</h3><div class="list__meta meta">
+<svg class="icon icon-time" width="16" height="14" viewBox="0 0 16 16"><path d="m8-.0000003c-4.4 0-8 3.6-8 8 0 4.4000003 3.6 8.0000003 8 8.0000003 4.4 0 8-3.6 8-8.0000003 0-4.4-3.6-8-8-8zm0 14.4000003c-3.52 0-6.4-2.88-6.4-6.4000003 0-3.52 2.88-6.4 6.4-6.4 3.52 0 6.4 2.88 6.4 6.4 0 3.5200003-2.88 6.4000003-6.4 6.4000003zm.4-10.4000003h-1.2v4.8l4.16 2.5600003.64-1.04-3.6-2.1600003z"/></svg>
+<time class="post__meta-date meta-date" datetime="2015-09-14T00:00:00">2015-09-14</time>
+<span class="post__meta-categories meta-categories">
+	<svg class="icon icon-category" width="16" height="16" viewBox="0 0 16 16"><path d="m7 2l1 2h8v11h-16v-13z"/></svg>
+	<span class="meta-categories__list"><a class="meta-categories__link" href="/categories/rd" rel="category">rd</a></span>
+</span></div>
+		</header>
+		<div class="list__excerpt post__content">
+			用 Spark 做数据分析也有半年多了，觉得至少应该大致过一下源代码。在 Windows 下搭建环境还是有点不太方便的，把步骤记录一下。
+当然要用 Intellij IDEA (下文简称 Idea )，安装 Scala 插件。另外，也可以把 sbt 插件装上。
+首先下载 Spark 1.5.0 源代码。
+然后在 Idea 里， File -&gt; New -&gt; Project From Existing Source 选择 Spark 解压后的目录， Import project from external model -&gt; Maven，然后一路 Next，等待处理完毕。
+视网络情况而定，不太好的话可能需要半个小时。然后就可以编译 Spark 了：Build -&gt; Rebuild Project
+当然不一定成功，如果报的错误是 Error:(44, 66) not found: type SparkFlumeProtocol val 的话，做如下处理：
+View -&gt; Tool Window -&gt; Maven Projects 选择 Spark Project External Flume Sink， 右键 -&gt; Generate Sources and Update Folders  之后一般就能编译成功了，会有很多 Warning，都可以忽略。
+		</div>
+		<div class="list__footer">
+			<a class="list__footer-readmore btn" href="/p/2015/win-spark-src-env/">Read more…</a>
 		</div>
 	</div>
 </article>
@@ -131,24 +157,15 @@ NumPy, matplotlib, xgboost 和 scikt-learn 以前也接触过，了解一些。�
 	<h4 class="widget__title">Recent Posts</h4>
 	<div class="widget__content">
 		<ul class="widget__list">
+			<li class="widget__item"><a class="widget__link" href="/p/2018/vps-reco/">VPS 推荐</a></li>
 			<li class="widget__item"><a class="widget__link" href="/p/2016/auc-roc/">AUC 和 ROC</a></li>
 			<li class="widget__item"><a class="widget__link" href="/p/2016/python-data-mining/">Python 相关的数据挖掘利器</a></li>
 			<li class="widget__item"><a class="widget__link" href="/p/2016/china-map-shift/">中国的地图偏移问题</a></li>
 			<li class="widget__item"><a class="widget__link" href="/p/2016/aria2/">aria2</a></li>
-			<li class="widget__item"><a class="widget__link" href="/p/2015/entropy-delusion/">关于熵的一点胡思乱想</a></li>
 		</ul>
 	</div>
 </div>
 	
-<div class="widget-categories widget">
-	<h4 class="widget__title">Categories</h4>
-	<div class="widget__content">
-		<ul class="widget__list">
-			<li class="widget__item"><a class="widget__link" href="/categories/digihome">Digihome</a></li>
-			<li class="widget__item"><a class="widget__link" href="/categories/rd">Rd</a></li>
-		</ul>
-	</div>
-</div>
 	
 	
 <div class="widget-taglist widget">
@@ -156,8 +173,8 @@ NumPy, matplotlib, xgboost 和 scikt-learn 以前也接触过，了解一些。�
 	<div class="widget__content">
 		<a class="widget-taglist__link widget__link btn" href="/tags/ad" title="Ad">Ad</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/algo" title="Algo">Algo</a>
-		<a class="widget-taglist__link widget__link btn" href="/tags/aria2" title="Aria2">Aria2</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/c&#43;&#43;" title="C&#43;&#43;">C&#43;&#43;</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/digihome" title="Digihome">Digihome</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/go" title="Go">Go</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/map" title="Map">Map</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/ml" title="Ml">Ml</a>
@@ -167,6 +184,7 @@ NumPy, matplotlib, xgboost 和 scikt-learn 以前也接触过，了解一些。�
 		<a class="widget-taglist__link widget__link btn" href="/tags/sec" title="Sec">Sec</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/spark" title="Spark">Spark</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/vpn" title="Vpn">Vpn</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/vps" title="Vps">Vps</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/yy" title="Yy">Yy</a>
 	</div>
 </div>

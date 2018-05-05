@@ -6,15 +6,26 @@
     <description>Recent content in Vpn on 思考、记录</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Thu, 05 Nov 2015 22:59:57 +0800</lastBuildDate>
+    <lastBuildDate>Sat, 05 May 2018 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="http://m.l2d.xyz/tags/vpn/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
+      <title>VPS 推荐</title>
+      <link>http://m.l2d.xyz/p/2018/vps-reco/</link>
+      <pubDate>Sat, 05 May 2018 00:00:00 +0000</pubDate>
+      
+      <guid>http://m.l2d.xyz/p/2018/vps-reco/</guid>
+      <description>之前推荐过 DigitalOcean 的 VPS，后来其实又尝试过 Vultr 的，速度都很慢，Youtube 1080p 都看不了，虽然平时我也不怎么看，但就是很慢。
+最近偶然看到 搬瓦工 推出了 CN2 线路的 VPS，年付 $29.99。尝试了一下，可以直接安装 BBR 内核，速度的确快，Ping 值稳定在 170ms 左右，Youtube 4K 视频都没问题，网页也是秒开，真的是一下从绿皮火车升级成高铁了，太舒服了。
+然后，我就把 DigitalOcean、Vultr 都退掉了。</description>
+    </item>
+    
+    <item>
       <title>用 Netgear WNDR4300 打造翻墙路由器</title>
       <link>http://m.l2d.xyz/p/2015/netgear-wndr4300-openwrt-shadowsocks-chinadns/</link>
-      <pubDate>Thu, 05 Nov 2015 22:59:57 +0800</pubDate>
+      <pubDate>Thu, 05 Nov 2015 00:00:00 +0000</pubDate>
       
       <guid>http://m.l2d.xyz/p/2015/netgear-wndr4300-openwrt-shadowsocks-chinadns/</guid>
       <description>VPS 推荐: BandwagonHost
@@ -29,7 +40,7 @@ WNDR4300 自带的固件速度比较慢，至少从路由器的管理界面的�
     <item>
       <title>用 strongSwan 搭建 IPsec IKEv2 VPN</title>
       <link>http://m.l2d.xyz/p/2015/strongswan-ikev2-vpn/</link>
-      <pubDate>Mon, 28 Sep 2015 21:13:50 +0800</pubDate>
+      <pubDate>Mon, 28 Sep 2015 00:00:00 +0000</pubDate>
       
       <guid>http://m.l2d.xyz/p/2015/strongswan-ikev2-vpn/</guid>
       <description>VPS 推荐: BandwagonHost

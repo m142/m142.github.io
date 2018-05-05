@@ -6,27 +6,15 @@
     <description>Recent content in Digihome on 思考、记录</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Sat, 09 Jan 2016 21:13:50 +0800</lastBuildDate>
+    <lastBuildDate>Sun, 22 Nov 2015 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="http://m.l2d.xyz/categories/digihome/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
-      <title>aria2</title>
-      <link>http://m.l2d.xyz/p/2016/aria2/</link>
-      <pubDate>Sat, 09 Jan 2016 21:13:50 +0800</pubDate>
-      
-      <guid>http://m.l2d.xyz/p/2016/aria2/</guid>
-      <description>用树莓派做下载机，除了速度慢点，其它都挺不错的，功耗低，也稳定。 aria2 是一款非常优秀的小下载工具，支持 http/https, ftp, sftp, bt, metalink 等协议，除了命令行外，也有 web ui，是 Linux 系统上下载的不二选择。
-1. 编译安装 下载最新的版本 1.19.3 ，并解压，进入目录并执行以下命令编译安装。
-sudo apt-get install autoconf autopoint libtool ./configure make sudo checkinstall # uninstall: `sudo dpkg -r aria2`  2. 配置 aria2 的配置文件是 ~/.aria2/aria2.conf ，所有的配置项说明都可以在 这里 找到。我的配置如下所示。 其中，dir, rpc-listen-port, rpc-secret 等参数可以根据自己需要配置，各参数的含义见 文档 。
-log=/tmp/aria2c.log dir=~/download # http check-certificate=false http-accept-gzip=true user-agent=uTorrent/2210(25130) # rpc rpc-allow-origin-all=true rpc-listen-port=6800 rpc-secret=secretstring # download max-concurrent-downloads=5 continue=true max-connection-per-server=5 min-split-size=10M split=10 # bt bt-enable-lpd=true bt-max-open-files=256 bt-max-peers=64 bt-prioritize-piece=head=4M,tail=4M bt-tracker-connect-timeout=16 bt-tracker-timeout=16 peer-id-prefix=-UT2210- # advanced #daemon=true # use `aria2c -D` to start daemon disk-cache=32M file-allocation=falloc log-level=notice  配置文件中之所以没有将 daemon 配置成 true，主要是考虑到有时候需要用命令行下载，如果将 aria2 默认启动为 daemon 则不太方便。同时，如果需要启动为 daemon，则加上 -D 参数即可，非常方便。</description>
-    </item>
-    
-    <item>
       <title>路由器配置 DDNS</title>
       <link>http://m.l2d.xyz/p/2015/openwrt-ddns/</link>
-      <pubDate>Sun, 22 Nov 2015 22:34:39 +0800</pubDate>
+      <pubDate>Sun, 22 Nov 2015 00:00:00 +0000</pubDate>
       
       <guid>http://m.l2d.xyz/p/2015/openwrt-ddns/</guid>
       <description>路由器已经刷了 OpenWrt，接下来可能会用树莓派做一些事情，比如 NAS，还有很多没想好的。由于路由器每次启动拨号得到的 ip 地址不一样，运营商也可能会隔段时间给分配个新的 ip，所以需要配置 DDNS。
@@ -39,7 +27,7 @@ log=/tmp/aria2c.log dir=~/download # http check-certificate=false http-accept-gz
     <item>
       <title>用 Netgear WNDR4300 打造翻墙路由器</title>
       <link>http://m.l2d.xyz/p/2015/netgear-wndr4300-openwrt-shadowsocks-chinadns/</link>
-      <pubDate>Thu, 05 Nov 2015 22:59:57 +0800</pubDate>
+      <pubDate>Thu, 05 Nov 2015 00:00:00 +0000</pubDate>
       
       <guid>http://m.l2d.xyz/p/2015/netgear-wndr4300-openwrt-shadowsocks-chinadns/</guid>
       <description>VPS 推荐: BandwagonHost
@@ -54,7 +42,7 @@ WNDR4300 自带的固件速度比较慢，至少从路由器的管理界面的�
     <item>
       <title>用 strongSwan 搭建 IPsec IKEv2 VPN</title>
       <link>http://m.l2d.xyz/p/2015/strongswan-ikev2-vpn/</link>
-      <pubDate>Mon, 28 Sep 2015 21:13:50 +0800</pubDate>
+      <pubDate>Mon, 28 Sep 2015 00:00:00 +0000</pubDate>
       
       <guid>http://m.l2d.xyz/p/2015/strongswan-ikev2-vpn/</guid>
       <description>VPS 推荐: BandwagonHost
