@@ -12,7 +12,7 @@
     
     
     <item>
-      <title>Bash Cmp Pitfall</title>
+      <title>Bash 中 [ 和 [[ 整数比较的坑</title>
       <link>http://m.l2d.xyz/p/2018/bash-cmp-pitfall/</link>
       <pubDate>Sun, 06 May 2018 00:00:00 +0000</pubDate>
       
