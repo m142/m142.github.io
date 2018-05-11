@@ -19,7 +19,9 @@
       <guid>http://m.l2d.xyz/p/2018/vps-reco/</guid>
       <description>之前推荐过 DigitalOcean 的 VPS，后来其实又尝试过 Vultr 的，速度都很慢，Youtube 1080p 都看不了，虽然平时我也不怎么看，但就是很慢。
 最近偶然看到 搬瓦工 推出了 CN2 线路的 VPS，年付 $29.99。尝试了一下，可以直接安装 BBR 内核，速度的确快，Ping 值稳定在 170ms 左右，Youtube 4K 视频都没问题，网页也是秒开，真的是一下从绿皮火车升级成高铁了，太舒服了。
-然后，我就把 DigitalOcean、Vultr 都退掉了。</description>
+然后，我就把 DigitalOcean、Vultr 都退掉了。
+最后附上搬瓦工优惠码：
+ BWH1ZBPVK (6.00%) IAMSMART5YA8FO (3.91%) IAMSMART5TDT48 (3.82%)  </description>
     </item>
     
     <item>
