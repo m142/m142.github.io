@@ -42,7 +42,7 @@ $ [[ &amp;quot;0418&amp;quot; -gt &amp;quot;0417&amp;quot; ]] &amp;amp;&amp;amp;
       <guid>http://m.l2d.xyz/about/</guid>
       <description>关于未来，有什么想说的吗？
 VPS 推荐: 搬瓦工 BandwagonHost
-搬瓦工已推出 CN2 线路的VPS，年付 $29.99，速度特别快，特别推荐。
+搬瓦工已推出 CN2 线路的 VPS，年付 $29.99，速度快，特别推荐，点此购买
 Email: m###l2d.xyz
  var o=document.getElementById(&#34;mea&#34;); var s=o.text.replace(&#39;###&#39;,&#39;@&#39;); o.text=s;o.href=&#39;mailto:&#39;+s;     (adsbygoogle = window.adsbygoogle || []).push({});  -- </description>
     </item>
