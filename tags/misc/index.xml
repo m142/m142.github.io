@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Misc on 思考、记录</title>
+    <link>http://m.l2d.xyz/tags/misc/</link>
+    <description>Recent content in Misc on 思考、记录</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Mon, 14 May 2018 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="http://m.l2d.xyz/tags/misc/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>去香港打13价肺炎疫苗</title>
+      <link>http://m.l2d.xyz/p/2018/hongkong-pcv13/</link>
+      <pubDate>Mon, 14 May 2018 00:00:00 +0000</pubDate>
+      
+      <guid>http://m.l2d.xyz/p/2018/hongkong-pcv13/</guid>
+      <description>其实在 2016 年底，药监局批准了 13 价肺炎疫苗（PCV13）上市，但针对的是 2 岁以内的幼儿，需要打 4 针，分别是 2、4、6、12~15 月龄的时候，费用不菲，并且如果错过第一针的时间（超过6个月），那么就不能再打了。
+由于前几年国内的自费疫苗出过一次事情，当时就没有打这个疫苗，现在孩子超过2岁了，也不能在内地打。 前段时间刚好去香港办点事，想着就顺便带小孩去打了这个疫苗。由于去香港打疫苗的人特别多，所以国内是有不少中介的，可以帮忙预约。但是当时我们通过中介预约的时候发现都约满了，可想而知有多火爆了…… 后来辗转得知一个网站 https://www.edr.hk/，上面有香港所有注册医生的资料，如果是打疫苗的话，随便一个普通科医生就好。搜索酒店附近的诊所，直接打电话预约就好了，一般都是能约上的。
+对了，PCV13 的收费都是标准的，1100 的疫苗费用加上 350 的出诊费一共 1450 港币，挺实惠的。</description>
+    </item>
+    
+  </channel>
+</rss>
