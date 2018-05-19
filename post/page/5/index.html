@@ -4,17 +4,17 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>404 Page not found</title>
+	<title>Posts</title>
 	<meta name="description" content="">
 	<meta name="generator" content="Hugo 0.40.2" />
-	<meta property="og:title" content="404 Page not found" />
+	<meta property="og:title" content="Posts" />
 <meta property="og:description" content="思考、记录" />
 <meta property="og:type" content="website" />
-<meta property="og:url" content="" />
+<meta property="og:url" content="http://m.l2d.xyz/post/" />
 
 
 
-
+<meta property="og:updated_time" content="2015-09-03T00:00:00&#43;00:00"/>
 
 
 
@@ -28,7 +28,7 @@
 	
 	<link rel="dns-prefetch" href="//fonts.googleapis.com">
 	<link rel="dns-prefetch" href="//fonts.gstatic.com">
-	<link rel="canonical" type="text/html" href="/">
+	<link rel="alternate" type="application/rss" href="/post/index.xml">
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700">
 	<link rel="stylesheet" href="/css/style.css">
 	<script type="text/javascript" src="/js/scripts.js"></script>
@@ -50,19 +50,50 @@
 <nav class="menu">
 	<ul class="menu__list">
 		<li class="menu__item"><a class="menu__link" href="/about/">ABOUT</a></li>
-		<li class="menu__item"><a class="menu__link" href="/post/">POSTS</a></li>
+		<li class="menu__item menu__item--active"><a class="menu__link" href="/post/">POSTS</a></li>
 	</ul>
 </nav>
 
 		</header>
 		<div class="wrapper clearfix">
 
-<main class="main content" role="main">
-	<div class="warning">
-		<h1 class="warning__headline">404. Page not found</h1>
-		<p class="warning__text">The page you were looking for appears to have been moved, deleted or does not exist. Please, use search or go to <a href="/">main page</a>.</p>
+	<main class="main list content" role="main">
+		<header class="page-header">
+			<h1 class="page-header__title">Posts</h1>
+		</header><article class="list__item post">
+	<div class="list__content clearfix">
+		<header class="list__header">
+			<h3 class="list__title post__title ">
+				<a href="/p/2015/hugo-howto/" rel="bookmark">使用 Hugo 搭建静态网站</a>
+			</h3><div class="list__meta meta">
+<svg class="icon icon-time" width="16" height="14" viewBox="0 0 16 16"><path d="m8-.0000003c-4.4 0-8 3.6-8 8 0 4.4000003 3.6 8.0000003 8 8.0000003 4.4 0 8-3.6 8-8.0000003 0-4.4-3.6-8-8-8zm0 14.4000003c-3.52 0-6.4-2.88-6.4-6.4000003 0-3.52 2.88-6.4 6.4-6.4 3.52 0 6.4 2.88 6.4 6.4 0 3.5200003-2.88 6.4000003-6.4 6.4000003zm.4-10.4000003h-1.2v4.8l4.16 2.5600003.64-1.04-3.6-2.1600003z"/></svg>
+<time class="post__meta-date meta-date" datetime="2015-09-03T00:00:00">2015-09-03</time></div>
+		</header>
+		<div class="list__excerpt post__content">
+			静态网站生成一般 Jekll 和 Octopress 用的比较多，但是安装部署起来很麻烦。Hugo 是用 Go 语言实现的，安装部署非常简单，一个二进制文件就能用来调试和生成网站。
+安装 Hugo 安装 Hugo 可以参考官方文档，主要有以下两种方式：
+1. 编译安装 下载安装 Go，Mercurial 和 Git
+下载 Hugo 源码并编译
+go get -u -v github.com/spf13/hugo  依赖的包都会下载到 $GOPATH/src 下，Hugo 的可执行文件在 $GOPATH/bin 下。
+2. 下载二进制可执行文件 从这里直接下载 Hugo 可执行文件
+创建网站 参考官方文档 quickstart
+如果要在 /path/to 下创建一个叫 site 的网站，需要执行的命令如下：
+hugo new site /path/to/site cd /path/to/site hugo new post/hello.md git clone --recursive https://github.com/spf13/hugoThemes themes  其中，git clone 这一步耗时很长，网络状况一般的话可能需要一个多小时…… 其实也没有必要把所有的模板都下载下来，只下载感兴趣的模板就行了。比如 hyde
+启动服务器 hugo server -t hyde -w  然后可以在浏览器里查看，比如 http://127.
+		</div>
+		<div class="list__footer">
+			<a class="list__footer-readmore btn" href="/p/2015/hugo-howto/">Read more…</a>
+		</div>
 	</div>
-</main>
+</article>
+
+		
+<div class="pagination">
+	<a class="pagination__item pagination__item--prev btn" href="/post/page/4/">«</a>
+	<span class="pagination__item pagination__item--current">5/5</span>
+</div>
+
+	</main>
 
 <aside class="sidebar">
 	
