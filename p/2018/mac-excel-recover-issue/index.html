@@ -4,23 +4,23 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>Luhn algorithm</title>
+	<title>Mac 上 Excel 的一个恼人问题</title>
 	<meta name="description" content="">
 	<meta name="generator" content="Hugo 0.40.2" />
-	<meta property="og:title" content="Luhn algorithm" />
-<meta property="og:description" content="身份证号大家都很熟悉，最后的校验位可能取值是 0-9 和 X，其中的 X 一直被大家吐槽的比较多。根据维基百科上的描述，最后的校验位采用的是 ISO 7064:1983,MOD 11-2 算法，由于是模 11，所以有 10 个可能的取值，以 X 代替校验码 10。这其实给身份证号的数据库设计之类的带来挺多麻烦的，明明用数字就能解决的，非得还要加上字母 X。
-当年为什么采用 MOD 11-2 算法我们不得而知。但不妨来看相关历史，身份证是 1984 年之后才出现的，也就是说，这个算法是在 1984 年之后才选择的，那个年代有没有出现更合适的算法呢？
-今天研究手机的 IMEI 号，发现了 Luhn 算法。这是一个模 10 的算法，所有位数都是数字，被广泛用在信用卡，手机 IMEI 号等的校验位上。这个算法是 IBM 的科学家 Hans Peter Luhn 在 1954 年发明的，1960 年被授予专利。专利过期后该算法被广泛采用，并由 ISO/IEC 7812-1 所描述。
-Luhn 算法对校验位的计算过程是这样的：
- 将 0 添加到待校验的数最后（将校验位设为 0 ）。从最后一位（校验位）向左，将 2, 4, 6 等偶数位的数字乘 2，如果结果大于9，那么将它的两个数字相加（例如，原始数字是 8，乘 2 后是 16，需要改写成 7） 对所有数字求和 将上一步计算的和模 10，假设结果是 x，如果 x 等于 0，则校验位是 0；否则，校验位是 10-x  Python 代码如下所示，来自这里。" />
+	<meta property="og:title" content="Mac 上 Excel 的一个恼人问题" />
+<meta property="og:description" content="就不提 Mac 上的 MS Office 有多难用了，而且时不时崩溃，体验和在 Windows 下完全没法比。 某一次 Excel 崩溃后，每次打开 Excel 文件，窗口都会暂时被锁定，并且弹出对话框： 在应用程序意外退出之前，Excel已保存了对文件的更改。 是否要打开此文件上次保存的版本？
+如下图所示。这个时候真的是想砸了电脑 🔨
+试了各种方法：打开上次的文件并另存为；删掉上次的那些文件；清除 Excel 的Cache …… 都不能解决问题。 并且，MS 官网上的解答也完全没用，根本就不能解决问题。为此实在是困扰很久很久。
+今天偶然找到了 StackExchange 上的一个回答，终于彻底解决了这个问题。 其实就一行命令的事情：
+rm &quot;/Users/didi/Library/Group Containers/UBF8T346G9.Office/MicrosoftRegistrationDB.reg&quot;  " />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="http://m.l2d.xyz/p/2015/luhn-algo/" />
+<meta property="og:url" content="http://m.l2d.xyz/p/2018/mac-excel-recover-issue/" />
 
 
 
-<meta property="article:published_time" content="2015-09-07T00:00:00&#43;00:00"/>
+<meta property="article:published_time" content="2018-05-23T00:00:00&#43;00:00"/>
 
-<meta property="article:modified_time" content="2015-09-07T00:00:00&#43;00:00"/>
+<meta property="article:modified_time" content="2018-05-23T00:00:00&#43;00:00"/>
 
 
 
@@ -73,62 +73,34 @@ ga('send', 'pageview');
 <main class="main content">
 	<article class="post">
 		<header class="post__header">
-			<h1 class="post__title">Luhn algorithm</h1><div class="post__meta meta">
+			<h1 class="post__title">Mac 上 Excel 的一个恼人问题</h1><div class="post__meta meta">
 <svg class="icon icon-time" width="16" height="14" viewBox="0 0 16 16"><path d="m8-.0000003c-4.4 0-8 3.6-8 8 0 4.4000003 3.6 8.0000003 8 8.0000003 4.4 0 8-3.6 8-8.0000003 0-4.4-3.6-8-8-8zm0 14.4000003c-3.52 0-6.4-2.88-6.4-6.4000003 0-3.52 2.88-6.4 6.4-6.4 3.52 0 6.4 2.88 6.4 6.4 0 3.5200003-2.88 6.4000003-6.4 6.4000003zm.4-10.4000003h-1.2v4.8l4.16 2.5600003.64-1.04-3.6-2.1600003z"/></svg>
-<time class="post__meta-date meta-date" datetime="2015-09-07T00:00:00">2015-09-07</time>
-<span class="post__meta-categories meta-categories">
-	<svg class="icon icon-category" width="16" height="16" viewBox="0 0 16 16"><path d="m7 2l1 2h8v11h-16v-13z"/></svg>
-	<span class="meta-categories__list"><a class="meta-categories__link" href="/categories/rd" rel="category">rd</a></span>
-</span></div>
+<time class="post__meta-date meta-date" datetime="2018-05-23T00:00:00">2018-05-23</time></div>
 		</header>
 		<div class="post__content clearfix">
-			<p>身份证号大家都很熟悉，最后的校验位可能取值是 0-9 和 X，其中的 X 一直被大家吐槽的比较多。根据维基百科上的<a href="https://zh.wikipedia.org/wiki/%E4%B8%AD%E5%8D%8E%E4%BA%BA%E6%B0%91%E5%85%B1%E5%92%8C%E5%9B%BD%E5%85%AC%E6%B0%91%E8%BA%AB%E4%BB%BD%E5%8F%B7%E7%A0%81">描述</a>，最后的校验位采用的是 <a href="http://www.iso.org/iso/iso_catalogue/catalogue_tc/catalogue_detail.htm?csnumber=31531">ISO 7064:1983,MOD 11-2</a> 算法，由于是模 11，所以有 10 个可能的取值，以 X 代替校验码 10。这其实给身份证号的数据库设计之类的带来挺多麻烦的，明明用数字就能解决的，非得还要加上字母 X。</p>
+			<p>就不提 Mac 上的 MS Office 有多难用了，而且时不时崩溃，体验和在 Windows 下完全没法比。
+某一次 Excel 崩溃后，每次打开 Excel 文件，窗口都会暂时被锁定，并且弹出对话框：
+在应用程序意外退出之前，Excel已保存了对文件的更改。 是否要打开此文件上次保存的版本？</p>
 
-<p>当年为什么采用 <code>MOD 11-2</code> 算法我们不得而知。但不妨来看<a href="https://zh.wikipedia.org/wiki/%E4%B8%AD%E5%8D%8E%E4%BA%BA%E6%B0%91%E5%85%B1%E5%92%8C%E5%9B%BD%E5%B1%85%E6%B0%91%E8%BA%AB%E4%BB%BD%E8%AF%81">相关历史</a>，身份证是 1984 年之后才出现的，也就是说，这个算法是在 1984 年之后才选择的，那个年代有没有出现更合适的算法呢？</p>
+<p>如下图所示。这个时候真的是想砸了电脑 🔨</p>
 
-<p>今天研究手机的 <a href="https://en.wikipedia.org/wiki/International_Mobile_Station_Equipment_Identity">IMEI</a> 号，发现了 <a href="https://en.wikipedia.org/wiki/Luhn_algorithm">Luhn 算法</a>。这是一个模 10 的算法，所有位数都是数字，被广泛用在信用卡，手机 IMEI 号等的校验位上。这个算法是 IBM 的科学家 Hans Peter Luhn 在 1954 年发明的，1960 年被授予专利。专利过期后该算法被广泛采用，并由 <a href="http://www.iso.org/iso/iso_catalogue/catalogue_tc/catalogue_detail.htm?csnumber=39698"> ISO/IEC 7812-1</a> 所描述。</p>
+<p><img src="/img/mac-excel-recover.png"/></p>
 
-<p>Luhn 算法对校验位的计算过程是这样的：</p>
+<p>试了各种方法：打开上次的文件并另存为；删掉上次的那些文件；清除 Excel 的Cache …… 都不能解决问题。
+并且，MS 官网上的<a href="https://answers.microsoft.com/zh-hans/msoffice/forum/msoffice_excel-mso_mac-mso_mac2016/office-for-mac-2016-excel/a7229f38-d361-44ff-b8d5-e9068ebf2492">解答</a>也完全没用，根本就不能解决问题。为此实在是困扰很久很久。</p>
 
-<ol>
-<li>将 0 添加到待校验的数最后（将校验位设为 0 ）。从最后一位（校验位）向左，将 2, 4, 6 等偶数位的数字乘 2，如果结果大于9，那么将它的两个数字相加（例如，原始数字是 8，乘 2 后是 16，需要改写成 7）</li>
-<li>对所有数字求和</li>
-<li>将上一步计算的和模 10，假设结果是 x，如果 x 等于 0，则校验位是 0；否则，校验位是 10-x</li>
-</ol>
+<p>今天偶然找到了 StackExchange 上的一个<a href="https://superuser.com/questions/1281860/excel-for-mac-keeps-trying-to-recover-autosaved-files">回答</a>，终于彻底解决了这个问题。
+其实就一行命令的事情：</p>
 
-<p>Python 代码如下所示，来自<a href="https://en.wikipedia.org/wiki/Luhn_algorithm">这里</a>。</p>
-
-<pre><code>def luhn_checksum(card_number):
-    def digits_of(n):
-        return [int(d) for d in str(n)]
-    digits = digits_of(card_number)
-    odd_digits = digits[-1::-2]
-    even_digits = digits[-2::-2]
-
-    checksum = sum(odd_digits)
-    for d in even_digits:
-        checksum += sum(digits_of(d*2))
-    return checksum % 10
-
-def is_luhn_valid(card_number):
-    return luhn_checksum(card_number) == 0
-
-def calculate_luhn(partial_card_number):
-    check_digit = luhn_checksum(int(partial_card_number) * 10)
-    return check_digit if check_digit == 0 else 10 - check_digit
+<pre><code>rm &quot;/Users/didi/Library/Group Containers/UBF8T346G9.Office/MicrosoftRegistrationDB.reg&quot;
 </code></pre>
-
-<p>如果今天来设计一个全数字的身份证号系统，校验位的算法应该会选 Luhn 吧。</p>
-
-<p>另外，大家可以验证一下自己的银行卡的最后一位是不是满足 Luhn 算法。我验证了 3 张卡，有借记卡有信用卡，都是满足的。</p>
 
 		</div>
 		
 <div class="post__tags tags clearfix">
 	<svg class="icon icon-tag" width="16" height="16" viewBox="0 0 16 16"><path d="M16 9.5c0 .373-.24.74-.5 1l-5 5c-.275.26-.634.5-1 .5-.373 0-.74-.24-1-.5L1 8a2.853 2.853 0 0 1-.7-1C.113 6.55 0 5.973 0 5.6V1.4C0 1.034.134.669.401.401.67.134 1.034 0 1.4 0h4.2c.373 0 .95.113 1.4.3.45.187.732.432 1 .7l7.5 7.502c.26.274.5.632.5.998zM3.5 5a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3z"/></svg>
 	<ul class="tags__list">
-		<li class="tags__item"><a class="tags__link btn" href="/tags/algo/" rel="tag">algo</a></li>
-		<li class="tags__item"><a class="tags__link btn" href="/tags/sec/" rel="tag">sec</a></li>
+		<li class="tags__item"><a class="tags__link btn" href="/tags/mac/" rel="tag">mac</a></li>
 	</ul>
 </div>
 	</article>
@@ -136,10 +108,7 @@ def calculate_luhn(partial_card_number):
 	
 <nav class="post-nav row clearfix">
 	<div class="post-nav__item post-nav__item--prev col-1-2">
-		<a class="post-nav__link" href="/p/2015/hugo-howto/" rel="prev"><span class="post-nav__caption">«&thinsp;Previous</span><p class="post-nav__post-title">使用 Hugo 搭建静态网站</p></a>
-	</div>
-	<div class="post-nav__item post-nav__item--next col-1-2">
-		<a class="post-nav__link" href="/p/2015/mobi-ids/" rel="next"><span class="post-nav__caption">Next&thinsp;»</span><p class="post-nav__post-title">移动平台的用户标识</p></a>
+		<a class="post-nav__link" href="/p/2018/principles/" rel="prev"><span class="post-nav__caption">«&thinsp;Previous</span><p class="post-nav__post-title">《原则》初读简记</p></a>
 	</div>
 </nav>
 	

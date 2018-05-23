@@ -14,7 +14,7 @@
 
 
 
-<meta property="og:updated_time" content="2018-05-21T00:00:00&#43;00:00"/>
+<meta property="og:updated_time" content="2018-05-23T00:00:00&#43;00:00"/>
 
 
 
@@ -68,6 +68,23 @@ ga('send', 'pageview');
 		<header class="page-header">
 			<h1 class="page-header__title">Posts</h1>
 		</header><article class="list__item post">
+	<div class="list__content clearfix">
+		<header class="list__header">
+			<h3 class="list__title post__title ">
+				<a href="/p/2018/mac-excel-recover-issue/" rel="bookmark">Mac 上 Excel 的一个恼人问题</a>
+			</h3><div class="list__meta meta">
+<svg class="icon icon-time" width="16" height="14" viewBox="0 0 16 16"><path d="m8-.0000003c-4.4 0-8 3.6-8 8 0 4.4000003 3.6 8.0000003 8 8.0000003 4.4 0 8-3.6 8-8.0000003 0-4.4-3.6-8-8-8zm0 14.4000003c-3.52 0-6.4-2.88-6.4-6.4000003 0-3.52 2.88-6.4 6.4-6.4 3.52 0 6.4 2.88 6.4 6.4 0 3.5200003-2.88 6.4000003-6.4 6.4000003zm.4-10.4000003h-1.2v4.8l4.16 2.5600003.64-1.04-3.6-2.1600003z"/></svg>
+<time class="post__meta-date meta-date" datetime="2018-05-23T00:00:00">2018-05-23</time></div>
+		</header>
+		<div class="list__excerpt post__content">
+			就不提 Mac 上的 MS Office 有多难用了，而且时不时崩溃，体验和在 Windows 下完全没法比。 某一次 Excel 崩溃后，每次打开 Excel 文件，窗口都会暂时被锁定，并且弹出对话框： 在应用程序意外退出之前，Excel已保存了对文件的更改。 是否要打开此文件上次保存的版本？
+如下图所示。这个时候真的是想砸了电脑 🔨
+试了各种方法：打开上次的文件并另存为；删掉上次的那些文件；清除 Excel 的Cache …… 都不能解决问题。 并且，MS 官网上的解答也完全没用，根本就不能解决问题。为此实在是困扰很久很久。
+今天偶然找到了 StackExchange 上的一个回答，终于彻底解决了这个问题。 其实就一行命令的事情：
+rm &quot;/Users/didi/Library/Group Containers/UBF8T346G9.Office/MicrosoftRegistrationDB.reg&quot;  
+		</div>
+	</div>
+</article><article class="list__item post">
 	<div class="list__content clearfix">
 		<header class="list__header">
 			<h3 class="list__title post__title ">
@@ -134,23 +151,6 @@ $ [[ &quot;0418&quot; -gt &quot;0417&quot; ]] &amp;&amp; echo &quot;yes&quot; -b
 			<a class="list__footer-readmore btn" href="/p/2018/bash-cmp-pitfall/">Read more…</a>
 		</div>
 	</div>
-</article><article class="list__item post">
-	<div class="list__content clearfix">
-		<header class="list__header">
-			<h3 class="list__title post__title ">
-				<a href="/p/2018/vps-reco/" rel="bookmark">VPS 推荐</a>
-			</h3><div class="list__meta meta">
-<svg class="icon icon-time" width="16" height="14" viewBox="0 0 16 16"><path d="m8-.0000003c-4.4 0-8 3.6-8 8 0 4.4000003 3.6 8.0000003 8 8.0000003 4.4 0 8-3.6 8-8.0000003 0-4.4-3.6-8-8-8zm0 14.4000003c-3.52 0-6.4-2.88-6.4-6.4000003 0-3.52 2.88-6.4 6.4-6.4 3.52 0 6.4 2.88 6.4 6.4 0 3.5200003-2.88 6.4000003-6.4 6.4000003zm.4-10.4000003h-1.2v4.8l4.16 2.5600003.64-1.04-3.6-2.1600003z"/></svg>
-<time class="post__meta-date meta-date" datetime="2018-05-05T00:00:00">2018-05-05</time></div>
-		</header>
-		<div class="list__excerpt post__content">
-			之前推荐过 DigitalOcean 的 VPS，后来其实又尝试过 Vultr 的，速度都很慢，Youtube 1080p 都看不了，虽然平时我也不怎么看，但就是很慢。
-最近偶然看到 搬瓦工 推出了 CN2 线路的 VPS，年付 $29.99。尝试了一下，可以直接安装 BBR 内核，速度的确快，Ping 值稳定在 170ms 左右，Youtube 4K 视频都没问题，网页也是秒开，真的是一下从绿皮火车升级成高铁了，太舒服了。
-然后，我就把 DigitalOcean、Vultr 都退掉了。
-最后附上搬瓦工优惠码：
- BWH1ZBPVK (6.00%) IAMSMART5YA8FO (3.91%) IAMSMART5TDT48 (3.82%)  
-		</div>
-	</div>
 </article>
 
 		
@@ -177,11 +177,11 @@ $ [[ &quot;0418&quot; -gt &quot;0417&quot; ]] &amp;&amp; echo &quot;yes&quot; -b
 	<h4 class="widget__title">Recent Posts</h4>
 	<div class="widget__content">
 		<ul class="widget__list">
+			<li class="widget__item"><a class="widget__link" href="/p/2018/mac-excel-recover-issue/">Mac 上 Excel 的一个恼人问题</a></li>
 			<li class="widget__item"><a class="widget__link" href="/p/2018/principles/">《原则》初读简记</a></li>
 			<li class="widget__item"><a class="widget__link" href="/p/2018/keyboard-man/">不要与喷子一般见识</a></li>
 			<li class="widget__item"><a class="widget__link" href="/p/2018/hongkong-pcv13/">去香港打13价肺炎疫苗</a></li>
 			<li class="widget__item"><a class="widget__link" href="/p/2018/bash-cmp-pitfall/">Bash 中 [ 和 [[ 整数比较的坑</a></li>
-			<li class="widget__item"><a class="widget__link" href="/p/2018/vps-reco/">VPS 推荐</a></li>
 		</ul>
 	</div>
 </div>
@@ -197,6 +197,7 @@ $ [[ &quot;0418&quot; -gt &quot;0417&quot; ]] &amp;&amp; echo &quot;yes&quot; -b
 		<a class="widget-taglist__link widget__link btn" href="/tags/c&#43;&#43;" title="C&#43;&#43;">C&#43;&#43;</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/digihome" title="Digihome">Digihome</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/go" title="Go">Go</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/mac" title="Mac">Mac</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/map" title="Map">Map</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/misc" title="Misc">Misc</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/ml" title="Ml">Ml</a>

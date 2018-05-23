@@ -3,6 +3,11 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>http://m.l2d.xyz/p/2018/mac-excel-recover-issue/</loc>
+    <lastmod>2018-05-23T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>http://m.l2d.xyz/p/2018/principles/</loc>
     <lastmod>2018-05-21T00:00:00+00:00</lastmod>
   </url>
@@ -147,20 +152,26 @@
   </url>
   
   <url>
-    <loc>http://m.l2d.xyz/categories/digihome/</loc>
-    <lastmod>2015-11-22T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
     <loc>http://m.l2d.xyz/tags/digihome/</loc>
     <lastmod>2016-01-09T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
+    <loc>http://m.l2d.xyz/categories/digihome/</loc>
+    <lastmod>2015-11-22T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>http://m.l2d.xyz/tags/go/</loc>
     <lastmod>2015-09-16T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://m.l2d.xyz/tags/mac/</loc>
+    <lastmod>2018-05-23T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -190,7 +201,7 @@
   
   <url>
     <loc>http://m.l2d.xyz/post/</loc>
-    <lastmod>2018-05-21T00:00:00+00:00</lastmod>
+    <lastmod>2018-05-23T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -256,7 +267,7 @@
   
   <url>
     <loc>http://m.l2d.xyz/</loc>
-    <lastmod>2018-05-21T00:00:00+00:00</lastmod>
+    <lastmod>2018-05-23T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
