@@ -14,7 +14,7 @@
 
 
 
-<meta property="og:updated_time" content="2015-09-28T00:00:00&#43;00:00"/>
+<meta property="og:updated_time" content="2015-11-05T00:00:00&#43;00:00"/>
 
 
 
@@ -68,6 +68,32 @@ ga('send', 'pageview');
 		<header class="page-header">
 			<h1 class="page-header__title">Posts</h1>
 		</header><article class="list__item post">
+	<div class="list__content clearfix">
+		<header class="list__header">
+			<h3 class="list__title post__title ">
+				<a href="/p/2015/netgear-wndr4300-openwrt-shadowsocks-chinadns/" rel="bookmark">用 Netgear WNDR4300 打造翻墙路由器</a>
+			</h3><div class="list__meta meta">
+<svg class="icon icon-time" width="16" height="14" viewBox="0 0 16 16"><path d="m8-.0000003c-4.4 0-8 3.6-8 8 0 4.4000003 3.6 8.0000003 8 8.0000003 4.4 0 8-3.6 8-8.0000003 0-4.4-3.6-8-8-8zm0 14.4000003c-3.52 0-6.4-2.88-6.4-6.4000003 0-3.52 2.88-6.4 6.4-6.4 3.52 0 6.4 2.88 6.4 6.4 0 3.5200003-2.88 6.4000003-6.4 6.4000003zm.4-10.4000003h-1.2v4.8l4.16 2.5600003.64-1.04-3.6-2.1600003z"/></svg>
+<time class="post__meta-date meta-date" datetime="2015-11-05T00:00:00">2015-11-05</time>
+<span class="post__meta-categories meta-categories">
+	<svg class="icon icon-category" width="16" height="16" viewBox="0 0 16 16"><path d="m7 2l1 2h8v11h-16v-13z"/></svg>
+	<span class="meta-categories__list"><a class="meta-categories__link" href="/categories/digihome" rel="category">digihome</a></span>
+</span></div>
+		</header>
+		<div class="list__excerpt post__content">
+			VPS 推荐: BandwagonHost
+前提：1. 有一台境外的 VPS 服务器，并且安装了 ShadowSocks 服务且能正常使用，如无特别说明，下文中将以 x.x.x.x 代表 VPS 的 ip ； 2. 熟悉路由器网络的基本配置。
+家里联网设备逐渐多了起来，最近又添加了两台电视，有必要实现路由器端自动翻墙，提供自由的网络。经过一番调研，决定入手 Netgear WNDR4300 并刷 OpenWrt ，再装 ChinaDNS 和 ShadowSocks 。
+这里 罗列了可以刷 OpenWrt 的设备，听说 Netgear 比较稳定，加上宽带现在是 100M，以后可能还会再升，还需要 2.4G 和 5G 双频支持，综合考虑，选定了 WNDR4300。
+WNDR4300 自带的固件速度比较慢，至少从路由器的管理界面的反应速度来看是这样的，点个链接都要等老半天，完全不适合现代生活的快节奏。因此第一件事就是刷 OpenWrt 。
+初看 这个页面，以为只能刷 Barrier Breaker 14.07 版本，结果 ShadowSocks 安装报错，查了下说是 OpenWrt 版本太低，于是升级到了 Chaos Calmer 15.05 版本。后来者就没必要走着弯路了，直接下载 15.05 官方固件，通过网页管理界面直接刷入，等几分钟路由器自动重启即可成功，一般不会出问题。
+刷了 OpenWrt 后，就可以 telnet 登录路由器了，ip 是 192.168.1.1，用户名是 root，密码为空，然后执行 passwd 修改密码。成功后 telnet 功能即被禁用，需要 ssh 登录。也可以打开浏览器，访问 http://192.
+		</div>
+		<div class="list__footer">
+			<a class="list__footer-readmore btn" href="/p/2015/netgear-wndr4300-openwrt-shadowsocks-chinadns/">Read more…</a>
+		</div>
+	</div>
+</article><article class="list__item post">
 	<div class="list__content clearfix">
 		<header class="list__header">
 			<h3 class="list__title post__title ">
@@ -170,33 +196,6 @@ View -&gt; Tool Window -&gt; Maven Projects 选择 Spark Project External Flume 
 			<a class="list__footer-readmore btn" href="/p/2015/win-spark-src-env/">Read more…</a>
 		</div>
 	</div>
-</article><article class="list__item post">
-	<div class="list__content clearfix">
-		<header class="list__header">
-			<h3 class="list__title post__title ">
-				<a href="/p/2015/crypt-intro/" rel="bookmark">密码学基础简介</a>
-			</h3><div class="list__meta meta">
-<svg class="icon icon-time" width="16" height="14" viewBox="0 0 16 16"><path d="m8-.0000003c-4.4 0-8 3.6-8 8 0 4.4000003 3.6 8.0000003 8 8.0000003 4.4 0 8-3.6 8-8.0000003 0-4.4-3.6-8-8-8zm0 14.4000003c-3.52 0-6.4-2.88-6.4-6.4000003 0-3.52 2.88-6.4 6.4-6.4 3.52 0 6.4 2.88 6.4 6.4 0 3.5200003-2.88 6.4000003-6.4 6.4000003zm.4-10.4000003h-1.2v4.8l4.16 2.5600003.64-1.04-3.6-2.1600003z"/></svg>
-<time class="post__meta-date meta-date" datetime="2015-09-11T00:00:00">2015-09-11</time>
-<span class="post__meta-categories meta-categories">
-	<svg class="icon icon-category" width="16" height="16" viewBox="0 0 16 16"><path d="m7 2l1 2h8v11h-16v-13z"/></svg>
-	<span class="meta-categories__list"><a class="meta-categories__link" href="/categories/rd" rel="category">rd</a></span>
-</span></div>
-		</header>
-		<div class="list__excerpt post__content">
-			某天下午公司几个开发为一个接口的某个字段的安全性争论很久，为到底是用 AES 还是 MD5 还是 SHA1 争论，为 Java 和 Go 的 AES 加密结果为何不同调试很久……
-其实这也没啥，如果没有系统地学过或了解过密码学的相关知识，这些概念以及实际的开发是会遇到问题。下面就来简单介绍密码学的基础知识，大部分内容都是来自 Computer Networks (5th Edition) ，所以看书是最好的选择。
-不妨来看开发人员对 AES 和 MD5 的争论，其实这俩根本就不是一个东西。AES 是加密算法，而 MD5 是消息摘要算法，用途都是不一样的。因此首先来把密码学分成两类：加密和数字签名。
-1 加密 加解密是密码学的核心。加密是将明文用算法和密钥加密成密文，解密是将密文用算法和密钥还原明文。为了抵抗密码分析，通常要求加密算法比较固定，但是密钥经常改变，因此衍生出 Kerckhoff's principle ： 所有的算法都应该是公开的，只有密钥需要保密。
-另外，密码学的两条基础原则是：
- 冗余性。密文应该含有一定的冗余，以便接收方能检查密文的合法性。 时效性。要能抵御重放攻击。  加密算法主要分为两类：对称密钥加密和公钥加密。
-1.1 对称密钥加密 顾名思义，对称密钥加密指的是加密和解密的密钥是相同的，这就要求加解密双方首先安全地传递密钥。常见的算法主要有：
- DES (Data Encryption Standard) Triple DES (EDE, Encrypt Decrypt Encrypt) AES (Advanced Encryption Standard) - Rijndael  其中，AES 是 NIST 邀请全世界的专家来设计的加密标准，被选中的算法是 Rijndael，但是通常大家都称之为 AES 。当时的主要竞争者有 Twofish 和 Serpent，Rijndael 虽然加密强度不是最高的，但是实现简单，速度最快，可扩展性等指标都表现较好，综合考虑评价最优，因此被选中。这几个算法的比较可以参考 这个文档。
-		</div>
-		<div class="list__footer">
-			<a class="list__footer-readmore btn" href="/p/2015/crypt-intro/">Read more…</a>
-		</div>
-	</div>
 </article>
 
 		
@@ -224,11 +223,11 @@ View -&gt; Tool Window -&gt; Maven Projects 选择 Spark Project External Flume 
 	<h4 class="widget__title">Recent Posts</h4>
 	<div class="widget__content">
 		<ul class="widget__list">
+			<li class="widget__item"><a class="widget__link" href="/p/2018/py-for-else/">Python 中奇特的 else</a></li>
 			<li class="widget__item"><a class="widget__link" href="/p/2018/mac-excel-recover-issue/">Mac 上 Excel 的一个恼人问题</a></li>
 			<li class="widget__item"><a class="widget__link" href="/p/2018/principles/">《原则》初读简记</a></li>
 			<li class="widget__item"><a class="widget__link" href="/p/2018/keyboard-man/">不要与喷子一般见识</a></li>
 			<li class="widget__item"><a class="widget__link" href="/p/2018/hongkong-pcv13/">去香港打13价肺炎疫苗</a></li>
-			<li class="widget__item"><a class="widget__link" href="/p/2018/bash-cmp-pitfall/">Bash 中 [ 和 [[ 整数比较的坑</a></li>
 		</ul>
 	</div>
 </div>

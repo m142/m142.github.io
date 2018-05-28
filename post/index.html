@@ -14,7 +14,7 @@
 
 
 
-<meta property="og:updated_time" content="2018-05-23T00:00:00&#43;00:00"/>
+<meta property="og:updated_time" content="2018-05-28T00:00:00&#43;00:00"/>
 
 
 
@@ -68,6 +68,25 @@ ga('send', 'pageview');
 		<header class="page-header">
 			<h1 class="page-header__title">Posts</h1>
 		</header><article class="list__item post">
+	<div class="list__content clearfix">
+		<header class="list__header">
+			<h3 class="list__title post__title ">
+				<a href="/p/2018/py-for-else/" rel="bookmark">Python 中奇特的 else</a>
+			</h3><div class="list__meta meta">
+<svg class="icon icon-time" width="16" height="14" viewBox="0 0 16 16"><path d="m8-.0000003c-4.4 0-8 3.6-8 8 0 4.4000003 3.6 8.0000003 8 8.0000003 4.4 0 8-3.6 8-8.0000003 0-4.4-3.6-8-8-8zm0 14.4000003c-3.52 0-6.4-2.88-6.4-6.4000003 0-3.52 2.88-6.4 6.4-6.4 3.52 0 6.4 2.88 6.4 6.4 0 3.5200003-2.88 6.4000003-6.4 6.4000003zm.4-10.4000003h-1.2v4.8l4.16 2.5600003.64-1.04-3.6-2.1600003z"/></svg>
+<time class="post__meta-date meta-date" datetime="2018-05-28T00:00:00">2018-05-28</time></div>
+		</header>
+		<div class="list__excerpt post__content">
+			今天看 Hacker News 发现了 Python 的一个小众特性：For - Else。
+原来 Python 里 else 还能跟 for 一起使用，当 for 循环正常退出（不是用 break 退出）时， else 里的语句会被执行。比如下面的代码：
+for n in range(2, 10): for x in range(2, n): if n % x == 0: print( n, 'equals', x, '*', n//x) break else: # loop fell through without finding a factor print(n, 'is a prime number')  输出如下。可以看出，当执行到 break 退出 for 循环时， else 语句没有执行；而 for 循环完整执行完后，else 语句执行了。
+2 is a prime number 3 is a prime number 4 equals 2 * 2 5 is a prime number 6 equals 2 * 3 7 is a prime number 8 equals 2 * 4 9 equals 3 * 3  上面的代码如果不用 else，那就要这么写。代码量上稍微复杂一丢丢。
+		</div>
+		<div class="list__footer">
+			<a class="list__footer-readmore btn" href="/p/2018/py-for-else/">Read more…</a>
+		</div>
+	</div>
+</article><article class="list__item post">
 	<div class="list__content clearfix">
 		<header class="list__header">
 			<h3 class="list__title post__title ">
@@ -132,25 +151,6 @@ rm &quot;/Users/didi/Library/Group Containers/UBF8T346G9.Office/MicrosoftRegistr
 另外，香港疫苗中心 的网站上，有很多有用信息，可以参考。
 		</div>
 	</div>
-</article><article class="list__item post">
-	<div class="list__content clearfix">
-		<header class="list__header">
-			<h3 class="list__title post__title ">
-				<a href="/p/2018/bash-cmp-pitfall/" rel="bookmark">Bash 中 [ 和 [[ 整数比较的坑</a>
-			</h3><div class="list__meta meta">
-<svg class="icon icon-time" width="16" height="14" viewBox="0 0 16 16"><path d="m8-.0000003c-4.4 0-8 3.6-8 8 0 4.4000003 3.6 8.0000003 8 8.0000003 4.4 0 8-3.6 8-8.0000003 0-4.4-3.6-8-8-8zm0 14.4000003c-3.52 0-6.4-2.88-6.4-6.4000003 0-3.52 2.88-6.4 6.4-6.4 3.52 0 6.4 2.88 6.4 6.4 0 3.5200003-2.88 6.4000003-6.4 6.4000003zm.4-10.4000003h-1.2v4.8l4.16 2.5600003.64-1.04-3.6-2.1600003z"/></svg>
-<time class="post__meta-date meta-date" datetime="2018-05-06T00:00:00">2018-05-06</time></div>
-		</header>
-		<div class="list__excerpt post__content">
-			最近碰到了 bash 中 [ 和 [[ 中数字比较的不同之处，踩了一个坑。
-旧的代码类似这样 [ &quot;\$data_date&quot; -gt &quot;\$yesterday&quot; ] &amp;&amp; echo &quot;yes&quot;， 已经正常运行很长时间了。 升级的时候改成了 [[ &quot;\$data_date&quot; -gt &quot;\$yesterday&quot; ] &amp;&amp; echo &quot;yes&quot;， 其中的 $data_date 和 $yesterday 是月和日的组合， 类似 date +&quot;%m%d&quot; 的输出结果 0506 这样。
-升级的前几天都挺正常的没问题，突然4月18号出问题了，报错信息如下：
-$ [[ &quot;0418&quot; -gt &quot;0417&quot; ]] &amp;&amp; echo &quot;yes&quot; -bash: [[: 0418: value too great for base (error token is &quot;0418&quot;)  原来，在新的比较 [[ 中， 0418 这种以 0 开头的数字被识别成八进制数字了， 而用 [ 比较时，是被识别成十进制的数字。下面可以证明：
-		</div>
-		<div class="list__footer">
-			<a class="list__footer-readmore btn" href="/p/2018/bash-cmp-pitfall/">Read more…</a>
-		</div>
-	</div>
 </article>
 
 		
@@ -177,11 +177,11 @@ $ [[ &quot;0418&quot; -gt &quot;0417&quot; ]] &amp;&amp; echo &quot;yes&quot; -b
 	<h4 class="widget__title">Recent Posts</h4>
 	<div class="widget__content">
 		<ul class="widget__list">
+			<li class="widget__item"><a class="widget__link" href="/p/2018/py-for-else/">Python 中奇特的 else</a></li>
 			<li class="widget__item"><a class="widget__link" href="/p/2018/mac-excel-recover-issue/">Mac 上 Excel 的一个恼人问题</a></li>
 			<li class="widget__item"><a class="widget__link" href="/p/2018/principles/">《原则》初读简记</a></li>
 			<li class="widget__item"><a class="widget__link" href="/p/2018/keyboard-man/">不要与喷子一般见识</a></li>
 			<li class="widget__item"><a class="widget__link" href="/p/2018/hongkong-pcv13/">去香港打13价肺炎疫苗</a></li>
-			<li class="widget__item"><a class="widget__link" href="/p/2018/bash-cmp-pitfall/">Bash 中 [ 和 [[ 整数比较的坑</a></li>
 		</ul>
 	</div>
 </div>
