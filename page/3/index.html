@@ -14,7 +14,7 @@
 
 
 
-<meta property="og:updated_time" content="2016-01-09T00:00:00&#43;00:00"/>
+<meta property="og:updated_time" content="2016-01-25T00:00:00&#43;00:00"/>
 
 
 
@@ -65,6 +65,28 @@ ga('send', 'pageview');
 		<div class="wrapper clearfix">
 
 	<main class="main list content" role="main"><article class="list__item post">
+	<div class="list__content clearfix">
+		<header class="list__header">
+			<h3 class="list__title post__title ">
+				<a href="/p/2016/china-map-shift/" rel="bookmark">中国的地图偏移问题</a>
+			</h3><div class="list__meta meta">
+<svg class="icon icon-time" width="16" height="14" viewBox="0 0 16 16"><path d="m8-.0000003c-4.4 0-8 3.6-8 8 0 4.4000003 3.6 8.0000003 8 8.0000003 4.4 0 8-3.6 8-8.0000003 0-4.4-3.6-8-8-8zm0 14.4000003c-3.52 0-6.4-2.88-6.4-6.4000003 0-3.52 2.88-6.4 6.4-6.4 3.52 0 6.4 2.88 6.4 6.4 0 3.5200003-2.88 6.4000003-6.4 6.4000003zm.4-10.4000003h-1.2v4.8l4.16 2.5600003.64-1.04-3.6-2.1600003z"/></svg>
+<time class="post__meta-date meta-date" datetime="2016-01-25T00:00:00">2016-01-25</time>
+<span class="post__meta-categories meta-categories">
+	<svg class="icon icon-category" width="16" height="16" viewBox="0 0 16 16"><path d="m7 2l1 2h8v11h-16v-13z"/></svg>
+	<span class="meta-categories__list"><a class="meta-categories__link" href="/categories/rd" rel="category">rd</a></span>
+</span></div>
+		</header>
+		<div class="list__excerpt post__content">
+			今天偶然了解到一个好玩，或者说不那么好玩，甚至让人恶心反感的事情，那就是 GPS 在地图上定位的偏移问题。
+GPS 全称是 Global Positioning System (全球定位系统)，是接收卫星的信号，计算所在位置的经纬度，这个数据一般都是没问题的。但是要在地图上显示出来，就牵涉到地图的问了。
+地图，就是将坐标映射到图像中的点上。国际标准是 WGS-84，而中国出于所谓 国家安全 的考虑，制订了 GCJ-02 标准。该标准其实就是将 WGS-84 的数据通过某种算法（数学运算）加以混淆，对每个点都加上一定量的偏移。该算法设计比较“巧妙”，偏移是非线性的，各地偏移量和便宜方向都不定，没有算法直接复原。
+但是实际上，这种做法除了恶心自己人以外，基本没有任何作用。首先，由于有很多地方（民用）需要用到真实的地图坐标，因此混淆算法的泄露是必然的，代码见 这里。既然已经有算法了，以广大人民的无穷智慧，相应的从 GCJ-02 到 WGS-84 的复原算法也就出来了，代码见 这里。
+由于有这项规定在，国内合法公开的地图数据都是加过偏移的，如果使用原始的 GPS 数据，那肯定会造成偏移。但是大家又需要有正确的数据进行导航，因此导航软件会对 GPS 和地图数据做处理，尽量修复偏移。也就是说，这项 SB 规定除了让某些部门中饱私囊，恶心自己人，阻碍生产力发展外，没有任何用处。对国家安全其实起不到任何保护作用。
+类似的还有厂商在产品中内置加密后门，以达到某些目的。这种行为其实就是在安全领域干着明知不安全的事情。对此，无话可说。
+		</div>
+	</div>
+</article><article class="list__item post">
 	<div class="list__content clearfix">
 		<header class="list__header">
 			<h3 class="list__title post__title ">
@@ -162,31 +184,6 @@ CSDN 事件中，官方声明泄露的数据是 2009 年的备份数据库。如
 			<a class="list__footer-readmore btn" href="/p/2015/openwrt-ddns/">Read more…</a>
 		</div>
 	</div>
-</article><article class="list__item post">
-	<div class="list__content clearfix">
-		<header class="list__header">
-			<h3 class="list__title post__title ">
-				<a href="/p/2015/raspberrypi-my-1st/" rel="bookmark">入手树莓派 Raspberry Pi 2 Model B</a>
-			</h3><div class="list__meta meta">
-<svg class="icon icon-time" width="16" height="14" viewBox="0 0 16 16"><path d="m8-.0000003c-4.4 0-8 3.6-8 8 0 4.4000003 3.6 8.0000003 8 8.0000003 4.4 0 8-3.6 8-8.0000003 0-4.4-3.6-8-8-8zm0 14.4000003c-3.52 0-6.4-2.88-6.4-6.4000003 0-3.52 2.88-6.4 6.4-6.4 3.52 0 6.4 2.88 6.4 6.4 0 3.5200003-2.88 6.4000003-6.4 6.4000003zm.4-10.4000003h-1.2v4.8l4.16 2.5600003.64-1.04-3.6-2.1600003z"/></svg>
-<time class="post__meta-date meta-date" datetime="2015-11-21T00:00:00">2015-11-21</time>
-<span class="post__meta-categories meta-categories">
-	<svg class="icon icon-category" width="16" height="16" viewBox="0 0 16 16"><path d="m7 2l1 2h8v11h-16v-13z"/></svg>
-	<span class="meta-categories__list"><a class="meta-categories__link" href="/categories/rd" rel="category">rd</a></span>
-</span></div>
-		</header>
-		<div class="list__excerpt post__content">
-			近期入手了 树莓派 2 Model B，配件加了16G Micro SD 卡、透明外壳和风扇。电源可以用安卓手机的充电器，或者用USB Hub 加上一根Micro USB 线。打算再从退役的笔记本上拆下硬盘来接上，搭建简易的家用 NAS。
-如果比较熟悉 Linux 的相关操作，可以不用外接显示器、键盘、鼠标等。直接在 SD 卡中写入系统，插入树莓派，再给树莓派插上网线，连到路由器上，找到 ip，ssh 登录即可。如果不太熟悉的话，还是建议外接显示器来操作。
-安装系统 这里 列举了树莓派能用的系统，我用的是 Raspbian。需要首先下载镜像 Raspbian Wheezy，然后根据文档将镜像解压并写入 SD 卡。比如对于 Windows 系统，按照官方文档步骤一步步操作即可。
-将 SD 卡插入树莓派，给树莓派接上电源，用网线连接路由器，然后再路由器的管理界面查看树莓派的 ip，ssh 登录即可。Windows 下可以用 putty 或者 xshell，推荐xshell。如果用 xshell 的话，可能会报 找不到匹配的 outgoing encryption 算法 这个错，这时需要修改连接的属性，在 连接 -&gt; SSH -&gt; 安全性 配置页面，点击 加密 右边的 编辑 按钮，勾选上 aes192-ctr, aes128-ctr 和 aes-256-ctr 这几项，如下图所示。
-登录用户名和密码分别是 pi 和 raspberry 。
-系统配置 修改源 系统默认是使用 raspbian.
-		</div>
-		<div class="list__footer">
-			<a class="list__footer-readmore btn" href="/p/2015/raspberrypi-my-1st/">Read more…</a>
-		</div>
-	</div>
 </article>
 		
 
@@ -215,11 +212,11 @@ CSDN 事件中，官方声明泄露的数据是 2009 年的备份数据库。如
 	<h4 class="widget__title">Recent Posts</h4>
 	<div class="widget__content">
 		<ul class="widget__list">
+			<li class="widget__item"><a class="widget__link" href="/p/2018/self-fulfilling-prophecy/">记录新学到的一个词——自证预言</a></li>
 			<li class="widget__item"><a class="widget__link" href="/p/2018/py-for-else/">Python 中奇特的 else</a></li>
 			<li class="widget__item"><a class="widget__link" href="/p/2018/mac-excel-recover-issue/">Mac 上 Excel 的一个恼人问题</a></li>
 			<li class="widget__item"><a class="widget__link" href="/p/2018/principles/">《原则》初读简记</a></li>
 			<li class="widget__item"><a class="widget__link" href="/p/2018/keyboard-man/">不要与喷子一般见识</a></li>
-			<li class="widget__item"><a class="widget__link" href="/p/2018/hongkong-pcv13/">去香港打13价肺炎疫苗</a></li>
 		</ul>
 	</div>
 </div>

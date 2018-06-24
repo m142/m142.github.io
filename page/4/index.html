@@ -14,7 +14,7 @@
 
 
 
-<meta property="og:updated_time" content="2015-11-05T00:00:00&#43;00:00"/>
+<meta property="og:updated_time" content="2015-11-21T00:00:00&#43;00:00"/>
 
 
 
@@ -65,6 +65,31 @@ ga('send', 'pageview');
 		<div class="wrapper clearfix">
 
 	<main class="main list content" role="main"><article class="list__item post">
+	<div class="list__content clearfix">
+		<header class="list__header">
+			<h3 class="list__title post__title ">
+				<a href="/p/2015/raspberrypi-my-1st/" rel="bookmark">入手树莓派 Raspberry Pi 2 Model B</a>
+			</h3><div class="list__meta meta">
+<svg class="icon icon-time" width="16" height="14" viewBox="0 0 16 16"><path d="m8-.0000003c-4.4 0-8 3.6-8 8 0 4.4000003 3.6 8.0000003 8 8.0000003 4.4 0 8-3.6 8-8.0000003 0-4.4-3.6-8-8-8zm0 14.4000003c-3.52 0-6.4-2.88-6.4-6.4000003 0-3.52 2.88-6.4 6.4-6.4 3.52 0 6.4 2.88 6.4 6.4 0 3.5200003-2.88 6.4000003-6.4 6.4000003zm.4-10.4000003h-1.2v4.8l4.16 2.5600003.64-1.04-3.6-2.1600003z"/></svg>
+<time class="post__meta-date meta-date" datetime="2015-11-21T00:00:00">2015-11-21</time>
+<span class="post__meta-categories meta-categories">
+	<svg class="icon icon-category" width="16" height="16" viewBox="0 0 16 16"><path d="m7 2l1 2h8v11h-16v-13z"/></svg>
+	<span class="meta-categories__list"><a class="meta-categories__link" href="/categories/rd" rel="category">rd</a></span>
+</span></div>
+		</header>
+		<div class="list__excerpt post__content">
+			近期入手了 树莓派 2 Model B，配件加了16G Micro SD 卡、透明外壳和风扇。电源可以用安卓手机的充电器，或者用USB Hub 加上一根Micro USB 线。打算再从退役的笔记本上拆下硬盘来接上，搭建简易的家用 NAS。
+如果比较熟悉 Linux 的相关操作，可以不用外接显示器、键盘、鼠标等。直接在 SD 卡中写入系统，插入树莓派，再给树莓派插上网线，连到路由器上，找到 ip，ssh 登录即可。如果不太熟悉的话，还是建议外接显示器来操作。
+安装系统 这里 列举了树莓派能用的系统，我用的是 Raspbian。需要首先下载镜像 Raspbian Wheezy，然后根据文档将镜像解压并写入 SD 卡。比如对于 Windows 系统，按照官方文档步骤一步步操作即可。
+将 SD 卡插入树莓派，给树莓派接上电源，用网线连接路由器，然后再路由器的管理界面查看树莓派的 ip，ssh 登录即可。Windows 下可以用 putty 或者 xshell，推荐xshell。如果用 xshell 的话，可能会报 找不到匹配的 outgoing encryption 算法 这个错，这时需要修改连接的属性，在 连接 -&gt; SSH -&gt; 安全性 配置页面，点击 加密 右边的 编辑 按钮，勾选上 aes192-ctr, aes128-ctr 和 aes-256-ctr 这几项，如下图所示。
+登录用户名和密码分别是 pi 和 raspberry 。
+系统配置 修改源 系统默认是使用 raspbian.
+		</div>
+		<div class="list__footer">
+			<a class="list__footer-readmore btn" href="/p/2015/raspberrypi-my-1st/">Read more…</a>
+		</div>
+	</div>
+</article><article class="list__item post">
 	<div class="list__content clearfix">
 		<header class="list__header">
 			<h3 class="list__title post__title ">
@@ -167,32 +192,6 @@ v0 += ((v1 &lt;&lt; 4) + k0) ^ (v1 + sum) ^ ((v1 &gt;&gt; 5) + k1) v1 += ((v0 &l
 			<a class="list__footer-readmore btn" href="/p/2015/go-cpp-op-precedence/">Read more…</a>
 		</div>
 	</div>
-</article><article class="list__item post">
-	<div class="list__content clearfix">
-		<header class="list__header">
-			<h3 class="list__title post__title ">
-				<a href="/p/2015/win-spark-src-env/" rel="bookmark">Windows 下搭建 Spark 源代码阅读环境</a>
-			</h3><div class="list__meta meta">
-<svg class="icon icon-time" width="16" height="14" viewBox="0 0 16 16"><path d="m8-.0000003c-4.4 0-8 3.6-8 8 0 4.4000003 3.6 8.0000003 8 8.0000003 4.4 0 8-3.6 8-8.0000003 0-4.4-3.6-8-8-8zm0 14.4000003c-3.52 0-6.4-2.88-6.4-6.4000003 0-3.52 2.88-6.4 6.4-6.4 3.52 0 6.4 2.88 6.4 6.4 0 3.5200003-2.88 6.4000003-6.4 6.4000003zm.4-10.4000003h-1.2v4.8l4.16 2.5600003.64-1.04-3.6-2.1600003z"/></svg>
-<time class="post__meta-date meta-date" datetime="2015-09-14T00:00:00">2015-09-14</time>
-<span class="post__meta-categories meta-categories">
-	<svg class="icon icon-category" width="16" height="16" viewBox="0 0 16 16"><path d="m7 2l1 2h8v11h-16v-13z"/></svg>
-	<span class="meta-categories__list"><a class="meta-categories__link" href="/categories/rd" rel="category">rd</a></span>
-</span></div>
-		</header>
-		<div class="list__excerpt post__content">
-			用 Spark 做数据分析也有半年多了，觉得至少应该大致过一下源代码。在 Windows 下搭建环境还是有点不太方便的，把步骤记录一下。
-当然要用 Intellij IDEA (下文简称 Idea )，安装 Scala 插件。另外，也可以把 sbt 插件装上。
-首先下载 Spark 1.5.0 源代码。
-然后在 Idea 里， File -&gt; New -&gt; Project From Existing Source 选择 Spark 解压后的目录， Import project from external model -&gt; Maven，然后一路 Next，等待处理完毕。
-视网络情况而定，不太好的话可能需要半个小时。然后就可以编译 Spark 了：Build -&gt; Rebuild Project
-当然不一定成功，如果报的错误是 Error:(44, 66) not found: type SparkFlumeProtocol val 的话，做如下处理：
-View -&gt; Tool Window -&gt; Maven Projects 选择 Spark Project External Flume Sink， 右键 -&gt; Generate Sources and Update Folders  之后一般就能编译成功了，会有很多 Warning，都可以忽略。
-		</div>
-		<div class="list__footer">
-			<a class="list__footer-readmore btn" href="/p/2015/win-spark-src-env/">Read more…</a>
-		</div>
-	</div>
 </article>
 		
 
@@ -221,11 +220,11 @@ View -&gt; Tool Window -&gt; Maven Projects 选择 Spark Project External Flume 
 	<h4 class="widget__title">Recent Posts</h4>
 	<div class="widget__content">
 		<ul class="widget__list">
+			<li class="widget__item"><a class="widget__link" href="/p/2018/self-fulfilling-prophecy/">记录新学到的一个词——自证预言</a></li>
 			<li class="widget__item"><a class="widget__link" href="/p/2018/py-for-else/">Python 中奇特的 else</a></li>
 			<li class="widget__item"><a class="widget__link" href="/p/2018/mac-excel-recover-issue/">Mac 上 Excel 的一个恼人问题</a></li>
 			<li class="widget__item"><a class="widget__link" href="/p/2018/principles/">《原则》初读简记</a></li>
 			<li class="widget__item"><a class="widget__link" href="/p/2018/keyboard-man/">不要与喷子一般见识</a></li>
-			<li class="widget__item"><a class="widget__link" href="/p/2018/hongkong-pcv13/">去香港打13价肺炎疫苗</a></li>
 		</ul>
 	</div>
 </div>
