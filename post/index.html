@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Posts</title>
+	<meta name="description" content="">
+	<meta name="generator" content="Hugo 0.40.2" />
+	<meta property="og:title" content="Posts" />
+<meta property="og:description" content="思考、记录" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="http://m.l2d.xyz/post/" />
+
+
+
+<meta property="og:updated_time" content="2018-10-22T00:00:00&#43;00:00"/>
+
+
+
+
+
+
+
+
+
+
+	
+	<link rel="dns-prefetch" href="//fonts.googleapis.com">
+	<link rel="dns-prefetch" href="//fonts.gstatic.com">
+	<link rel="alternate" type="application/rss" href="/post/index.xml">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700">
+	<link rel="stylesheet" href="/css/style.css">
+	<script type="text/javascript" src="/js/scripts.js"></script>
+	<link rel="shortcut icon" href="/favicon.ico">
+	
+<script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', 'UA-54041322-3', 'auto');
+ga('send', 'pageview');
+</script>
+<script async src='//www.google-analytics.com/analytics.js'></script>
+
+</head>
+<body class="body body-right-sidebar">
+	<div class="container container-outer">
+		<header class="header">
+			<div class="container container-inner">
+				<div class="logo" role="banner">
+					<a class="logo__link" href="/" title="思考、记录" rel="home">
+						<div class="logo__title">思考、记录</div>
+						
+					</a>
+				</div>
+			</div>
+			
+<nav class="menu">
+	<ul class="menu__list">
+		<li class="menu__item"><a class="menu__link" href="/about/">ABOUT</a></li>
+		<li class="menu__item menu__item--active"><a class="menu__link" href="/post/">POSTS</a></li>
+	</ul>
+</nav>
+
+		</header>
+		<div class="wrapper clearfix">
+
+	<main class="main list content" role="main">
+		<header class="page-header">
+			<h1 class="page-header__title">Posts</h1>
+		</header><article class="list__item post">
+	<div class="list__content clearfix">
+		<header class="list__header">
+			<h3 class="list__title post__title ">
+				<a href="/p/2018/pnpoly/" rel="bookmark">PNPOLY: 射线法判断点是否在多边形区域内部</a>
+			</h3><div class="list__meta meta">
+<svg class="icon icon-time" width="16" height="14" viewBox="0 0 16 16"><path d="m8-.0000003c-4.4 0-8 3.6-8 8 0 4.4000003 3.6 8.0000003 8 8.0000003 4.4 0 8-3.6 8-8.0000003 0-4.4-3.6-8-8-8zm0 14.4000003c-3.52 0-6.4-2.88-6.4-6.4000003 0-3.52 2.88-6.4 6.4-6.4 3.52 0 6.4 2.88 6.4 6.4 0 3.5200003-2.88 6.4000003-6.4 6.4000003zm.4-10.4000003h-1.2v4.8l4.16 2.5600003.64-1.04-3.6-2.1600003z"/></svg>
+<time class="post__meta-date meta-date" datetime="2018-10-22T00:00:00">2018-10-22</time>
+<span class="post__meta-categories meta-categories">
+	<svg class="icon icon-category" width="16" height="16" viewBox="0 0 16 16"><path d="m7 2l1 2h8v11h-16v-13z"/></svg>
+	<span class="meta-categories__list"><a class="meta-categories__link" href="/categories/rd" rel="category">rd</a></span>
+</span></div>
+		</header>
+		<div class="list__excerpt post__content">
+			最近跟地图打交道，有个问题是判断点是否在某个多边形区域内（一般都是凸多边形）。 其实之前也知道一个算法：就是以要判断的点为起点，以区域的顶点为终点作线段或直线， 遍历所有区域顶点，判断直线扫过的角度，如果是360度，说明在区域内，否则就是在区域外。
+这次学到了一个新的算法 PNPOLY，代码非常简练，如下：
+int pnpoly(int nvert, float *vertx, float *verty, float testx, float testy) { int i, j, c = 0; for (i = 0, j = nvert-1; i &lt; nvert; j = i++) { if ( ((verty[i]&gt;testy) != (verty[j]&gt;testy)) &amp;&amp; (testx &lt; (vertx[j]-vertx[i]) * (testy-verty[i]) / (verty[j]-verty[i]) + vertx[i]) ) c = !c; } return c; }  该算法的核心思想就是：以测试点为起点，作一条水平的射线，判断该射线与多边形区域的边的交点个数，如果为奇数个，说明在区域内，否则就在区域外。 为什么能成立呢？可以这样考虑：多边形区域（不考虑有洞的情况）将空间分成了内外两个部分，如果测试点在空间内，那么作一条射线，至少会与边有一个交点，相交后就到了区域外。 如果再有一个交点，又到了区域内，以此类推。因此奇数个交点说明在区域内， 偶数个说明在区域外。
+理解了思想，就是具体实现了。这段代码的详细解释如下：
+ for (i = 0, j = nvert-1; i &lt; nvert; j = i++) 该 for 循环中 i 和 j 是区域的相邻顶点下标，这样它们就构成了一条边。 首先将 i 设置为第1个顶点， j 为最后一个顶点，每次循环后，i 往后移，j 设置为 i，这样就遍历了所有的边。 ((verty[i]&gt;testy) !
+		</div>
+		<div class="list__footer">
+			<a class="list__footer-readmore btn" href="/p/2018/pnpoly/">Read more…</a>
+		</div>
+	</div>
+</article><article class="list__item post">
+	<div class="list__content clearfix">
+		<header class="list__header">
+			<h3 class="list__title post__title ">
+				<a href="/p/2018/self-fulfilling-prophecy/" rel="bookmark">记录新学到的一个词——自证预言</a>
+			</h3><div class="list__meta meta">
+<svg class="icon icon-time" width="16" height="14" viewBox="0 0 16 16"><path d="m8-.0000003c-4.4 0-8 3.6-8 8 0 4.4000003 3.6 8.0000003 8 8.0000003 4.4 0 8-3.6 8-8.0000003 0-4.4-3.6-8-8-8zm0 14.4000003c-3.52 0-6.4-2.88-6.4-6.4000003 0-3.52 2.88-6.4 6.4-6.4 3.52 0 6.4 2.88 6.4 6.4 0 3.5200003-2.88 6.4000003-6.4 6.4000003zm.4-10.4000003h-1.2v4.8l4.16 2.5600003.64-1.04-3.6-2.1600003z"/></svg>
+<time class="post__meta-date meta-date" datetime="2018-06-24T00:00:00">2018-06-24</time></div>
+		</header>
+		<div class="list__excerpt post__content">
+			这段时间看《博弈与社会》，读到一个词 自证预言。还是贴一下英文原版的定义：
+The self-fulfilling prophecy is, in the beginning, a false definition of the situation evoking a new behavior which makes the original false conception come true. This specious validity of the self-fulfilling prophecy perpetuates a reign of error. For the prophet will cite the actual course of events as proof that he was right from the very beginning.
+通俗来说，指的是一件错误或不可能发生的事情，由于预言的存在， 导致了一些新的行为产生，而这些行为又促使事情的发生朝着预言的方向而去， 从而使得最后预言成真。
+概括起来就三个字：乌鸦嘴。
+虽然乌鸦嘴是个贬义词，但自证预言这种现象本身是中立的， 重要的是看你在现实生活中如何应用它。
+其实有很多自证预言的例子。比较著名的有希腊神话中俄狄浦斯的故事： 神谕表示俄狄浦斯会杀死他父亲，因此他父亲在他出生后就想杀死他， 然而奉命执行的牧人新生怜悯放过了他，最终在不知情的情况下， 他杀死了自己的父亲并娶了自己的母亲； 一些教育领域的实验也展示了类似的效应： 一些被告知高智商的学生在后来学习成绩突飞猛进，其实这些学生是随机挑选的； 还有一个搞笑的：上海一男子因造谣称自己因造谣而被拘留15日而被拘留15日。
+		</div>
+		<div class="list__footer">
+			<a class="list__footer-readmore btn" href="/p/2018/self-fulfilling-prophecy/">Read more…</a>
+		</div>
+	</div>
+</article><article class="list__item post">
+	<div class="list__content clearfix">
+		<header class="list__header">
+			<h3 class="list__title post__title ">
+				<a href="/p/2018/py-for-else/" rel="bookmark">Python 中奇特的 else</a>
+			</h3><div class="list__meta meta">
+<svg class="icon icon-time" width="16" height="14" viewBox="0 0 16 16"><path d="m8-.0000003c-4.4 0-8 3.6-8 8 0 4.4000003 3.6 8.0000003 8 8.0000003 4.4 0 8-3.6 8-8.0000003 0-4.4-3.6-8-8-8zm0 14.4000003c-3.52 0-6.4-2.88-6.4-6.4000003 0-3.52 2.88-6.4 6.4-6.4 3.52 0 6.4 2.88 6.4 6.4 0 3.5200003-2.88 6.4000003-6.4 6.4000003zm.4-10.4000003h-1.2v4.8l4.16 2.5600003.64-1.04-3.6-2.1600003z"/></svg>
+<time class="post__meta-date meta-date" datetime="2018-05-28T00:00:00">2018-05-28</time></div>
+		</header>
+		<div class="list__excerpt post__content">
+			今天看 Hacker News 发现了 Python 的一个小众特性：For - Else。
+原来 Python 里 else 还能跟 for 一起使用，当 for 循环正常退出（不是用 break 退出）时， else 里的语句会被执行。比如下面的代码：
+for n in range(2, 10): for x in range(2, n): if n % x == 0: print( n, 'equals', x, '*', n//x) break else: # loop fell through without finding a factor print(n, 'is a prime number')  输出如下。可以看出，当执行到 break 退出 for 循环时， else 语句没有执行；而 for 循环完整执行完后，else 语句执行了。
+2 is a prime number 3 is a prime number 4 equals 2 * 2 5 is a prime number 6 equals 2 * 3 7 is a prime number 8 equals 2 * 4 9 equals 3 * 3  上面的代码如果不用 else，那就要这么写。代码量上稍微复杂一丢丢。
+		</div>
+		<div class="list__footer">
+			<a class="list__footer-readmore btn" href="/p/2018/py-for-else/">Read more…</a>
+		</div>
+	</div>
+</article><article class="list__item post">
+	<div class="list__content clearfix">
+		<header class="list__header">
+			<h3 class="list__title post__title ">
+				<a href="/p/2018/mac-excel-recover-issue/" rel="bookmark">Mac 上 Excel 的一个恼人问题</a>
+			</h3><div class="list__meta meta">
+<svg class="icon icon-time" width="16" height="14" viewBox="0 0 16 16"><path d="m8-.0000003c-4.4 0-8 3.6-8 8 0 4.4000003 3.6 8.0000003 8 8.0000003 4.4 0 8-3.6 8-8.0000003 0-4.4-3.6-8-8-8zm0 14.4000003c-3.52 0-6.4-2.88-6.4-6.4000003 0-3.52 2.88-6.4 6.4-6.4 3.52 0 6.4 2.88 6.4 6.4 0 3.5200003-2.88 6.4000003-6.4 6.4000003zm.4-10.4000003h-1.2v4.8l4.16 2.5600003.64-1.04-3.6-2.1600003z"/></svg>
+<time class="post__meta-date meta-date" datetime="2018-05-23T00:00:00">2018-05-23</time></div>
+		</header>
+		<div class="list__excerpt post__content">
+			就不提 Mac 上的 MS Office 有多难用了，而且时不时崩溃，体验和在 Windows 下完全没法比。 某一次 Excel 崩溃后，每次打开 Excel 文件，窗口都会暂时被锁定，并且弹出对话框： 在应用程序意外退出之前，Excel已保存了对文件的更改。 是否要打开此文件上次保存的版本？
+如下图所示。这个时候真的是想砸了电脑 🔨
+试了各种方法：打开上次的文件并另存为；删掉上次的那些文件；清除 Excel 的Cache …… 都不能解决问题。 并且，MS 官网上的解答也完全没用，根本就不能解决问题。为此实在是困扰很久很久。
+今天偶然找到了 StackExchange 上的一个回答，终于彻底解决了这个问题。 其实就一行命令的事情：
+rm &quot;/Users/didi/Library/Group Containers/UBF8T346G9.Office/MicrosoftRegistrationDB.reg&quot;  
+		</div>
+	</div>
+</article><article class="list__item post">
+	<div class="list__content clearfix">
+		<header class="list__header">
+			<h3 class="list__title post__title ">
+				<a href="/p/2018/principles/" rel="bookmark">《原则》初读简记</a>
+			</h3><div class="list__meta meta">
+<svg class="icon icon-time" width="16" height="14" viewBox="0 0 16 16"><path d="m8-.0000003c-4.4 0-8 3.6-8 8 0 4.4000003 3.6 8.0000003 8 8.0000003 4.4 0 8-3.6 8-8.0000003 0-4.4-3.6-8-8-8zm0 14.4000003c-3.52 0-6.4-2.88-6.4-6.4000003 0-3.52 2.88-6.4 6.4-6.4 3.52 0 6.4 2.88 6.4 6.4 0 3.5200003-2.88 6.4000003-6.4 6.4000003zm.4-10.4000003h-1.2v4.8l4.16 2.5600003.64-1.04-3.6-2.1600003z"/></svg>
+<time class="post__meta-date meta-date" datetime="2018-05-21T00:00:00">2018-05-21</time></div>
+		</header>
+		<div class="list__excerpt post__content">
+			其实在几个月前就收到了这本书，也不厚，不到 550 页，断断续续居然翻了两个月才读完，确实有点慢。 不过说实话，这本书不是那么好读，说不上来为什么。 看这种翻译的书，总是觉得怪怪的，很多时候读起来每个字都能看懂，也能理解其中的意思，但就是觉得有点怪，也许就是翻译还没有到雅的境界。
+这本书在金融界评价很高，很火热，可能跟作者的身份是有关的。 但说实话，对普通人而言，其实这本书不太友好。 本书主要由作者的自传、生活和工作原则三部分组成。 文中，穿插了及其多的细节性的各种原则，让人眼花缭乱， 要想看一遍就记住所有的原则条文，估计只有过目不忘的天才才能做到。 对于一个目前还处于把书看薄阶段的我来说，只要从中吸取最核心的部分就可以了。
+对我而言，以下几点是最重要的：
+ 行为处事要有自己的原则，贯彻执行且始终如一 保持头脑极度开放，吸收汇聚各方意见，提升自我认知 平衡民主和专政，大部分时候应该保持极度求真和极度透明，但需要知道何时是例外 理解人与人之间的大不同，不断学习和培养同理心 做自己喜欢的，有意义的工作，发展有意义的人际关系，并从中获得快乐  另外，这几年开始接触并逐步和学习理解的一个词是：决策。这本书里也提到过很多次这个词。 其实，决策无处不在，只是以前没有意识到。 就像呼吸，如果不特意去体会是感受不到一样。 另外还一个有意思的是鼻子，其实眼睛每天都能看到它，但总是将它忽略（不信你闭上一只眼睛试试）。 近来看的一些书，从经济学、心理学等领域来探讨决策，从不同的角度来看，也让我对决策有了更深的理解，这个以后再来探讨。
+		</div>
+	</div>
+</article>
+
+		
+<div class="pagination">
+	<span class="pagination__item pagination__item--current">1/6</span>
+	<a class="pagination__item pagination__item--next btn" href="/post/page/2/">»</a>
+</div>
+
+	</main>
+
+<aside class="sidebar">
+	
+<div class="widget-search widget">
+	<form class="widget-search__form" role="search" method="get" action="https://google.com/search">
+		<label>
+			<input class="widget-search__field" type="search" placeholder="SEARCH..." value="" name="q">
+		</label>
+		<input class="widget-search__submit" type="submit" value="Search">
+		<input type="hidden" name="sitesearch" value="http://m.l2d.xyz/" />
+	</form>
+</div>
+	
+<div class="widget-recent widget">
+	<h4 class="widget__title">Recent Posts</h4>
+	<div class="widget__content">
+		<ul class="widget__list">
+			<li class="widget__item"><a class="widget__link" href="/p/2018/pnpoly/">PNPOLY: 射线法判断点是否在多边形区域内部</a></li>
+			<li class="widget__item"><a class="widget__link" href="/p/2018/self-fulfilling-prophecy/">记录新学到的一个词——自证预言</a></li>
+			<li class="widget__item"><a class="widget__link" href="/p/2018/py-for-else/">Python 中奇特的 else</a></li>
+			<li class="widget__item"><a class="widget__link" href="/p/2018/mac-excel-recover-issue/">Mac 上 Excel 的一个恼人问题</a></li>
+			<li class="widget__item"><a class="widget__link" href="/p/2018/principles/">《原则》初读简记</a></li>
+		</ul>
+	</div>
+</div>
+	
+	
+	
+<div class="widget-taglist widget">
+	<h4 class="widget__title">Tags</h4>
+	<div class="widget__content">
+		<a class="widget-taglist__link widget__link btn" href="/tags/ad" title="Ad">Ad</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/algo" title="Algo">Algo</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/bash" title="Bash">Bash</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/c&#43;&#43;" title="C&#43;&#43;">C&#43;&#43;</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/digihome" title="Digihome">Digihome</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/go" title="Go">Go</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/mac" title="Mac">Mac</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/map" title="Map">Map</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/misc" title="Misc">Misc</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/ml" title="Ml">Ml</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/mobi" title="Mobi">Mobi</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/python" title="Python">Python</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/raspi" title="Raspi">Raspi</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/read" title="Read">Read</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/sec" title="Sec">Sec</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/spark" title="Spark">Spark</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/vpn" title="Vpn">Vpn</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/vps" title="Vps">Vps</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/yy" title="Yy">Yy</a>
+	</div>
+</div>
+</aside>
+	</div>
+		<footer class="footer">
+			<div class="container container-inner">
+				<div class="footer__copyright">&copy; 2018 思考、记录. <span class="footer__copyright-credits">Generated with <a href="https://gohugo.io/" rel="nofollow noopener" target="_blank">Hugo</a> and <a href="https://github.com/Vimux/Mainroad/" rel="nofollow noopener" target="_blank">Mainroad</a> theme.</span></div>
+			</div>
+		</footer>
+	</div>
+
+<script>
+	var navigation = responsiveNav(".menu", {
+		navClass: "menu--collapse",
+	});
+</script>
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+tex2jax: {
+inlineMath: [['$','$'], ['\\(','\\)']],
+displayMath: [['$$','$$']],
+processEscapes: true,
+processEnvironments: true,
+skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+TeX: { equationNumbers: { autoNumber: "AMS" },
+     extensions: ["AMSmath.js", "AMSsymbols.js"] }
+}
+});
+</script>
+
+</body>
+</html>

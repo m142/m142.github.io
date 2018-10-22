@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Digihome on 思考、记录</title>
+    <link>http://m.l2d.xyz/categories/digihome/</link>
+    <description>Recent content in Digihome on 思考、记录</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Sun, 22 Nov 2015 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="http://m.l2d.xyz/categories/digihome/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>路由器配置 DDNS</title>
+      <link>http://m.l2d.xyz/p/2015/openwrt-ddns/</link>
+      <pubDate>Sun, 22 Nov 2015 00:00:00 +0000</pubDate>
+      
+      <guid>http://m.l2d.xyz/p/2015/openwrt-ddns/</guid>
+      <description>路由器已经刷了 OpenWrt，接下来可能会用树莓派做一些事情，比如 NAS，还有很多没想好的。由于路由器每次启动拨号得到的 ip 地址不一样，运营商也可能会隔段时间给分配个新的 ip，所以需要配置 DDNS。
+有个在 Namecheap 注册的域名，Namecheap 的文档还是比较不错的，比如有介绍 如何在 ddwrt 上配置 DDNS，还有 如何发送 http 请求实现 DDNS。
+其实 OpenWrt 上就有 DDNS Client，并且有 UCI 配置界面。从 AA 12.09 版本开始就增加了对 Namecheap 的 DDNS 支持，所以可以直接使用 DDNS Client。按照 官方文档 给出的步骤一步步操作即可。
+不过既然一条 HTTP 请求就能实现的功能，就没必要搞得这么复杂了，一个简单的脚本就能搞定。
+#!/bin/sh Now=$(date +&amp;quot;%F %T&amp;quot;) ip=`ifconfig pppoe-wan | grep inet | awk &#39;{split($2,a,&amp;quot;:&amp;quot;);print a[2]}&#39;` url=&amp;quot;https://dynamicdns.park-your-domain.com/update?host=[HOST]&amp;amp;domain=[DOMAIN]&amp;amp;password=[DDNS_PASSWORD]&amp;amp;ip=$ip&amp;quot; curl &amp;quot;$url&amp;quot; &amp;gt; /dev/null 2&amp;gt;&amp;amp;1 if [ $? -eq 0 ]; then echo &amp;quot;[$Now] Success&amp;quot; else echo &amp;quot;[$Now] Fail&amp;quot; fi  其中，[HOST], [DOMAIN], [DDNS_PASSWORD] 是需要修改的地方，根据自己的实际情况做相应修改。比如，你有一个域名 example.</description>
+    </item>
+    
+    <item>
+      <title>用 Netgear WNDR4300 打造翻墙路由器</title>
+      <link>http://m.l2d.xyz/p/2015/netgear-wndr4300-openwrt-shadowsocks-chinadns/</link>
+      <pubDate>Thu, 05 Nov 2015 00:00:00 +0000</pubDate>
+      
+      <guid>http://m.l2d.xyz/p/2015/netgear-wndr4300-openwrt-shadowsocks-chinadns/</guid>
+      <description>VPS 推荐: BandwagonHost
+前提：1. 有一台境外的 VPS 服务器，并且安装了 ShadowSocks 服务且能正常使用，如无特别说明，下文中将以 x.x.x.x 代表 VPS 的 ip ； 2. 熟悉路由器网络的基本配置。
+家里联网设备逐渐多了起来，最近又添加了两台电视，有必要实现路由器端自动翻墙，提供自由的网络。经过一番调研，决定入手 Netgear WNDR4300 并刷 OpenWrt ，再装 ChinaDNS 和 ShadowSocks 。
+这里 罗列了可以刷 OpenWrt 的设备，听说 Netgear 比较稳定，加上宽带现在是 100M，以后可能还会再升，还需要 2.4G 和 5G 双频支持，综合考虑，选定了 WNDR4300。
+WNDR4300 自带的固件速度比较慢，至少从路由器的管理界面的反应速度来看是这样的，点个链接都要等老半天，完全不适合现代生活的快节奏。因此第一件事就是刷 OpenWrt 。
+初看 这个页面，以为只能刷 Barrier Breaker 14.07 版本，结果 ShadowSocks 安装报错，查了下说是 OpenWrt 版本太低，于是升级到了 Chaos Calmer 15.05 版本。后来者就没必要走着弯路了，直接下载 15.05 官方固件，通过网页管理界面直接刷入，等几分钟路由器自动重启即可成功，一般不会出问题。
+刷了 OpenWrt 后，就可以 telnet 登录路由器了，ip 是 192.168.1.1，用户名是 root，密码为空，然后执行 passwd 修改密码。成功后 telnet 功能即被禁用，需要 ssh 登录。也可以打开浏览器，访问 http://192.</description>
+    </item>
+    
+    <item>
+      <title>用 strongSwan 搭建 IPsec IKEv2 VPN</title>
+      <link>http://m.l2d.xyz/p/2015/strongswan-ikev2-vpn/</link>
+      <pubDate>Mon, 28 Sep 2015 00:00:00 +0000</pubDate>
+      
+      <guid>http://m.l2d.xyz/p/2015/strongswan-ikev2-vpn/</guid>
+      <description>VPS 推荐: BandwagonHost
+Shadowsocks 大部分时候都能满足翻墙的需求，只是最近感觉速度有点变慢，偶尔还出现错误，不知道是不是因为墙又加高了。以防万一，需要开发其它的翻墙姿势。
+下面介绍用 strongSwan 搭建 IPsec IKEv2 VPN。服务器端是 CentOS 7，其它 Linux 发行版的话只需要做相应修改即可。客户端是 Windows 和 Android 。
+1. 安装 strongSwan A. yum 安装 直接 yum 安装的话版本可能会比较老，可以从 这里 下载编译好的 RPM 包。或者使用 testing 源安装：
+wget http://dl.fedoraproject.org/pub/epel/7/x86_64/e/epel-release-7-5.noarch.rpm rpm -Uvh epel-release-7-5.noarch.rpm yum --enablerepo=epel-testing install strongswan  这样安装后的 strongSwan 可执行文件是 /usr/sbin/strongswan，配置文件在 /etc/strongswan 下。
+B. 源码编译安装 （推荐） 推荐直接从源码安装，因为这样能用上最新版，而且编译安装极其简单方便。
+ 安装依赖包
+yum install gmp-devel openssl openssl-devel  从 strongSwan 官网 下载最新版本源代码，当前是 5.3.3，并用 md5sum 命令校验。</description>
+    </item>
+    
+  </channel>
+</rss>

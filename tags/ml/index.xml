@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Ml on 思考、记录</title>
+    <link>http://m.l2d.xyz/tags/ml/</link>
+    <description>Recent content in Ml on 思考、记录</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Mon, 28 Mar 2016 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="http://m.l2d.xyz/tags/ml/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>AUC 和 ROC</title>
+      <link>http://m.l2d.xyz/p/2016/auc-roc/</link>
+      <pubDate>Mon, 28 Mar 2016 00:00:00 +0000</pubDate>
+      
+      <guid>http://m.l2d.xyz/p/2016/auc-roc/</guid>
+      <description>AUC 是点击率预估模型的常用评价指标，一般来说，AUC 越高，点击率模型越好，当然这也不是绝对的。虽然平时用 AUC 挺多的，但是一直没有深入去研究清楚，导致前几天被人问起的时候基本没答上来，很是忏愧。
+AUC 其实是 Area Under Curve，然后这个 Curve 就是 ROC，全称是 Receiver Operating Characteristic，通常又叫做 ROC Curve。AUC 其实就是这个曲线下的面积了。AUC 有一个很重要的统计特性：AUC 值等于分类器对随机选择的正样本的预测值高于对随机选择的负样本的预测值的概率。AUC 的详细介绍和分析可以看这篇论文：An introduction to ROC analysis.
+在说 ROC 之前，先说一下二值分类器的一些常用术语。如下所示，左边是模型预测的结果，上面是实际的分类情况。
+    True Class 1 0     Prediction 1 TP FP    0 FN TN    来看下图，ROC 的横轴是 FPR (False Positive Rate)，纵轴是 TPR (True Positive Rate)，它们的定义分别如下：
+$$ FPR = \frac{FP}{FP + TN}$$ $$ TPR = \frac{TP}{TP+FN} $$ 不妨来看图中的 4 个顶点：</description>
+    </item>
+    
+    <item>
+      <title>Python 相关的数据挖掘利器</title>
+      <link>http://m.l2d.xyz/p/2016/python-data-mining/</link>
+      <pubDate>Thu, 25 Feb 2016 00:00:00 +0000</pubDate>
+      
+      <guid>http://m.l2d.xyz/p/2016/python-data-mining/</guid>
+      <description>首先需要反省一下自己，对新事物的好奇心不够强烈，很多时候都是浅尝辄止，没有深入去了解，以致错失了很多机会，也让我不能看透很多事情，很多方面不能形成自己的知识积累。是一个极大的缺点，需要改正。
+其实几年前就听说过 IPython，当时以为只是 Python 的另外一个 REPL 终端而已，没有深入去了解。
+平时工作中的数据量都很大，一般都是存储在 HDFS 上，加载到单机上比较费劲，都是用 Spark (之前用 Pig) 去分析，偶尔也会写一些一次性的 Python 脚本，有作图需求时都是把数据分析出来导入 Excel。大部分情况下这样其实还可以。
+只是最近试着参加了 kaggle 上的 Airbnb recruiting 比赛，见识到了 Python 系列工具在数据挖掘中的强大。而且也加深了对 IPython 的认识，尤其是 IPython Notebook (或者叫 Jupyter Notebook) 的强大和便捷。
+NumPy, matplotlib, xgboost 和 scikt-learn 以前也接触过，了解一些。但 Pandas, Seaborn 等还真没用过。看着别人把这些工具耍得贼熟，感觉自己像原始人一样站在一边…… 虽说用 Spark 来搞也没啥问题，但是毕竟有点麻烦。不学习一下真是说不过去，就会被别人远远地抛在后面。
+如果要用 Python 做数据分析相关工作，可以直接装 Anaconda。它打包了很多有用的库，另外可能需要单独装下 xgboost 和 seaborn（或者还有其它的包，试一下就知道）。完成这些后，基于 Python 的数据分析平台环境就搭建好了。具体 Pandas, xgboost, seaborn 等的应用可以查看各自的文档。话说 Pandas 里的 DataFrame 真是很强大，Spark 中新的 ml 库 (替换旧的 mllib) 也大量使用了 DataFrame。
+还有一个强大的工具，Jupyter Notebook.</description>
+    </item>
+    
+    <item>
+      <title>Windows 下搭建 Spark 源代码阅读环境</title>
+      <link>http://m.l2d.xyz/p/2015/win-spark-src-env/</link>
+      <pubDate>Mon, 14 Sep 2015 00:00:00 +0000</pubDate>
+      
+      <guid>http://m.l2d.xyz/p/2015/win-spark-src-env/</guid>
+      <description>用 Spark 做数据分析也有半年多了，觉得至少应该大致过一下源代码。在 Windows 下搭建环境还是有点不太方便的，把步骤记录一下。
+当然要用 Intellij IDEA (下文简称 Idea )，安装 Scala 插件。另外，也可以把 sbt 插件装上。
+首先下载 Spark 1.5.0 源代码。
+然后在 Idea 里， File -&amp;gt; New -&amp;gt; Project From Existing Source 选择 Spark 解压后的目录， Import project from external model -&amp;gt; Maven，然后一路 Next，等待处理完毕。
+视网络情况而定，不太好的话可能需要半个小时。然后就可以编译 Spark 了：Build -&amp;gt; Rebuild Project
+当然不一定成功，如果报的错误是 Error:(44, 66) not found: type SparkFlumeProtocol val 的话，做如下处理：
+View -&amp;gt; Tool Window -&amp;gt; Maven Projects 选择 Spark Project External Flume Sink， 右键 -&amp;gt; Generate Sources and Update Folders  之后一般就能编译成功了，会有很多 Warning，都可以忽略。</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>使用 Hugo 搭建静态网站</title>
+	<meta name="description" content="">
+	<meta name="generator" content="Hugo 0.40.2" />
+	<meta property="og:title" content="使用 Hugo 搭建静态网站" />
+<meta property="og:description" content="静态网站生成一般 Jekll 和 Octopress 用的比较多，但是安装部署起来很麻烦。Hugo 是用 Go 语言实现的，安装部署非常简单，一个二进制文件就能用来调试和生成网站。
+安装 Hugo 安装 Hugo 可以参考官方文档，主要有以下两种方式：
+1. 编译安装 下载安装 Go，Mercurial 和 Git
+下载 Hugo 源码并编译
+go get -u -v github.com/spf13/hugo  依赖的包都会下载到 $GOPATH/src 下，Hugo 的可执行文件在 $GOPATH/bin 下。
+2. 下载二进制可执行文件 从这里直接下载 Hugo 可执行文件
+创建网站 参考官方文档 quickstart
+如果要在 /path/to 下创建一个叫 site 的网站，需要执行的命令如下：
+hugo new site /path/to/site cd /path/to/site hugo new post/hello.md git clone --recursive https://github.com/spf13/hugoThemes themes  其中，git clone 这一步耗时很长，网络状况一般的话可能需要一个多小时…… 其实也没有必要把所有的模板都下载下来，只下载感兴趣的模板就行了。比如 hyde
+启动服务器 hugo server -t hyde -w  然后可以在浏览器里查看，比如 http://127." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://m.l2d.xyz/p/2015/hugo-howto/" />
+
+
+
+<meta property="article:published_time" content="2015-09-03T00:00:00&#43;00:00"/>
+
+<meta property="article:modified_time" content="2015-09-03T00:00:00&#43;00:00"/>
+
+
+
+
+
+
+
+
+
+
+
+	
+	<link rel="dns-prefetch" href="//fonts.googleapis.com">
+	<link rel="dns-prefetch" href="//fonts.gstatic.com">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700">
+	<link rel="stylesheet" href="/css/style.css">
+	<script type="text/javascript" src="/js/scripts.js"></script>
+	<link rel="shortcut icon" href="/favicon.ico">
+	
+<script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', 'UA-54041322-3', 'auto');
+ga('send', 'pageview');
+</script>
+<script async src='//www.google-analytics.com/analytics.js'></script>
+
+</head>
+<body class="body body-right-sidebar">
+	<div class="container container-outer">
+		<header class="header">
+			<div class="container container-inner">
+				<div class="logo" role="banner">
+					<a class="logo__link" href="/" title="思考、记录" rel="home">
+						<div class="logo__title">思考、记录</div>
+						
+					</a>
+				</div>
+			</div>
+			
+<nav class="menu">
+	<ul class="menu__list">
+		<li class="menu__item"><a class="menu__link" href="/about/">ABOUT</a></li>
+		<li class="menu__item menu__item--active"><a class="menu__link" href="/post/">POSTS</a></li>
+	</ul>
+</nav>
+
+		</header>
+		<div class="wrapper clearfix">
+
+<main class="main content">
+	<article class="post">
+		<header class="post__header">
+			<h1 class="post__title">使用 Hugo 搭建静态网站</h1><div class="post__meta meta">
+<svg class="icon icon-time" width="16" height="14" viewBox="0 0 16 16"><path d="m8-.0000003c-4.4 0-8 3.6-8 8 0 4.4000003 3.6 8.0000003 8 8.0000003 4.4 0 8-3.6 8-8.0000003 0-4.4-3.6-8-8-8zm0 14.4000003c-3.52 0-6.4-2.88-6.4-6.4000003 0-3.52 2.88-6.4 6.4-6.4 3.52 0 6.4 2.88 6.4 6.4 0 3.5200003-2.88 6.4000003-6.4 6.4000003zm.4-10.4000003h-1.2v4.8l4.16 2.5600003.64-1.04-3.6-2.1600003z"/></svg>
+<time class="post__meta-date meta-date" datetime="2015-09-03T00:00:00">2015-09-03</time></div>
+		</header>
+		<div class="post__content clearfix">
+			
+
+<p>静态网站生成一般 Jekll 和 Octopress 用的比较多，但是安装部署起来很麻烦。Hugo 是用 Go 语言实现的，安装部署非常简单，一个二进制文件就能用来调试和生成网站。</p>
+
+<h2 id="安装-hugo">安装 Hugo</h2>
+
+<p>安装 Hugo 可以参考<a href="http://gohugo.io/overview/installing/">官方文档</a>，主要有以下两种方式：</p>
+
+<h3 id="1-编译安装">1. 编译安装</h3>
+
+<p>下载安装 <a href="https://golang.org/dl/">Go</a>，<a href="https://mercurial.selenic.com/downloads">Mercurial</a> 和 <a href="https://git-scm.com/downloads">Git</a></p>
+
+<p>下载 Hugo 源码并编译</p>
+
+<pre><code>go get -u -v github.com/spf13/hugo
+</code></pre>
+
+<p>依赖的包都会下载到 <code>$GOPATH/src</code> 下，Hugo 的可执行文件在 <code>$GOPATH/bin</code> 下。</p>
+
+<h3 id="2-下载二进制可执行文件">2. 下载二进制可执行文件</h3>
+
+<p>从<a href="https://github.com/spf13/hugo/releases">这里</a>直接下载 Hugo 可执行文件</p>
+
+<h2 id="创建网站">创建网站</h2>
+
+<p>参考官方文档 <a href="http://gohugo.io/overview/quickstart/">quickstart</a></p>
+
+<p>如果要在 <code>/path/to</code> 下创建一个叫 <code>site</code> 的网站，需要执行的命令如下：</p>
+
+<pre><code>hugo new site /path/to/site
+cd /path/to/site
+hugo new post/hello.md
+git clone --recursive https://github.com/spf13/hugoThemes themes
+</code></pre>
+
+<p>其中，<code>git clone</code> 这一步耗时很长，网络状况一般的话可能需要一个多小时……
+其实也没有必要把所有的模板都下载下来，只下载感兴趣的模板就行了。比如 <a href="https://github.com/poole/hyde">hyde</a></p>
+
+<h2 id="启动服务器">启动服务器</h2>
+
+<pre><code>hugo server -t hyde -w
+</code></pre>
+
+<p>然后可以在浏览器里查看，比如 <a href="http://127.0.0.1:1313/">http://127.0.0.1:1313/</a> 。
+加上 <code>-w</code> 参数可以实时监控文件变化，刷新浏览器。</p>
+
+<p>如果要让其它电脑能访问的话，可以加上 <code>--bind</code> 参数：</p>
+
+<pre><code>hugo server -w --bind=0.0.0.0 --baseUrl=myhostname
+</code></pre>
+
+<p>其中，<code>myhostname</code> 是运行 hugo 的机器名。另外，还需要在访问的机器上修改 hosts 文件，让 myhostname 指向 hugo 机器的 ip。</p>
+
+<h2 id="发布到-github-或-bitbucket-上">发布到 Github 或 BitBucket 上</h2>
+
+<p>静态网站托管到 Github 或者 BitBucket 的好处就是不用搭建服务器，省心。步骤也比较简单：</p>
+
+<ol>
+<li>在 Github 上创建一个 名为 <code>user.github.io</code> 的 repo</li>
+<li>在 Github 上创建一个 repo，<code>git clone</code> 到本地，并且将 <code>user.github.io</code> 作为 submodule 添加，命令为： <code>git submodule add git@github.com:user/user.github.io.git public</code></li>
+<li>发布网站。可用脚本实现，具体内容如下：</li>
+</ol>
+
+<pre><code>#!/bin/bash
+echo -e &quot;\033[0;32mDeploying updates to GitHub...\033[0m&quot;
+
+now=`date +&quot;%F %T&quot;`
+msg=&quot;rebuilding site $now&quot;
+if [ $# -eq 1 ]; then msg=&quot;$1&quot;; fi
+
+rm -r public/*
+hugo
+
+cd public
+git add -A
+git commit -m &quot;$msg&quot;
+git push origin master
+
+cd ..
+git add -A
+git commit -m &quot;$msg&quot;
+git push origin master
+</code></pre>
+
+		</div>
+		
+	</article>
+	
+	
+<nav class="post-nav row clearfix">
+	<div class="post-nav__item post-nav__item--next col-1-2">
+		<a class="post-nav__link" href="/p/2015/luhn-algo/" rel="next"><span class="post-nav__caption">Next&thinsp;»</span><p class="post-nav__post-title">Luhn algorithm</p></a>
+	</div>
+</nav>
+	
+<section class="comments">
+	<div id="disqus_thread"></div>
+<script>
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "m142" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</section>
+
+</main>
+
+<aside class="sidebar">
+	
+<div class="widget-search widget">
+	<form class="widget-search__form" role="search" method="get" action="https://google.com/search">
+		<label>
+			<input class="widget-search__field" type="search" placeholder="SEARCH..." value="" name="q">
+		</label>
+		<input class="widget-search__submit" type="submit" value="Search">
+		<input type="hidden" name="sitesearch" value="http://m.l2d.xyz/" />
+	</form>
+</div>
+	
+<div class="widget-recent widget">
+	<h4 class="widget__title">Recent Posts</h4>
+	<div class="widget__content">
+		<ul class="widget__list">
+			<li class="widget__item"><a class="widget__link" href="/p/2018/pnpoly/">PNPOLY: 射线法判断点是否在多边形区域内部</a></li>
+			<li class="widget__item"><a class="widget__link" href="/p/2018/self-fulfilling-prophecy/">记录新学到的一个词——自证预言</a></li>
+			<li class="widget__item"><a class="widget__link" href="/p/2018/py-for-else/">Python 中奇特的 else</a></li>
+			<li class="widget__item"><a class="widget__link" href="/p/2018/mac-excel-recover-issue/">Mac 上 Excel 的一个恼人问题</a></li>
+			<li class="widget__item"><a class="widget__link" href="/p/2018/principles/">《原则》初读简记</a></li>
+		</ul>
+	</div>
+</div>
+	
+	
+	
+<div class="widget-taglist widget">
+	<h4 class="widget__title">Tags</h4>
+	<div class="widget__content">
+		<a class="widget-taglist__link widget__link btn" href="/tags/ad" title="Ad">Ad</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/algo" title="Algo">Algo</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/bash" title="Bash">Bash</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/c&#43;&#43;" title="C&#43;&#43;">C&#43;&#43;</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/digihome" title="Digihome">Digihome</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/go" title="Go">Go</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/mac" title="Mac">Mac</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/map" title="Map">Map</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/misc" title="Misc">Misc</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/ml" title="Ml">Ml</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/mobi" title="Mobi">Mobi</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/python" title="Python">Python</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/raspi" title="Raspi">Raspi</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/read" title="Read">Read</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/sec" title="Sec">Sec</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/spark" title="Spark">Spark</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/vpn" title="Vpn">Vpn</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/vps" title="Vps">Vps</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/yy" title="Yy">Yy</a>
+	</div>
+</div>
+</aside>
+	</div>
+		<footer class="footer">
+			<div class="container container-inner">
+				<div class="footer__copyright">&copy; 2018 思考、记录. <span class="footer__copyright-credits">Generated with <a href="https://gohugo.io/" rel="nofollow noopener" target="_blank">Hugo</a> and <a href="https://github.com/Vimux/Mainroad/" rel="nofollow noopener" target="_blank">Mainroad</a> theme.</span></div>
+			</div>
+		</footer>
+	</div>
+
+<script>
+	var navigation = responsiveNav(".menu", {
+		navClass: "menu--collapse",
+	});
+</script>
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+tex2jax: {
+inlineMath: [['$','$'], ['\\(','\\)']],
+displayMath: [['$$','$$']],
+processEscapes: true,
+processEnvironments: true,
+skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+TeX: { equationNumbers: { autoNumber: "AMS" },
+     extensions: ["AMSmath.js", "AMSsymbols.js"] }
+}
+});
+</script>
+
+</body>
+</html>

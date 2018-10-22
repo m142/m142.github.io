@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Rd on 思考、记录</title>
+    <link>http://m.l2d.xyz/categories/rd/</link>
+    <description>Recent content in Rd on 思考、记录</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Mon, 22 Oct 2018 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="http://m.l2d.xyz/categories/rd/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>PNPOLY: 射线法判断点是否在多边形区域内部</title>
+      <link>http://m.l2d.xyz/p/2018/pnpoly/</link>
+      <pubDate>Mon, 22 Oct 2018 00:00:00 +0000</pubDate>
+      
+      <guid>http://m.l2d.xyz/p/2018/pnpoly/</guid>
+      <description>最近跟地图打交道，有个问题是判断点是否在某个多边形区域内（一般都是凸多边形）。 其实之前也知道一个算法：就是以要判断的点为起点，以区域的顶点为终点作线段或直线， 遍历所有区域顶点，判断直线扫过的角度，如果是360度，说明在区域内，否则就是在区域外。
+这次学到了一个新的算法 PNPOLY，代码非常简练，如下：
+int pnpoly(int nvert, float *vertx, float *verty, float testx, float testy) { int i, j, c = 0; for (i = 0, j = nvert-1; i &amp;lt; nvert; j = i++) { if ( ((verty[i]&amp;gt;testy) != (verty[j]&amp;gt;testy)) &amp;amp;&amp;amp; (testx &amp;lt; (vertx[j]-vertx[i]) * (testy-verty[i]) / (verty[j]-verty[i]) + vertx[i]) ) c = !c; } return c; }  该算法的核心思想就是：以测试点为起点，作一条水平的射线，判断该射线与多边形区域的边的交点个数，如果为奇数个，说明在区域内，否则就在区域外。 为什么能成立呢？可以这样考虑：多边形区域（不考虑有洞的情况）将空间分成了内外两个部分，如果测试点在空间内，那么作一条射线，至少会与边有一个交点，相交后就到了区域外。 如果再有一个交点，又到了区域内，以此类推。因此奇数个交点说明在区域内， 偶数个说明在区域外。
+理解了思想，就是具体实现了。这段代码的详细解释如下：
+ for (i = 0, j = nvert-1; i &amp;lt; nvert; j = i++) 该 for 循环中 i 和 j 是区域的相邻顶点下标，这样它们就构成了一条边。 首先将 i 设置为第1个顶点， j 为最后一个顶点，每次循环后，i 往后移，j 设置为 i，这样就遍历了所有的边。 ((verty[i]&amp;gt;testy) !</description>
+    </item>
+    
+    <item>
+      <title>AUC 和 ROC</title>
+      <link>http://m.l2d.xyz/p/2016/auc-roc/</link>
+      <pubDate>Mon, 28 Mar 2016 00:00:00 +0000</pubDate>
+      
+      <guid>http://m.l2d.xyz/p/2016/auc-roc/</guid>
+      <description>AUC 是点击率预估模型的常用评价指标，一般来说，AUC 越高，点击率模型越好，当然这也不是绝对的。虽然平时用 AUC 挺多的，但是一直没有深入去研究清楚，导致前几天被人问起的时候基本没答上来，很是忏愧。
+AUC 其实是 Area Under Curve，然后这个 Curve 就是 ROC，全称是 Receiver Operating Characteristic，通常又叫做 ROC Curve。AUC 其实就是这个曲线下的面积了。AUC 有一个很重要的统计特性：AUC 值等于分类器对随机选择的正样本的预测值高于对随机选择的负样本的预测值的概率。AUC 的详细介绍和分析可以看这篇论文：An introduction to ROC analysis.
+在说 ROC 之前，先说一下二值分类器的一些常用术语。如下所示，左边是模型预测的结果，上面是实际的分类情况。
+    True Class 1 0     Prediction 1 TP FP    0 FN TN    来看下图，ROC 的横轴是 FPR (False Positive Rate)，纵轴是 TPR (True Positive Rate)，它们的定义分别如下：
+$$ FPR = \frac{FP}{FP + TN}$$ $$ TPR = \frac{TP}{TP+FN} $$ 不妨来看图中的 4 个顶点：</description>
+    </item>
+    
+    <item>
+      <title>Python 相关的数据挖掘利器</title>
+      <link>http://m.l2d.xyz/p/2016/python-data-mining/</link>
+      <pubDate>Thu, 25 Feb 2016 00:00:00 +0000</pubDate>
+      
+      <guid>http://m.l2d.xyz/p/2016/python-data-mining/</guid>
+      <description>首先需要反省一下自己，对新事物的好奇心不够强烈，很多时候都是浅尝辄止，没有深入去了解，以致错失了很多机会，也让我不能看透很多事情，很多方面不能形成自己的知识积累。是一个极大的缺点，需要改正。
+其实几年前就听说过 IPython，当时以为只是 Python 的另外一个 REPL 终端而已，没有深入去了解。
+平时工作中的数据量都很大，一般都是存储在 HDFS 上，加载到单机上比较费劲，都是用 Spark (之前用 Pig) 去分析，偶尔也会写一些一次性的 Python 脚本，有作图需求时都是把数据分析出来导入 Excel。大部分情况下这样其实还可以。
+只是最近试着参加了 kaggle 上的 Airbnb recruiting 比赛，见识到了 Python 系列工具在数据挖掘中的强大。而且也加深了对 IPython 的认识，尤其是 IPython Notebook (或者叫 Jupyter Notebook) 的强大和便捷。
+NumPy, matplotlib, xgboost 和 scikt-learn 以前也接触过，了解一些。但 Pandas, Seaborn 等还真没用过。看着别人把这些工具耍得贼熟，感觉自己像原始人一样站在一边…… 虽说用 Spark 来搞也没啥问题，但是毕竟有点麻烦。不学习一下真是说不过去，就会被别人远远地抛在后面。
+如果要用 Python 做数据分析相关工作，可以直接装 Anaconda。它打包了很多有用的库，另外可能需要单独装下 xgboost 和 seaborn（或者还有其它的包，试一下就知道）。完成这些后，基于 Python 的数据分析平台环境就搭建好了。具体 Pandas, xgboost, seaborn 等的应用可以查看各自的文档。话说 Pandas 里的 DataFrame 真是很强大，Spark 中新的 ml 库 (替换旧的 mllib) 也大量使用了 DataFrame。
+还有一个强大的工具，Jupyter Notebook.</description>
+    </item>
+    
+    <item>
+      <title>中国的地图偏移问题</title>
+      <link>http://m.l2d.xyz/p/2016/china-map-shift/</link>
+      <pubDate>Mon, 25 Jan 2016 00:00:00 +0000</pubDate>
+      
+      <guid>http://m.l2d.xyz/p/2016/china-map-shift/</guid>
+      <description>今天偶然了解到一个好玩，或者说不那么好玩，甚至让人恶心反感的事情，那就是 GPS 在地图上定位的偏移问题。
+GPS 全称是 Global Positioning System (全球定位系统)，是接收卫星的信号，计算所在位置的经纬度，这个数据一般都是没问题的。但是要在地图上显示出来，就牵涉到地图的问了。
+地图，就是将坐标映射到图像中的点上。国际标准是 WGS-84，而中国出于所谓 国家安全 的考虑，制订了 GCJ-02 标准。该标准其实就是将 WGS-84 的数据通过某种算法（数学运算）加以混淆，对每个点都加上一定量的偏移。该算法设计比较“巧妙”，偏移是非线性的，各地偏移量和便宜方向都不定，没有算法直接复原。
+但是实际上，这种做法除了恶心自己人以外，基本没有任何作用。首先，由于有很多地方（民用）需要用到真实的地图坐标，因此混淆算法的泄露是必然的，代码见 这里。既然已经有算法了，以广大人民的无穷智慧，相应的从 GCJ-02 到 WGS-84 的复原算法也就出来了，代码见 这里。
+由于有这项规定在，国内合法公开的地图数据都是加过偏移的，如果使用原始的 GPS 数据，那肯定会造成偏移。但是大家又需要有正确的数据进行导航，因此导航软件会对 GPS 和地图数据做处理，尽量修复偏移。也就是说，这项 SB 规定除了让某些部门中饱私囊，恶心自己人，阻碍生产力发展外，没有任何用处。对国家安全其实起不到任何保护作用。
+类似的还有厂商在产品中内置加密后门，以达到某些目的。这种行为其实就是在安全领域干着明知不安全的事情。对此，无话可说。</description>
+    </item>
+    
+    <item>
+      <title>数据库中如何保存密码</title>
+      <link>http://m.l2d.xyz/p/2015/how-to-store-password-in-db/</link>
+      <pubDate>Thu, 26 Nov 2015 00:00:00 +0000</pubDate>
+      
+      <guid>http://m.l2d.xyz/p/2015/how-to-store-password-in-db/</guid>
+      <description>网站开发一般都会涉及到数据库设计，而数据库设计大多数情况都会涉及到密码的保存。近几年发生过多起网站用户信息泄露事件：CSDN 用户账号及明文密码泄露，网易邮箱过亿用户数据泄露 等等。通过这些事件，大家对网络安全也越来越重视，而信息安全中最重要的一项就是密码，用户如何选择密码和保存密码是另外一个话题，本文主要探讨服务器端（网站）是如何保存密码的。
+下面首先介绍三种安全性较差（不推荐）的保存方法，然后介绍安全性较好（推荐）的保存方法。
+安全性较差 1. 明文保存 最简单的处理方式就是不做处理，用户密码是什么就保存什么。
+CSDN 事件中，官方声明泄露的数据是 2009 年的备份数据库。如果账号是在 2009 年之后注册的，那么就没有遭到泄露，而在那之前的则都泄露了。这就说明在 2009 年数据库备份之前，CSDN 的网站数据库中是把用户密码保存成明文的。
+明文保存当然是最不安全的，尤其是很多人同一个密码会用在多个网站上。而类似 CSDN 这样泄露的数据就会被人利用做成社工库，比如 这个 和 这个 。
+现在的数据库中绝对不应该保存明文密码！
+2. 加密保存 如无特别说明，本文所指的加密都是指可逆加密，如 AES, RSA 等算法的加密方式。
+有时候，为了某些特殊的原因，网站可能需要知道用户的明文密码。但是为了降低密码泄露的风险，会对密码做加密然后保存。在有需要的时候，再将保存的数据解密得到明文密码。
+相对于明文保存，这种方法看起来更安全。但实际上，安全性并没有提高多少。因为，现在安全的中心在于保护加密密钥的安全，一旦加密方法和加密密钥泄露出去了，数据库中加密后的密码就和明文无异了，所以这种方法只不过是将安全性转移了而已，除了为达到某些特殊的目的之外，并没有多大用处。
+根据网上公开的信息，很少看到有采用这种方法的。
+3. 简单哈希保存 相比前两种而言，这种方式在安全性上有很大的提升。因为一般来说哈希是不可逆的，所以即便拿到了数据库中的数据，从哈希值倒推回明文密码的可能性也是很小的。但是这并不意味着绝对安全，因为有其它方式可以破解出明文密码来。
+在实际的使用中，主要有两种不同的使用方法：只对明文密码做哈希；在明文密码上加 盐 ，再做哈希。很显然后一种方法的安全性较高。
+哈希方法的专业称呼是 KDF: Key Derivation Function。下面根据哈希算法的不同，分别介绍。
+3.1 MD5 在早期的网站设计中，由于 MD5 速度快，并且没有出现相应的攻击方法，因此应用最为广泛。然而，速度快是它的优点也是它的最大缺点。因为只需要构造一个表，把常见密码及其对应的 MD5 值保存下来，碰到 MD5 后的密码值，很容易查到原始的明文密码，尤其是在没有加盐或者盐比较简单的情况下。
+现在已经有一些网站提供查找 MD5 对应的原始串的服务，比如 https://crackstation.net/ , http://md5decrypt.net/en/ , https://isc.sans.edu/tools/reversehash.html 等。它们的原理其实就是维护 彩虹表 。比如输入 7cbb3252ba6b7e9c422fac5334d22054 查询出来的原始串是 q1w2e3 ，这也是很常见的一个密码。</description>
+    </item>
+    
+    <item>
+      <title>入手树莓派 Raspberry Pi 2 Model B</title>
+      <link>http://m.l2d.xyz/p/2015/raspberrypi-my-1st/</link>
+      <pubDate>Sat, 21 Nov 2015 00:00:00 +0000</pubDate>
+      
+      <guid>http://m.l2d.xyz/p/2015/raspberrypi-my-1st/</guid>
+      <description>近期入手了 树莓派 2 Model B，配件加了16G Micro SD 卡、透明外壳和风扇。电源可以用安卓手机的充电器，或者用USB Hub 加上一根Micro USB 线。打算再从退役的笔记本上拆下硬盘来接上，搭建简易的家用 NAS。
+如果比较熟悉 Linux 的相关操作，可以不用外接显示器、键盘、鼠标等。直接在 SD 卡中写入系统，插入树莓派，再给树莓派插上网线，连到路由器上，找到 ip，ssh 登录即可。如果不太熟悉的话，还是建议外接显示器来操作。
+安装系统 这里 列举了树莓派能用的系统，我用的是 Raspbian。需要首先下载镜像 Raspbian Wheezy，然后根据文档将镜像解压并写入 SD 卡。比如对于 Windows 系统，按照官方文档步骤一步步操作即可。
+将 SD 卡插入树莓派，给树莓派接上电源，用网线连接路由器，然后再路由器的管理界面查看树莓派的 ip，ssh 登录即可。Windows 下可以用 putty 或者 xshell，推荐xshell。如果用 xshell 的话，可能会报 找不到匹配的 outgoing encryption 算法 这个错，这时需要修改连接的属性，在 连接 -&amp;gt; SSH -&amp;gt; 安全性 配置页面，点击 加密 右边的 编辑 按钮，勾选上 aes192-ctr, aes128-ctr 和 aes-256-ctr 这几项，如下图所示。
+登录用户名和密码分别是 pi 和 raspberry 。
+系统配置 修改源 系统默认是使用 raspbian.</description>
+    </item>
+    
+    <item>
+      <title>Python 列表乘运算的一个陷阱</title>
+      <link>http://m.l2d.xyz/p/2015/python-list-multiplication-pitfall/</link>
+      <pubDate>Tue, 22 Sep 2015 00:00:00 +0000</pubDate>
+      
+      <guid>http://m.l2d.xyz/p/2015/python-list-multiplication-pitfall/</guid>
+      <description>先来看下面这段代码：
+a = [[]] * 2 a[0].append(1)  也许你期望 a = [[1], []]，然而，实际上 a = [[1], [1]]。
+为了进一步分析原因，可以把 a 中每个元素的 id 打印出来：
+a = [[]] * 2 print [id(x) for x in a] a[0].append(1) print [id(x) for x in a]  一种可能的输出结果是：
+[140596116844416, 140596116844416] [140596116844416, 140596116844416]  可以发现，a[0] 和 a[1] 的 id 在修改 a[0] 前后都是一样的，也就是说，它们是对同一个对象的引用，修改 a[0] 同时也就修改了 a[1]。
+不过这样说也不完全对，不妨来看下面这段代码：
+a = [1] * 3 print [id(x) for x in a] print a a[0] += 1 print [id(x) for x in a] print a  可能的输出结果是：</description>
+    </item>
+    
+    <item>
+      <title>Go 和 C/C&#43;&#43; 的运算符优先级问题</title>
+      <link>http://m.l2d.xyz/p/2015/go-cpp-op-precedence/</link>
+      <pubDate>Wed, 16 Sep 2015 00:00:00 +0000</pubDate>
+      
+      <guid>http://m.l2d.xyz/p/2015/go-cpp-op-precedence/</guid>
+      <description>一般都是把 Go 看成是现代化的 C，在 C 的基础上做了很多改进，语法更简单，很多语句也更优美了（比如 for）。但是也埋下了一些坑，不注意就会踩到，比如下面的这个运算符优先级的问题。
+这个坑是在写加解密算法的时候碰到的，代码类似 这两行，如下：
+v0 += ((v1 &amp;lt;&amp;lt; 4) + k0) ^ (v1 + sum) ^ ((v1 &amp;gt;&amp;gt; 5) + k1) v1 += ((v0 &amp;lt;&amp;lt; 4) + k2) ^ (v0 + sum) ^ ((v0 &amp;gt;&amp;gt; 5) + k3)  上面的两行代码是正确的，忘了当初是忘记加哪个括号了，当时检查代码好久都没发现问题，直到后来一点点加上括号才找出问题来：原来在 Go 里，+ - 和 ^ 的优先级是一样的，而在 C/C++ 里，+ - 的优先级要高于 ^。
+其实也不用举这么复杂的例子，下面的简单例子就可以说明问题了：
+3 * 2 &amp;lt;&amp;lt; 3 * 2  在 Go 里 结果是 ((3 * 2) &amp;lt;&amp;lt; 3) * 2 = 96，而在 C/C++， 以及 Python 里，结果却是 (3*2) &amp;lt;&amp;lt; (3*2) = 384。</description>
+    </item>
+    
+    <item>
+      <title>Windows 下搭建 Spark 源代码阅读环境</title>
+      <link>http://m.l2d.xyz/p/2015/win-spark-src-env/</link>
+      <pubDate>Mon, 14 Sep 2015 00:00:00 +0000</pubDate>
+      
+      <guid>http://m.l2d.xyz/p/2015/win-spark-src-env/</guid>
+      <description>用 Spark 做数据分析也有半年多了，觉得至少应该大致过一下源代码。在 Windows 下搭建环境还是有点不太方便的，把步骤记录一下。
+当然要用 Intellij IDEA (下文简称 Idea )，安装 Scala 插件。另外，也可以把 sbt 插件装上。
+首先下载 Spark 1.5.0 源代码。
+然后在 Idea 里， File -&amp;gt; New -&amp;gt; Project From Existing Source 选择 Spark 解压后的目录， Import project from external model -&amp;gt; Maven，然后一路 Next，等待处理完毕。
+视网络情况而定，不太好的话可能需要半个小时。然后就可以编译 Spark 了：Build -&amp;gt; Rebuild Project
+当然不一定成功，如果报的错误是 Error:(44, 66) not found: type SparkFlumeProtocol val 的话，做如下处理：
+View -&amp;gt; Tool Window -&amp;gt; Maven Projects 选择 Spark Project External Flume Sink， 右键 -&amp;gt; Generate Sources and Update Folders  之后一般就能编译成功了，会有很多 Warning，都可以忽略。</description>
+    </item>
+    
+    <item>
+      <title>密码学基础简介</title>
+      <link>http://m.l2d.xyz/p/2015/crypt-intro/</link>
+      <pubDate>Fri, 11 Sep 2015 00:00:00 +0000</pubDate>
+      
+      <guid>http://m.l2d.xyz/p/2015/crypt-intro/</guid>
+      <description>某天下午公司几个开发为一个接口的某个字段的安全性争论很久，为到底是用 AES 还是 MD5 还是 SHA1 争论，为 Java 和 Go 的 AES 加密结果为何不同调试很久……
+其实这也没啥，如果没有系统地学过或了解过密码学的相关知识，这些概念以及实际的开发是会遇到问题。下面就来简单介绍密码学的基础知识，大部分内容都是来自 Computer Networks (5th Edition) ，所以看书是最好的选择。
+不妨来看开发人员对 AES 和 MD5 的争论，其实这俩根本就不是一个东西。AES 是加密算法，而 MD5 是消息摘要算法，用途都是不一样的。因此首先来把密码学分成两类：加密和数字签名。
+1 加密 加解密是密码学的核心。加密是将明文用算法和密钥加密成密文，解密是将密文用算法和密钥还原明文。为了抵抗密码分析，通常要求加密算法比较固定，但是密钥经常改变，因此衍生出 Kerckhoff&#39;s principle ： 所有的算法都应该是公开的，只有密钥需要保密。
+另外，密码学的两条基础原则是：
+ 冗余性。密文应该含有一定的冗余，以便接收方能检查密文的合法性。 时效性。要能抵御重放攻击。  加密算法主要分为两类：对称密钥加密和公钥加密。
+1.1 对称密钥加密 顾名思义，对称密钥加密指的是加密和解密的密钥是相同的，这就要求加解密双方首先安全地传递密钥。常见的算法主要有：
+ DES (Data Encryption Standard) Triple DES (EDE, Encrypt Decrypt Encrypt) AES (Advanced Encryption Standard) - Rijndael  其中，AES 是 NIST 邀请全世界的专家来设计的加密标准，被选中的算法是 Rijndael，但是通常大家都称之为 AES 。当时的主要竞争者有 Twofish 和 Serpent，Rijndael 虽然加密强度不是最高的，但是实现简单，速度最快，可扩展性等指标都表现较好，综合考虑评价最优，因此被选中。这几个算法的比较可以参考 这个文档。</description>
+    </item>
+    
+    <item>
+      <title>移动平台的用户标识</title>
+      <link>http://m.l2d.xyz/p/2015/mobi-ids/</link>
+      <pubDate>Wed, 09 Sep 2015 00:00:00 +0000</pubDate>
+      
+      <guid>http://m.l2d.xyz/p/2015/mobi-ids/</guid>
+      <description>在 PC 平台上，一般是用 cookie 识别用户，更进一步（流氓）的有 evercookie，如果用户禁用了 cookie，还可以用浏览器的指纹。这些方法一般都能较准确地识别用户，目前 PC 上看到的个性化广告一般都是基于以上几种方法。
+到了移动平台上，情况就大不一样了。首先，第三方 cookie 一般默认是禁用的，然后，cookie 在 in-app 的广告中是没法取到的。这就要求换一种方法。
+iOS 平台上情况相对简单，目前 app 都能获得 IDFA (identifier for advertisers)，所以一般都是靠 IDFA 来识别用户的。但是需要注意的是，在设置里，用户可以重置 IDFA，让自己对外看起来是一个全新的用户。
+Android 平台则相对混乱得多。虽然 Google 提供了 Advertising ID，但是在国内的众多发行版中，Google 服务一般是被阉割的，所以自然没用。其它的有 Android ID，MAC， Device ID 等。stackoverflow 上的这个问题 提供了详细的解答：
+ 调用 TelephonyManager.getDeviceId() 总会返回一个值 带 SIM 卡的 GSM 设备调用 TelephonyManager.getSimSerialNumber() 会返回一个值 所有 CDMA 设备调用 TelephonyManager.getSimSerialNumber() 会返回空值 添加了 Google 账户的设备能取到 ANDROID_ID 添加了 Google 账户的 CDMA 设备 取到的 ANDROID_ID 和调用 TelephonyManager.getDeviceId() 取到的值是相同的  理论上来说 Android ID 是最好的选择，它可以通过下面的代码获取：</description>
+    </item>
+    
+    <item>
+      <title>Luhn algorithm</title>
+      <link>http://m.l2d.xyz/p/2015/luhn-algo/</link>
+      <pubDate>Mon, 07 Sep 2015 00:00:00 +0000</pubDate>
+      
+      <guid>http://m.l2d.xyz/p/2015/luhn-algo/</guid>
+      <description>身份证号大家都很熟悉，最后的校验位可能取值是 0-9 和 X，其中的 X 一直被大家吐槽的比较多。根据维基百科上的描述，最后的校验位采用的是 ISO 7064:1983,MOD 11-2 算法，由于是模 11，所以有 10 个可能的取值，以 X 代替校验码 10。这其实给身份证号的数据库设计之类的带来挺多麻烦的，明明用数字就能解决的，非得还要加上字母 X。
+当年为什么采用 MOD 11-2 算法我们不得而知。但不妨来看相关历史，身份证是 1984 年之后才出现的，也就是说，这个算法是在 1984 年之后才选择的，那个年代有没有出现更合适的算法呢？
+今天研究手机的 IMEI 号，发现了 Luhn 算法。这是一个模 10 的算法，所有位数都是数字，被广泛用在信用卡，手机 IMEI 号等的校验位上。这个算法是 IBM 的科学家 Hans Peter Luhn 在 1954 年发明的，1960 年被授予专利。专利过期后该算法被广泛采用，并由 ISO/IEC 7812-1 所描述。
+Luhn 算法对校验位的计算过程是这样的：
+ 将 0 添加到待校验的数最后（将校验位设为 0 ）。从最后一位（校验位）向左，将 2, 4, 6 等偶数位的数字乘 2，如果结果大于9，那么将它的两个数字相加（例如，原始数字是 8，乘 2 后是 16，需要改写成 7） 对所有数字求和 将上一步计算的和模 10，假设结果是 x，如果 x 等于 0，则校验位是 0；否则，校验位是 10-x  Python 代码如下所示，来自这里。</description>
+    </item>
+    
+  </channel>
+</rss>

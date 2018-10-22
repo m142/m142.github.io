@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>数据库中如何保存密码</title>
+	<meta name="description" content="">
+	<meta name="generator" content="Hugo 0.40.2" />
+	<meta property="og:title" content="数据库中如何保存密码" />
+<meta property="og:description" content="网站开发一般都会涉及到数据库设计，而数据库设计大多数情况都会涉及到密码的保存。近几年发生过多起网站用户信息泄露事件：CSDN 用户账号及明文密码泄露，网易邮箱过亿用户数据泄露 等等。通过这些事件，大家对网络安全也越来越重视，而信息安全中最重要的一项就是密码，用户如何选择密码和保存密码是另外一个话题，本文主要探讨服务器端（网站）是如何保存密码的。
+下面首先介绍三种安全性较差（不推荐）的保存方法，然后介绍安全性较好（推荐）的保存方法。
+安全性较差 1. 明文保存 最简单的处理方式就是不做处理，用户密码是什么就保存什么。
+CSDN 事件中，官方声明泄露的数据是 2009 年的备份数据库。如果账号是在 2009 年之后注册的，那么就没有遭到泄露，而在那之前的则都泄露了。这就说明在 2009 年数据库备份之前，CSDN 的网站数据库中是把用户密码保存成明文的。
+明文保存当然是最不安全的，尤其是很多人同一个密码会用在多个网站上。而类似 CSDN 这样泄露的数据就会被人利用做成社工库，比如 这个 和 这个 。
+现在的数据库中绝对不应该保存明文密码！
+2. 加密保存 如无特别说明，本文所指的加密都是指可逆加密，如 AES, RSA 等算法的加密方式。
+有时候，为了某些特殊的原因，网站可能需要知道用户的明文密码。但是为了降低密码泄露的风险，会对密码做加密然后保存。在有需要的时候，再将保存的数据解密得到明文密码。
+相对于明文保存，这种方法看起来更安全。但实际上，安全性并没有提高多少。因为，现在安全的中心在于保护加密密钥的安全，一旦加密方法和加密密钥泄露出去了，数据库中加密后的密码就和明文无异了，所以这种方法只不过是将安全性转移了而已，除了为达到某些特殊的目的之外，并没有多大用处。
+根据网上公开的信息，很少看到有采用这种方法的。
+3. 简单哈希保存 相比前两种而言，这种方式在安全性上有很大的提升。因为一般来说哈希是不可逆的，所以即便拿到了数据库中的数据，从哈希值倒推回明文密码的可能性也是很小的。但是这并不意味着绝对安全，因为有其它方式可以破解出明文密码来。
+在实际的使用中，主要有两种不同的使用方法：只对明文密码做哈希；在明文密码上加 盐 ，再做哈希。很显然后一种方法的安全性较高。
+哈希方法的专业称呼是 KDF: Key Derivation Function。下面根据哈希算法的不同，分别介绍。
+3.1 MD5 在早期的网站设计中，由于 MD5 速度快，并且没有出现相应的攻击方法，因此应用最为广泛。然而，速度快是它的优点也是它的最大缺点。因为只需要构造一个表，把常见密码及其对应的 MD5 值保存下来，碰到 MD5 后的密码值，很容易查到原始的明文密码，尤其是在没有加盐或者盐比较简单的情况下。
+现在已经有一些网站提供查找 MD5 对应的原始串的服务，比如 https://crackstation.net/ , http://md5decrypt.net/en/ , https://isc.sans.edu/tools/reversehash.html 等。它们的原理其实就是维护 彩虹表 。比如输入 7cbb3252ba6b7e9c422fac5334d22054 查询出来的原始串是 q1w2e3 ，这也是很常见的一个密码。" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://m.l2d.xyz/p/2015/how-to-store-password-in-db/" />
+
+
+
+<meta property="article:published_time" content="2015-11-26T00:00:00&#43;00:00"/>
+
+<meta property="article:modified_time" content="2015-11-26T00:00:00&#43;00:00"/>
+
+
+
+
+
+
+
+
+
+
+
+	
+	<link rel="dns-prefetch" href="//fonts.googleapis.com">
+	<link rel="dns-prefetch" href="//fonts.gstatic.com">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700">
+	<link rel="stylesheet" href="/css/style.css">
+	<script type="text/javascript" src="/js/scripts.js"></script>
+	<link rel="shortcut icon" href="/favicon.ico">
+	
+<script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', 'UA-54041322-3', 'auto');
+ga('send', 'pageview');
+</script>
+<script async src='//www.google-analytics.com/analytics.js'></script>
+
+</head>
+<body class="body body-right-sidebar">
+	<div class="container container-outer">
+		<header class="header">
+			<div class="container container-inner">
+				<div class="logo" role="banner">
+					<a class="logo__link" href="/" title="思考、记录" rel="home">
+						<div class="logo__title">思考、记录</div>
+						
+					</a>
+				</div>
+			</div>
+			
+<nav class="menu">
+	<ul class="menu__list">
+		<li class="menu__item"><a class="menu__link" href="/about/">ABOUT</a></li>
+		<li class="menu__item menu__item--active"><a class="menu__link" href="/post/">POSTS</a></li>
+	</ul>
+</nav>
+
+		</header>
+		<div class="wrapper clearfix">
+
+<main class="main content">
+	<article class="post">
+		<header class="post__header">
+			<h1 class="post__title">数据库中如何保存密码</h1><div class="post__meta meta">
+<svg class="icon icon-time" width="16" height="14" viewBox="0 0 16 16"><path d="m8-.0000003c-4.4 0-8 3.6-8 8 0 4.4000003 3.6 8.0000003 8 8.0000003 4.4 0 8-3.6 8-8.0000003 0-4.4-3.6-8-8-8zm0 14.4000003c-3.52 0-6.4-2.88-6.4-6.4000003 0-3.52 2.88-6.4 6.4-6.4 3.52 0 6.4 2.88 6.4 6.4 0 3.5200003-2.88 6.4000003-6.4 6.4000003zm.4-10.4000003h-1.2v4.8l4.16 2.5600003.64-1.04-3.6-2.1600003z"/></svg>
+<time class="post__meta-date meta-date" datetime="2015-11-26T00:00:00">2015-11-26</time>
+<span class="post__meta-categories meta-categories">
+	<svg class="icon icon-category" width="16" height="16" viewBox="0 0 16 16"><path d="m7 2l1 2h8v11h-16v-13z"/></svg>
+	<span class="meta-categories__list"><a class="meta-categories__link" href="/categories/rd" rel="category">rd</a></span>
+</span></div>
+		</header>
+		<div class="post__content clearfix">
+			
+
+<p>网站开发一般都会涉及到数据库设计，而数据库设计大多数情况都会涉及到密码的保存。近几年发生过多起网站用户信息泄露事件：<a href="https://zh.wikipedia.org/wiki/CSDN#.E7.94.A8.E6.88.B6.E8.B3.87.E6.96.99.E6.B4.A9.E9.9C.B2.E4.BA.8B.E4.BB.B6">CSDN 用户账号及明文密码泄露</a>，<a href="http://www.wooyun.org/bugs/wooyun-2015-0147763">网易邮箱过亿用户数据泄露</a> 等等。通过这些事件，大家对网络安全也越来越重视，而信息安全中最重要的一项就是密码，用户如何选择密码和保存密码是另外一个话题，本文主要探讨服务器端（网站）是如何保存密码的。</p>
+
+<p>下面首先介绍三种安全性较差（不推荐）的保存方法，然后介绍安全性较好（推荐）的保存方法。</p>
+
+<h1 id="安全性较差">安全性较差</h1>
+
+<h2 id="1-明文保存">1. 明文保存</h2>
+
+<p>最简单的处理方式就是不做处理，用户密码是什么就保存什么。</p>
+
+<p>CSDN 事件中，官方声明泄露的数据是 2009 年的备份数据库。如果账号是在 2009 年之后注册的，那么就没有遭到泄露，而在那之前的则都泄露了。这就说明在 2009 年数据库备份之前，CSDN 的网站数据库中是把用户密码保存成明文的。</p>
+
+<p>明文保存当然是最不安全的，尤其是很多人同一个密码会用在多个网站上。而类似 CSDN 这样泄露的数据就会被人利用做成社工库，比如 <a href="http://www.haisuyy.cn/">这个</a> 和 <a href="http://www.findmima.com/">这个</a> 。</p>
+
+<p>现在的数据库中绝对不应该保存明文密码！</p>
+
+<h2 id="2-加密保存">2. 加密保存</h2>
+
+<p>如无特别说明，本文所指的加密都是指可逆加密，如 AES, RSA 等算法的加密方式。</p>
+
+<p>有时候，为了某些特殊的原因，网站可能需要知道用户的明文密码。但是为了降低密码泄露的风险，会对密码做加密然后保存。在有需要的时候，再将保存的数据解密得到明文密码。</p>
+
+<p>相对于明文保存，这种方法看起来更安全。但实际上，安全性并没有提高多少。因为，现在安全的中心在于保护加密密钥的安全，一旦加密方法和加密密钥泄露出去了，数据库中加密后的密码就和明文无异了，所以这种方法只不过是将安全性转移了而已，除了为达到某些特殊的目的之外，并没有多大用处。</p>
+
+<p>根据网上公开的信息，很少看到有采用这种方法的。</p>
+
+<h2 id="3-简单哈希保存">3. 简单哈希保存</h2>
+
+<p>相比前两种而言，这种方式在安全性上有很大的提升。因为一般来说哈希是不可逆的，所以即便拿到了数据库中的数据，从哈希值倒推回明文密码的可能性也是很小的。但是这并不意味着绝对安全，因为有其它方式可以破解出明文密码来。</p>
+
+<p>在实际的使用中，主要有两种不同的使用方法：只对明文密码做哈希；在明文密码上加 <a href="https://en.wikipedia.org/wiki/Salt_%28cryptography%29">盐</a> ，再做哈希。很显然后一种方法的安全性较高。</p>
+
+<p>哈希方法的专业称呼是 <a href="https://en.wikipedia.org/wiki/Key_derivation_function">KDF: Key Derivation Function</a>。下面根据哈希算法的不同，分别介绍。</p>
+
+<h3 id="3-1-md5">3.1 MD5</h3>
+
+<p>在早期的网站设计中，由于 MD5 速度快，并且没有出现相应的攻击方法，因此应用最为广泛。然而，速度快是它的优点也是它的最大缺点。因为只需要构造一个表，把常见密码及其对应的 MD5 值保存下来，碰到 MD5 后的密码值，很容易查到原始的明文密码，尤其是在没有加盐或者盐比较简单的情况下。</p>
+
+<p>现在已经有一些网站提供查找 MD5 对应的原始串的服务，比如 <a href="https://crackstation.net/">https://crackstation.net/</a> , <a href="http://md5decrypt.net/en/">http://md5decrypt.net/en/</a> , <a href="https://isc.sans.edu/tools/reversehash.html">https://isc.sans.edu/tools/reversehash.html</a> 等。它们的原理其实就是维护 <a href="https://en.wikipedia.org/wiki/Rainbow_table">彩虹表</a> 。比如输入 7cbb3252ba6b7e9c422fac5334d22054 查询出来的原始串是 q1w2e3 ，这也是很常见的一个密码。</p>
+
+<p>彩虹表的存在让针对 MD5 存储密码的方法变得不再安全，随着计算速度的快速提高，攻击方法的提高，针对 MD5 的攻击越来越容易，因此在现代的系统中，是不应该出现只用 MD5 对（加盐）密码做哈希的设计。关于彩虹表的介绍和下载见 <a href="http://www.project-rainbowcrack.com/">RainbowCrack</a> 。</p>
+
+<h3 id="3-2-sha1-sha256-等">3.2 SHA1, SHA256 等</h3>
+
+<p>由于 MD5 的安全性较差，因此有用 SHA1, SHA256 等更安全的算法来代替 MD5。其实在安全性上，这些方法比 MD5 其实并没有高出很多来，因为彩虹表仍然是离线生成的，只是所需时间比 MD5 多点而已，因此在现代的系统中仍然不能只使用 SHA1 或 SHA256 等摘要算法来（加盐）对密码做哈希再保存。</p>
+
+<h1 id="安全性较好">安全性较好</h1>
+
+<h2 id="1-pbkdf2">1. PBKDF2</h2>
+
+<p>PBKDF2 的全称是 <em>Password-Based Key Derivation Function 2</em> ，详细介绍可以见 <a href="https://en.wikipedia.org/wiki/PBKDF2">wiki</a>。
+它的做法是将密码加盐后做很多遍哈希，比如 1000 次，这样就将破解难度提高了 3 个数量级。但是如果使用 <a href="https://en.wikipedia.org/wiki/ASIC">ASIC</a> 或者 GPU 的话，能大大降低破解难度。此外，ASIC 在比特币挖矿中得到了广泛的应用，目前，比特币挖矿基本都是 ASIC 的天下，GPU 都没有多少市场了。</p>
+
+<h2 id="2-bcrypt">2. bcrypt</h2>
+
+<p>bcrypt 的详细介绍见 <a href="https://en.wikipedia.org/wiki/Bcrypt">wiki</a> 。BSD 和一些 Linux 系统 （比如 SUSE Linux）就是用它来储存密码的。<code>/etc/shadow</code> 文件中密码那一项如果是以 <code>$2a$</code>, <code>$2b$</code> 或者 <code>$2y$</code> 开头的话，就说明是用 bcrypt 加密的。</p>
+
+<h2 id="3-scrypt">3. scrypt</h2>
+
+<p>由于使用专门硬件（比如 ASIC）能大大降低密码破解的难度，<a href="https://en.wikipedia.org/wiki/Bcrypt">scrypt</a> 就应运而生了。原始的论文见 <a href="http://www.tarsnap.com/scrypt/scrypt.pdf">这里</a>。</p>
+
+<p>科学和技术的进步总是很快的，现在看起来安全的方法也许几年后就会变得不再安全，因此在设计系统时，需要考虑扩展性，以便以后能平滑升级到更安全的加密方法。没有永远和绝对的安全，只有好的设计和跟上时代发展的技术的使用，才是安全的。</p>
+
+		</div>
+		
+<div class="post__tags tags clearfix">
+	<svg class="icon icon-tag" width="16" height="16" viewBox="0 0 16 16"><path d="M16 9.5c0 .373-.24.74-.5 1l-5 5c-.275.26-.634.5-1 .5-.373 0-.74-.24-1-.5L1 8a2.853 2.853 0 0 1-.7-1C.113 6.55 0 5.973 0 5.6V1.4C0 1.034.134.669.401.401.67.134 1.034 0 1.4 0h4.2c.373 0 .95.113 1.4.3.45.187.732.432 1 .7l7.5 7.502c.26.274.5.632.5.998zM3.5 5a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3z"/></svg>
+	<ul class="tags__list">
+		<li class="tags__item"><a class="tags__link btn" href="/tags/sec/" rel="tag">sec</a></li>
+	</ul>
+</div>
+	</article>
+	
+	
+<nav class="post-nav row clearfix">
+	<div class="post-nav__item post-nav__item--prev col-1-2">
+		<a class="post-nav__link" href="/p/2015/openwrt-ddns/" rel="prev"><span class="post-nav__caption">«&thinsp;Previous</span><p class="post-nav__post-title">路由器配置 DDNS</p></a>
+	</div>
+	<div class="post-nav__item post-nav__item--next col-1-2">
+		<a class="post-nav__link" href="/p/2015/entropy-delusion/" rel="next"><span class="post-nav__caption">Next&thinsp;»</span><p class="post-nav__post-title">关于熵的一点胡思乱想</p></a>
+	</div>
+</nav>
+	
+<section class="comments">
+	<div id="disqus_thread"></div>
+<script>
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "m142" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</section>
+
+</main>
+
+<aside class="sidebar">
+	
+<div class="widget-search widget">
+	<form class="widget-search__form" role="search" method="get" action="https://google.com/search">
+		<label>
+			<input class="widget-search__field" type="search" placeholder="SEARCH..." value="" name="q">
+		</label>
+		<input class="widget-search__submit" type="submit" value="Search">
+		<input type="hidden" name="sitesearch" value="http://m.l2d.xyz/" />
+	</form>
+</div>
+	
+<div class="widget-recent widget">
+	<h4 class="widget__title">Recent Posts</h4>
+	<div class="widget__content">
+		<ul class="widget__list">
+			<li class="widget__item"><a class="widget__link" href="/p/2018/pnpoly/">PNPOLY: 射线法判断点是否在多边形区域内部</a></li>
+			<li class="widget__item"><a class="widget__link" href="/p/2018/self-fulfilling-prophecy/">记录新学到的一个词——自证预言</a></li>
+			<li class="widget__item"><a class="widget__link" href="/p/2018/py-for-else/">Python 中奇特的 else</a></li>
+			<li class="widget__item"><a class="widget__link" href="/p/2018/mac-excel-recover-issue/">Mac 上 Excel 的一个恼人问题</a></li>
+			<li class="widget__item"><a class="widget__link" href="/p/2018/principles/">《原则》初读简记</a></li>
+		</ul>
+	</div>
+</div>
+	
+	
+	
+<div class="widget-taglist widget">
+	<h4 class="widget__title">Tags</h4>
+	<div class="widget__content">
+		<a class="widget-taglist__link widget__link btn" href="/tags/ad" title="Ad">Ad</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/algo" title="Algo">Algo</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/bash" title="Bash">Bash</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/c&#43;&#43;" title="C&#43;&#43;">C&#43;&#43;</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/digihome" title="Digihome">Digihome</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/go" title="Go">Go</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/mac" title="Mac">Mac</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/map" title="Map">Map</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/misc" title="Misc">Misc</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/ml" title="Ml">Ml</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/mobi" title="Mobi">Mobi</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/python" title="Python">Python</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/raspi" title="Raspi">Raspi</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/read" title="Read">Read</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/sec" title="Sec">Sec</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/spark" title="Spark">Spark</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/vpn" title="Vpn">Vpn</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/vps" title="Vps">Vps</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/yy" title="Yy">Yy</a>
+	</div>
+</div>
+</aside>
+	</div>
+		<footer class="footer">
+			<div class="container container-inner">
+				<div class="footer__copyright">&copy; 2018 思考、记录. <span class="footer__copyright-credits">Generated with <a href="https://gohugo.io/" rel="nofollow noopener" target="_blank">Hugo</a> and <a href="https://github.com/Vimux/Mainroad/" rel="nofollow noopener" target="_blank">Mainroad</a> theme.</span></div>
+			</div>
+		</footer>
+	</div>
+
+<script>
+	var navigation = responsiveNav(".menu", {
+		navClass: "menu--collapse",
+	});
+</script>
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+tex2jax: {
+inlineMath: [['$','$'], ['\\(','\\)']],
+displayMath: [['$$','$$']],
+processEscapes: true,
+processEnvironments: true,
+skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+TeX: { equationNumbers: { autoNumber: "AMS" },
+     extensions: ["AMSmath.js", "AMSsymbols.js"] }
+}
+});
+</script>
+
+</body>
+</html>

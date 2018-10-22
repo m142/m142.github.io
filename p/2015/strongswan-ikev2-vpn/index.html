@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>用 strongSwan 搭建 IPsec IKEv2 VPN</title>
+	<meta name="description" content="">
+	<meta name="generator" content="Hugo 0.40.2" />
+	<meta property="og:title" content="用 strongSwan 搭建 IPsec IKEv2 VPN" />
+<meta property="og:description" content="VPS 推荐: BandwagonHost
+Shadowsocks 大部分时候都能满足翻墙的需求，只是最近感觉速度有点变慢，偶尔还出现错误，不知道是不是因为墙又加高了。以防万一，需要开发其它的翻墙姿势。
+下面介绍用 strongSwan 搭建 IPsec IKEv2 VPN。服务器端是 CentOS 7，其它 Linux 发行版的话只需要做相应修改即可。客户端是 Windows 和 Android 。
+1. 安装 strongSwan A. yum 安装 直接 yum 安装的话版本可能会比较老，可以从 这里 下载编译好的 RPM 包。或者使用 testing 源安装：
+wget http://dl.fedoraproject.org/pub/epel/7/x86_64/e/epel-release-7-5.noarch.rpm rpm -Uvh epel-release-7-5.noarch.rpm yum --enablerepo=epel-testing install strongswan  这样安装后的 strongSwan 可执行文件是 /usr/sbin/strongswan，配置文件在 /etc/strongswan 下。
+B. 源码编译安装 （推荐） 推荐直接从源码安装，因为这样能用上最新版，而且编译安装极其简单方便。
+ 安装依赖包
+yum install gmp-devel openssl openssl-devel  从 strongSwan 官网 下载最新版本源代码，当前是 5.3.3，并用 md5sum 命令校验。" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://m.l2d.xyz/p/2015/strongswan-ikev2-vpn/" />
+
+
+
+<meta property="article:published_time" content="2015-09-28T00:00:00&#43;00:00"/>
+
+<meta property="article:modified_time" content="2015-09-28T00:00:00&#43;00:00"/>
+
+
+
+
+
+
+
+
+
+
+
+	
+	<link rel="dns-prefetch" href="//fonts.googleapis.com">
+	<link rel="dns-prefetch" href="//fonts.gstatic.com">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700">
+	<link rel="stylesheet" href="/css/style.css">
+	<script type="text/javascript" src="/js/scripts.js"></script>
+	<link rel="shortcut icon" href="/favicon.ico">
+	
+<script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', 'UA-54041322-3', 'auto');
+ga('send', 'pageview');
+</script>
+<script async src='//www.google-analytics.com/analytics.js'></script>
+
+</head>
+<body class="body body-right-sidebar">
+	<div class="container container-outer">
+		<header class="header">
+			<div class="container container-inner">
+				<div class="logo" role="banner">
+					<a class="logo__link" href="/" title="思考、记录" rel="home">
+						<div class="logo__title">思考、记录</div>
+						
+					</a>
+				</div>
+			</div>
+			
+<nav class="menu">
+	<ul class="menu__list">
+		<li class="menu__item"><a class="menu__link" href="/about/">ABOUT</a></li>
+		<li class="menu__item menu__item--active"><a class="menu__link" href="/post/">POSTS</a></li>
+	</ul>
+</nav>
+
+		</header>
+		<div class="wrapper clearfix">
+
+<main class="main content">
+	<article class="post">
+		<header class="post__header">
+			<h1 class="post__title">用 strongSwan 搭建 IPsec IKEv2 VPN</h1><div class="post__meta meta">
+<svg class="icon icon-time" width="16" height="14" viewBox="0 0 16 16"><path d="m8-.0000003c-4.4 0-8 3.6-8 8 0 4.4000003 3.6 8.0000003 8 8.0000003 4.4 0 8-3.6 8-8.0000003 0-4.4-3.6-8-8-8zm0 14.4000003c-3.52 0-6.4-2.88-6.4-6.4000003 0-3.52 2.88-6.4 6.4-6.4 3.52 0 6.4 2.88 6.4 6.4 0 3.5200003-2.88 6.4000003-6.4 6.4000003zm.4-10.4000003h-1.2v4.8l4.16 2.5600003.64-1.04-3.6-2.1600003z"/></svg>
+<time class="post__meta-date meta-date" datetime="2015-09-28T00:00:00">2015-09-28</time>
+<span class="post__meta-categories meta-categories">
+	<svg class="icon icon-category" width="16" height="16" viewBox="0 0 16 16"><path d="m7 2l1 2h8v11h-16v-13z"/></svg>
+	<span class="meta-categories__list"><a class="meta-categories__link" href="/categories/digihome" rel="category">digihome</a></span>
+</span></div>
+		</header>
+		<div class="post__content clearfix">
+			
+
+<p><em>VPS</em> 推荐: <a href="https://bandwagonhost.com/aff.php?aff=31257">BandwagonHost</a></p>
+
+<p>Shadowsocks 大部分时候都能满足翻墙的需求，只是最近感觉速度有点变慢，偶尔还出现错误，不知道是不是因为墙又加高了。以防万一，需要开发其它的翻墙姿势。</p>
+
+<p>下面介绍用 strongSwan 搭建 IPsec IKEv2 VPN。服务器端是 CentOS 7，其它 Linux 发行版的话只需要做相应修改即可。客户端是 Windows 和 Android 。</p>
+
+<h1 id="1-安装-strongswan">1. 安装 strongSwan</h1>
+
+<h2 id="a-yum-安装">A. yum 安装</h2>
+
+<p>直接 yum 安装的话版本可能会比较老，可以从 <a href="http://pkgs.org/download/strongswan">这里</a> 下载编译好的 RPM 包。或者使用 testing 源安装：</p>
+
+<pre><code>wget http://dl.fedoraproject.org/pub/epel/7/x86_64/e/epel-release-7-5.noarch.rpm
+rpm -Uvh epel-release-7-5.noarch.rpm
+yum --enablerepo=epel-testing install strongswan
+</code></pre>
+
+<p>这样安装后的 strongSwan 可执行文件是 <code>/usr/sbin/strongswan</code>，配置文件在 <code>/etc/strongswan</code> 下。</p>
+
+<h2 id="b-源码编译安装-推荐">B. 源码编译安装 （推荐）</h2>
+
+<p>推荐直接从源码安装，因为这样能用上最新版，而且编译安装极其简单方便。</p>
+
+<ol>
+<li><p>安装依赖包</p>
+
+<pre><code>yum install gmp-devel openssl openssl-devel
+</code></pre></li>
+
+<li><p>从 <a href="https://www.strongswan.org/download.html">strongSwan 官网</a> 下载最新版本源代码，当前是 <a href="https://download.strongswan.org/strongswan-5.3.3.tar.bz2">5.3.3</a>，并用 <code>md5sum</code> 命令校验。</p></li>
+
+<li><p>配置参数。</p>
+
+<pre><code>./configure --sysconfdir=/etc/swan --disable-sql --disable-mysql --disable-ldap --enable-dhcp --enable-eap-identity --enable-eap-mschapv2 --enable-md4 --enable-xauth-eap --enable-eap-peap --enable-eap-md5 --enable-openssl --enable-shared --enable-unity --enable-eap-tls   --enable-eap-ttls --enable-eap-tnc --enable-eap-dynamic --enable-addrblock --enable-radattr --enable-nat-transport --enable-kernel-netlink
+</code></pre>
+
+<p><strong>注意</strong>：如果 VPS 是基于 OpenVZ 虚拟化的（比如 <a href="https://bandwagonhost.com/">Bandwagon</a>），还需要加上 <code>--enable-kernel-libipsec</code> 参数。</p></li>
+
+<li><p>编译安装。</p>
+
+<pre><code>make &amp;&amp; make install
+</code></pre></li>
+</ol>
+
+<p>安装后的 strongSwan 可执行文件是 <code>/usr/local/sbin/ipsec</code>，配置文件在 <code>/etc/swan</code> 下。</p>
+
+<h1 id="2-生成证书">2. 生成证书</h1>
+
+<p>Windows 客户端可以通过 EAP-MSCHAP v2 的方式认证，Android 客户端可以通过证书认证，两种方法都需要在服务器端生成证书。据说可以使用为 ip 生成的证书，不过我没试过。下文的方法需要你有一个域名（比如 <code>abc.xyz</code>）并且能修改 dns，假设 <code>a.abc.xyz</code> 的 A 记录指向 VPS 的 ip。</p>
+
+<p>下载脚本 <a href="https://gist.github.com/ace7/48a5c73bf3dff72dae0a">strongswan_mk_certs.sh</a>，以 root 用户运行：</p>
+
+<pre><code>sh strongswan_mk_certs.sh a.abc.xyz alice
+</code></pre>
+
+<p>脚本需要两个参数：域名和用户名。域名是刚才配置的 VPS 域名，用户名可以随便给，比如 alice，bob 等都行。</p>
+
+<p>脚本执行后，会生成三份证书：CA 证书、服务器证书和客户端证书。服务器和客户端证书都是由 CA 证书签发的。在 Windows 上使用需要首先将 CA 证书添加到系统的 <strong>受信任的根证书颁发机构</strong> 里，Android 上可用客户端证书实现认证。CA 证书和服务器证书会拷贝到 strongSwan 的配置文件目录下。</p>
+
+<h1 id="3-修改配置文件">3. 修改配置文件</h1>
+
+<p>strongSwan 的配置文件主要有 3 个：strongswan.conf, ipsec.conf 和 ipsec.secrets，都在配置文件目录下。</p>
+
+<h2 id="3-1-strongswan-conf">3.1 strongswan.conf</h2>
+
+<p>在 <code>charon</code> 配置项中增加如下两条 dns 记录，参考 <a href="https://gist.github.com/ace7/e295ffc90ced7da507ff">strongswan.conf</a></p>
+
+<pre><code>dns1 = 8.8.8.8
+dns2 = 8.8.4.4
+</code></pre>
+
+<h2 id="3-2-ipsec-conf">3.2 ipsec.conf</h2>
+
+<p>具体配置见 <a href="https://gist.github.com/ace7/232d6cf9418bfea30868">这里</a></p>
+
+<h2 id="3-3-ipsec-secrets">3.3 ipsec.secrets</h2>
+
+<p>添加如下内容到 ipsec.secrets 中，并且将文件权限修改成 600</p>
+
+<pre><code>: RSA server.key
+user : EAP &quot;pass&quot;
+</code></pre>
+
+<p>其中，server.key 是证书认证时服务器端所用的私钥。另外，需要将 user 和 pass 配置成 EAP 验证时的用户名和密码。</p>
+
+<h1 id="4-修改防火墙相关配置">4. 修改防火墙相关配置</h1>
+
+<h2 id="4-1-开启-ip-包转发功能">4.1 开启 ip 包转发功能</h2>
+
+<p>编辑 <code>/etc/sysctl.conf</code> 文件，加入以下内容：</p>
+
+<pre><code>net.ipv4.ip_forward = 1
+net.ipv4.conf.all.accept_redirects = 0
+net.ipv4.conf.all.send_redirects = 0
+</code></pre>
+
+<p>然后执行 <code>sysctl -p</code> 使修改生效。</p>
+
+<h2 id="4-2-配置-iptables">4.2 配置 iptables</h2>
+
+<p>strongSwan 会用到 500 和 4500 端口做 UDP 转发，因此需要做相应配置。可以直接配置 iptables ，也可以使用 firewalld 。</p>
+
+<h3 id="a-直接配置-iptables-推荐">A. 直接配置 iptables （推荐）</h3>
+
+<p>新建 <code>/etc/iptables.up.rules</code> 文件，填入以下内容：</p>
+
+<pre><code>*nat
+-A POSTROUTING -j MASQUERADE
+-A POSTROUTING -s 10.0.0.0/24 -o eth0 -j MASQUERADE
+COMMIT
+
+*filter
+-A INPUT -p udp -m udp --dport 500 -j ACCEPT
+-A INPUT -p udp -m udp --dport 4500 -j ACCEPT
+-A FORWARD -s 10.0.0.0/24 -j ACCEPT
+COMMIT
+</code></pre>
+
+<p>执行以下命令，并把该命令添加到 <code>/etc/rc.local</code> 文件最后。</p>
+
+<pre><code>iptables-restore &lt; /etc/iptables.up.rules
+</code></pre>
+
+<h3 id="b-使用-firewalld-谨慎操作">B. 使用 firewalld （谨慎操作）</h3>
+
+<p>执行以下命令：</p>
+
+<pre><code>systemctl enable firewalld
+systemctl start firewalld
+firewall-cmd --zone=dmz --permanent --add-rich-rule='rule protocol value=&quot;esp&quot; accept' # ESP (the encrypted data packets)
+firewall-cmd --zone=dmz --permanent --add-rich-rule='rule protocol value=&quot;ah&quot; accept' # AH (authenticated headers)
+firewall-cmd --zone=dmz --permanent --add-port=500/udp #IKE  (security associations)
+firewall-cmd --zone=dmz --permanent --add-port=4500/udp # IKE NAT Traversal (IPsec between natted devices)
+firewall-cmd --zone=dmz --permanent --add-port=80/tcp # web server, add in need
+firewall-cmd --zone=dmz --permanent --add-port=22/tcp # ssh, change port in need
+firewall-cmd --permanent --add-service=&quot;ipsec&quot;
+firewall-cmd --zone=dmz --permanent --add-masquerade
+firewall-cmd --set-default-zone=dmz
+firewall-cmd --reload
+</code></pre>
+
+<p>特别需要注意的是，如果你的 ssh 端口不是 22，以上的命令需要做相应修改，不然下次就登录不上了。</p>
+
+<h1 id="5-客户端配置">5. 客户端配置</h1>
+
+<h2 id="5-1-windows-配置">5.1 Windows 配置</h2>
+
+<p>首先需要将第 2 步生成的 CA 证书下载到本地，并添加到系统的 <strong>受信任的根证书颁发机构</strong> 里。方法如下：</p>
+
+<ol>
+<li>以管理员身份，<code>Win + R</code> 启动运行窗口，输入 mmc，回车。</li>
+<li>在 <strong>文件</strong> 菜单下，单击 <strong>添加/删除管理单元</strong>。</li>
+<li>在 <strong>可用的管理单元</strong> 下，单击 <strong>证书</strong>，然后点击 <strong>添加</strong>。</li>
+<li>在 <strong>该管理单元将始终为下列帐户管理证书</strong> 下，选择 <strong>计算机帐户</strong>，单击 <strong>下一步</strong>。</li>
+<li>选择 <strong>本地计算机（运行此控制台的计算机）</strong>，单击 <strong>完成</strong>，再点击 <strong>确定</strong>。</li>
+<li>在 <strong>控制台根节点 -&gt; 证书 -&gt; 受信任的根证书颁发机构</strong> 下，右键单击 <strong>证书</strong>，选择 <strong>所有任务 -&gt; 导入</strong>。</li>
+<li>选择下载到本地的 CA 证书完成导入。</li>
+</ol>
+
+<p>Windows 7 和 Windows 10 下新建 IKEv2 VPN 连接的方法不太一样，下面分别介绍。</p>
+
+<h3 id="a-windows-7">A. Windows 7</h3>
+
+<p>打开控制面板，依次选择 <strong>网络和共享中心 -&gt; 设置新的连接或网络 -&gt; 连接到工作区 -&gt; 创建新连接 -&gt; 使用我的 Internet 连接 VPN</strong>，输入相应信息。
+属性配置里的 <strong>安全</strong> 选项下，<strong>VPN 类型</strong> 选择 <strong>IKEv2</strong>；<strong>数据加密</strong> 选择 <strong>需要加密</strong>；<strong>身份认证</strong> 选择 <strong>Microsoft: EAP-MSCHAP v2</strong>。</p>
+
+<h3 id="b-windows-10">B. Windows 10</h3>
+
+<p>如果用上述方法在 Windows 10 中创建 VPN 连接，会发现根本就不起作用，根本原因是路由的问题。参考 <a href="https://community.hide.me/tutorials/windows-10-ikev2-vpn-connection.64/">这个文档</a>，可以新建一个空白的 pbk 文件，比如 <code>vpn.pbk</code>，然后双击运行，按提示做相应配置即可。</p>
+
+<h2 id="5-2-android-配置">5.2 Android 配置</h2>
+
+<p>将第 2 步生成的 p12 证书下载到手机上并安装。
+安装 strongSwan 的 <a href="https://play.google.com/store/apps/details?id=org.strongswan.android&amp;hl=en">app</a>。
+添加相应配置并进行连接即可。</p>
+
+<h1 id="常见问题">常见问题</h1>
+
+<ol>
+<li><p>Windows 连接出现 13801 错误。</p>
+
+<p>一般是证书问题，比如过期、未添加为系统信任的根证书等，可以参考 <a href="https://serverfault.com/questions/536092/strongswan-ikev2-windows-7-agile-vpn-what-is-causing-error-13801">1</a> 和 <a href="https://technet.microsoft.com/en-us/library/dd941612(v=ws.10).aspx">2</a> 解决。</p></li>
+</ol>
+
+		</div>
+		
+<div class="post__tags tags clearfix">
+	<svg class="icon icon-tag" width="16" height="16" viewBox="0 0 16 16"><path d="M16 9.5c0 .373-.24.74-.5 1l-5 5c-.275.26-.634.5-1 .5-.373 0-.74-.24-1-.5L1 8a2.853 2.853 0 0 1-.7-1C.113 6.55 0 5.973 0 5.6V1.4C0 1.034.134.669.401.401.67.134 1.034 0 1.4 0h4.2c.373 0 .95.113 1.4.3.45.187.732.432 1 .7l7.5 7.502c.26.274.5.632.5.998zM3.5 5a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3z"/></svg>
+	<ul class="tags__list">
+		<li class="tags__item"><a class="tags__link btn" href="/tags/vpn/" rel="tag">vpn</a></li>
+		<li class="tags__item"><a class="tags__link btn" href="/tags/vps/" rel="tag">vps</a></li>
+	</ul>
+</div>
+	</article>
+	
+	
+<nav class="post-nav row clearfix">
+	<div class="post-nav__item post-nav__item--prev col-1-2">
+		<a class="post-nav__link" href="/p/2015/python-list-multiplication-pitfall/" rel="prev"><span class="post-nav__caption">«&thinsp;Previous</span><p class="post-nav__post-title">Python 列表乘运算的一个陷阱</p></a>
+	</div>
+	<div class="post-nav__item post-nav__item--next col-1-2">
+		<a class="post-nav__link" href="/p/2015/netgear-wndr4300-openwrt-shadowsocks-chinadns/" rel="next"><span class="post-nav__caption">Next&thinsp;»</span><p class="post-nav__post-title">用 Netgear WNDR4300 打造翻墙路由器</p></a>
+	</div>
+</nav>
+	
+<section class="comments">
+	<div id="disqus_thread"></div>
+<script>
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "m142" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</section>
+
+</main>
+
+<aside class="sidebar">
+	
+<div class="widget-search widget">
+	<form class="widget-search__form" role="search" method="get" action="https://google.com/search">
+		<label>
+			<input class="widget-search__field" type="search" placeholder="SEARCH..." value="" name="q">
+		</label>
+		<input class="widget-search__submit" type="submit" value="Search">
+		<input type="hidden" name="sitesearch" value="http://m.l2d.xyz/" />
+	</form>
+</div>
+	
+<div class="widget-recent widget">
+	<h4 class="widget__title">Recent Posts</h4>
+	<div class="widget__content">
+		<ul class="widget__list">
+			<li class="widget__item"><a class="widget__link" href="/p/2018/pnpoly/">PNPOLY: 射线法判断点是否在多边形区域内部</a></li>
+			<li class="widget__item"><a class="widget__link" href="/p/2018/self-fulfilling-prophecy/">记录新学到的一个词——自证预言</a></li>
+			<li class="widget__item"><a class="widget__link" href="/p/2018/py-for-else/">Python 中奇特的 else</a></li>
+			<li class="widget__item"><a class="widget__link" href="/p/2018/mac-excel-recover-issue/">Mac 上 Excel 的一个恼人问题</a></li>
+			<li class="widget__item"><a class="widget__link" href="/p/2018/principles/">《原则》初读简记</a></li>
+		</ul>
+	</div>
+</div>
+	
+	
+	
+<div class="widget-taglist widget">
+	<h4 class="widget__title">Tags</h4>
+	<div class="widget__content">
+		<a class="widget-taglist__link widget__link btn" href="/tags/ad" title="Ad">Ad</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/algo" title="Algo">Algo</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/bash" title="Bash">Bash</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/c&#43;&#43;" title="C&#43;&#43;">C&#43;&#43;</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/digihome" title="Digihome">Digihome</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/go" title="Go">Go</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/mac" title="Mac">Mac</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/map" title="Map">Map</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/misc" title="Misc">Misc</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/ml" title="Ml">Ml</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/mobi" title="Mobi">Mobi</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/python" title="Python">Python</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/raspi" title="Raspi">Raspi</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/read" title="Read">Read</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/sec" title="Sec">Sec</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/spark" title="Spark">Spark</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/vpn" title="Vpn">Vpn</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/vps" title="Vps">Vps</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/yy" title="Yy">Yy</a>
+	</div>
+</div>
+</aside>
+	</div>
+		<footer class="footer">
+			<div class="container container-inner">
+				<div class="footer__copyright">&copy; 2018 思考、记录. <span class="footer__copyright-credits">Generated with <a href="https://gohugo.io/" rel="nofollow noopener" target="_blank">Hugo</a> and <a href="https://github.com/Vimux/Mainroad/" rel="nofollow noopener" target="_blank">Mainroad</a> theme.</span></div>
+			</div>
+		</footer>
+	</div>
+
+<script>
+	var navigation = responsiveNav(".menu", {
+		navClass: "menu--collapse",
+	});
+</script>
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+tex2jax: {
+inlineMath: [['$','$'], ['\\(','\\)']],
+displayMath: [['$$','$$']],
+processEscapes: true,
+processEnvironments: true,
+skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+TeX: { equationNumbers: { autoNumber: "AMS" },
+     extensions: ["AMSmath.js", "AMSsymbols.js"] }
+}
+});
+</script>
+
+</body>
+</html>

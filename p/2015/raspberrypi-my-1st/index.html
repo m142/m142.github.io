@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>入手树莓派 Raspberry Pi 2 Model B</title>
+	<meta name="description" content="">
+	<meta name="generator" content="Hugo 0.40.2" />
+	<meta property="og:title" content="入手树莓派 Raspberry Pi 2 Model B" />
+<meta property="og:description" content="近期入手了 树莓派 2 Model B，配件加了16G Micro SD 卡、透明外壳和风扇。电源可以用安卓手机的充电器，或者用USB Hub 加上一根Micro USB 线。打算再从退役的笔记本上拆下硬盘来接上，搭建简易的家用 NAS。
+如果比较熟悉 Linux 的相关操作，可以不用外接显示器、键盘、鼠标等。直接在 SD 卡中写入系统，插入树莓派，再给树莓派插上网线，连到路由器上，找到 ip，ssh 登录即可。如果不太熟悉的话，还是建议外接显示器来操作。
+安装系统 这里 列举了树莓派能用的系统，我用的是 Raspbian。需要首先下载镜像 Raspbian Wheezy，然后根据文档将镜像解压并写入 SD 卡。比如对于 Windows 系统，按照官方文档步骤一步步操作即可。
+将 SD 卡插入树莓派，给树莓派接上电源，用网线连接路由器，然后再路由器的管理界面查看树莓派的 ip，ssh 登录即可。Windows 下可以用 putty 或者 xshell，推荐xshell。如果用 xshell 的话，可能会报 找不到匹配的 outgoing encryption 算法 这个错，这时需要修改连接的属性，在 连接 -&gt; SSH -&gt; 安全性 配置页面，点击 加密 右边的 编辑 按钮，勾选上 aes192-ctr, aes128-ctr 和 aes-256-ctr 这几项，如下图所示。
+登录用户名和密码分别是 pi 和 raspberry 。
+系统配置 修改源 系统默认是使用 raspbian." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://m.l2d.xyz/p/2015/raspberrypi-my-1st/" />
+
+
+
+<meta property="article:published_time" content="2015-11-21T00:00:00&#43;00:00"/>
+
+<meta property="article:modified_time" content="2015-11-21T00:00:00&#43;00:00"/>
+
+
+
+
+
+
+
+
+
+
+
+	
+	<link rel="dns-prefetch" href="//fonts.googleapis.com">
+	<link rel="dns-prefetch" href="//fonts.gstatic.com">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700">
+	<link rel="stylesheet" href="/css/style.css">
+	<script type="text/javascript" src="/js/scripts.js"></script>
+	<link rel="shortcut icon" href="/favicon.ico">
+	
+<script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', 'UA-54041322-3', 'auto');
+ga('send', 'pageview');
+</script>
+<script async src='//www.google-analytics.com/analytics.js'></script>
+
+</head>
+<body class="body body-right-sidebar">
+	<div class="container container-outer">
+		<header class="header">
+			<div class="container container-inner">
+				<div class="logo" role="banner">
+					<a class="logo__link" href="/" title="思考、记录" rel="home">
+						<div class="logo__title">思考、记录</div>
+						
+					</a>
+				</div>
+			</div>
+			
+<nav class="menu">
+	<ul class="menu__list">
+		<li class="menu__item"><a class="menu__link" href="/about/">ABOUT</a></li>
+		<li class="menu__item menu__item--active"><a class="menu__link" href="/post/">POSTS</a></li>
+	</ul>
+</nav>
+
+		</header>
+		<div class="wrapper clearfix">
+
+<main class="main content">
+	<article class="post">
+		<header class="post__header">
+			<h1 class="post__title">入手树莓派 Raspberry Pi 2 Model B</h1><div class="post__meta meta">
+<svg class="icon icon-time" width="16" height="14" viewBox="0 0 16 16"><path d="m8-.0000003c-4.4 0-8 3.6-8 8 0 4.4000003 3.6 8.0000003 8 8.0000003 4.4 0 8-3.6 8-8.0000003 0-4.4-3.6-8-8-8zm0 14.4000003c-3.52 0-6.4-2.88-6.4-6.4000003 0-3.52 2.88-6.4 6.4-6.4 3.52 0 6.4 2.88 6.4 6.4 0 3.5200003-2.88 6.4000003-6.4 6.4000003zm.4-10.4000003h-1.2v4.8l4.16 2.5600003.64-1.04-3.6-2.1600003z"/></svg>
+<time class="post__meta-date meta-date" datetime="2015-11-21T00:00:00">2015-11-21</time>
+<span class="post__meta-categories meta-categories">
+	<svg class="icon icon-category" width="16" height="16" viewBox="0 0 16 16"><path d="m7 2l1 2h8v11h-16v-13z"/></svg>
+	<span class="meta-categories__list"><a class="meta-categories__link" href="/categories/rd" rel="category">rd</a></span>
+</span></div>
+		</header>
+		<div class="post__content clearfix">
+			
+
+<p>近期入手了 <a href="https://www.raspberrypi.org/products/raspberry-pi-2-model-b/">树莓派 2 Model B</a>，配件加了16G Micro SD 卡、透明外壳和风扇。电源可以用安卓手机的充电器，或者用USB Hub 加上一根Micro USB 线。打算再从退役的笔记本上拆下硬盘来接上，搭建简易的家用 NAS。</p>
+
+<p>如果比较熟悉 Linux 的相关操作，可以不用外接显示器、键盘、鼠标等。直接在 SD 卡中写入系统，插入树莓派，再给树莓派插上网线，连到路由器上，找到 ip，ssh 登录即可。如果不太熟悉的话，还是建议外接显示器来操作。</p>
+
+<h1 id="安装系统">安装系统</h1>
+
+<p><a href="https://www.raspberrypi.org/downloads/">这里</a> 列举了树莓派能用的系统，我用的是 <a href="https://www.raspberrypi.org/downloads/raspbian/">Raspbian</a>。需要首先下载镜像 <a href="https://downloads.raspberrypi.org/raspbian/images/raspbian-2015-05-07/2015-05-05-raspbian-wheezy.zip">Raspbian Wheezy</a>，然后根据<a href="https://www.raspberrypi.org/documentation/installation/installing-images/README.md">文档</a>将镜像解压并写入 SD 卡。比如对于 Windows 系统，按照<a href="https://www.raspberrypi.org/documentation/installation/installing-images/windows.md">官方文档</a>步骤一步步操作即可。</p>
+
+<p>将 SD 卡插入树莓派，给树莓派接上电源，用网线连接路由器，然后再路由器的管理界面查看树莓派的 ip，ssh 登录即可。Windows 下可以用 putty 或者 xshell，推荐xshell。如果用 xshell 的话，可能会报 <strong>找不到匹配的 outgoing encryption 算法</strong> 这个错，这时需要修改连接的属性，在 <code>连接 -&gt; SSH -&gt; 安全性</code> 配置页面，点击 <code>加密</code> 右边的 <code>编辑</code> 按钮，勾选上 aes192-ctr, aes128-ctr 和 aes-256-ctr 这几项，如下图所示。</p>
+
+<p><img src="/img/xshell-raspi.jpg"/></p>
+
+<p>登录用户名和密码分别是 pi 和 raspberry 。</p>
+
+<h1 id="系统配置">系统配置</h1>
+
+<h2 id="修改源">修改源</h2>
+
+<p>系统默认是使用 raspbian.org 的源就行同步、更新软件包等，所有的镜像站点可以在 <a href="https://www.raspbian.org/RaspbianMirrors">这里</a> 找到。从国内的几个源中挑选速度最快的一个就行，比如我选的是中科大的源 <a href="http://mirrors.ustc.edu.cn/raspbian/raspbian/">http://mirrors.ustc.edu.cn/raspbian/raspbian/</a> 。</p>
+
+<p>编辑 /etc/apt/sources.list 文件，用 <code>http://mirrors.ustc.edu.cn/raspbian/raspbian/</code> 替换掉默认的 <code>http://mirrordirector.raspbian.org/raspbian/</code> 即可。</p>
+
+<h2 id="raspi-config">raspi-config</h2>
+
+<p>首先应该执行 <code>sudo raspi-config</code> 命令来配置系统，比如禁用图形界面，调整时区，扩充系统空间以利用 SD 卡剩余空间，修改系统 locale 等。</p>
+
+<p>然后执行 <code>sudo apt-get update &amp;&amp; sudo apt-get upgrade</code> 更新系统。</p>
+
+<h2 id="安全配置">安全配置</h2>
+
+<p>为了网络安全，不应该用默认的 pi 账户来登陆系统。
+如果不需要从公网访问树莓派，只是家用的话，可以略过这一步。</p>
+
+<h3 id="更改用户名">更改用户名</h3>
+
+<p>简单的方法就是修改 pi 的用户名，并重命名 home 目录。相关命令如下，其中，alice 是新的用户名。</p>
+
+<pre><code>sudo usermode -l alice pi
+sudo mv /home/pi /home/alice
+</code></pre>
+
+<h3 id="创建新用户">创建新用户</h3>
+
+<p>新建一个用户（比如 alice ），并添加 pi 所在的组。</p>
+
+<pre><code>sudo adduser alice
+sudo usermod -a -G adm,dialout,cdrom,sudo,audio,video,plugdev,games,users,input,netdev,spi,i2c,gpio alice
+</code></pre>
+
+<p>为 alice 添加 sudo 权限：执行 <code>sudo visudo</code> 命令，并将 <code>alice ALL=(ALL) NOPASSWD: ALL</code> 添加到最后。</p>
+
+<p>用 alice 登录，禁用 pi 用户：<code>sudo passwd -l pi</code> 。</p>
+
+<h2 id="设置静态-ip">设置静态 ip</h2>
+
+<p>设置静态 ip 方便对树莓派的访问，以防每次树莓派或路由器重启时需要重新找 ip。Wheezy 之前的系统里修改 <code>/etc/network/interfaces</code> 即可，但是最新的 Raspbian Wheezy  系统有点小改动，这在 <code>/etc/network/interfaces</code> 的注释里也有说明：</p>
+
+<pre><code># Please note that this file is written to be used with dhcpcd
+# For static IP, consult /etc/dhcpcd.conf and 'man dhcpcd.conf'
+</code></pre>
+
+<p>具体做法是在保持 <code>/etc/network/interfaces</code> 不变，在 <code>/etc/dhcpcd.conf</code> 最后加上以下内容：</p>
+
+<pre><code># static ip
+interface eth0
+static ip_address=192.168.1.128/24
+static routers=192.168.1.1
+static domain_name_servers=192.168.1.1
+</code></pre>
+
+<p>其中，<code>192.168.1.1</code> 是路由器的 ip，<code>192.168.1.128</code> 是设置的静态 ip，这两个 ip 应该根据实际情况做修改。</p>
+
+<p>静态 ip 的问题在的官方论坛上也有<a href="https://www.raspberrypi.org/forums/viewtopic.php?f=63&amp;t=110606">不少讨论</a>。</p>
+
+<h1 id="tips">Tips</h1>
+
+<h2 id="树莓派温度">树莓派温度</h2>
+
+<p>一般情况下树莓派的温度都是挺低的，不需要特别注意，但是如果需要长时间做大量运算，可能 CPU 的温度还是会升得挺高，这时就需要注意散热了。一种解决办法就是接入中继器和风扇，定期检查树莓派温度，如果太高（比如超过70度），则启动风扇降温。</p>
+
+<p>有两种方法获取温度：</p>
+
+<ol>
+<li><code>cat /sys/class/thermal/thermal_zone0/temp</code> 得到的数值除以 1000 就是当前的摄氏温度。</li>
+<li><code>/opt/vc/bin/vcgencmd measure_temp</code> （注：执行该命令需要当前用户在 video 组内）</li>
+</ol>
+
+<h2 id="更改系统默认编辑器">更改系统默认编辑器</h2>
+
+<p>系统的默认编辑器是 nano，肯定是要改成 vim 的。不过系统自带的 vim 是精简的，不支持脚本功能，因此首先需要安装完整功能的 vim ：<code>sudo apt-get install vim-nox</code>。然后更改系统默认编辑器为 vim-nox：<code>sudo update-alternatives --config editor</code>。</p>
+
+<h2 id="装风扇">装风扇</h2>
+
+<p>关于 GPIO (general purpose input/output) 的描述可以参考 <a href="https://www.raspberrypi.org/documentation/usage/gpio-plus-and-raspi2/README.md">官方文档</a>。对于 5V 的风扇，应该红线接 5V，黑线接地，也就是树莓派外面那排针脚的左起第二根（5V）和第三根（地）。</p>
+
+<h1 id="安装-go-1-5-1">安装 Go 1.5.1</h1>
+
+<p>树莓派自带的源提供的 Go 版本比较老，Golang 只提供了 Windows, Linux 和 OS X 三个平台编译好的 Binary 版本，而树莓派的 CPU 是 ARMv7 的，所以需要自行编译。由于 Go 支持交叉编译，因此还是很方便的。相关知识及详细介绍可以参考<a href="https://golang.org/doc/install/source">官方文档</a>，主要步骤总结如下：</p>
+
+<ol>
+<li>找一台安装了 Go 1.4 或更高版本的 Linux 机器，假设 Go 的安装目录是 <code>/opt/go</code></li>
+<li>从<a href="https://golang.org/dl/">这里</a>下载 Go 1.5.1 <a href="https://storage.googleapis.com/golang/go1.5.1.src.tar.gz">源代码</a>，校验 SHA1 并解压，进入 src 目录</li>
+<li>执行命令 <code>GOOS=linux GOARCH=arm GOROOT_BOOTSTRAP=/opt/go ./bootstrap.bash</code></li>
+</ol>
+
+<p>等待一段时间就会交叉编译出树莓派上能用的 Go 1.5.1 Binary 并打好包，名称一般是 <code>go-linux-arm-bootstrap.tbz</code>，拷贝到树莓派上并解压就可以直接用。</p>
+
+		</div>
+		
+<div class="post__tags tags clearfix">
+	<svg class="icon icon-tag" width="16" height="16" viewBox="0 0 16 16"><path d="M16 9.5c0 .373-.24.74-.5 1l-5 5c-.275.26-.634.5-1 .5-.373 0-.74-.24-1-.5L1 8a2.853 2.853 0 0 1-.7-1C.113 6.55 0 5.973 0 5.6V1.4C0 1.034.134.669.401.401.67.134 1.034 0 1.4 0h4.2c.373 0 .95.113 1.4.3.45.187.732.432 1 .7l7.5 7.502c.26.274.5.632.5.998zM3.5 5a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3z"/></svg>
+	<ul class="tags__list">
+		<li class="tags__item"><a class="tags__link btn" href="/tags/digihome/" rel="tag">digihome</a></li>
+		<li class="tags__item"><a class="tags__link btn" href="/tags/raspi/" rel="tag">raspi</a></li>
+	</ul>
+</div>
+	</article>
+	
+	
+<nav class="post-nav row clearfix">
+	<div class="post-nav__item post-nav__item--prev col-1-2">
+		<a class="post-nav__link" href="/p/2015/netgear-wndr4300-openwrt-shadowsocks-chinadns/" rel="prev"><span class="post-nav__caption">«&thinsp;Previous</span><p class="post-nav__post-title">用 Netgear WNDR4300 打造翻墙路由器</p></a>
+	</div>
+	<div class="post-nav__item post-nav__item--next col-1-2">
+		<a class="post-nav__link" href="/p/2015/openwrt-ddns/" rel="next"><span class="post-nav__caption">Next&thinsp;»</span><p class="post-nav__post-title">路由器配置 DDNS</p></a>
+	</div>
+</nav>
+	
+<section class="comments">
+	<div id="disqus_thread"></div>
+<script>
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "m142" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</section>
+
+</main>
+
+<aside class="sidebar">
+	
+<div class="widget-search widget">
+	<form class="widget-search__form" role="search" method="get" action="https://google.com/search">
+		<label>
+			<input class="widget-search__field" type="search" placeholder="SEARCH..." value="" name="q">
+		</label>
+		<input class="widget-search__submit" type="submit" value="Search">
+		<input type="hidden" name="sitesearch" value="http://m.l2d.xyz/" />
+	</form>
+</div>
+	
+<div class="widget-recent widget">
+	<h4 class="widget__title">Recent Posts</h4>
+	<div class="widget__content">
+		<ul class="widget__list">
+			<li class="widget__item"><a class="widget__link" href="/p/2018/pnpoly/">PNPOLY: 射线法判断点是否在多边形区域内部</a></li>
+			<li class="widget__item"><a class="widget__link" href="/p/2018/self-fulfilling-prophecy/">记录新学到的一个词——自证预言</a></li>
+			<li class="widget__item"><a class="widget__link" href="/p/2018/py-for-else/">Python 中奇特的 else</a></li>
+			<li class="widget__item"><a class="widget__link" href="/p/2018/mac-excel-recover-issue/">Mac 上 Excel 的一个恼人问题</a></li>
+			<li class="widget__item"><a class="widget__link" href="/p/2018/principles/">《原则》初读简记</a></li>
+		</ul>
+	</div>
+</div>
+	
+	
+	
+<div class="widget-taglist widget">
+	<h4 class="widget__title">Tags</h4>
+	<div class="widget__content">
+		<a class="widget-taglist__link widget__link btn" href="/tags/ad" title="Ad">Ad</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/algo" title="Algo">Algo</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/bash" title="Bash">Bash</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/c&#43;&#43;" title="C&#43;&#43;">C&#43;&#43;</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/digihome" title="Digihome">Digihome</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/go" title="Go">Go</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/mac" title="Mac">Mac</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/map" title="Map">Map</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/misc" title="Misc">Misc</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/ml" title="Ml">Ml</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/mobi" title="Mobi">Mobi</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/python" title="Python">Python</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/raspi" title="Raspi">Raspi</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/read" title="Read">Read</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/sec" title="Sec">Sec</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/spark" title="Spark">Spark</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/vpn" title="Vpn">Vpn</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/vps" title="Vps">Vps</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/yy" title="Yy">Yy</a>
+	</div>
+</div>
+</aside>
+	</div>
+		<footer class="footer">
+			<div class="container container-inner">
+				<div class="footer__copyright">&copy; 2018 思考、记录. <span class="footer__copyright-credits">Generated with <a href="https://gohugo.io/" rel="nofollow noopener" target="_blank">Hugo</a> and <a href="https://github.com/Vimux/Mainroad/" rel="nofollow noopener" target="_blank">Mainroad</a> theme.</span></div>
+			</div>
+		</footer>
+	</div>
+
+<script>
+	var navigation = responsiveNav(".menu", {
+		navClass: "menu--collapse",
+	});
+</script>
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+tex2jax: {
+inlineMath: [['$','$'], ['\\(','\\)']],
+displayMath: [['$$','$$']],
+processEscapes: true,
+processEnvironments: true,
+skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+TeX: { equationNumbers: { autoNumber: "AMS" },
+     extensions: ["AMSmath.js", "AMSsymbols.js"] }
+}
+});
+</script>
+
+</body>
+</html>
