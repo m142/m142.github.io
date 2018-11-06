@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>贷款基础知识之等额本息</title>
+	<meta name="description" content="">
+	<meta name="generator" content="Hugo 0.40.2" />
+	<meta property="og:title" content="贷款基础知识之等额本息" />
+<meta property="og:description" content="大家如果办过贷款，尤其是房贷的话，相信对等额本息不会陌生。与等额本息同时出现的，还有等额本金。本文先详细介绍等额本息，后面再介绍等额本金等。
+等额本息指的是还款期限内，每个月还款额（包括本金和利息）固定，其中本金部分逐月递增，利息部分逐月递减。
+如果手边有贷款合同的话，翻开就会看到每月的还款额计算公式为：
+$$ 每月还款额 = \frac{借款本金 \cdot 月利率 \cdot (1 &#43; 月利率)^{还款总期数}}{(1 &#43; 月利率)^{还款总期数} - 1} $$
+举个实际的例子，比如贷款100万元，贷款期限为20年，贷款年利率为最新基准利率上浮20%，也就是5.88%，那么代入公式得到每月还款额为7095.25元。
+$$ 每月还款额 = \frac{1000000 \cdot 5.88\%/12 \cdot (1 &#43; 5.88\%/12)^{240}}{(1 &#43; 5.88\%/12)^{240}-1} = 7095.25 $$
+好的，到现在为止，至少就有了 3 个问题：
+ 每月还款额的公式是怎么推导出来的？ 每月还款额里本金和利息分别是多少？ 用年利率除以 12 得到月利率是否合理？  下面来逐个分析。
+每月还款额公式推导 不妨假设贷款额，也就是本金为 $v$, 月利率为 $r$, 借款期数为 $n$, 每月还款额为 $x$. 则可以列出下表。
+   期数 本金&#43;利息 还款 剩余本金&#43;利息     $1$ $v\cdot(1&#43;r)$ $x$ $S_1 = v\cdot(1&#43;r) - x$   $2$ $S_1\cdot(1&#43;r)$ $x$ $S_2 = S_1\cdot(1&#43;r)-x$   &hellip; &hellip; $x$ &hellip;   $n$ $S_{n-1}\cdot(1&#43;r)$ $x$ $ S_n = S_{n-1}\cdot(1&#43;r)-x$    从表中可以看出，第一期结束时，本金 $v$ 产生的利息为 $v \cdot r$，因此本金加利息为 $v\cdot(1&#43;r)$ ，还款 $x$ 后，剩余金额为 $v\cdot(1&#43;r) - x$，记为 $S_1$。依此类推，得到每期结束时的剩余金额 $S_i$，而要求的正是使得 $S_n = 0$ 的 $x$ 的值。不妨将 $S_n$ 展开，得到：" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://m.l2d.xyz/p/2018/fin_debx/" />
+
+
+
+<meta property="article:published_time" content="2018-11-05T00:00:00&#43;00:00"/>
+
+<meta property="article:modified_time" content="2018-11-05T00:00:00&#43;00:00"/>
+
+
+
+
+
+
+
+
+
+
+
+	
+	<link rel="dns-prefetch" href="//fonts.googleapis.com">
+	<link rel="dns-prefetch" href="//fonts.gstatic.com">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700">
+	<link rel="stylesheet" href="/css/style.css">
+	<script type="text/javascript" src="/js/scripts.js"></script>
+	<link rel="shortcut icon" href="/favicon.ico">
+	
+<script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', 'UA-54041322-3', 'auto');
+ga('send', 'pageview');
+</script>
+<script async src='//www.google-analytics.com/analytics.js'></script>
+
+</head>
+<body class="body body-right-sidebar">
+	<div class="container container-outer">
+		<header class="header">
+			<div class="container container-inner">
+				<div class="logo" role="banner">
+					<a class="logo__link" href="/" title="思考、记录" rel="home">
+						<div class="logo__title">思考、记录</div>
+						
+					</a>
+				</div>
+			</div>
+			
+<nav class="menu">
+	<ul class="menu__list">
+		<li class="menu__item"><a class="menu__link" href="/about/">ABOUT</a></li>
+		<li class="menu__item menu__item--active"><a class="menu__link" href="/post/">POSTS</a></li>
+	</ul>
+</nav>
+
+		</header>
+		<div class="wrapper clearfix">
+
+<main class="main content">
+	<article class="post">
+		<header class="post__header">
+			<h1 class="post__title">贷款基础知识之等额本息</h1><div class="post__meta meta">
+<svg class="icon icon-time" width="16" height="14" viewBox="0 0 16 16"><path d="m8-.0000003c-4.4 0-8 3.6-8 8 0 4.4000003 3.6 8.0000003 8 8.0000003 4.4 0 8-3.6 8-8.0000003 0-4.4-3.6-8-8-8zm0 14.4000003c-3.52 0-6.4-2.88-6.4-6.4000003 0-3.52 2.88-6.4 6.4-6.4 3.52 0 6.4 2.88 6.4 6.4 0 3.5200003-2.88 6.4000003-6.4 6.4000003zm.4-10.4000003h-1.2v4.8l4.16 2.5600003.64-1.04-3.6-2.1600003z"/></svg>
+<time class="post__meta-date meta-date" datetime="2018-11-05T00:00:00">2018-11-05</time>
+<span class="post__meta-categories meta-categories">
+	<svg class="icon icon-category" width="16" height="16" viewBox="0 0 16 16"><path d="m7 2l1 2h8v11h-16v-13z"/></svg>
+	<span class="meta-categories__list"><a class="meta-categories__link" href="/categories/fin" rel="category">fin</a></span>
+</span></div>
+		</header>
+		<div class="post__content clearfix">
+			
+
+<!--
+$$
+\begin{eqnarray} 
+y &=& x^4 + 4      \nonumber \\\\\\
+  &=& (x^2+2)^2 -4x^2 \nonumber \\\\\\
+  &\le&(x^2+2)^2    \nonumber
+\end{eqnarray} 
+$$
+-->
+
+<p>大家如果办过贷款，尤其是房贷的话，相信对等额本息不会陌生。与等额本息同时出现的，还有等额本金。本文先详细介绍等额本息，后面再介绍等额本金等。</p>
+
+<p>等额本息指的是还款期限内，每个月还款额（包括本金和利息）固定，其中本金部分逐月递增，利息部分逐月递减。</p>
+
+<p>如果手边有贷款合同的话，翻开就会看到每月的还款额计算公式为：</p>
+
+<p>$$ 每月还款额 = \frac{借款本金 \cdot 月利率 \cdot (1 + 月利率)^{还款总期数}}{(1 + 月利率)^{还款总期数} - 1} $$</p>
+
+<p>举个实际的例子，比如贷款100万元，贷款期限为20年，贷款年利率为最新基准利率上浮20%，也就是5.88%，那么代入公式得到每月还款额为7095.25元。</p>
+
+<p>$$ 每月还款额 = \frac{1000000 \cdot 5.88\%/12 \cdot (1 + 5.88\%/12)^{240}}{(1 + 5.88\%/12)^{240}-1} = 7095.25 $$</p>
+
+<p>好的，到现在为止，至少就有了 3 个问题：</p>
+
+<ol>
+<li>每月还款额的公式是怎么推导出来的？</li>
+<li>每月还款额里本金和利息分别是多少？</li>
+<li>用年利率除以 12 得到月利率是否合理？</li>
+</ol>
+
+<p>下面来逐个分析。</p>
+
+<h3 id="每月还款额公式推导">每月还款额公式推导</h3>
+
+<p>不妨假设贷款额，也就是本金为 $v$, 月利率为 $r$, 借款期数为 $n$, 每月还款额为 $x$. 则可以列出下表。</p>
+
+<table>
+<thead>
+<tr>
+<th align="center">期数</th>
+<th align="left">本金+利息</th>
+<th align="center">还款</th>
+<th>剩余本金+利息</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td align="center">$1$</td>
+<td align="left">$v\cdot(1+r)$</td>
+<td align="center">$x$</td>
+<td>$S_1 = v\cdot(1+r) - x$</td>
+</tr>
+
+<tr>
+<td align="center">$2$</td>
+<td align="left">$S_1\cdot(1+r)$</td>
+<td align="center">$x$</td>
+<td>$S_2 = S_1\cdot(1+r)-x$</td>
+</tr>
+
+<tr>
+<td align="center">&hellip;</td>
+<td align="left">&hellip;</td>
+<td align="center">$x$</td>
+<td>&hellip;</td>
+</tr>
+
+<tr>
+<td align="center">$n$</td>
+<td align="left">$S_{n-1}\cdot(1+r)$</td>
+<td align="center">$x$</td>
+<td>$ S_n = S_{n-1}\cdot(1+r)-x$</td>
+</tr>
+</tbody>
+</table>
+
+<p>从表中可以看出，第一期结束时，本金 $v$ 产生的利息为 $v \cdot r$，因此本金加利息为 $v\cdot(1+r)$ ，还款 $x$ 后，剩余金额为 $v\cdot(1+r) - x$，记为 $S_1$。依此类推，得到每期结束时的剩余金额 $S_i$，而要求的正是使得 $S_n = 0$ 的 $x$ 的值。不妨将 $S_n$ 展开，得到：</p>
+
+<p>$$S_n = v\cdot (1+r)^n - x\cdot(1+r)^{n-1} -x\cdot(1+r)^{n-2} - \cdots -x$$</p>
+
+<p>公式的后面是个等比数列，简化得到：</p>
+
+<p>$$S_n = v\cdot(1+r)^n - x\cdot\sum_{i=0}^{n-1}(1+r)^i  = v\cdot(1+r)^n - x\cdot\frac{(1+r)^n-1}{r}$$</p>
+
+<p>令 $S_n = 0$ 得到</p>
+
+<p>$$x = \frac{v\cdot r\cdot(1+r)^n}{(1+r)^n-1}$$</p>
+
+<p>即为每月的还款额公式。</p>
+
+<h3 id="每月还款额里的本金和利息分别是多少">每月还款额里的本金和利息分别是多少</h3>
+
+<p>每月的还款额里一部分是本金，一部分是利息，其中，本金部分逐渐增加，利息部分随着剩余的本金减少而减少。那么，每个月的本金和利息的比例怎么分配呢？容易想到的是，可以在每个月将当前本金所产生的利息都还上，这样，利息部分就不会利滚利了，计算也较为简单了。其实确实是这样的，可以这样推导：</p>
+
+<ol>
+<li>考虑最后一期，利息就是剩余的本金在当月所产生的利息</li>
+<li>再考虑倒数第二期，由于最后一期没有当前期未还的利息，所以当期所还的利息正好是当前的剩余本金产生的利息</li>
+<li>依此类推到第一期，利息部分就是所有本金在第一期产生的利息</li>
+</ol>
+
+<p>于是，列出详细表格如下：</p>
+
+<table>
+<thead>
+<tr>
+<th>期数</th>
+<th>当期本金</th>
+<th>当月/归还利息</th>
+<th>归还本金</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>$1$</td>
+<td>$v$</td>
+<td>$r\cdot v$</td>
+<td>$x - r\cdot v$</td>
+</tr>
+
+<tr>
+<td>$2$</td>
+<td>$v\cdot(1+r)-x$</td>
+<td>$r\cdot(v\cdot(1+r)-x)$</td>
+<td>$(x-r\cdot v)\cdot(1+r)$</td>
+</tr>
+
+<tr>
+<td>$3$</td>
+<td>$v\cdot(1+r)^2-x\cdot((1+r)+1)$</td>
+<td>$r\cdot(v\cdot(1+r)^2-x\cdot((1+r)+1))$</td>
+<td>$(x-r\cdot v)\cdot(1+r)^2$</td>
+</tr>
+
+<tr>
+<td>$4$</td>
+<td>$v(1+r)^3-x\cdot\sum_{i=0}^{2}(1+r)^i$</td>
+<td>$r\cdot(v(1+r)^3-x\cdot\sum_{i=0}^{2}(1+r)^i)$</td>
+<td>$(x-r\cdot v)\cdot(1+r)^3$</td>
+</tr>
+
+<tr>
+<td>&hellip;</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+
+<tr>
+<td>$n$</td>
+<td>$v\cdot(1+r)^{n-1}-x\cdot\sum_{i=0}^{n-2}(1+r)^i$</td>
+<td>$r\cdot (v\cdot(1+r)^{n-1}-x\cdot\sum_{i=0}^{n-2}(1+r)^i)$</td>
+<td>$(x-r\cdot v)\cdot(1+r)^{n-1}$</td>
+</tr>
+</tbody>
+</table>
+
+<p>由上表可知，第 $k$ 期归还的本金和利息分别为：</p>
+
+<p>$$ P_k = (x - r\cdot v)\cdot(1+r)^{k-1} = \frac{r\cdot v\cdot(1+r)^{k-1}}{(1+r)^n-1}$$</p>
+
+<p>$$ I_k = x-P_k = \frac{r\cdot v\cdot((1+r)^n-(1+r)^{k-1})}{(1+r)^n-1}$$</p>
+
+<p>由以上的公式可以得到，对于上面的例子，为期 20 年，年化贷款利率为 5.88% 的 100 万元贷款，详细的还款计划如下表所示。</p>
+
+<table>
+<thead>
+<tr>
+<th>期数</th>
+<th>月供</th>
+<th>月供本金</th>
+<th>月供利息</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>1</td>
+<td>7095.25</td>
+<td>2195.25</td>
+<td>4900.00</td>
+</tr>
+
+<tr>
+<td>2</td>
+<td>7095.25</td>
+<td>2206.01</td>
+<td>4889.24</td>
+</tr>
+
+<tr>
+<td>3</td>
+<td>7095.25</td>
+<td>2216.82</td>
+<td>4878.43</td>
+</tr>
+
+<tr>
+<td>&hellip;</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+
+<tr>
+<td>240</td>
+<td>7095.25</td>
+<td>7060.66</td>
+<td>34.60</td>
+</tr>
+</tbody>
+</table>
+
+<p>另外，可以很容易得到整个还款周期内的利息总额为下式，计算后的值为 702860。</p>
+
+<p>$$ \sum_{k=1}^{n}I_k = n\cdot x - v = v\cdot(\frac{n\cdot r\cdot(1+r)^n}{(1+r)^n-1} - 1)$$</p>
+
+<h3 id="年利率除以12的到月利率是否合理">年利率除以12的到月利率是否合理</h3>
+
+<p>我认为是不太合理的，但谁让银行是规则的制定者呢，不合理咱也不能奈银行何。</p>
+
+<p>还是刚才 $5.88\%$ 的年利率，我们看到，在上面的各个公式中，每期的利率是按照 $5.88\%/12 = 0.49\%$ 来计算的，而且是复利，也就是说，真实的年利率是 $(1+0.49\%)^{12} - 1 = 6.04\%$。</p>
+
+<p>而如果真要实现了 $5.88\%$ 的年化利率，则月利率应该是 $\sqrt[12]{1+5.88\%}-1 = 0.47727\%$，按照这个利率计算的话，月供就降为 $7007.85$，少了 $87.4$ 元，能省了几顿午餐钱。嗯，邪恶的金融机构。</p>
+
+		</div>
+		
+<div class="post__tags tags clearfix">
+	<svg class="icon icon-tag" width="16" height="16" viewBox="0 0 16 16"><path d="M16 9.5c0 .373-.24.74-.5 1l-5 5c-.275.26-.634.5-1 .5-.373 0-.74-.24-1-.5L1 8a2.853 2.853 0 0 1-.7-1C.113 6.55 0 5.973 0 5.6V1.4C0 1.034.134.669.401.401.67.134 1.034 0 1.4 0h4.2c.373 0 .95.113 1.4.3.45.187.732.432 1 .7l7.5 7.502c.26.274.5.632.5.998zM3.5 5a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3z"/></svg>
+	<ul class="tags__list">
+		<li class="tags__item"><a class="tags__link btn" href="/tags/fin/" rel="tag">fin</a></li>
+	</ul>
+</div>
+	</article>
+	
+	
+<nav class="post-nav row clearfix">
+	<div class="post-nav__item post-nav__item--prev col-1-2">
+		<a class="post-nav__link" href="/p/2018/pnpoly/" rel="prev"><span class="post-nav__caption">«&thinsp;Previous</span><p class="post-nav__post-title">PNPOLY: 射线法判断点是否在多边形区域内部</p></a>
+	</div>
+</nav>
+	
+<section class="comments">
+	<div id="disqus_thread"></div>
+<script>
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "m142" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</section>
+
+</main>
+
+<aside class="sidebar">
+	
+<div class="widget-search widget">
+	<form class="widget-search__form" role="search" method="get" action="https://google.com/search">
+		<label>
+			<input class="widget-search__field" type="search" placeholder="SEARCH..." value="" name="q">
+		</label>
+		<input class="widget-search__submit" type="submit" value="Search">
+		<input type="hidden" name="sitesearch" value="http://m.l2d.xyz/" />
+	</form>
+</div>
+	
+<div class="widget-recent widget">
+	<h4 class="widget__title">Recent Posts</h4>
+	<div class="widget__content">
+		<ul class="widget__list">
+			<li class="widget__item"><a class="widget__link" href="/p/2018/fin_debx/">贷款基础知识之等额本息</a></li>
+			<li class="widget__item"><a class="widget__link" href="/p/2018/pnpoly/">PNPOLY: 射线法判断点是否在多边形区域内部</a></li>
+			<li class="widget__item"><a class="widget__link" href="/p/2018/self-fulfilling-prophecy/">记录新学到的一个词——自证预言</a></li>
+			<li class="widget__item"><a class="widget__link" href="/p/2018/py-for-else/">Python 中奇特的 else</a></li>
+			<li class="widget__item"><a class="widget__link" href="/p/2018/mac-excel-recover-issue/">Mac 上 Excel 的一个恼人问题</a></li>
+		</ul>
+	</div>
+</div>
+	
+	
+	
+<div class="widget-taglist widget">
+	<h4 class="widget__title">Tags</h4>
+	<div class="widget__content">
+		<a class="widget-taglist__link widget__link btn" href="/tags/ad" title="Ad">Ad</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/algo" title="Algo">Algo</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/bash" title="Bash">Bash</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/c&#43;&#43;" title="C&#43;&#43;">C&#43;&#43;</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/digihome" title="Digihome">Digihome</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/fin" title="Fin">Fin</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/go" title="Go">Go</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/mac" title="Mac">Mac</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/map" title="Map">Map</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/misc" title="Misc">Misc</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/ml" title="Ml">Ml</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/mobi" title="Mobi">Mobi</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/python" title="Python">Python</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/raspi" title="Raspi">Raspi</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/read" title="Read">Read</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/sec" title="Sec">Sec</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/spark" title="Spark">Spark</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/vpn" title="Vpn">Vpn</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/vps" title="Vps">Vps</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/yy" title="Yy">Yy</a>
+	</div>
+</div>
+</aside>
+	</div>
+		<footer class="footer">
+			<div class="container container-inner">
+				<div class="footer__copyright">&copy; 2018 思考、记录. <span class="footer__copyright-credits">Generated with <a href="https://gohugo.io/" rel="nofollow noopener" target="_blank">Hugo</a> and <a href="https://github.com/Vimux/Mainroad/" rel="nofollow noopener" target="_blank">Mainroad</a> theme.</span></div>
+			</div>
+		</footer>
+	</div>
+
+<script>
+	var navigation = responsiveNav(".menu", {
+		navClass: "menu--collapse",
+	});
+</script>
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+tex2jax: {
+inlineMath: [['$','$'], ['\\(','\\)']],
+displayMath: [['$$','$$']],
+processEscapes: true,
+processEnvironments: true,
+skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+TeX: { equationNumbers: { autoNumber: "AMS" },
+     extensions: ["AMSmath.js", "AMSsymbols.js"] }
+}
+});
+</script>
+
+</body>
+</html>

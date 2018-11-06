@@ -14,7 +14,7 @@
 
 
 
-<meta property="og:updated_time" content="2018-10-22T00:00:00&#43;00:00"/>
+<meta property="og:updated_time" content="2018-11-05T00:00:00&#43;00:00"/>
 
 
 
@@ -65,6 +65,35 @@ ga('send', 'pageview');
 		<div class="wrapper clearfix">
 
 	<main class="main list content" role="main"><article class="list__item post">
+	<div class="list__content clearfix">
+		<header class="list__header">
+			<h3 class="list__title post__title ">
+				<a href="/p/2018/fin_debx/" rel="bookmark">贷款基础知识之等额本息</a>
+			</h3><div class="list__meta meta">
+<svg class="icon icon-time" width="16" height="14" viewBox="0 0 16 16"><path d="m8-.0000003c-4.4 0-8 3.6-8 8 0 4.4000003 3.6 8.0000003 8 8.0000003 4.4 0 8-3.6 8-8.0000003 0-4.4-3.6-8-8-8zm0 14.4000003c-3.52 0-6.4-2.88-6.4-6.4000003 0-3.52 2.88-6.4 6.4-6.4 3.52 0 6.4 2.88 6.4 6.4 0 3.5200003-2.88 6.4000003-6.4 6.4000003zm.4-10.4000003h-1.2v4.8l4.16 2.5600003.64-1.04-3.6-2.1600003z"/></svg>
+<time class="post__meta-date meta-date" datetime="2018-11-05T00:00:00">2018-11-05</time>
+<span class="post__meta-categories meta-categories">
+	<svg class="icon icon-category" width="16" height="16" viewBox="0 0 16 16"><path d="m7 2l1 2h8v11h-16v-13z"/></svg>
+	<span class="meta-categories__list"><a class="meta-categories__link" href="/categories/fin" rel="category">fin</a></span>
+</span></div>
+		</header>
+		<div class="list__excerpt post__content">
+			大家如果办过贷款，尤其是房贷的话，相信对等额本息不会陌生。与等额本息同时出现的，还有等额本金。本文先详细介绍等额本息，后面再介绍等额本金等。
+等额本息指的是还款期限内，每个月还款额（包括本金和利息）固定，其中本金部分逐月递增，利息部分逐月递减。
+如果手边有贷款合同的话，翻开就会看到每月的还款额计算公式为：
+$$ 每月还款额 = \frac{借款本金 \cdot 月利率 \cdot (1 + 月利率)^{还款总期数}}{(1 + 月利率)^{还款总期数} - 1} $$
+举个实际的例子，比如贷款100万元，贷款期限为20年，贷款年利率为最新基准利率上浮20%，也就是5.88%，那么代入公式得到每月还款额为7095.25元。
+$$ 每月还款额 = \frac{1000000 \cdot 5.88\%/12 \cdot (1 + 5.88\%/12)^{240}}{(1 + 5.88\%/12)^{240}-1} = 7095.25 $$
+好的，到现在为止，至少就有了 3 个问题：
+ 每月还款额的公式是怎么推导出来的？ 每月还款额里本金和利息分别是多少？ 用年利率除以 12 得到月利率是否合理？  下面来逐个分析。
+每月还款额公式推导 不妨假设贷款额，也就是本金为 $v$, 月利率为 $r$, 借款期数为 $n$, 每月还款额为 $x$. 则可以列出下表。
+   期数 本金+利息 还款 剩余本金+利息     $1$ $v\cdot(1+r)$ $x$ $S_1 = v\cdot(1+r) - x$   $2$ $S_1\cdot(1+r)$ $x$ $S_2 = S_1\cdot(1+r)-x$   &hellip; &hellip; $x$ &hellip;   $n$ $S_{n-1}\cdot(1+r)$ $x$ $ S_n = S_{n-1}\cdot(1+r)-x$    从表中可以看出，第一期结束时，本金 $v$ 产生的利息为 $v \cdot r$，因此本金加利息为 $v\cdot(1+r)$ ，还款 $x$ 后，剩余金额为 $v\cdot(1+r) - x$，记为 $S_1$。依此类推，得到每期结束时的剩余金额 $S_i$，而要求的正是使得 $S_n = 0$ 的 $x$ 的值。不妨将 $S_n$ 展开，得到：
+		</div>
+		<div class="list__footer">
+			<a class="list__footer-readmore btn" href="/p/2018/fin_debx/">Read more…</a>
+		</div>
+	</div>
+</article><article class="list__item post">
 	<div class="list__content clearfix">
 		<header class="list__header">
 			<h3 class="list__title post__title ">
@@ -145,22 +174,6 @@ for n in range(2, 10): for x in range(2, n): if n % x == 0: print( n, 'equals', 
 rm &quot;/Users/didi/Library/Group Containers/UBF8T346G9.Office/MicrosoftRegistrationDB.reg&quot;  
 		</div>
 	</div>
-</article><article class="list__item post">
-	<div class="list__content clearfix">
-		<header class="list__header">
-			<h3 class="list__title post__title ">
-				<a href="/p/2018/principles/" rel="bookmark">《原则》初读简记</a>
-			</h3><div class="list__meta meta">
-<svg class="icon icon-time" width="16" height="14" viewBox="0 0 16 16"><path d="m8-.0000003c-4.4 0-8 3.6-8 8 0 4.4000003 3.6 8.0000003 8 8.0000003 4.4 0 8-3.6 8-8.0000003 0-4.4-3.6-8-8-8zm0 14.4000003c-3.52 0-6.4-2.88-6.4-6.4000003 0-3.52 2.88-6.4 6.4-6.4 3.52 0 6.4 2.88 6.4 6.4 0 3.5200003-2.88 6.4000003-6.4 6.4000003zm.4-10.4000003h-1.2v4.8l4.16 2.5600003.64-1.04-3.6-2.1600003z"/></svg>
-<time class="post__meta-date meta-date" datetime="2018-05-21T00:00:00">2018-05-21</time></div>
-		</header>
-		<div class="list__excerpt post__content">
-			其实在几个月前就收到了这本书，也不厚，不到 550 页，断断续续居然翻了两个月才读完，确实有点慢。 不过说实话，这本书不是那么好读，说不上来为什么。 看这种翻译的书，总是觉得怪怪的，很多时候读起来每个字都能看懂，也能理解其中的意思，但就是觉得有点怪，也许就是翻译还没有到雅的境界。
-这本书在金融界评价很高，很火热，可能跟作者的身份是有关的。 但说实话，对普通人而言，其实这本书不太友好。 本书主要由作者的自传、生活和工作原则三部分组成。 文中，穿插了及其多的细节性的各种原则，让人眼花缭乱， 要想看一遍就记住所有的原则条文，估计只有过目不忘的天才才能做到。 对于一个目前还处于把书看薄阶段的我来说，只要从中吸取最核心的部分就可以了。
-对我而言，以下几点是最重要的：
- 行为处事要有自己的原则，贯彻执行且始终如一 保持头脑极度开放，吸收汇聚各方意见，提升自我认知 平衡民主和专政，大部分时候应该保持极度求真和极度透明，但需要知道何时是例外 理解人与人之间的大不同，不断学习和培养同理心 做自己喜欢的，有意义的工作，发展有意义的人际关系，并从中获得快乐  另外，这几年开始接触并逐步和学习理解的一个词是：决策。这本书里也提到过很多次这个词。 其实，决策无处不在，只是以前没有意识到。 就像呼吸，如果不特意去体会是感受不到一样。 另外还一个有意思的是鼻子，其实眼睛每天都能看到它，但总是将它忽略（不信你闭上一只眼睛试试）。 近来看的一些书，从经济学、心理学等领域来探讨决策，从不同的角度来看，也让我对决策有了更深的理解，这个以后再来探讨。
-		</div>
-	</div>
 </article>
 		
 
@@ -188,11 +201,11 @@ rm &quot;/Users/didi/Library/Group Containers/UBF8T346G9.Office/MicrosoftRegistr
 	<h4 class="widget__title">Recent Posts</h4>
 	<div class="widget__content">
 		<ul class="widget__list">
+			<li class="widget__item"><a class="widget__link" href="/p/2018/fin_debx/">贷款基础知识之等额本息</a></li>
 			<li class="widget__item"><a class="widget__link" href="/p/2018/pnpoly/">PNPOLY: 射线法判断点是否在多边形区域内部</a></li>
 			<li class="widget__item"><a class="widget__link" href="/p/2018/self-fulfilling-prophecy/">记录新学到的一个词——自证预言</a></li>
 			<li class="widget__item"><a class="widget__link" href="/p/2018/py-for-else/">Python 中奇特的 else</a></li>
 			<li class="widget__item"><a class="widget__link" href="/p/2018/mac-excel-recover-issue/">Mac 上 Excel 的一个恼人问题</a></li>
-			<li class="widget__item"><a class="widget__link" href="/p/2018/principles/">《原则》初读简记</a></li>
 		</ul>
 	</div>
 </div>
@@ -207,6 +220,7 @@ rm &quot;/Users/didi/Library/Group Containers/UBF8T346G9.Office/MicrosoftRegistr
 		<a class="widget-taglist__link widget__link btn" href="/tags/bash" title="Bash">Bash</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/c&#43;&#43;" title="C&#43;&#43;">C&#43;&#43;</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/digihome" title="Digihome">Digihome</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/fin" title="Fin">Fin</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/go" title="Go">Go</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/mac" title="Mac">Mac</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/map" title="Map">Map</a>
