@@ -3,6 +3,11 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>http://m.l2d.xyz/p/2018/fin_debj/</loc>
+    <lastmod>2018-11-11T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>http://m.l2d.xyz/p/2018/raspberrypi_fstab_issue/</loc>
     <lastmod>2018-11-10T08:24:09+08:00</lastmod>
   </url>
@@ -190,13 +195,13 @@
   
   <url>
     <loc>http://m.l2d.xyz/tags/fin/</loc>
-    <lastmod>2018-11-05T00:00:00+00:00</lastmod>
+    <lastmod>2018-11-11T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>http://m.l2d.xyz/categories/fin/</loc>
-    <lastmod>2018-11-05T00:00:00+00:00</lastmod>
+    <lastmod>2018-11-11T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -238,7 +243,7 @@
   
   <url>
     <loc>http://m.l2d.xyz/post/</loc>
-    <lastmod>2018-11-10T08:24:09+08:00</lastmod>
+    <lastmod>2018-11-11T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -304,7 +309,7 @@
   
   <url>
     <loc>http://m.l2d.xyz/</loc>
-    <lastmod>2018-11-10T08:24:09+08:00</lastmod>
+    <lastmod>2018-11-11T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   

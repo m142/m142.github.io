@@ -14,7 +14,7 @@
 
 
 
-<meta property="og:updated_time" content="2015-12-27T00:00:00&#43;00:00"/>
+<meta property="og:updated_time" content="2016-01-09T00:00:00&#43;00:00"/>
 
 
 
@@ -68,6 +68,25 @@ ga('send', 'pageview');
 		<header class="page-header">
 			<h1 class="page-header__title">Posts</h1>
 		</header><article class="list__item post">
+	<div class="list__content clearfix">
+		<header class="list__header">
+			<h3 class="list__title post__title ">
+				<a href="/p/2016/aria2/" rel="bookmark">aria2</a>
+			</h3><div class="list__meta meta">
+<svg class="icon icon-time" width="16" height="14" viewBox="0 0 16 16"><path d="m8-.0000003c-4.4 0-8 3.6-8 8 0 4.4000003 3.6 8.0000003 8 8.0000003 4.4 0 8-3.6 8-8.0000003 0-4.4-3.6-8-8-8zm0 14.4000003c-3.52 0-6.4-2.88-6.4-6.4000003 0-3.52 2.88-6.4 6.4-6.4 3.52 0 6.4 2.88 6.4 6.4 0 3.5200003-2.88 6.4000003-6.4 6.4000003zm.4-10.4000003h-1.2v4.8l4.16 2.5600003.64-1.04-3.6-2.1600003z"/></svg>
+<time class="post__meta-date meta-date" datetime="2016-01-09T00:00:00">2016-01-09</time></div>
+		</header>
+		<div class="list__excerpt post__content">
+			用树莓派做下载机，除了速度慢点，其它都挺不错的，功耗低，也稳定。 aria2 是一款非常优秀的小下载工具，支持 http/https, ftp, sftp, bt, metalink 等协议，除了命令行外，也有 web ui，是 Linux 系统上下载的不二选择。
+1. 编译安装 下载最新的版本 1.19.3 ，并解压，进入目录并执行以下命令编译安装。
+sudo apt-get install autoconf autopoint libtool ./configure make sudo checkinstall # uninstall: `sudo dpkg -r aria2`  2. 配置 aria2 的配置文件是 ~/.aria2/aria2.conf ，所有的配置项说明都可以在 这里 找到。我的配置如下所示。 其中，dir, rpc-listen-port, rpc-secret 等参数可以根据自己需要配置，各参数的含义见 文档 。
+log=/tmp/aria2c.log dir=~/download # http check-certificate=false http-accept-gzip=true user-agent=uTorrent/2210(25130) # rpc rpc-allow-origin-all=true rpc-listen-port=6800 rpc-secret=secretstring # download max-concurrent-downloads=5 continue=true max-connection-per-server=5 min-split-size=10M split=10 # bt bt-enable-lpd=true bt-max-open-files=256 bt-max-peers=64 bt-prioritize-piece=head=4M,tail=4M bt-tracker-connect-timeout=16 bt-tracker-timeout=16 peer-id-prefix=-UT2210- # advanced #daemon=true # use `aria2c -D` to start daemon disk-cache=32M file-allocation=falloc log-level=notice  配置文件中之所以没有将 daemon 配置成 true，主要是考虑到有时候需要用命令行下载，如果将 aria2 默认启动为 daemon 则不太方便。同时，如果需要启动为 daemon，则加上 -D 参数即可，非常方便。
+		</div>
+		<div class="list__footer">
+			<a class="list__footer-readmore btn" href="/p/2016/aria2/">Read more…</a>
+		</div>
+	</div>
+</article><article class="list__item post">
 	<div class="list__content clearfix">
 		<header class="list__header">
 			<h3 class="list__title post__title ">
@@ -171,32 +190,6 @@ CSDN 事件中，官方声明泄露的数据是 2009 年的备份数据库。如
 			<a class="list__footer-readmore btn" href="/p/2015/raspberrypi-my-1st/">Read more…</a>
 		</div>
 	</div>
-</article><article class="list__item post">
-	<div class="list__content clearfix">
-		<header class="list__header">
-			<h3 class="list__title post__title ">
-				<a href="/p/2015/netgear-wndr4300-openwrt-shadowsocks-chinadns/" rel="bookmark">用 Netgear WNDR4300 打造翻墙路由器</a>
-			</h3><div class="list__meta meta">
-<svg class="icon icon-time" width="16" height="14" viewBox="0 0 16 16"><path d="m8-.0000003c-4.4 0-8 3.6-8 8 0 4.4000003 3.6 8.0000003 8 8.0000003 4.4 0 8-3.6 8-8.0000003 0-4.4-3.6-8-8-8zm0 14.4000003c-3.52 0-6.4-2.88-6.4-6.4000003 0-3.52 2.88-6.4 6.4-6.4 3.52 0 6.4 2.88 6.4 6.4 0 3.5200003-2.88 6.4000003-6.4 6.4000003zm.4-10.4000003h-1.2v4.8l4.16 2.5600003.64-1.04-3.6-2.1600003z"/></svg>
-<time class="post__meta-date meta-date" datetime="2015-11-05T00:00:00">2015-11-05</time>
-<span class="post__meta-categories meta-categories">
-	<svg class="icon icon-category" width="16" height="16" viewBox="0 0 16 16"><path d="m7 2l1 2h8v11h-16v-13z"/></svg>
-	<span class="meta-categories__list"><a class="meta-categories__link" href="/categories/digihome" rel="category">digihome</a></span>
-</span></div>
-		</header>
-		<div class="list__excerpt post__content">
-			VPS 推荐: BandwagonHost
-前提：1. 有一台境外的 VPS 服务器，并且安装了 ShadowSocks 服务且能正常使用，如无特别说明，下文中将以 x.x.x.x 代表 VPS 的 ip ； 2. 熟悉路由器网络的基本配置。
-家里联网设备逐渐多了起来，最近又添加了两台电视，有必要实现路由器端自动翻墙，提供自由的网络。经过一番调研，决定入手 Netgear WNDR4300 并刷 OpenWrt ，再装 ChinaDNS 和 ShadowSocks 。
-这里 罗列了可以刷 OpenWrt 的设备，听说 Netgear 比较稳定，加上宽带现在是 100M，以后可能还会再升，还需要 2.4G 和 5G 双频支持，综合考虑，选定了 WNDR4300。
-WNDR4300 自带的固件速度比较慢，至少从路由器的管理界面的反应速度来看是这样的，点个链接都要等老半天，完全不适合现代生活的快节奏。因此第一件事就是刷 OpenWrt 。
-初看 这个页面，以为只能刷 Barrier Breaker 14.07 版本，结果 ShadowSocks 安装报错，查了下说是 OpenWrt 版本太低，于是升级到了 Chaos Calmer 15.05 版本。后来者就没必要走着弯路了，直接下载 15.05 官方固件，通过网页管理界面直接刷入，等几分钟路由器自动重启即可成功，一般不会出问题。
-刷了 OpenWrt 后，就可以 telnet 登录路由器了，ip 是 192.168.1.1，用户名是 root，密码为空，然后执行 passwd 修改密码。成功后 telnet 功能即被禁用，需要 ssh 登录。也可以打开浏览器，访问 http://192.
-		</div>
-		<div class="list__footer">
-			<a class="list__footer-readmore btn" href="/p/2015/netgear-wndr4300-openwrt-shadowsocks-chinadns/">Read more…</a>
-		</div>
-	</div>
 </article>
 
 		
@@ -224,11 +217,11 @@ WNDR4300 自带的固件速度比较慢，至少从路由器的管理界面的�
 	<h4 class="widget__title">Recent Posts</h4>
 	<div class="widget__content">
 		<ul class="widget__list">
+			<li class="widget__item"><a class="widget__link" href="/p/2018/fin_debj/">贷款基础知识之等额本金</a></li>
 			<li class="widget__item"><a class="widget__link" href="/p/2018/raspberrypi_fstab_issue/">树莓派修改fstab文件无法启动</a></li>
 			<li class="widget__item"><a class="widget__link" href="/p/2018/fin_debx/">贷款基础知识之等额本息</a></li>
 			<li class="widget__item"><a class="widget__link" href="/p/2018/pnpoly/">PNPOLY: 射线法判断点是否在多边形区域内部</a></li>
 			<li class="widget__item"><a class="widget__link" href="/p/2018/self-fulfilling-prophecy/">记录新学到的一个词——自证预言</a></li>
-			<li class="widget__item"><a class="widget__link" href="/p/2018/py-for-else/">Python 中奇特的 else</a></li>
 		</ul>
 	</div>
 </div>

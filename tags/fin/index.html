@@ -14,7 +14,7 @@
 
 
 
-<meta property="og:updated_time" content="2018-11-05T00:00:00&#43;00:00"/>
+<meta property="og:updated_time" content="2018-11-11T00:00:00&#43;00:00"/>
 
 
 
@@ -71,6 +71,30 @@ ga('send', 'pageview');
 	<div class="list__content clearfix">
 		<header class="list__header">
 			<h3 class="list__title post__title ">
+				<a href="/p/2018/fin_debj/" rel="bookmark">贷款基础知识之等额本金</a>
+			</h3><div class="list__meta meta">
+<svg class="icon icon-time" width="16" height="14" viewBox="0 0 16 16"><path d="m8-.0000003c-4.4 0-8 3.6-8 8 0 4.4000003 3.6 8.0000003 8 8.0000003 4.4 0 8-3.6 8-8.0000003 0-4.4-3.6-8-8-8zm0 14.4000003c-3.52 0-6.4-2.88-6.4-6.4000003 0-3.52 2.88-6.4 6.4-6.4 3.52 0 6.4 2.88 6.4 6.4 0 3.5200003-2.88 6.4000003-6.4 6.4000003zm.4-10.4000003h-1.2v4.8l4.16 2.5600003.64-1.04-3.6-2.1600003z"/></svg>
+<time class="post__meta-date meta-date" datetime="2018-11-11T00:00:00">2018-11-11</time>
+<span class="post__meta-categories meta-categories">
+	<svg class="icon icon-category" width="16" height="16" viewBox="0 0 16 16"><path d="m7 2l1 2h8v11h-16v-13z"/></svg>
+	<span class="meta-categories__list"><a class="meta-categories__link" href="/categories/fin" rel="category">fin</a></span>
+</span></div>
+		</header>
+		<div class="list__excerpt post__content">
+			前面已经讲过了等额本息，现在来看一下等额本金。
+等额本金比等额本息计算起来简单太多了。基本原理就是每月偿还固定比例的本金，以及剩余本金在当月产生的利息。如果手边有贷款合同的话，翻开就会看到等额本金的还款公式为：
+$$ 每月还款额 = \frac{借款本金}{还款总期数} + (借款本金-累计已还本金)\cdot 月利率 $$
+不妨假设贷款额，也就是本金为 $v$, 月利率为 $r$, 借款期数为 $n$, 第 $k$ 期还款额记为 $x_k$。 则可以列出下表。
+   期数 剩余本金 当月利息 月供     1 $v$ $v\cdot r$ $\frac{v}{n} + v\cdot r$   2 $\frac{n-1}{n}\cdot v$ $\frac{n-1}{n}\cdot v\cdot r$ $\frac{v}{n}+\frac{n-1}{n}\cdot v\cdot r$   3 $\frac{n-2}{n}\cdot v$ $\frac{n-2}{n}\cdot v\cdot r$ $\frac{v}{n}+\frac{n-2}{n}\cdot v\cdot r$   &hellip;      k $\frac{n-k+1}{n}\cdot v$ $\frac{n-k+1}{n}\cdot v\cdot r$ $\frac{v}{n}+\frac{n-k+1}{n}\cdot v\cdot r$   &hellip;      n $\frac{1}{n}\cdot v$ $\frac{1}{n}\cdot v\cdot r$ $\frac{v}{n}+\frac{1}{n}\cdot v\cdot r$    显然，等额本金还款方式下，月供逐渐降低，前期压力很大，后期压力越来越小。仍然举一个实际的例子：贷款100万元，贷款期限为20年，贷款年利率为最新基准利率上浮20%，也就是5.
+		</div>
+		<div class="list__footer">
+			<a class="list__footer-readmore btn" href="/p/2018/fin_debj/">Read more…</a>
+		</div>
+	</div>
+</article><article class="list__item post">
+	<div class="list__content clearfix">
+		<header class="list__header">
+			<h3 class="list__title post__title ">
 				<a href="/p/2018/fin_debx/" rel="bookmark">贷款基础知识之等额本息</a>
 			</h3><div class="list__meta meta">
 <svg class="icon icon-time" width="16" height="14" viewBox="0 0 16 16"><path d="m8-.0000003c-4.4 0-8 3.6-8 8 0 4.4000003 3.6 8.0000003 8 8.0000003 4.4 0 8-3.6 8-8.0000003 0-4.4-3.6-8-8-8zm0 14.4000003c-3.52 0-6.4-2.88-6.4-6.4000003 0-3.52 2.88-6.4 6.4-6.4 3.52 0 6.4 2.88 6.4 6.4 0 3.5200003-2.88 6.4000003-6.4 6.4000003zm.4-10.4000003h-1.2v4.8l4.16 2.5600003.64-1.04-3.6-2.1600003z"/></svg>
@@ -117,11 +141,11 @@ $$ 每月还款额 = \frac{1000000 \cdot 5.88\%/12 \cdot (1 + 5.88\%/12)^{240}}{
 	<h4 class="widget__title">Recent Posts</h4>
 	<div class="widget__content">
 		<ul class="widget__list">
+			<li class="widget__item"><a class="widget__link" href="/p/2018/fin_debj/">贷款基础知识之等额本金</a></li>
 			<li class="widget__item"><a class="widget__link" href="/p/2018/raspberrypi_fstab_issue/">树莓派修改fstab文件无法启动</a></li>
 			<li class="widget__item"><a class="widget__link" href="/p/2018/fin_debx/">贷款基础知识之等额本息</a></li>
 			<li class="widget__item"><a class="widget__link" href="/p/2018/pnpoly/">PNPOLY: 射线法判断点是否在多边形区域内部</a></li>
 			<li class="widget__item"><a class="widget__link" href="/p/2018/self-fulfilling-prophecy/">记录新学到的一个词——自证预言</a></li>
-			<li class="widget__item"><a class="widget__link" href="/p/2018/py-for-else/">Python 中奇特的 else</a></li>
 		</ul>
 	</div>
 </div>

@@ -14,7 +14,7 @@
 
 
 
-<meta property="og:updated_time" content="2018-05-05T00:00:00&#43;00:00"/>
+<meta property="og:updated_time" content="2018-05-06T00:00:00&#43;00:00"/>
 
 
 
@@ -68,6 +68,25 @@ ga('send', 'pageview');
 		<header class="page-header">
 			<h1 class="page-header__title">Posts</h1>
 		</header><article class="list__item post">
+	<div class="list__content clearfix">
+		<header class="list__header">
+			<h3 class="list__title post__title ">
+				<a href="/p/2018/bash-cmp-pitfall/" rel="bookmark">Bash 中 [ 和 [[ 整数比较的坑</a>
+			</h3><div class="list__meta meta">
+<svg class="icon icon-time" width="16" height="14" viewBox="0 0 16 16"><path d="m8-.0000003c-4.4 0-8 3.6-8 8 0 4.4000003 3.6 8.0000003 8 8.0000003 4.4 0 8-3.6 8-8.0000003 0-4.4-3.6-8-8-8zm0 14.4000003c-3.52 0-6.4-2.88-6.4-6.4000003 0-3.52 2.88-6.4 6.4-6.4 3.52 0 6.4 2.88 6.4 6.4 0 3.5200003-2.88 6.4000003-6.4 6.4000003zm.4-10.4000003h-1.2v4.8l4.16 2.5600003.64-1.04-3.6-2.1600003z"/></svg>
+<time class="post__meta-date meta-date" datetime="2018-05-06T00:00:00">2018-05-06</time></div>
+		</header>
+		<div class="list__excerpt post__content">
+			最近碰到了 bash 中 [ 和 [[ 中数字比较的不同之处，踩了一个坑。
+旧的代码类似这样 [ &quot;\$data_date&quot; -gt &quot;\$yesterday&quot; ] &amp;&amp; echo &quot;yes&quot;， 已经正常运行很长时间了。 升级的时候改成了 [[ &quot;\$data_date&quot; -gt &quot;\$yesterday&quot; ] &amp;&amp; echo &quot;yes&quot;， 其中的 $data_date 和 $yesterday 是月和日的组合， 类似 date +&quot;%m%d&quot; 的输出结果 0506 这样。
+升级的前几天都挺正常的没问题，突然4月18号出问题了，报错信息如下：
+$ [[ &quot;0418&quot; -gt &quot;0417&quot; ]] &amp;&amp; echo &quot;yes&quot; -bash: [[: 0418: value too great for base (error token is &quot;0418&quot;)  原来，在新的比较 [[ 中， 0418 这种以 0 开头的数字被识别成八进制数字了， 而用 [ 比较时，是被识别成十进制的数字。下面可以证明：
+		</div>
+		<div class="list__footer">
+			<a class="list__footer-readmore btn" href="/p/2018/bash-cmp-pitfall/">Read more…</a>
+		</div>
+	</div>
+</article><article class="list__item post">
 	<div class="list__content clearfix">
 		<header class="list__header">
 			<h3 class="list__title post__title ">
@@ -156,25 +175,6 @@ GPS 全称是 Global Positioning System (全球定位系统)，是接收卫星�
 类似的还有厂商在产品中内置加密后门，以达到某些目的。这种行为其实就是在安全领域干着明知不安全的事情。对此，无话可说。
 		</div>
 	</div>
-</article><article class="list__item post">
-	<div class="list__content clearfix">
-		<header class="list__header">
-			<h3 class="list__title post__title ">
-				<a href="/p/2016/aria2/" rel="bookmark">aria2</a>
-			</h3><div class="list__meta meta">
-<svg class="icon icon-time" width="16" height="14" viewBox="0 0 16 16"><path d="m8-.0000003c-4.4 0-8 3.6-8 8 0 4.4000003 3.6 8.0000003 8 8.0000003 4.4 0 8-3.6 8-8.0000003 0-4.4-3.6-8-8-8zm0 14.4000003c-3.52 0-6.4-2.88-6.4-6.4000003 0-3.52 2.88-6.4 6.4-6.4 3.52 0 6.4 2.88 6.4 6.4 0 3.5200003-2.88 6.4000003-6.4 6.4000003zm.4-10.4000003h-1.2v4.8l4.16 2.5600003.64-1.04-3.6-2.1600003z"/></svg>
-<time class="post__meta-date meta-date" datetime="2016-01-09T00:00:00">2016-01-09</time></div>
-		</header>
-		<div class="list__excerpt post__content">
-			用树莓派做下载机，除了速度慢点，其它都挺不错的，功耗低，也稳定。 aria2 是一款非常优秀的小下载工具，支持 http/https, ftp, sftp, bt, metalink 等协议，除了命令行外，也有 web ui，是 Linux 系统上下载的不二选择。
-1. 编译安装 下载最新的版本 1.19.3 ，并解压，进入目录并执行以下命令编译安装。
-sudo apt-get install autoconf autopoint libtool ./configure make sudo checkinstall # uninstall: `sudo dpkg -r aria2`  2. 配置 aria2 的配置文件是 ~/.aria2/aria2.conf ，所有的配置项说明都可以在 这里 找到。我的配置如下所示。 其中，dir, rpc-listen-port, rpc-secret 等参数可以根据自己需要配置，各参数的含义见 文档 。
-log=/tmp/aria2c.log dir=~/download # http check-certificate=false http-accept-gzip=true user-agent=uTorrent/2210(25130) # rpc rpc-allow-origin-all=true rpc-listen-port=6800 rpc-secret=secretstring # download max-concurrent-downloads=5 continue=true max-connection-per-server=5 min-split-size=10M split=10 # bt bt-enable-lpd=true bt-max-open-files=256 bt-max-peers=64 bt-prioritize-piece=head=4M,tail=4M bt-tracker-connect-timeout=16 bt-tracker-timeout=16 peer-id-prefix=-UT2210- # advanced #daemon=true # use `aria2c -D` to start daemon disk-cache=32M file-allocation=falloc log-level=notice  配置文件中之所以没有将 daemon 配置成 true，主要是考虑到有时候需要用命令行下载，如果将 aria2 默认启动为 daemon 则不太方便。同时，如果需要启动为 daemon，则加上 -D 参数即可，非常方便。
-		</div>
-		<div class="list__footer">
-			<a class="list__footer-readmore btn" href="/p/2016/aria2/">Read more…</a>
-		</div>
-	</div>
 </article>
 
 		
@@ -202,11 +202,11 @@ log=/tmp/aria2c.log dir=~/download # http check-certificate=false http-accept-gz
 	<h4 class="widget__title">Recent Posts</h4>
 	<div class="widget__content">
 		<ul class="widget__list">
+			<li class="widget__item"><a class="widget__link" href="/p/2018/fin_debj/">贷款基础知识之等额本金</a></li>
 			<li class="widget__item"><a class="widget__link" href="/p/2018/raspberrypi_fstab_issue/">树莓派修改fstab文件无法启动</a></li>
 			<li class="widget__item"><a class="widget__link" href="/p/2018/fin_debx/">贷款基础知识之等额本息</a></li>
 			<li class="widget__item"><a class="widget__link" href="/p/2018/pnpoly/">PNPOLY: 射线法判断点是否在多边形区域内部</a></li>
 			<li class="widget__item"><a class="widget__link" href="/p/2018/self-fulfilling-prophecy/">记录新学到的一个词——自证预言</a></li>
-			<li class="widget__item"><a class="widget__link" href="/p/2018/py-for-else/">Python 中奇特的 else</a></li>
 		</ul>
 	</div>
 </div>

@@ -4,22 +4,23 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>Python 中奇特的 else</title>
+	<title>贷款基础知识之等额本金</title>
 	<meta name="description" content="">
 	<meta name="generator" content="Hugo 0.40.2" />
-	<meta property="og:title" content="Python 中奇特的 else" />
-<meta property="og:description" content="今天看 Hacker News 发现了 Python 的一个小众特性：For - Else。
-原来 Python 里 else 还能跟 for 一起使用，当 for 循环正常退出（不是用 break 退出）时， else 里的语句会被执行。比如下面的代码：
-for n in range(2, 10): for x in range(2, n): if n % x == 0: print( n, &#39;equals&#39;, x, &#39;*&#39;, n//x) break else: # loop fell through without finding a factor print(n, &#39;is a prime number&#39;)  输出如下。可以看出，当执行到 break 退出 for 循环时， else 语句没有执行；而 for 循环完整执行完后，else 语句执行了。
-2 is a prime number 3 is a prime number 4 equals 2 * 2 5 is a prime number 6 equals 2 * 3 7 is a prime number 8 equals 2 * 4 9 equals 3 * 3  上面的代码如果不用 else，那就要这么写。代码量上稍微复杂一丢丢。" />
+	<meta property="og:title" content="贷款基础知识之等额本金" />
+<meta property="og:description" content="前面已经讲过了等额本息，现在来看一下等额本金。
+等额本金比等额本息计算起来简单太多了。基本原理就是每月偿还固定比例的本金，以及剩余本金在当月产生的利息。如果手边有贷款合同的话，翻开就会看到等额本金的还款公式为：
+$$ 每月还款额 = \frac{借款本金}{还款总期数} &#43; (借款本金-累计已还本金)\cdot 月利率 $$
+不妨假设贷款额，也就是本金为 $v$, 月利率为 $r$, 借款期数为 $n$, 第 $k$ 期还款额记为 $x_k$。 则可以列出下表。
+   期数 剩余本金 当月利息 月供     1 $v$ $v\cdot r$ $\frac{v}{n} &#43; v\cdot r$   2 $\frac{n-1}{n}\cdot v$ $\frac{n-1}{n}\cdot v\cdot r$ $\frac{v}{n}&#43;\frac{n-1}{n}\cdot v\cdot r$   3 $\frac{n-2}{n}\cdot v$ $\frac{n-2}{n}\cdot v\cdot r$ $\frac{v}{n}&#43;\frac{n-2}{n}\cdot v\cdot r$   &hellip;      k $\frac{n-k&#43;1}{n}\cdot v$ $\frac{n-k&#43;1}{n}\cdot v\cdot r$ $\frac{v}{n}&#43;\frac{n-k&#43;1}{n}\cdot v\cdot r$   &hellip;      n $\frac{1}{n}\cdot v$ $\frac{1}{n}\cdot v\cdot r$ $\frac{v}{n}&#43;\frac{1}{n}\cdot v\cdot r$    显然，等额本金还款方式下，月供逐渐降低，前期压力很大，后期压力越来越小。仍然举一个实际的例子：贷款100万元，贷款期限为20年，贷款年利率为最新基准利率上浮20%，也就是5." />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="http://m.l2d.xyz/p/2018/py-for-else/" />
+<meta property="og:url" content="http://m.l2d.xyz/p/2018/fin_debj/" />
 
 
 
-<meta property="article:published_time" content="2018-05-28T00:00:00&#43;00:00"/>
+<meta property="article:published_time" content="2018-11-11T00:00:00&#43;00:00"/>
 
-<meta property="article:modified_time" content="2018-05-28T00:00:00&#43;00:00"/>
+<meta property="article:modified_time" content="2018-11-11T00:00:00&#43;00:00"/>
 
 
 
@@ -72,69 +73,144 @@ ga('send', 'pageview');
 <main class="main content">
 	<article class="post">
 		<header class="post__header">
-			<h1 class="post__title">Python 中奇特的 else</h1><div class="post__meta meta">
+			<h1 class="post__title">贷款基础知识之等额本金</h1><div class="post__meta meta">
 <svg class="icon icon-time" width="16" height="14" viewBox="0 0 16 16"><path d="m8-.0000003c-4.4 0-8 3.6-8 8 0 4.4000003 3.6 8.0000003 8 8.0000003 4.4 0 8-3.6 8-8.0000003 0-4.4-3.6-8-8-8zm0 14.4000003c-3.52 0-6.4-2.88-6.4-6.4000003 0-3.52 2.88-6.4 6.4-6.4 3.52 0 6.4 2.88 6.4 6.4 0 3.5200003-2.88 6.4000003-6.4 6.4000003zm.4-10.4000003h-1.2v4.8l4.16 2.5600003.64-1.04-3.6-2.1600003z"/></svg>
-<time class="post__meta-date meta-date" datetime="2018-05-28T00:00:00">2018-05-28</time></div>
+<time class="post__meta-date meta-date" datetime="2018-11-11T00:00:00">2018-11-11</time>
+<span class="post__meta-categories meta-categories">
+	<svg class="icon icon-category" width="16" height="16" viewBox="0 0 16 16"><path d="m7 2l1 2h8v11h-16v-13z"/></svg>
+	<span class="meta-categories__list"><a class="meta-categories__link" href="/categories/fin" rel="category">fin</a></span>
+</span></div>
 		</header>
 		<div class="post__content clearfix">
-			<p>今天看 <a href="https://news.ycombinator.com/">Hacker News</a> 发现了 Python 的一个小众特性：<a href="http://book.pythontips.com/en/latest/for_-_else.html">For - Else</a>。</p>
+			<p>前面已经讲过了<a href="https://m.l2d.xyz/p/2018/fin_debx/">等额本息</a>，现在来看一下等额本金。</p>
 
-<p>原来 Python 里 else 还能跟 for 一起使用，当 for 循环正常退出（不是用 break 退出）时， else 里的语句会被执行。比如下面的代码：</p>
+<p>等额本金比等额本息计算起来简单太多了。基本原理就是每月偿还固定比例的本金，以及剩余本金在当月产生的利息。如果手边有贷款合同的话，翻开就会看到等额本金的还款公式为：</p>
 
-<pre><code class="language-python">for n in range(2, 10):
-    for x in range(2, n):
-        if n % x == 0:
-            print( n, 'equals', x, '*', n//x)
-            break
-    else:
-        # loop fell through without finding a factor
-        print(n, 'is a prime number')
-</code></pre>
+<p>$$ 每月还款额 = \frac{借款本金}{还款总期数} + (借款本金-累计已还本金)\cdot 月利率 $$</p>
 
-<p>输出如下。可以看出，当执行到 break 退出 for 循环时， else 语句没有执行；而 for 循环完整执行完后，else 语句执行了。</p>
+<p>不妨假设贷款额，也就是本金为 $v$, 月利率为 $r$, 借款期数为 $n$, 第 $k$ 期还款额记为 $x_k$。 则可以列出下表。</p>
 
-<pre><code>2 is a prime number
-3 is a prime number
-4 equals 2 * 2
-5 is a prime number
-6 equals 2 * 3
-7 is a prime number
-8 equals 2 * 4
-9 equals 3 * 3
-</code></pre>
+<table>
+<thead>
+<tr>
+<th>期数</th>
+<th>剩余本金</th>
+<th>当月利息</th>
+<th>月供</th>
+</tr>
+</thead>
 
-<p>上面的代码如果不用 else，那就要这么写。代码量上稍微复杂一丢丢。</p>
+<tbody>
+<tr>
+<td>1</td>
+<td>$v$</td>
+<td>$v\cdot r$</td>
+<td>$\frac{v}{n} + v\cdot r$</td>
+</tr>
 
-<pre><code>for n in range(2, 10):
-    isprime = True
-    for x in range(2, n):
-        if n % x == 0:
-            isprime = False
-            print( n, 'equals', x, '*', n//x)
-            break
-    if isprime:
-        print(n, 'is a prime number')
-</code></pre>
+<tr>
+<td>2</td>
+<td>$\frac{n-1}{n}\cdot v$</td>
+<td>$\frac{n-1}{n}\cdot v\cdot r$</td>
+<td>$\frac{v}{n}+\frac{n-1}{n}\cdot v\cdot r$</td>
+</tr>
 
-<p>其实，else 不仅能用在 for 循环里，还能用在 while 循环里。
-使用方法和 for else 是一样的。比如下面的代码。</p>
+<tr>
+<td>3</td>
+<td>$\frac{n-2}{n}\cdot v$</td>
+<td>$\frac{n-2}{n}\cdot v\cdot r$</td>
+<td>$\frac{v}{n}+\frac{n-2}{n}\cdot v\cdot r$</td>
+</tr>
 
-<pre><code class="language-py">i = 0
-while i &lt; 5:
-    print(i, ' &lt; 5')
-    i += 1
-else:
-    print(i, ' &gt;= 5')
-</code></pre>
+<tr>
+<td>&hellip;</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
 
-<p>新技能 get，虽然可能没啥用……</p>
+<tr>
+<td>k</td>
+<td>$\frac{n-k+1}{n}\cdot v$</td>
+<td>$\frac{n-k+1}{n}\cdot v\cdot r$</td>
+<td>$\frac{v}{n}+\frac{n-k+1}{n}\cdot v\cdot r$</td>
+</tr>
+
+<tr>
+<td>&hellip;</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+
+<tr>
+<td>n</td>
+<td>$\frac{1}{n}\cdot v$</td>
+<td>$\frac{1}{n}\cdot v\cdot r$</td>
+<td>$\frac{v}{n}+\frac{1}{n}\cdot v\cdot r$</td>
+</tr>
+</tbody>
+</table>
+
+<p>显然，等额本金还款方式下，月供逐渐降低，前期压力很大，后期压力越来越小。仍然举一个实际的例子：贷款100万元，贷款期限为20年，贷款年利率为最新基准利率上浮20%，也就是5.88%，下面列出不同期数下的月供详情。可以看出，最后一期的月供不到第一期的一半。</p>
+
+<table>
+<thead>
+<tr>
+<th>期数</th>
+<th>本金</th>
+<th>利息</th>
+<th>月供</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>1</td>
+<td>4166.67</td>
+<td>4900</td>
+<td>9066.67</td>
+</tr>
+
+<tr>
+<td>2</td>
+<td>4166.67</td>
+<td>4879.58</td>
+<td>9046.25</td>
+</tr>
+
+<tr>
+<td>&hellip;</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+
+<tr>
+<td>240</td>
+<td>4166.67</td>
+<td>20.42</td>
+<td>4187.08</td>
+</tr>
+</tbody>
+</table>
+
+<p>在等额本金方式下，总利息为：</p>
+
+<p>$$ \sum_{k=1}^{n}I_k = v\cdot r\cdot \sum_{k=1}^{n}\frac{k}{n} = v\cdot r \cdot \frac{n+1}{2}$$</p>
+
+<p>代入具体数值，计算得到 $590450$。相比等额本息的 $702860$，少了 $16\%$。当然实际上考虑到通胀等因素，这样比较是没有多大意义的。</p>
+
+<p>两种最常见的还款方式都了解了，那么在实际中应该如何选择呢？一般来说，只要投资回报率比贷款利率高，那肯定无脑选等额本息；如果投资回报率跟贷款利率相比差不多甚至还要低，并且也不差钱，觉得欠银行钱是一种负担的话，可以考虑等额本金，并且提前还款。其实，考虑到流动性，通胀等各种因素，等额本息往往是更优的选择，不多解释。</p>
+
+<p>等额本息和等额本金的介绍就到这里，后面介绍等本等金等套路，就是信用卡分期的坑。</p>
 
 		</div>
 		
 <div class="post__tags tags clearfix">
 	<svg class="icon icon-tag" width="16" height="16" viewBox="0 0 16 16"><path d="M16 9.5c0 .373-.24.74-.5 1l-5 5c-.275.26-.634.5-1 .5-.373 0-.74-.24-1-.5L1 8a2.853 2.853 0 0 1-.7-1C.113 6.55 0 5.973 0 5.6V1.4C0 1.034.134.669.401.401.67.134 1.034 0 1.4 0h4.2c.373 0 .95.113 1.4.3.45.187.732.432 1 .7l7.5 7.502c.26.274.5.632.5.998zM3.5 5a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3z"/></svg>
 	<ul class="tags__list">
-		<li class="tags__item"><a class="tags__link btn" href="/tags/python/" rel="tag">python</a></li>
+		<li class="tags__item"><a class="tags__link btn" href="/tags/fin/" rel="tag">fin</a></li>
 	</ul>
 </div>
 	</article>
@@ -142,10 +218,7 @@ else:
 	
 <nav class="post-nav row clearfix">
 	<div class="post-nav__item post-nav__item--prev col-1-2">
-		<a class="post-nav__link" href="/p/2018/mac-excel-recover-issue/" rel="prev"><span class="post-nav__caption">«&thinsp;Previous</span><p class="post-nav__post-title">Mac 上 Excel 的一个恼人问题</p></a>
-	</div>
-	<div class="post-nav__item post-nav__item--next col-1-2">
-		<a class="post-nav__link" href="/p/2018/self-fulfilling-prophecy/" rel="next"><span class="post-nav__caption">Next&thinsp;»</span><p class="post-nav__post-title">记录新学到的一个词——自证预言</p></a>
+		<a class="post-nav__link" href="/p/2018/raspberrypi_fstab_issue/" rel="prev"><span class="post-nav__caption">«&thinsp;Previous</span><p class="post-nav__post-title">树莓派修改fstab文件无法启动</p></a>
 	</div>
 </nav>
 	
