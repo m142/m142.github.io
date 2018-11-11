@@ -6,7 +6,7 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<title>树莓派修改fstab文件无法启动</title>
 	<meta name="description" content="">
-	<meta name="generator" content="Hugo 0.40.2" />
+	<meta name="generator" content="Hugo 0.51" />
 	<meta property="og:title" content="树莓派修改fstab文件无法启动" />
 <meta property="og:description" content="多年前买的树莓派2现在仍在正常工作着，主要用作下载机，然后开着samba服务，在小米盒子上放电影什么的，最近都是给小孩看动画片用。当然之前的sd卡内存比较小，加了一个U盘。因为树莓派放在路由器旁边，一年也难得启动一回，所以就没有给U盘配置自动mount。前几天打扫卫生，给路由器和树莓派的换了个小巧的插座，就重启了。然后当天小孩要看动画片的时候发现找不到。这才想起来要去手动mount U盘。
 于是晚上搜索了一下，基本思路是通过 blkid 命令查看U盘的UUID，然后在 /etc/fstab 里加上对应的条目即可，最后我加上了下面这条：
@@ -15,23 +15,8 @@ UUID=4e578159-c983-42f2-9ac8-e156e819afgf /home/dl/usb ext4 gid=dl,uid=dl 0 0  �
  在 boot 分区内，找到 cmdline.txt 文件，该文件应该只有一行，在最后加上 init=/bin/sh，然后保存。再将SD卡插回树莓派，启动后就会进入紧急模式，修复 /etc/fstab 文件后再将SD卡取出，在电脑上将 cmdline.txt 文件复原即可。这种方法需要有外接显示器和键盘，操作起来比较费劲，我直接就放弃了。其实主要是因为我的Mac不知道什么原因插上读卡器后没反应，死活识别不了。一开始我还以为是读卡器的问题，后来用Windows电脑试了后才发现读卡器是OK的。 找到一台Linux机器，插上读卡器后，自动mount两个分区，一个是boot分区，另一个就是系统分区，然后直接修改树莓派系统的 /etc/fstab 文件，将错误的行注释或删掉即可。这个的难点是找了一圈也没找到Linux机器，后来没办法就找了一台Windows机器，装了Debian虚拟机，然后搞定。 重新刷一个新系统……  如果有Linux机器或者Windows上有装Linux虚拟机的话，第2种方法是最快的；其次是第1种方法，不过需要有外接显示器和USB键盘；如果没什么重要数据的话直接刷新系统也可以。
 回头有空再研究下 fstab 应该怎样写，目前试一次不成再改回成本有点高。" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="http://m.l2d.xyz/p/2018/raspberrypi_fstab_issue/" />
-
-
-
-<meta property="article:published_time" content="2018-11-10T08:24:09&#43;08:00"/>
-
+<meta property="og:url" content="http://m.l2d.xyz/p/2018/raspberrypi_fstab_issue/" /><meta property="article:published_time" content="2018-11-10T08:24:09&#43;08:00"/>
 <meta property="article:modified_time" content="2018-11-10T08:24:09&#43;08:00"/>
-
-
-
-
-
-
-
-
-
-
 
 	
 	<link rel="dns-prefetch" href="//fonts.googleapis.com">
@@ -41,12 +26,16 @@ UUID=4e578159-c983-42f2-9ac8-e156e819afgf /home/dl/usb ext4 gid=dl,uid=dl 0 0  �
 	<script type="text/javascript" src="/js/scripts.js"></script>
 	<link rel="shortcut icon" href="/favicon.ico">
 	
-<script>
-window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
-ga('create', 'UA-54041322-3', 'auto');
-ga('send', 'pageview');
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-54041322-3', 'auto');
+	
+	ga('send', 'pageview');
+}
 </script>
-<script async src='//www.google-analytics.com/analytics.js'></script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
 
 </head>
 <body class="body body-right-sidebar">
@@ -54,8 +43,8 @@ ga('send', 'pageview');
 		<header class="header">
 			<div class="container container-inner">
 				<div class="logo" role="banner">
-					<a class="logo__link" href="/" title="思考、记录" rel="home">
-						<div class="logo__title">思考、记录</div>
+					<a class="logo__link" href="/" title="平波湛影" rel="home">
+						<div class="logo__title">平波湛影</div>
 						
 					</a>
 				</div>
@@ -123,7 +112,7 @@ ga('send', 'pageview');
 	
 <section class="comments">
 	<div id="disqus_thread"></div>
-<script>
+<script type="application/javascript">
     var disqus_config = function () {
     
     
@@ -202,7 +191,7 @@ ga('send', 'pageview');
 	</div>
 		<footer class="footer">
 			<div class="container container-inner">
-				<div class="footer__copyright">&copy; 2018 思考、记录. <span class="footer__copyright-credits">Generated with <a href="https://gohugo.io/" rel="nofollow noopener" target="_blank">Hugo</a> and <a href="https://github.com/Vimux/Mainroad/" rel="nofollow noopener" target="_blank">Mainroad</a> theme.</span></div>
+				<div class="footer__copyright">&copy; 2018 平波湛影. <span class="footer__copyright-credits">Generated with <a href="https://gohugo.io/" rel="nofollow noopener" target="_blank">Hugo</a> and <a href="https://github.com/Vimux/Mainroad/" rel="nofollow noopener" target="_blank">Mainroad</a> theme.</span></div>
 			</div>
 		</footer>
 	</div>

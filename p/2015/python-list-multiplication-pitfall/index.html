@@ -6,7 +6,7 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<title>Python 列表乘运算的一个陷阱</title>
 	<meta name="description" content="">
-	<meta name="generator" content="Hugo 0.40.2" />
+	<meta name="generator" content="Hugo 0.51" />
 	<meta property="og:title" content="Python 列表乘运算的一个陷阱" />
 <meta property="og:description" content="先来看下面这段代码：
 a = [[]] * 2 a[0].append(1)  也许你期望 a = [[1], []]，然而，实际上 a = [[1], [1]]。
@@ -16,23 +16,8 @@ a = [[]] * 2 print [id(x) for x in a] a[0].append(1) print [id(x) for x in a]  �
 不过这样说也不完全对，不妨来看下面这段代码：
 a = [1] * 3 print [id(x) for x in a] print a a[0] &#43;= 1 print [id(x) for x in a] print a  可能的输出结果是：" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="http://m.l2d.xyz/p/2015/python-list-multiplication-pitfall/" />
-
-
-
-<meta property="article:published_time" content="2015-09-22T00:00:00&#43;00:00"/>
-
+<meta property="og:url" content="http://m.l2d.xyz/p/2015/python-list-multiplication-pitfall/" /><meta property="article:published_time" content="2015-09-22T00:00:00&#43;00:00"/>
 <meta property="article:modified_time" content="2015-09-22T00:00:00&#43;00:00"/>
-
-
-
-
-
-
-
-
-
-
 
 	
 	<link rel="dns-prefetch" href="//fonts.googleapis.com">
@@ -42,12 +27,16 @@ a = [1] * 3 print [id(x) for x in a] print a a[0] &#43;= 1 print [id(x) for x in
 	<script type="text/javascript" src="/js/scripts.js"></script>
 	<link rel="shortcut icon" href="/favicon.ico">
 	
-<script>
-window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
-ga('create', 'UA-54041322-3', 'auto');
-ga('send', 'pageview');
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-54041322-3', 'auto');
+	
+	ga('send', 'pageview');
+}
 </script>
-<script async src='//www.google-analytics.com/analytics.js'></script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
 
 </head>
 <body class="body body-right-sidebar">
@@ -55,8 +44,8 @@ ga('send', 'pageview');
 		<header class="header">
 			<div class="container container-inner">
 				<div class="logo" role="banner">
-					<a class="logo__link" href="/" title="思考、记录" rel="home">
-						<div class="logo__title">思考、记录</div>
+					<a class="logo__link" href="/" title="平波湛影" rel="home">
+						<div class="logo__title">平波湛影</div>
 						
 					</a>
 				</div>
@@ -154,7 +143,7 @@ print a
 	
 <section class="comments">
 	<div id="disqus_thread"></div>
-<script>
+<script type="application/javascript">
     var disqus_config = function () {
     
     
@@ -233,7 +222,7 @@ print a
 	</div>
 		<footer class="footer">
 			<div class="container container-inner">
-				<div class="footer__copyright">&copy; 2018 思考、记录. <span class="footer__copyright-credits">Generated with <a href="https://gohugo.io/" rel="nofollow noopener" target="_blank">Hugo</a> and <a href="https://github.com/Vimux/Mainroad/" rel="nofollow noopener" target="_blank">Mainroad</a> theme.</span></div>
+				<div class="footer__copyright">&copy; 2018 平波湛影. <span class="footer__copyright-credits">Generated with <a href="https://gohugo.io/" rel="nofollow noopener" target="_blank">Hugo</a> and <a href="https://github.com/Vimux/Mainroad/" rel="nofollow noopener" target="_blank">Mainroad</a> theme.</span></div>
 			</div>
 		</footer>
 	</div>

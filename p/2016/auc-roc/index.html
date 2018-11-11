@@ -6,7 +6,7 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<title>AUC 和 ROC</title>
 	<meta name="description" content="">
-	<meta name="generator" content="Hugo 0.40.2" />
+	<meta name="generator" content="Hugo 0.51" />
 	<meta property="og:title" content="AUC 和 ROC" />
 <meta property="og:description" content="AUC 是点击率预估模型的常用评价指标，一般来说，AUC 越高，点击率模型越好，当然这也不是绝对的。虽然平时用 AUC 挺多的，但是一直没有深入去研究清楚，导致前几天被人问起的时候基本没答上来，很是忏愧。
 AUC 其实是 Area Under Curve，然后这个 Curve 就是 ROC，全称是 Receiver Operating Characteristic，通常又叫做 ROC Curve。AUC 其实就是这个曲线下的面积了。AUC 有一个很重要的统计特性：AUC 值等于分类器对随机选择的正样本的预测值高于对随机选择的负样本的预测值的概率。AUC 的详细介绍和分析可以看这篇论文：An introduction to ROC analysis.
@@ -14,23 +14,8 @@ AUC 其实是 Area Under Curve，然后这个 Curve 就是 ROC，全称是 Recei
     True Class 1 0     Prediction 1 TP FP    0 FN TN    来看下图，ROC 的横轴是 FPR (False Positive Rate)，纵轴是 TPR (True Positive Rate)，它们的定义分别如下：
 $$ FPR = \frac{FP}{FP &#43; TN}$$ $$ TPR = \frac{TP}{TP&#43;FN} $$ 不妨来看图中的 4 个顶点：" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="http://m.l2d.xyz/p/2016/auc-roc/" />
-
-
-
-<meta property="article:published_time" content="2016-03-28T00:00:00&#43;00:00"/>
-
+<meta property="og:url" content="http://m.l2d.xyz/p/2016/auc-roc/" /><meta property="article:published_time" content="2016-03-28T00:00:00&#43;00:00"/>
 <meta property="article:modified_time" content="2016-03-28T00:00:00&#43;00:00"/>
-
-
-
-
-
-
-
-
-
-
 
 	
 	<link rel="dns-prefetch" href="//fonts.googleapis.com">
@@ -40,12 +25,16 @@ $$ FPR = \frac{FP}{FP &#43; TN}$$ $$ TPR = \frac{TP}{TP&#43;FN} $$ 不妨来看�
 	<script type="text/javascript" src="/js/scripts.js"></script>
 	<link rel="shortcut icon" href="/favicon.ico">
 	
-<script>
-window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
-ga('create', 'UA-54041322-3', 'auto');
-ga('send', 'pageview');
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-54041322-3', 'auto');
+	
+	ga('send', 'pageview');
+}
 </script>
-<script async src='//www.google-analytics.com/analytics.js'></script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
 
 </head>
 <body class="body body-right-sidebar">
@@ -53,8 +42,8 @@ ga('send', 'pageview');
 		<header class="header">
 			<div class="container container-inner">
 				<div class="logo" role="banner">
-					<a class="logo__link" href="/" title="思考、记录" rel="home">
-						<div class="logo__title">思考、记录</div>
+					<a class="logo__link" href="/" title="平波湛影" rel="home">
+						<div class="logo__title">平波湛影</div>
 						
 					</a>
 				</div>
@@ -250,7 +239,7 @@ $$ TPR = \frac{TP}{TP+FN} $$</div>
 	
 <section class="comments">
 	<div id="disqus_thread"></div>
-<script>
+<script type="application/javascript">
     var disqus_config = function () {
     
     
@@ -329,7 +318,7 @@ $$ TPR = \frac{TP}{TP+FN} $$</div>
 	</div>
 		<footer class="footer">
 			<div class="container container-inner">
-				<div class="footer__copyright">&copy; 2018 思考、记录. <span class="footer__copyright-credits">Generated with <a href="https://gohugo.io/" rel="nofollow noopener" target="_blank">Hugo</a> and <a href="https://github.com/Vimux/Mainroad/" rel="nofollow noopener" target="_blank">Mainroad</a> theme.</span></div>
+				<div class="footer__copyright">&copy; 2018 平波湛影. <span class="footer__copyright-credits">Generated with <a href="https://gohugo.io/" rel="nofollow noopener" target="_blank">Hugo</a> and <a href="https://github.com/Vimux/Mainroad/" rel="nofollow noopener" target="_blank">Mainroad</a> theme.</span></div>
 			</div>
 		</footer>
 	</div>
