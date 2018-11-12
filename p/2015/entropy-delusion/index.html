@@ -1,13 +1,70 @@
 <!DOCTYPE html>
-<html lang="zh-cn">
+<html lang="zh-cn" itemscope itemtype="http://schema.org/WebPage">
 <head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>关于熵的一点胡思乱想</title>
-	<meta name="description" content="">
-	<meta name="generator" content="Hugo 0.51" />
-	<meta property="og:title" content="关于熵的一点胡思乱想" />
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>关于熵的一点胡思乱想 - 平波湛影</title>
+  
+
+<meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta name="MobileOptimized" content="width"/>
+<meta name="HandheldFriendly" content="true"/>
+
+
+<meta name="applicable-device" content="pc,mobile">
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+<meta name="mobile-web-app-capable" content="yes">
+
+<meta name="author" content="m142" />
+  <meta name="description" content="前段时间的一个晚上看了点 PRML ，睡觉时突然考虑起一个问题来：为什么人应该有鲜明的观点，或者说为什么大部分人都喜欢有鲜明观点的人，而好好人、骑墙派则一般不太受欢迎。当时就想，也许可以用熵的概念来解释呢。
+在 热力学 中，通俗地，可以将熵看成是系统混乱程度的度量。在一个孤立的系统中，根据热力学第二定律，熵是倾向于逐渐增加的。一个不那么恰当的例子就是：如果房间很长时间都没有打扫整理的话，就会到处充满灰尘乱糟糟的，这就造成了熵的增加。
+在 信息论 中，熵是接收的每条消息中包含的信息的平均量。可以看成是不确定性的量度。例如，抛一枚均匀的硬币（正反面概率都是 0.5）的熵比抛一枚不均匀的硬币（正面概率大于反面概率）的熵要大。因为后者是正面的概率要大，而前者完全不能确定是正面还是反面（因为它们的概率一样大）。
+假设某事件 $x$ 发生的概率为 \( p \)，那么它的熵定义为： $$ -p \log(p) $$
+从这一定义再来看刚才的例子，抛一枚均匀硬币结果是正面的概率为 0.5，熵是 $ -0.5 * \log(0.5) = 0.347 $；而抛不均匀硬币（假设正面概率是 0.8），则熵是 $ -0.8 * \log(0.8) = 0.179 $，显然小于前者。
+但是这些跟开头提到的问题有什么关系吗？也许是可以有关系的！
+从物理学的角度考虑，世间的万物，如果将每个个体（包括动物，植物等）看成孤立的个体，那么每个个体在成长的过程中，基本都是朝着熵减少的方向进行的。比如植物发新芽，长新叶，长高，吸收二氧化碳进行光合作用呼出氧气；人类学习新知识，整理房间，锻炼身体等等，都是使熵减少的行为。一般地，积极、努力都能使熵减少，而颓废则会让熵增加。通常，大家肯定都是喜欢积极、阳光、健康、有朝气的景象和事物，这也就是说相对来说，大家都喜欢具有较小的熵的事物。
+而从信息论的角度考虑，具有鲜明观点的人的行为具有可预测性，可以看成从他们那会以一个较大的概率（比如 0.8）接收到确定的信息，因而信息熵比较小。而好好人，骑墙派则由于没有自己的观点，所以不确定性比较大，换言之，就是他们往往处在天平的中央，相当于接收信息时的确定性是 0.5 左右，这样就会有一个较高的熵值。一般地，人们喜欢稳定、确定性和可预测性的事物，相对不太喜欢有变数的事物。所以从这点来看，低熵更受欢迎。
+以上纯属胡言乱语，如有属实，不是巧合。" />
+
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.52-DEV" />
+
+
+<link rel="canonical" href="http://m.l2d.xyz/p/2015/entropy-delusion/" />
+
+
+
+<link rel="icon" href="/favicon.ico" />
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/sass/jane.min.a26adfc078bf1c56724a4761b1659de8835fa8186846342a2a3f89a22000770b.css" integrity="sha256-omrfwHi/HFZySkdhsWWd6INfqBhoRjQqKj&#43;JoiAAdws=" media="screen">
+
+
+
+
+
+<meta property="og:title" content="关于熵的一点胡思乱想" />
 <meta property="og:description" content="前段时间的一个晚上看了点 PRML ，睡觉时突然考虑起一个问题来：为什么人应该有鲜明的观点，或者说为什么大部分人都喜欢有鲜明观点的人，而好好人、骑墙派则一般不太受欢迎。当时就想，也许可以用熵的概念来解释呢。
 在 热力学 中，通俗地，可以将熵看成是系统混乱程度的度量。在一个孤立的系统中，根据热力学第二定律，熵是倾向于逐渐增加的。一个不那么恰当的例子就是：如果房间很长时间都没有打扫整理的话，就会到处充满灰尘乱糟糟的，这就造成了熵的增加。
 在 信息论 中，熵是接收的每条消息中包含的信息的平均量。可以看成是不确定性的量度。例如，抛一枚均匀的硬币（正反面概率都是 0.5）的熵比抛一枚不均匀的硬币（正面概率大于反面概率）的熵要大。因为后者是正面的概率要大，而前者完全不能确定是正面还是反面（因为它们的概率一样大）。
@@ -21,14 +78,47 @@
 <meta property="og:url" content="http://m.l2d.xyz/p/2015/entropy-delusion/" /><meta property="article:published_time" content="2015-12-27T00:00:00&#43;00:00"/>
 <meta property="article:modified_time" content="2015-12-27T00:00:00&#43;00:00"/>
 
-	
-	<link rel="dns-prefetch" href="//fonts.googleapis.com">
-	<link rel="dns-prefetch" href="//fonts.gstatic.com">
-	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700">
-	<link rel="stylesheet" href="/css/style.css">
-	<script type="text/javascript" src="/js/scripts.js"></script>
-	<link rel="shortcut icon" href="/favicon.ico">
-	
+<meta itemprop="name" content="关于熵的一点胡思乱想">
+<meta itemprop="description" content="前段时间的一个晚上看了点 PRML ，睡觉时突然考虑起一个问题来：为什么人应该有鲜明的观点，或者说为什么大部分人都喜欢有鲜明观点的人，而好好人、骑墙派则一般不太受欢迎。当时就想，也许可以用熵的概念来解释呢。
+在 热力学 中，通俗地，可以将熵看成是系统混乱程度的度量。在一个孤立的系统中，根据热力学第二定律，熵是倾向于逐渐增加的。一个不那么恰当的例子就是：如果房间很长时间都没有打扫整理的话，就会到处充满灰尘乱糟糟的，这就造成了熵的增加。
+在 信息论 中，熵是接收的每条消息中包含的信息的平均量。可以看成是不确定性的量度。例如，抛一枚均匀的硬币（正反面概率都是 0.5）的熵比抛一枚不均匀的硬币（正面概率大于反面概率）的熵要大。因为后者是正面的概率要大，而前者完全不能确定是正面还是反面（因为它们的概率一样大）。
+假设某事件 $x$ 发生的概率为 \( p \)，那么它的熵定义为： $$ -p \log(p) $$
+从这一定义再来看刚才的例子，抛一枚均匀硬币结果是正面的概率为 0.5，熵是 $ -0.5 * \log(0.5) = 0.347 $；而抛不均匀硬币（假设正面概率是 0.8），则熵是 $ -0.8 * \log(0.8) = 0.179 $，显然小于前者。
+但是这些跟开头提到的问题有什么关系吗？也许是可以有关系的！
+从物理学的角度考虑，世间的万物，如果将每个个体（包括动物，植物等）看成孤立的个体，那么每个个体在成长的过程中，基本都是朝着熵减少的方向进行的。比如植物发新芽，长新叶，长高，吸收二氧化碳进行光合作用呼出氧气；人类学习新知识，整理房间，锻炼身体等等，都是使熵减少的行为。一般地，积极、努力都能使熵减少，而颓废则会让熵增加。通常，大家肯定都是喜欢积极、阳光、健康、有朝气的景象和事物，这也就是说相对来说，大家都喜欢具有较小的熵的事物。
+而从信息论的角度考虑，具有鲜明观点的人的行为具有可预测性，可以看成从他们那会以一个较大的概率（比如 0.8）接收到确定的信息，因而信息熵比较小。而好好人，骑墙派则由于没有自己的观点，所以不确定性比较大，换言之，就是他们往往处在天平的中央，相当于接收信息时的确定性是 0.5 左右，这样就会有一个较高的熵值。一般地，人们喜欢稳定、确定性和可预测性的事物，相对不太喜欢有变数的事物。所以从这点来看，低熵更受欢迎。
+以上纯属胡言乱语，如有属实，不是巧合。">
+
+
+<meta itemprop="datePublished" content="2015-12-27T00:00:00&#43;00:00" />
+<meta itemprop="dateModified" content="2015-12-27T00:00:00&#43;00:00" />
+<meta itemprop="wordCount" content="44">
+
+
+
+<meta itemprop="keywords" content="yy," />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="关于熵的一点胡思乱想"/>
+<meta name="twitter:description" content="前段时间的一个晚上看了点 PRML ，睡觉时突然考虑起一个问题来：为什么人应该有鲜明的观点，或者说为什么大部分人都喜欢有鲜明观点的人，而好好人、骑墙派则一般不太受欢迎。当时就想，也许可以用熵的概念来解释呢。
+在 热力学 中，通俗地，可以将熵看成是系统混乱程度的度量。在一个孤立的系统中，根据热力学第二定律，熵是倾向于逐渐增加的。一个不那么恰当的例子就是：如果房间很长时间都没有打扫整理的话，就会到处充满灰尘乱糟糟的，这就造成了熵的增加。
+在 信息论 中，熵是接收的每条消息中包含的信息的平均量。可以看成是不确定性的量度。例如，抛一枚均匀的硬币（正反面概率都是 0.5）的熵比抛一枚不均匀的硬币（正面概率大于反面概率）的熵要大。因为后者是正面的概率要大，而前者完全不能确定是正面还是反面（因为它们的概率一样大）。
+假设某事件 $x$ 发生的概率为 \( p \)，那么它的熵定义为： $$ -p \log(p) $$
+从这一定义再来看刚才的例子，抛一枚均匀硬币结果是正面的概率为 0.5，熵是 $ -0.5 * \log(0.5) = 0.347 $；而抛不均匀硬币（假设正面概率是 0.8），则熵是 $ -0.8 * \log(0.8) = 0.179 $，显然小于前者。
+但是这些跟开头提到的问题有什么关系吗？也许是可以有关系的！
+从物理学的角度考虑，世间的万物，如果将每个个体（包括动物，植物等）看成孤立的个体，那么每个个体在成长的过程中，基本都是朝着熵减少的方向进行的。比如植物发新芽，长新叶，长高，吸收二氧化碳进行光合作用呼出氧气；人类学习新知识，整理房间，锻炼身体等等，都是使熵减少的行为。一般地，积极、努力都能使熵减少，而颓废则会让熵增加。通常，大家肯定都是喜欢积极、阳光、健康、有朝气的景象和事物，这也就是说相对来说，大家都喜欢具有较小的熵的事物。
+而从信息论的角度考虑，具有鲜明观点的人的行为具有可预测性，可以看成从他们那会以一个较大的概率（比如 0.8）接收到确定的信息，因而信息熵比较小。而好好人，骑墙派则由于没有自己的观点，所以不确定性比较大，换言之，就是他们往往处在天平的中央，相当于接收信息时的确定性是 0.5 左右，这样就会有一个较高的熵值。一般地，人们喜欢稳定、确定性和可预测性的事物，相对不太喜欢有变数的事物。所以从这点来看，低熵更受欢迎。
+以上纯属胡言乱语，如有属实，不是巧合。"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+
 <script type="application/javascript">
 var doNotTrack = false;
 if (!doNotTrack) {
@@ -40,38 +130,189 @@ if (!doNotTrack) {
 </script>
 <script async src='https://www.google-analytics.com/analytics.js'></script>
 
+
+
 </head>
-<body class="body body-right-sidebar">
-	<div class="container container-outer">
-		<header class="header">
-			<div class="container container-inner">
-				<div class="logo" role="banner">
-					<a class="logo__link" href="/" title="平波湛影" rel="home">
-						<div class="logo__title">平波湛影</div>
-						
-					</a>
-				</div>
-			</div>
-			
-<nav class="menu">
-	<ul class="menu__list">
-		<li class="menu__item"><a class="menu__link" href="/about/">ABOUT</a></li>
-		<li class="menu__item menu__item--active"><a class="menu__link" href="/post/">POSTS</a></li>
-	</ul>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">平波湛影</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="http://m.l2d.xyz/">Home</a>
+          
+        
+      </li><li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="http://m.l2d.xyz/post/">Archives</a>
+          
+        
+      </li><li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="http://m.l2d.xyz/tags/">Tags</a>
+          
+        
+      </li><li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="http://m.l2d.xyz/categories/">Categories</a>
+          
+        
+      </li><li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="http://m.l2d.xyz/about/">About</a>
+          
+        
+      </li><li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="http://m.l2d.xyz/post/">Posts</a>
+          
+        
+      </li>
+    
+  </ul>
 </nav>
 
-		</header>
-		<div class="wrapper clearfix">
 
-<main class="main content">
-	<article class="post">
-		<header class="post__header">
-			<h1 class="post__title">关于熵的一点胡思乱想</h1><div class="post__meta meta">
-<svg class="icon icon-time" width="16" height="14" viewBox="0 0 16 16"><path d="m8-.0000003c-4.4 0-8 3.6-8 8 0 4.4000003 3.6 8.0000003 8 8.0000003 4.4 0 8-3.6 8-8.0000003 0-4.4-3.6-8-8-8zm0 14.4000003c-3.52 0-6.4-2.88-6.4-6.4000003 0-3.52 2.88-6.4 6.4-6.4 3.52 0 6.4 2.88 6.4 6.4 0 3.5200003-2.88 6.4000003-6.4 6.4000003zm.4-10.4000003h-1.2v4.8l4.16 2.5600003.64-1.04-3.6-2.1600003z"/></svg>
-<time class="post__meta-date meta-date" datetime="2015-12-27T00:00:00">2015-12-27</time></div>
-		</header>
-		<div class="post__content clearfix">
-			<p>前段时间的一个晚上看了点 <a href="http://www.amazon.com/Pattern-Recognition-Learning-Information-Statistics/dp/0387310738/ref=sr_1_2?ie=UTF8&amp;s=books&amp;qid=1263391804&amp;sr=8-2#reader_0387310738">PRML</a> ，睡觉时突然考虑起一个问题来：为什么人应该有鲜明的观点，或者说为什么大部分人都喜欢有鲜明观点的人，而好好人、骑墙派则一般不太受欢迎。当时就想，也许可以用熵的概念来解释呢。</p>
+  
+
+  
+
+  <header id="header" class="header container">
+    <div class="logo-wrapper">
+  <a href="/" class="logo">
+    
+      平波湛影
+    
+  </a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="http://m.l2d.xyz/">Home</a>
+          
+
+        
+
+      </li>
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="http://m.l2d.xyz/post/">Archives</a>
+          
+
+        
+
+      </li>
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="http://m.l2d.xyz/tags/">Tags</a>
+          
+
+        
+
+      </li>
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="http://m.l2d.xyz/categories/">Categories</a>
+          
+
+        
+
+      </li>
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="http://m.l2d.xyz/about/">About</a>
+          
+
+        
+
+      </li>
+    
+        <li class="menu-item active">
+        
+          
+          
+            <a class="menu-item-link" href="http://m.l2d.xyz/post/">Posts</a>
+          
+
+        
+
+      </li>
+    
+    
+  </ul>
+</nav>
+
+  </header>
+
+  <div id="mobile-panel">
+    <main id="main" class="main bg-llight">
+      <div class="content-wrapper">
+        <div id="content" class="content container">
+          <article class="post bg-white">
+    
+    <header class="post-header">
+      <h1 class="post-title">关于熵的一点胡思乱想</h1>
+      
+      <div class="post-meta">
+        <time datetime="2015-12-27" class="post-time">
+          2015-12-27
+        </time>
+        
+        
+
+        
+        
+
+        
+        
+      </div>
+    </header>
+
+    
+    
+
+    
+    <div class="post-content">
+      <p>前段时间的一个晚上看了点 <a href="http://www.amazon.com/Pattern-Recognition-Learning-Information-Statistics/dp/0387310738/ref=sr_1_2?ie=UTF8&amp;s=books&amp;qid=1263391804&amp;sr=8-2#reader_0387310738">PRML</a> ，睡觉时突然考虑起一个问题来：为什么人应该有鲜明的观点，或者说为什么大部分人都喜欢有鲜明观点的人，而好好人、骑墙派则一般不太受欢迎。当时就想，也许可以用熵的概念来解释呢。</p>
 
 <p>在 <a href="https://zh.wikipedia.org/zh/%E7%86%B5">热力学</a> 中，通俗地，可以将熵看成是系统混乱程度的度量。在一个孤立的系统中，根据热力学第二定律，熵是倾向于逐渐增加的。一个不那么恰当的例子就是：如果房间很长时间都没有打扫整理的话，就会到处充满灰尘乱糟糟的，这就造成了熵的增加。</p>
 
@@ -90,118 +331,118 @@ if (!doNotTrack) {
 
 <p>以上纯属胡言乱语，如有属实，不是巧合。</p>
 
-		</div>
-		
-<div class="post__tags tags clearfix">
-	<svg class="icon icon-tag" width="16" height="16" viewBox="0 0 16 16"><path d="M16 9.5c0 .373-.24.74-.5 1l-5 5c-.275.26-.634.5-1 .5-.373 0-.74-.24-1-.5L1 8a2.853 2.853 0 0 1-.7-1C.113 6.55 0 5.973 0 5.6V1.4C0 1.034.134.669.401.401.67.134 1.034 0 1.4 0h4.2c.373 0 .95.113 1.4.3.45.187.732.432 1 .7l7.5 7.502c.26.274.5.632.5.998zM3.5 5a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3z"/></svg>
-	<ul class="tags__list">
-		<li class="tags__item"><a class="tags__link btn" href="/tags/yy/" rel="tag">yy</a></li>
-	</ul>
-</div>
-	</article>
-	
-	
-<nav class="post-nav row clearfix">
-	<div class="post-nav__item post-nav__item--prev col-1-2">
-		<a class="post-nav__link" href="/p/2015/how-to-store-password-in-db/" rel="prev"><span class="post-nav__caption">«&thinsp;Previous</span><p class="post-nav__post-title">数据库中如何保存密码</p></a>
-	</div>
-	<div class="post-nav__item post-nav__item--next col-1-2">
-		<a class="post-nav__link" href="/p/2016/aria2/" rel="next"><span class="post-nav__caption">Next&thinsp;»</span><p class="post-nav__post-title">aria2</p></a>
-	</div>
-</nav>
-	
-<section class="comments">
-	<div id="disqus_thread"></div>
-<script type="application/javascript">
+    </div>
+
+    
+    
+
+    
+    
+
+    <footer class="post-footer">
+      <div class="post-tags">
+          <a href="http://m.l2d.xyz/tags/yy/">yy</a>
+          
+        </div>
+
+      
+      <nav class="post-nav">
+        
+          <a class="prev" href="/p/2016/aria2/">
+            
+            <i class="iconfont">
+              <svg  class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="18" height="18">
+  <path d="M691.908486 949.511495l75.369571-89.491197c10.963703-12.998035 10.285251-32.864502-1.499144-44.378743L479.499795 515.267417 757.434875 204.940602c11.338233-12.190647 11.035334-32.285311-0.638543-44.850487l-80.46666-86.564541c-11.680017-12.583596-30.356378-12.893658-41.662889-0.716314L257.233596 494.235404c-11.332093 12.183484-11.041474 32.266891 0.657986 44.844348l80.46666 86.564541c1.772366 1.910513 3.706415 3.533476 5.750981 4.877077l306.620399 321.703933C662.505829 963.726242 680.945807 962.528973 691.908486 949.511495z"></path>
+</svg>
+
+            </i>
+            <span class="prev-text nav-default">aria2</span>
+            <span class="prev-text nav-mobile">上一篇</span>
+          </a>
+        
+          <a class="next" href="/p/2015/how-to-store-password-in-db/">
+            <span class="next-text nav-default">数据库中如何保存密码</span>
+            <span class="prev-text nav-mobile">下一篇</span>
+            
+            <i class="iconfont">
+              <svg class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="18" height="18">
+  <path d="M332.091514 74.487481l-75.369571 89.491197c-10.963703 12.998035-10.285251 32.864502 1.499144 44.378743l286.278095 300.375162L266.565125 819.058374c-11.338233 12.190647-11.035334 32.285311 0.638543 44.850487l80.46666 86.564541c11.680017 12.583596 30.356378 12.893658 41.662889 0.716314l377.434212-421.426145c11.332093-12.183484 11.041474-32.266891-0.657986-44.844348l-80.46666-86.564541c-1.772366-1.910513-3.706415-3.533476-5.750981-4.877077L373.270379 71.774697C361.493148 60.273758 343.054193 61.470003 332.091514 74.487481z"></path>
+</svg>
+
+            </i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+
+  
+  
+
+  
+  
+
+  
+
+  
+
+  <div class="disqus-comment">
+  <div class="disqus-button" id="load_disqus" onclick="load_disqus()">
+    显示 Disqus 评论
+  </div>
+  <div id="disqus_thread"></div>
+  <script type="text/javascript">
     var disqus_config = function () {
-    
-    
-    
+      this.page.url = "http://m.l2d.xyz/p/2015/entropy-delusion/";
     };
-    (function() {
-        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
-            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
-            return;
-        }
-        var d = document, s = d.createElement('script'); s.async = true;
-        s.src = '//' + "m142" + '.disqus.com/embed.js';
-        s.setAttribute('data-timestamp', +new Date());
-        (d.head || d.body).appendChild(s);
-    })();
-</script>
-<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
-</section>
+    function load_disqus() {
+      
+      
+      if (window.location.hostname === 'localhost') return;
 
-</main>
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      var disqus_shortname = 'm142';
+      dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
 
-<aside class="sidebar">
-	
-<div class="widget-search widget">
-	<form class="widget-search__form" role="search" method="get" action="https://google.com/search">
-		<label>
-			<input class="widget-search__field" type="search" placeholder="SEARCH..." value="" name="q">
-		</label>
-		<input class="widget-search__submit" type="submit" value="Search">
-		<input type="hidden" name="sitesearch" value="http://m.l2d.xyz/" />
-	</form>
+      $('#load_disqus').remove();
+    };
+  </script>
+  <noscript>Please enable JavaScript to view the
+    <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+  </noscript>
+  
+  </div>
+  
+    
+
+
+
+        </div>
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://gohugo.io">Hugo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="copyright-year">
+    &copy;
+    
+      2015 -
+    2018
+  </span>
+
+  
+  
 </div>
-	
-<div class="widget-recent widget">
-	<h4 class="widget__title">Recent Posts</h4>
-	<div class="widget__content">
-		<ul class="widget__list">
-			<li class="widget__item"><a class="widget__link" href="/p/2018/fin_debj/">贷款基础知识之等额本金</a></li>
-			<li class="widget__item"><a class="widget__link" href="/p/2018/raspberrypi_fstab_issue/">树莓派修改fstab文件无法启动</a></li>
-			<li class="widget__item"><a class="widget__link" href="/p/2018/fin_debx/">贷款基础知识之等额本息</a></li>
-			<li class="widget__item"><a class="widget__link" href="/p/2018/pnpoly/">PNPOLY: 射线法判断点是否在多边形区域内部</a></li>
-			<li class="widget__item"><a class="widget__link" href="/p/2018/self-fulfilling-prophecy/">记录新学到的一个词——自证预言</a></li>
-		</ul>
-	</div>
-</div>
-	
-	
-	
-<div class="widget-taglist widget">
-	<h4 class="widget__title">Tags</h4>
-	<div class="widget__content">
-		<a class="widget-taglist__link widget__link btn" href="/tags/ad" title="Ad">Ad</a>
-		<a class="widget-taglist__link widget__link btn" href="/tags/algo" title="Algo">Algo</a>
-		<a class="widget-taglist__link widget__link btn" href="/tags/bash" title="Bash">Bash</a>
-		<a class="widget-taglist__link widget__link btn" href="/tags/c&#43;&#43;" title="C&#43;&#43;">C&#43;&#43;</a>
-		<a class="widget-taglist__link widget__link btn" href="/tags/digihome" title="Digihome">Digihome</a>
-		<a class="widget-taglist__link widget__link btn" href="/tags/fin" title="Fin">Fin</a>
-		<a class="widget-taglist__link widget__link btn" href="/tags/go" title="Go">Go</a>
-		<a class="widget-taglist__link widget__link btn" href="/tags/mac" title="Mac">Mac</a>
-		<a class="widget-taglist__link widget__link btn" href="/tags/map" title="Map">Map</a>
-		<a class="widget-taglist__link widget__link btn" href="/tags/misc" title="Misc">Misc</a>
-		<a class="widget-taglist__link widget__link btn" href="/tags/ml" title="Ml">Ml</a>
-		<a class="widget-taglist__link widget__link btn" href="/tags/mobi" title="Mobi">Mobi</a>
-		<a class="widget-taglist__link widget__link btn" href="/tags/python" title="Python">Python</a>
-		<a class="widget-taglist__link widget__link btn" href="/tags/raspi" title="Raspi">Raspi</a>
-		<a class="widget-taglist__link widget__link btn" href="/tags/read" title="Read">Read</a>
-		<a class="widget-taglist__link widget__link btn" href="/tags/sec" title="Sec">Sec</a>
-		<a class="widget-taglist__link widget__link btn" href="/tags/spark" title="Spark">Spark</a>
-		<a class="widget-taglist__link widget__link btn" href="/tags/vpn" title="Vpn">Vpn</a>
-		<a class="widget-taglist__link widget__link btn" href="/tags/vps" title="Vps">Vps</a>
-		<a class="widget-taglist__link widget__link btn" href="/tags/yy" title="Yy">Yy</a>
-	</div>
-</div>
-</aside>
-	</div>
-		<footer class="footer">
-			<div class="container container-inner">
-				<div class="footer__copyright">&copy; 2018 平波湛影. <span class="footer__copyright-credits">Generated with <a href="https://gohugo.io/" rel="nofollow noopener" target="_blank">Hugo</a> and <a href="https://github.com/Vimux/Mainroad/" rel="nofollow noopener" target="_blank">Mainroad</a> theme.</span></div>
-			</div>
-		</footer>
-	</div>
-
-<script>
-	var navigation = responsiveNav(".menu", {
-		navClass: "menu--collapse",
-	});
-</script>
-
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 <script type="text/x-mathjax-config">
 MathJax.Hub.Config({
@@ -216,6 +457,46 @@ TeX: { equationNumbers: { autoNumber: "AMS" },
 }
 });
 </script>
+
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont">
+        
+        <svg class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="35" height="35">
+  <path d="M510.866688 227.694839 95.449397 629.218702l235.761562 0-2.057869 328.796468 362.40389 0L691.55698 628.188232l241.942331-3.089361L510.866688 227.694839zM63.840492 63.962777l894.052392 0 0 131.813095L63.840492 195.775872 63.840492 63.962777 63.840492 63.962777zM63.840492 63.962777"></path>
+</svg>
+
+      </i>
+    </div>
+  </div>
+  
+<script type="text/javascript" src="/lib/jquery/jquery-3.2.1.min.js"></script>
+  <script type="text/javascript" src="/lib/slideout/slideout-1.0.1.min.js"></script>
+
+
+
+
+<script type="text/javascript" src="/js/main.638251f4230630f0335d8c6748e53a96f94b72670920b60c09a56fdc8bece214.js" integrity="sha256-Y4JR9CMGMPAzXYxnSOU6lvlLcmcJILYMCaVv3Ivs4hQ="></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 </body>
 </html>

@@ -1,13 +1,66 @@
 <!DOCTYPE html>
-<html lang="zh-cn">
+<html lang="zh-cn" itemscope itemtype="http://schema.org/WebPage">
 <head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>移动平台的用户标识</title>
-	<meta name="description" content="">
-	<meta name="generator" content="Hugo 0.51" />
-	<meta property="og:title" content="移动平台的用户标识" />
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>移动平台的用户标识 - 平波湛影</title>
+  
+
+<meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta name="MobileOptimized" content="width"/>
+<meta name="HandheldFriendly" content="true"/>
+
+
+<meta name="applicable-device" content="pc,mobile">
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+<meta name="mobile-web-app-capable" content="yes">
+
+<meta name="author" content="m142" />
+  <meta name="description" content="在 PC 平台上，一般是用 cookie 识别用户，更进一步（流氓）的有 evercookie，如果用户禁用了 cookie，还可以用浏览器的指纹。这些方法一般都能较准确地识别用户，目前 PC 上看到的个性化广告一般都是基于以上几种方法。
+到了移动平台上，情况就大不一样了。首先，第三方 cookie 一般默认是禁用的，然后，cookie 在 in-app 的广告中是没法取到的。这就要求换一种方法。
+iOS 平台上情况相对简单，目前 app 都能获得 IDFA (identifier for advertisers)，所以一般都是靠 IDFA 来识别用户的。但是需要注意的是，在设置里，用户可以重置 IDFA，让自己对外看起来是一个全新的用户。
+Android 平台则相对混乱得多。虽然 Google 提供了 Advertising ID，但是在国内的众多发行版中，Google 服务一般是被阉割的，所以自然没用。其它的有 Android ID，MAC， Device ID 等。stackoverflow 上的这个问题 提供了详细的解答：
+ 调用 TelephonyManager.getDeviceId() 总会返回一个值 带 SIM 卡的 GSM 设备调用 TelephonyManager.getSimSerialNumber() 会返回一个值 所有 CDMA 设备调用 TelephonyManager.getSimSerialNumber() 会返回空值 添加了 Google 账户的设备能取到 ANDROID_ID 添加了 Google 账户的 CDMA 设备 取到的 ANDROID_ID 和调用 TelephonyManager.getDeviceId() 取到的值是相同的  理论上来说 Android ID 是最好的选择，它可以通过下面的代码获取：" />
+
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.52-DEV" />
+
+
+<link rel="canonical" href="http://m.l2d.xyz/p/2015/mobi-ids/" />
+
+
+
+<link rel="icon" href="/favicon.ico" />
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/sass/jane.min.a26adfc078bf1c56724a4761b1659de8835fa8186846342a2a3f89a22000770b.css" integrity="sha256-omrfwHi/HFZySkdhsWWd6INfqBhoRjQqKj&#43;JoiAAdws=" media="screen">
+
+
+
+
+
+<meta property="og:title" content="移动平台的用户标识" />
 <meta property="og:description" content="在 PC 平台上，一般是用 cookie 识别用户，更进一步（流氓）的有 evercookie，如果用户禁用了 cookie，还可以用浏览器的指纹。这些方法一般都能较准确地识别用户，目前 PC 上看到的个性化广告一般都是基于以上几种方法。
 到了移动平台上，情况就大不一样了。首先，第三方 cookie 一般默认是禁用的，然后，cookie 在 in-app 的广告中是没法取到的。这就要求换一种方法。
 iOS 平台上情况相对简单，目前 app 都能获得 IDFA (identifier for advertisers)，所以一般都是靠 IDFA 来识别用户的。但是需要注意的是，在设置里，用户可以重置 IDFA，让自己对外看起来是一个全新的用户。
@@ -17,14 +70,39 @@ Android 平台则相对混乱得多。虽然 Google 提供了 Advertising ID，�
 <meta property="og:url" content="http://m.l2d.xyz/p/2015/mobi-ids/" /><meta property="article:published_time" content="2015-09-09T00:00:00&#43;00:00"/>
 <meta property="article:modified_time" content="2015-09-09T00:00:00&#43;00:00"/>
 
-	
-	<link rel="dns-prefetch" href="//fonts.googleapis.com">
-	<link rel="dns-prefetch" href="//fonts.gstatic.com">
-	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700">
-	<link rel="stylesheet" href="/css/style.css">
-	<script type="text/javascript" src="/js/scripts.js"></script>
-	<link rel="shortcut icon" href="/favicon.ico">
-	
+<meta itemprop="name" content="移动平台的用户标识">
+<meta itemprop="description" content="在 PC 平台上，一般是用 cookie 识别用户，更进一步（流氓）的有 evercookie，如果用户禁用了 cookie，还可以用浏览器的指纹。这些方法一般都能较准确地识别用户，目前 PC 上看到的个性化广告一般都是基于以上几种方法。
+到了移动平台上，情况就大不一样了。首先，第三方 cookie 一般默认是禁用的，然后，cookie 在 in-app 的广告中是没法取到的。这就要求换一种方法。
+iOS 平台上情况相对简单，目前 app 都能获得 IDFA (identifier for advertisers)，所以一般都是靠 IDFA 来识别用户的。但是需要注意的是，在设置里，用户可以重置 IDFA，让自己对外看起来是一个全新的用户。
+Android 平台则相对混乱得多。虽然 Google 提供了 Advertising ID，但是在国内的众多发行版中，Google 服务一般是被阉割的，所以自然没用。其它的有 Android ID，MAC， Device ID 等。stackoverflow 上的这个问题 提供了详细的解答：
+ 调用 TelephonyManager.getDeviceId() 总会返回一个值 带 SIM 卡的 GSM 设备调用 TelephonyManager.getSimSerialNumber() 会返回一个值 所有 CDMA 设备调用 TelephonyManager.getSimSerialNumber() 会返回空值 添加了 Google 账户的设备能取到 ANDROID_ID 添加了 Google 账户的 CDMA 设备 取到的 ANDROID_ID 和调用 TelephonyManager.getDeviceId() 取到的值是相同的  理论上来说 Android ID 是最好的选择，它可以通过下面的代码获取：">
+
+
+<meta itemprop="datePublished" content="2015-09-09T00:00:00&#43;00:00" />
+<meta itemprop="dateModified" content="2015-09-09T00:00:00&#43;00:00" />
+<meta itemprop="wordCount" content="142">
+
+
+
+<meta itemprop="keywords" content="mobi,ad," />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="移动平台的用户标识"/>
+<meta name="twitter:description" content="在 PC 平台上，一般是用 cookie 识别用户，更进一步（流氓）的有 evercookie，如果用户禁用了 cookie，还可以用浏览器的指纹。这些方法一般都能较准确地识别用户，目前 PC 上看到的个性化广告一般都是基于以上几种方法。
+到了移动平台上，情况就大不一样了。首先，第三方 cookie 一般默认是禁用的，然后，cookie 在 in-app 的广告中是没法取到的。这就要求换一种方法。
+iOS 平台上情况相对简单，目前 app 都能获得 IDFA (identifier for advertisers)，所以一般都是靠 IDFA 来识别用户的。但是需要注意的是，在设置里，用户可以重置 IDFA，让自己对外看起来是一个全新的用户。
+Android 平台则相对混乱得多。虽然 Google 提供了 Advertising ID，但是在国内的众多发行版中，Google 服务一般是被阉割的，所以自然没用。其它的有 Android ID，MAC， Device ID 等。stackoverflow 上的这个问题 提供了详细的解答：
+ 调用 TelephonyManager.getDeviceId() 总会返回一个值 带 SIM 卡的 GSM 设备调用 TelephonyManager.getSimSerialNumber() 会返回一个值 所有 CDMA 设备调用 TelephonyManager.getSimSerialNumber() 会返回空值 添加了 Google 账户的设备能取到 ANDROID_ID 添加了 Google 账户的 CDMA 设备 取到的 ANDROID_ID 和调用 TelephonyManager.getDeviceId() 取到的值是相同的  理论上来说 Android ID 是最好的选择，它可以通过下面的代码获取："/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+
 <script type="application/javascript">
 var doNotTrack = false;
 if (!doNotTrack) {
@@ -36,42 +114,192 @@ if (!doNotTrack) {
 </script>
 <script async src='https://www.google-analytics.com/analytics.js'></script>
 
+
+
 </head>
-<body class="body body-right-sidebar">
-	<div class="container container-outer">
-		<header class="header">
-			<div class="container container-inner">
-				<div class="logo" role="banner">
-					<a class="logo__link" href="/" title="平波湛影" rel="home">
-						<div class="logo__title">平波湛影</div>
-						
-					</a>
-				</div>
-			</div>
-			
-<nav class="menu">
-	<ul class="menu__list">
-		<li class="menu__item"><a class="menu__link" href="/about/">ABOUT</a></li>
-		<li class="menu__item menu__item--active"><a class="menu__link" href="/post/">POSTS</a></li>
-	</ul>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">平波湛影</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="http://m.l2d.xyz/">Home</a>
+          
+        
+      </li><li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="http://m.l2d.xyz/post/">Archives</a>
+          
+        
+      </li><li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="http://m.l2d.xyz/tags/">Tags</a>
+          
+        
+      </li><li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="http://m.l2d.xyz/categories/">Categories</a>
+          
+        
+      </li><li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="http://m.l2d.xyz/about/">About</a>
+          
+        
+      </li><li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="http://m.l2d.xyz/post/">Posts</a>
+          
+        
+      </li>
+    
+  </ul>
 </nav>
 
-		</header>
-		<div class="wrapper clearfix">
 
-<main class="main content">
-	<article class="post">
-		<header class="post__header">
-			<h1 class="post__title">移动平台的用户标识</h1><div class="post__meta meta">
-<svg class="icon icon-time" width="16" height="14" viewBox="0 0 16 16"><path d="m8-.0000003c-4.4 0-8 3.6-8 8 0 4.4000003 3.6 8.0000003 8 8.0000003 4.4 0 8-3.6 8-8.0000003 0-4.4-3.6-8-8-8zm0 14.4000003c-3.52 0-6.4-2.88-6.4-6.4000003 0-3.52 2.88-6.4 6.4-6.4 3.52 0 6.4 2.88 6.4 6.4 0 3.5200003-2.88 6.4000003-6.4 6.4000003zm.4-10.4000003h-1.2v4.8l4.16 2.5600003.64-1.04-3.6-2.1600003z"/></svg>
-<time class="post__meta-date meta-date" datetime="2015-09-09T00:00:00">2015-09-09</time>
-<span class="post__meta-categories meta-categories">
-	<svg class="icon icon-category" width="16" height="16" viewBox="0 0 16 16"><path d="m7 2l1 2h8v11h-16v-13z"/></svg>
-	<span class="meta-categories__list"><a class="meta-categories__link" href="/categories/rd" rel="category">rd</a></span>
-</span></div>
-		</header>
-		<div class="post__content clearfix">
-			<p>在 PC 平台上，一般是用 cookie 识别用户，更进一步（流氓）的有 <a href="http://samy.pl/evercookie/">evercookie</a>，如果用户禁用了 cookie，还可以用浏览器的<a href="https://panopticlick.eff.org/">指纹</a>。这些方法一般都能较准确地识别用户，目前 PC 上看到的个性化广告一般都是基于以上几种方法。</p>
+  
+
+  
+
+  <header id="header" class="header container">
+    <div class="logo-wrapper">
+  <a href="/" class="logo">
+    
+      平波湛影
+    
+  </a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="http://m.l2d.xyz/">Home</a>
+          
+
+        
+
+      </li>
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="http://m.l2d.xyz/post/">Archives</a>
+          
+
+        
+
+      </li>
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="http://m.l2d.xyz/tags/">Tags</a>
+          
+
+        
+
+      </li>
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="http://m.l2d.xyz/categories/">Categories</a>
+          
+
+        
+
+      </li>
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="http://m.l2d.xyz/about/">About</a>
+          
+
+        
+
+      </li>
+    
+        <li class="menu-item active">
+        
+          
+          
+            <a class="menu-item-link" href="http://m.l2d.xyz/post/">Posts</a>
+          
+
+        
+
+      </li>
+    
+    
+  </ul>
+</nav>
+
+  </header>
+
+  <div id="mobile-panel">
+    <main id="main" class="main bg-llight">
+      <div class="content-wrapper">
+        <div id="content" class="content container">
+          <article class="post bg-white">
+    
+    <header class="post-header">
+      <h1 class="post-title">移动平台的用户标识</h1>
+      
+      <div class="post-meta">
+        <time datetime="2015-09-09" class="post-time">
+          2015-09-09
+        </time>
+        <div class="post-category">
+            <a href="http://m.l2d.xyz/categories/rd/"> rd </a>
+            
+          </div>
+        
+
+        
+        
+
+        
+        
+      </div>
+    </header>
+
+    
+    
+
+    
+    <div class="post-content">
+      <p>在 PC 平台上，一般是用 cookie 识别用户，更进一步（流氓）的有 <a href="http://samy.pl/evercookie/">evercookie</a>，如果用户禁用了 cookie，还可以用浏览器的<a href="https://panopticlick.eff.org/">指纹</a>。这些方法一般都能较准确地识别用户，目前 PC 上看到的个性化广告一般都是基于以上几种方法。</p>
 
 <p>到了移动平台上，情况就大不一样了。首先，第三方 cookie 一般默认是禁用的，然后，cookie 在 in-app 的广告中是没法取到的。这就要求换一种方法。</p>
 
@@ -111,119 +339,119 @@ private String android_id = Secure.getString(getContext().getContentResolver(), 
 
 <p>当然，以上这些对 BAT 这类装机量庞大的 APP 厂商来说，都不是事……</p>
 
-		</div>
-		
-<div class="post__tags tags clearfix">
-	<svg class="icon icon-tag" width="16" height="16" viewBox="0 0 16 16"><path d="M16 9.5c0 .373-.24.74-.5 1l-5 5c-.275.26-.634.5-1 .5-.373 0-.74-.24-1-.5L1 8a2.853 2.853 0 0 1-.7-1C.113 6.55 0 5.973 0 5.6V1.4C0 1.034.134.669.401.401.67.134 1.034 0 1.4 0h4.2c.373 0 .95.113 1.4.3.45.187.732.432 1 .7l7.5 7.502c.26.274.5.632.5.998zM3.5 5a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3z"/></svg>
-	<ul class="tags__list">
-		<li class="tags__item"><a class="tags__link btn" href="/tags/mobi/" rel="tag">mobi</a></li>
-		<li class="tags__item"><a class="tags__link btn" href="/tags/ad/" rel="tag">ad</a></li>
-	</ul>
-</div>
-	</article>
-	
-	
-<nav class="post-nav row clearfix">
-	<div class="post-nav__item post-nav__item--prev col-1-2">
-		<a class="post-nav__link" href="/p/2015/luhn-algo/" rel="prev"><span class="post-nav__caption">«&thinsp;Previous</span><p class="post-nav__post-title">Luhn algorithm</p></a>
-	</div>
-	<div class="post-nav__item post-nav__item--next col-1-2">
-		<a class="post-nav__link" href="/p/2015/crypt-intro/" rel="next"><span class="post-nav__caption">Next&thinsp;»</span><p class="post-nav__post-title">密码学基础简介</p></a>
-	</div>
-</nav>
-	
-<section class="comments">
-	<div id="disqus_thread"></div>
-<script type="application/javascript">
+    </div>
+
+    
+    
+
+    
+    
+
+    <footer class="post-footer">
+      <div class="post-tags">
+          <a href="http://m.l2d.xyz/tags/mobi/">mobi</a>
+          <a href="http://m.l2d.xyz/tags/ad/">ad</a>
+          
+        </div>
+
+      
+      <nav class="post-nav">
+        
+          <a class="prev" href="/p/2015/crypt-intro/">
+            
+            <i class="iconfont">
+              <svg  class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="18" height="18">
+  <path d="M691.908486 949.511495l75.369571-89.491197c10.963703-12.998035 10.285251-32.864502-1.499144-44.378743L479.499795 515.267417 757.434875 204.940602c11.338233-12.190647 11.035334-32.285311-0.638543-44.850487l-80.46666-86.564541c-11.680017-12.583596-30.356378-12.893658-41.662889-0.716314L257.233596 494.235404c-11.332093 12.183484-11.041474 32.266891 0.657986 44.844348l80.46666 86.564541c1.772366 1.910513 3.706415 3.533476 5.750981 4.877077l306.620399 321.703933C662.505829 963.726242 680.945807 962.528973 691.908486 949.511495z"></path>
+</svg>
+
+            </i>
+            <span class="prev-text nav-default">密码学基础简介</span>
+            <span class="prev-text nav-mobile">上一篇</span>
+          </a>
+        
+          <a class="next" href="/p/2015/luhn-algo/">
+            <span class="next-text nav-default">Luhn algorithm</span>
+            <span class="prev-text nav-mobile">下一篇</span>
+            
+            <i class="iconfont">
+              <svg class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="18" height="18">
+  <path d="M332.091514 74.487481l-75.369571 89.491197c-10.963703 12.998035-10.285251 32.864502 1.499144 44.378743l286.278095 300.375162L266.565125 819.058374c-11.338233 12.190647-11.035334 32.285311 0.638543 44.850487l80.46666 86.564541c11.680017 12.583596 30.356378 12.893658 41.662889 0.716314l377.434212-421.426145c11.332093-12.183484 11.041474-32.266891-0.657986-44.844348l-80.46666-86.564541c-1.772366-1.910513-3.706415-3.533476-5.750981-4.877077L373.270379 71.774697C361.493148 60.273758 343.054193 61.470003 332.091514 74.487481z"></path>
+</svg>
+
+            </i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+
+  
+  
+
+  
+  
+
+  
+
+  
+
+  <div class="disqus-comment">
+  <div class="disqus-button" id="load_disqus" onclick="load_disqus()">
+    显示 Disqus 评论
+  </div>
+  <div id="disqus_thread"></div>
+  <script type="text/javascript">
     var disqus_config = function () {
-    
-    
-    
+      this.page.url = "http://m.l2d.xyz/p/2015/mobi-ids/";
     };
-    (function() {
-        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
-            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
-            return;
-        }
-        var d = document, s = d.createElement('script'); s.async = true;
-        s.src = '//' + "m142" + '.disqus.com/embed.js';
-        s.setAttribute('data-timestamp', +new Date());
-        (d.head || d.body).appendChild(s);
-    })();
-</script>
-<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
-</section>
+    function load_disqus() {
+      
+      
+      if (window.location.hostname === 'localhost') return;
 
-</main>
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      var disqus_shortname = 'm142';
+      dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
 
-<aside class="sidebar">
-	
-<div class="widget-search widget">
-	<form class="widget-search__form" role="search" method="get" action="https://google.com/search">
-		<label>
-			<input class="widget-search__field" type="search" placeholder="SEARCH..." value="" name="q">
-		</label>
-		<input class="widget-search__submit" type="submit" value="Search">
-		<input type="hidden" name="sitesearch" value="http://m.l2d.xyz/" />
-	</form>
+      $('#load_disqus').remove();
+    };
+  </script>
+  <noscript>Please enable JavaScript to view the
+    <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+  </noscript>
+  
+  </div>
+  
+    
+
+
+
+        </div>
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://gohugo.io">Hugo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="copyright-year">
+    &copy;
+    
+      2015 -
+    2018
+  </span>
+
+  
+  
 </div>
-	
-<div class="widget-recent widget">
-	<h4 class="widget__title">Recent Posts</h4>
-	<div class="widget__content">
-		<ul class="widget__list">
-			<li class="widget__item"><a class="widget__link" href="/p/2018/fin_debj/">贷款基础知识之等额本金</a></li>
-			<li class="widget__item"><a class="widget__link" href="/p/2018/raspberrypi_fstab_issue/">树莓派修改fstab文件无法启动</a></li>
-			<li class="widget__item"><a class="widget__link" href="/p/2018/fin_debx/">贷款基础知识之等额本息</a></li>
-			<li class="widget__item"><a class="widget__link" href="/p/2018/pnpoly/">PNPOLY: 射线法判断点是否在多边形区域内部</a></li>
-			<li class="widget__item"><a class="widget__link" href="/p/2018/self-fulfilling-prophecy/">记录新学到的一个词——自证预言</a></li>
-		</ul>
-	</div>
-</div>
-	
-	
-	
-<div class="widget-taglist widget">
-	<h4 class="widget__title">Tags</h4>
-	<div class="widget__content">
-		<a class="widget-taglist__link widget__link btn" href="/tags/ad" title="Ad">Ad</a>
-		<a class="widget-taglist__link widget__link btn" href="/tags/algo" title="Algo">Algo</a>
-		<a class="widget-taglist__link widget__link btn" href="/tags/bash" title="Bash">Bash</a>
-		<a class="widget-taglist__link widget__link btn" href="/tags/c&#43;&#43;" title="C&#43;&#43;">C&#43;&#43;</a>
-		<a class="widget-taglist__link widget__link btn" href="/tags/digihome" title="Digihome">Digihome</a>
-		<a class="widget-taglist__link widget__link btn" href="/tags/fin" title="Fin">Fin</a>
-		<a class="widget-taglist__link widget__link btn" href="/tags/go" title="Go">Go</a>
-		<a class="widget-taglist__link widget__link btn" href="/tags/mac" title="Mac">Mac</a>
-		<a class="widget-taglist__link widget__link btn" href="/tags/map" title="Map">Map</a>
-		<a class="widget-taglist__link widget__link btn" href="/tags/misc" title="Misc">Misc</a>
-		<a class="widget-taglist__link widget__link btn" href="/tags/ml" title="Ml">Ml</a>
-		<a class="widget-taglist__link widget__link btn" href="/tags/mobi" title="Mobi">Mobi</a>
-		<a class="widget-taglist__link widget__link btn" href="/tags/python" title="Python">Python</a>
-		<a class="widget-taglist__link widget__link btn" href="/tags/raspi" title="Raspi">Raspi</a>
-		<a class="widget-taglist__link widget__link btn" href="/tags/read" title="Read">Read</a>
-		<a class="widget-taglist__link widget__link btn" href="/tags/sec" title="Sec">Sec</a>
-		<a class="widget-taglist__link widget__link btn" href="/tags/spark" title="Spark">Spark</a>
-		<a class="widget-taglist__link widget__link btn" href="/tags/vpn" title="Vpn">Vpn</a>
-		<a class="widget-taglist__link widget__link btn" href="/tags/vps" title="Vps">Vps</a>
-		<a class="widget-taglist__link widget__link btn" href="/tags/yy" title="Yy">Yy</a>
-	</div>
-</div>
-</aside>
-	</div>
-		<footer class="footer">
-			<div class="container container-inner">
-				<div class="footer__copyright">&copy; 2018 平波湛影. <span class="footer__copyright-credits">Generated with <a href="https://gohugo.io/" rel="nofollow noopener" target="_blank">Hugo</a> and <a href="https://github.com/Vimux/Mainroad/" rel="nofollow noopener" target="_blank">Mainroad</a> theme.</span></div>
-			</div>
-		</footer>
-	</div>
-
-<script>
-	var navigation = responsiveNav(".menu", {
-		navClass: "menu--collapse",
-	});
-</script>
-
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 <script type="text/x-mathjax-config">
 MathJax.Hub.Config({
@@ -238,6 +466,46 @@ TeX: { equationNumbers: { autoNumber: "AMS" },
 }
 });
 </script>
+
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont">
+        
+        <svg class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="35" height="35">
+  <path d="M510.866688 227.694839 95.449397 629.218702l235.761562 0-2.057869 328.796468 362.40389 0L691.55698 628.188232l241.942331-3.089361L510.866688 227.694839zM63.840492 63.962777l894.052392 0 0 131.813095L63.840492 195.775872 63.840492 63.962777 63.840492 63.962777zM63.840492 63.962777"></path>
+</svg>
+
+      </i>
+    </div>
+  </div>
+  
+<script type="text/javascript" src="/lib/jquery/jquery-3.2.1.min.js"></script>
+  <script type="text/javascript" src="/lib/slideout/slideout-1.0.1.min.js"></script>
+
+
+
+
+<script type="text/javascript" src="/js/main.638251f4230630f0335d8c6748e53a96f94b72670920b60c09a56fdc8bece214.js" integrity="sha256-Y4JR9CMGMPAzXYxnSOU6lvlLcmcJILYMCaVv3Ivs4hQ="></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 </body>
 </html>
