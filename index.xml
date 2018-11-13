@@ -6,10 +6,24 @@
     <description>Recent content on 平波湛影</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Sun, 11 Nov 2018 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 13 Nov 2018 00:00:00 +0000</lastBuildDate>
     
         <atom:link href="http://m.l2d.xyz/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>反思一次低效的做事方式</title>
+      <link>http://m.l2d.xyz/p/2018/wrong-ways-about-themes/</link>
+      <pubDate>Tue, 13 Nov 2018 00:00:00 +0000</pubDate>
+      
+      <guid>http://m.l2d.xyz/p/2018/wrong-ways-about-themes/</guid>
+      
+        <description>周末的时候，想给小站换个主题，因为目前的主题有点太商务太传统，不够现代。大概浏览了一下，相中了 tale，特别简单的一个主题。然后就是下载，改配置，hugo server 的时候提示 hugo 版本太低，不支持 sass。这个简单，从这里直接下载最新版本即可。结果仍然提示不支持 sass，需要 extended 版本才支持，然而官方只提供了 Linux, Mac 和 Windows 平台的 extended 版本，树莓派的 arm 平台没有 extended 版本。没办法，只有自己动手编译了。
+问题就出在这里了。由于惯性思维，想当然地以为树莓派内存小可能编译 hugo 会失败，于是从一开始只考虑在 Mac 和 Linux 下编译。准备工作倒都还比较简单，把 repo clone 下来即可。编译的时候碰到了一点问题，因为官方文档不是很清楚，没有写怎么为其它平台编译，以及编译的各种选项等。于是摸索了一番，得到下面的编译命令：
+GOOS=linux GOARCH=arm go build -o hugo --tags extended main.go  很不巧的是，Linux 平台下报这样的错误：
+# github.com/wellington/go-libsass/libs ../../go/pkg/mod/github.com/wellington/go-libsass@v0.0.0-20180624165032-615eaa47ef79/libs/sass_number.go:8:9: undefined: SassNumber ../../go/pkg/mod/github.com/wellington/go-libsass@v0.0.0-20180624165032-615eaa47ef79/libs/sass_number.go:151:10: undefined: SassNumber ../../go/pkg/mod/github.com/wellington/go-libsass@v0.0.0-20180624165032-615eaa47ef79/libs/sass_number.go:153:9: undefined: SassNumber ../../go/pkg/mod/github.com/wellington/go-libsass@v0.0.0-20180624165032-615eaa47ef79/libs/sass_number.go:157:10: undefined: SassNumber ../../go/pkg/mod/github.com/wellington/go-libsass@v0.0.0-20180624165032-615eaa47ef79/libs/sass_number.go:159:9: undefined: SassNumber ../../go/pkg/mod/github.com/wellington/go-libsass@v0.0.0-20180624165032-615eaa47ef79/libs/sass_number.go:164:10: undefined: SassNumber ../../go/pkg/mod/github.com/wellington/go-libsass@v0.0.0-20180624165032-615eaa47ef79/libs/sass_number.go:166:9: undefined: SassNumber ../../go/pkg/mod/github.com/wellington/go-libsass@v0.0.0-20180624165032-615eaa47ef79/libs/sass_number.go:170:10: undefined: SassNumber ../../go/pkg/mod/github.com/wellington/go-libsass@v0.0.0-20180624165032-615eaa47ef79/libs/sass_number.go:175:28: undefined: SassNumber .</description>
+      
+    </item>
     
     <item>
       <title>贷款基础知识之等额本金</title>

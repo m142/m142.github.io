@@ -50,7 +50,7 @@
 
 
 
-<link rel="stylesheet" href="/sass/jane.min.a26adfc078bf1c56724a4761b1659de8835fa8186846342a2a3f89a22000770b.css" integrity="sha256-omrfwHi/HFZySkdhsWWd6INfqBhoRjQqKj&#43;JoiAAdws=" media="screen">
+<link rel="stylesheet" href="/sass/jane.min.d2d48384ea7afb8fc635df7830f2434bae93b36a9f8512585839776cca2093da.css" integrity="sha256-0tSDhOp6&#43;4/GNd94MPJDS66Ts2qfhRJYWDl3bMogk9o=" media="screen">
 
 
 
@@ -60,7 +60,7 @@
 <meta property="og:description" content="平波湛影" />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="http://m.l2d.xyz/" />
-<meta property="og:updated_time" content="2018-10-22T00:00:00&#43;00:00"/>
+<meta property="og:updated_time" content="2018-11-05T00:00:00&#43;00:00"/>
 
 <meta itemprop="name" content="平波湛影">
 <meta itemprop="description" content="平波湛影">
@@ -111,13 +111,6 @@ if (!doNotTrack) {
           
           
             <a class="menu-item-link" href="http://m.l2d.xyz/">Home</a>
-          
-        
-      </li><li class="mobile-menu-item">
-        
-          
-          
-            <a class="menu-item-link" href="http://m.l2d.xyz/post/">Archives</a>
           
         
       </li><li class="mobile-menu-item">
@@ -186,17 +179,6 @@ if (!doNotTrack) {
         
           
           
-            <a class="menu-item-link" href="http://m.l2d.xyz/post/">Archives</a>
-          
-
-        
-
-      </li>
-    
-        <li class="menu-item">
-        
-          
-          
             <a class="menu-item-link" href="http://m.l2d.xyz/tags/">Tags</a>
           
 
@@ -251,6 +233,46 @@ if (!doNotTrack) {
   <section id="posts" class="posts">
     
     
+    
+      <article class="post bg-white">
+  <header class="post-header">
+    <h1 class="post-title"><a class="post-link" href="/p/2018/fin_debx/">贷款基础知识之等额本息</a></h1>
+    
+    <div class="post-meta">
+      <time datetime="2018-11-05" class="post-time">
+        2018-11-05
+      </time>
+      <div class="post-category">
+          <a href="http://m.l2d.xyz/categories/fin/"> fin </a>
+          
+        </div>
+      
+      
+      
+    </div>
+  </header>
+  
+  <div class="post-content">
+    
+    <div class="post-summary">
+      大家如果办过贷款，尤其是房贷的话，相信对等额本息不会陌生。与等额本息同时出现的，还有等额本金。本文先详细介绍等额本息，后面再介绍等额本金等。
+等额本息指的是还款期限内，每个月还款额（包括本金和利息）固定，其中本金部分逐月递增，利息部分逐月递减。
+如果手边有贷款合同的话，翻开就会看到每月的还款额计算公式为：
+$$ 每月还款额 = \frac{借款本金 \cdot 月利率 \cdot (1 + 月利率)^{还款总期数}}{(1 + 月利率)^{还款总期数} - 1} $$
+举个实际的例子，比如贷款100万元，贷款期限为20年，贷款年利率为最新基准利率上浮20%，也就是5.88%，那么代入公式得到每月还款额为7095.25元。
+$$ 每月还款额 = \frac{1000000 \cdot 5.88\%/12 \cdot (1 + 5.88\%/12)^{240}}{(1 + 5.88\%/12)^{240}-1} = 7095.25 $$
+好的，到现在为止，至少就有了 3 个问题：
+ 每月还款额的公式是怎么推导出来的？ 每月还款额里本金和利息分别是多少？ 用年利率除以 12 得到月利率是否合理？  下面来逐个分析。
+每月还款额公式推导 不妨假设贷款额，也就是本金为 $v$, 月利率为 $r$, 借款期数为 $n$, 每月还款额为 $x$. 则可以列出下表。
+   期数 本金+利息 还款 剩余本金+利息     $1$ $v\cdot(1+r)$ $x$ $S_1 = v\cdot(1+r) - x$   $2$ $S_1\cdot(1+r)$ $x$ $S_2 = S_1\cdot(1+r)-x$   &hellip; &hellip; $x$ &hellip;   $n$ $S_{n-1}\cdot(1+r)$ $x$ $ S_n = S_{n-1}\cdot(1+r)-x$    从表中可以看出，第一期结束时，本金 $v$ 产生的利息为 $v \cdot r$，因此本金加利息为 $v\cdot(1+r)$ ，还款 $x$ 后，剩余金额为 $v\cdot(1+r) - x$，记为 $S_1$。依此类推，得到每期结束时的剩余金额 $S_i$，而要求的正是使得 $S_n = 0$ 的 $x$ 的值。不妨将 $S_n$ 展开，得到：
+    </div>
+    <div class="read-more">
+      <a href="/p/2018/fin_debx/" class="read-more-link">阅读全文</a>
+    </div>
+    
+  </div>
+</article>
+
     
       <article class="post bg-white">
   <header class="post-header">
@@ -314,37 +336,6 @@ The self-fulfilling prophecy is, in the beginning, a false definition of the sit
     </div>
     <div class="read-more">
       <a href="/p/2018/self-fulfilling-prophecy/" class="read-more-link">阅读全文</a>
-    </div>
-    
-  </div>
-</article>
-
-    
-      <article class="post bg-white">
-  <header class="post-header">
-    <h1 class="post-title"><a class="post-link" href="/p/2018/py-for-else/">Python 中奇特的 else</a></h1>
-    
-    <div class="post-meta">
-      <time datetime="2018-05-28" class="post-time">
-        2018-05-28
-      </time>
-      
-      
-      
-      
-    </div>
-  </header>
-  
-  <div class="post-content">
-    
-    <div class="post-summary">
-      今天看 Hacker News 发现了 Python 的一个小众特性：For - Else。
-原来 Python 里 else 还能跟 for 一起使用，当 for 循环正常退出（不是用 break 退出）时， else 里的语句会被执行。比如下面的代码：
-for n in range(2, 10): for x in range(2, n): if n % x == 0: print( n, 'equals', x, '*', n//x) break else: # loop fell through without finding a factor print(n, 'is a prime number')  输出如下。可以看出，当执行到 break 退出 for 循环时， else 语句没有执行；而 for 循环完整执行完后，else 语句执行了。
-2 is a prime number 3 is a prime number 4 equals 2 * 2 5 is a prime number 6 equals 2 * 3 7 is a prime number 8 equals 2 * 4 9 equals 3 * 3  上面的代码如果不用 else，那就要这么写。代码量上稍微复杂一丢丢。
-    </div>
-    <div class="read-more">
-      <a href="/p/2018/py-for-else/" class="read-more-link">阅读全文</a>
     </div>
     
   </div>
@@ -434,32 +425,27 @@ for n in range(2, 10): for x in range(2, n): if n % x == 0: print( n, 'equals', 
       
 
 <div class="copyright">
-  <span class="power-by">
-    Powered by <a class="hexo-link" href="https://gohugo.io">Hugo</a>
-  </span>
-  <span class="division">|</span>
+  
   <span class="copyright-year">
     &copy;
     
       2015 -
     2018
-  </span>
-
-  
-  
+  </span>&nbsp;
+  <span>All rights reserved</span>
 </div>
+
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 <script type="text/x-mathjax-config">
 MathJax.Hub.Config({
-tex2jax: {
-inlineMath: [['$','$'], ['\\(','\\)']],
-displayMath: [['$$','$$']],
-processEscapes: true,
-processEnvironments: true,
-skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
-TeX: { equationNumbers: { autoNumber: "AMS" },
-     extensions: ["AMSmath.js", "AMSsymbols.js"] }
-}
+  tex2jax: {
+  inlineMath: [['$','$'], ['\\(','\\)']],
+  displayMath: [['$$','$$']],
+  processEscapes: true,
+  processEnvironments: true,
+  skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+  TeX: { equationNumbers: { autoNumber: "AMS" }, extensions: ["AMSmath.js", "AMSsymbols.js"] }
+  }
 });
 </script>
 
