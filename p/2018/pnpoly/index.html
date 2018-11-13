@@ -307,26 +307,26 @@ if (!doNotTrack) {
 <p>理解了思想，就是具体实现了。这段代码的详细解释如下：</p>
 
 <ol>
-<li><p>for (i = 0, j = nvert-1; i &lt; nvert; j = i++)</p>
+<li><p><code>for (i = 0, j = nvert-1; i &lt; nvert; j = i++)</code></p>
 
 <ul>
-<li>该 for 循环中 i 和 j 是区域的相邻顶点下标，这样它们就构成了一条边。
-首先将 i 设置为第1个顶点， j 为最后一个顶点，每次循环后，i 往后移，j 设置为 i，这样就遍历了所有的边。</li>
+<li>该 <code>for</code> 循环中 <code>i</code> 和 <code>j</code> 是区域的相邻顶点下标，这样它们就构成了一条边。
+首先将 <code>i</code> 设置为第1个顶点， <code>j</code> 为最后一个顶点，每次循环后，<code>i</code> 往后移，<code>j</code> 设置为 <code>i</code>，这样就遍历了所有的边。</li>
 </ul></li>
 
-<li><p>((verty[i] &gt; testy) != (verty[j] &gt; testy))</p>
+<li><p><code>((verty[i] &gt; testy) != (verty[j] &gt; testy))</code></p>
 
 <ul>
-<li>以 (testx, testy) 点作一条平行于x轴向右的射线，要与 (vertx[i], verty[i]) 和 (vertx[j], verty[j]) 构成的线段有交点，
-必须要满足 testy 在 verty[i] 和 verty[j] 之间</li>
+<li>以 <code>(testx, testy)</code> 点作一条平行于x轴向右的射线，要与 <code>(vertx[i], verty[i])</code> 和 <code>(vertx[j], verty[j])</code> 构成的线段有交点，
+必须要满足 <code>testy</code> 在 <code>verty[i]</code> 和 <code>verty[j]</code> 之间</li>
 </ul></li>
 
-<li><p>testx &lt; (vertx[j]-vertx[i]) * (testy-verty[i]) / (verty[j]-verty[i]) + vertx[i])</p>
+<li><p><code>testx &lt; (vertx[j]-vertx[i]) * (testy-verty[i]) / (verty[j]-verty[i]) + vertx[i])</code></p>
 
 <ul>
-<li>通过 (vertx[i], verty[i]) 和 (vertx[j], verty[j]) 两点的直线方程为 y - verty[i] = (x - vertx[i]) * (verty[j] - verty[i]) / (vertx[j] - vertx[i])，
-稍作变换得到：x = (vertx[j] - vertx[i]) * (y - verty[i]) / (verty[j] - verty[i]) + vertx[i]。
-射线要与该直线相交，则 (testx, testy) 点要在该直线的左边，因此需要满足 testx &lt; (vertx[j] - vertx[i]) * (testy - verty[i]) / (verty[j] - verty[i]) + vertx[i]</li>
+<li>通过 <code>(vertx[i], verty[i])</code> 和 <code>(vertx[j], verty[j])</code> 两点的直线方程为 <code>y - verty[i] = (x - vertx[i]) * (verty[j] - verty[i]) / (vertx[j] - vertx[i])</code>，
+稍作变换得到：<code>x = (vertx[j] - vertx[i]) * (y - verty[i]) / (verty[j] - verty[i]) + vertx[i]</code>。
+射线要与该直线相交，则 <code>(testx, testy)</code> 点要在该直线的左边，因此需要满足 <code>testx &lt; (vertx[j] - vertx[i]) * (testy - verty[i]) / (verty[j] - verty[i]) + vertx[i]</code></li>
 </ul></li>
 </ol>
 
