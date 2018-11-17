@@ -60,7 +60,7 @@
 <meta property="og:description" content="平波湛影" />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="http://m.l2d.xyz/" />
-<meta property="og:updated_time" content="2018-05-05T00:00:00&#43;00:00"/>
+<meta property="og:updated_time" content="2018-05-06T00:00:00&#43;00:00"/>
 
 <meta itemprop="name" content="平波湛影">
 <meta itemprop="description" content="平波湛影">
@@ -236,6 +236,37 @@ if (!doNotTrack) {
     
       <article class="post bg-white">
   <header class="post-header">
+    <h1 class="post-title"><a class="post-link" href="/p/2018/bash-cmp-pitfall/">Bash 中 [ 和 [[ 整数比较的坑</a></h1>
+    
+    <div class="post-meta">
+      <time datetime="2018-05-06" class="post-time">
+        2018-05-06
+      </time>
+      
+      
+      
+      
+    </div>
+  </header>
+  
+  <div class="post-content">
+    
+    <div class="post-summary">
+      最近碰到了 bash 中 [ 和 [[ 中数字比较的不同之处，踩了一个坑。
+旧的代码类似这样 [ &quot;\$data_date&quot; -gt &quot;\$yesterday&quot; ] &amp;&amp; echo &quot;yes&quot;， 已经正常运行很长时间了。 升级的时候改成了 [[ &quot;\$data_date&quot; -gt &quot;\$yesterday&quot; ] &amp;&amp; echo &quot;yes&quot;， 其中的 $data_date 和 $yesterday 是月和日的组合， 类似 date +&quot;%m%d&quot; 的输出结果 0506 这样。
+升级的前几天都挺正常的没问题，突然4月18号出问题了，报错信息如下：
+$ [[ &quot;0418&quot; -gt &quot;0417&quot; ]] &amp;&amp; echo &quot;yes&quot; -bash: [[: 0418: value too great for base (error token is &quot;0418&quot;)  原来，在新的比较 [[ 中， 0418 这种以 0 开头的数字被识别成八进制数字了， 而用 [ 比较时，是被识别成十进制的数字。下面可以证明：
+    </div>
+    <div class="read-more">
+      <a href="/p/2018/bash-cmp-pitfall/" class="read-more-link">阅读全文</a>
+    </div>
+    
+  </div>
+</article>
+
+    
+      <article class="post bg-white">
+  <header class="post-header">
     <h1 class="post-title"><a class="post-link" href="/p/2018/vps-reco/">VPS 推荐</a></h1>
     
     <div class="post-meta">
@@ -295,43 +326,6 @@ $$ FPR = \frac{FP}{FP + TN}$$ $$ TPR = \frac{TP}{TP+FN} $$ 不妨来看图中的
     </div>
     <div class="read-more">
       <a href="/p/2016/auc-roc/" class="read-more-link">阅读全文</a>
-    </div>
-    
-  </div>
-</article>
-
-    
-      <article class="post bg-white">
-  <header class="post-header">
-    <h1 class="post-title"><a class="post-link" href="/p/2016/python-data-mining/">Python 相关的数据挖掘利器</a></h1>
-    
-    <div class="post-meta">
-      <time datetime="2016-02-25" class="post-time">
-        2016-02-25
-      </time>
-      <div class="post-category">
-          <a href="http://m.l2d.xyz/categories/rd/"> rd </a>
-          
-        </div>
-      
-      
-      
-    </div>
-  </header>
-  
-  <div class="post-content">
-    
-    <div class="post-summary">
-      首先需要反省一下自己，对新事物的好奇心不够强烈，很多时候都是浅尝辄止，没有深入去了解，以致错失了很多机会，也让我不能看透很多事情，很多方面不能形成自己的知识积累。是一个极大的缺点，需要改正。
-其实几年前就听说过 IPython，当时以为只是 Python 的另外一个 REPL 终端而已，没有深入去了解。
-平时工作中的数据量都很大，一般都是存储在 HDFS 上，加载到单机上比较费劲，都是用 Spark (之前用 Pig) 去分析，偶尔也会写一些一次性的 Python 脚本，有作图需求时都是把数据分析出来导入 Excel。大部分情况下这样其实还可以。
-只是最近试着参加了 kaggle 上的 Airbnb recruiting 比赛，见识到了 Python 系列工具在数据挖掘中的强大。而且也加深了对 IPython 的认识，尤其是 IPython Notebook (或者叫 Jupyter Notebook) 的强大和便捷。
-NumPy, matplotlib, xgboost 和 scikt-learn 以前也接触过，了解一些。但 Pandas, Seaborn 等还真没用过。看着别人把这些工具耍得贼熟，感觉自己像原始人一样站在一边…… 虽说用 Spark 来搞也没啥问题，但是毕竟有点麻烦。不学习一下真是说不过去，就会被别人远远地抛在后面。
-如果要用 Python 做数据分析相关工作，可以直接装 Anaconda。它打包了很多有用的库，另外可能需要单独装下 xgboost 和 seaborn（或者还有其它的包，试一下就知道）。完成这些后，基于 Python 的数据分析平台环境就搭建好了。具体 Pandas, xgboost, seaborn 等的应用可以查看各自的文档。话说 Pandas 里的 DataFrame 真是很强大，Spark 中新的 ml 库 (替换旧的 mllib) 也大量使用了 DataFrame。
-还有一个强大的工具，Jupyter Notebook.
-    </div>
-    <div class="read-more">
-      <a href="/p/2016/python-data-mining/" class="read-more-link">阅读全文</a>
     </div>
     
   </div>
@@ -401,6 +395,10 @@ NumPy, matplotlib, xgboost 和 scikt-learn 以前也接触过，了解一些。�
       
       <li >
         <a href="/page/10/">10</a>
+      </li>
+      
+      <li >
+        <a href="/page/11/">11</a>
       </li>
       
     </ul>

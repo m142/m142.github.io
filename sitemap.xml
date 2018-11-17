@@ -3,6 +3,11 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://m.l2d.xyz/p/2018/dawn_no_come/</loc>
+    <lastmod>2018-11-17T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>http://m.l2d.xyz/p/2018/wrong-ways-about-themes/</loc>
     <lastmod>2018-11-13T00:00:00+00:00</lastmod>
   </url>
@@ -230,7 +235,7 @@
   
   <url>
     <loc>http://m.l2d.xyz/tags/misc/</loc>
-    <lastmod>2018-11-13T00:00:00+00:00</lastmod>
+    <lastmod>2018-11-17T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -248,7 +253,7 @@
   
   <url>
     <loc>http://m.l2d.xyz/post/</loc>
-    <lastmod>2018-11-13T00:00:00+00:00</lastmod>
+    <lastmod>2018-11-17T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -314,7 +319,7 @@
   
   <url>
     <loc>http://m.l2d.xyz/</loc>
-    <lastmod>2018-11-13T00:00:00+00:00</lastmod>
+    <lastmod>2018-11-17T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
