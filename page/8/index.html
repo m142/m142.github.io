@@ -60,7 +60,7 @@
 <meta property="og:description" content="平波湛影" />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="http://m.l2d.xyz/" />
-<meta property="og:updated_time" content="2015-11-21T00:00:00&#43;00:00"/>
+<meta property="og:updated_time" content="2015-11-22T00:00:00&#43;00:00"/>
 
 <meta itemprop="name" content="平波湛影">
 <meta itemprop="description" content="平波湛影">
@@ -236,6 +236,41 @@ if (!doNotTrack) {
     
       <article class="post bg-white">
   <header class="post-header">
+    <h1 class="post-title"><a class="post-link" href="/p/2015/openwrt-ddns/">路由器配置 DDNS</a></h1>
+    
+    <div class="post-meta">
+      <time datetime="2015-11-22" class="post-time">
+        2015-11-22
+      </time>
+      <div class="post-category">
+          <a href="http://m.l2d.xyz/categories/digihome/"> digihome </a>
+          
+        </div>
+      
+      
+      
+    </div>
+  </header>
+  
+  <div class="post-content">
+    
+    <div class="post-summary">
+      路由器已经刷了 OpenWrt，接下来可能会用树莓派做一些事情，比如 NAS，还有很多没想好的。由于路由器每次启动拨号得到的 ip 地址不一样，运营商也可能会隔段时间给分配个新的 ip，所以需要配置 DDNS。
+有个在 Namecheap 注册的域名，Namecheap 的文档还是比较不错的，比如有介绍 如何在 ddwrt 上配置 DDNS，还有 如何发送 http 请求实现 DDNS。
+其实 OpenWrt 上就有 DDNS Client，并且有 UCI 配置界面。从 AA 12.09 版本开始就增加了对 Namecheap 的 DDNS 支持，所以可以直接使用 DDNS Client。按照 官方文档 给出的步骤一步步操作即可。
+不过既然一条 HTTP 请求就能实现的功能，就没必要搞得这么复杂了，一个简单的脚本就能搞定。
+#!/bin/sh Now=$(date +&quot;%F %T&quot;) ip=`ifconfig pppoe-wan | grep inet | awk '{split($2,a,&quot;:&quot;);print a[2]}'` url=&quot;https://dynamicdns.park-your-domain.com/update?host=[HOST]&amp;domain=[DOMAIN]&amp;password=[DDNS_PASSWORD]&amp;ip=$ip&quot; curl &quot;$url&quot; &gt; /dev/null 2&gt;&amp;1 if [ $? -eq 0 ]; then echo &quot;[$Now] Success&quot; else echo &quot;[$Now] Fail&quot; fi  其中，[HOST], [DOMAIN], [DDNS_PASSWORD] 是需要修改的地方，根据自己的实际情况做相应修改。比如，你有一个域名 example.
+    </div>
+    <div class="read-more">
+      <a href="/p/2015/openwrt-ddns/" class="read-more-link">阅读全文</a>
+    </div>
+    
+  </div>
+</article>
+
+    
+      <article class="post bg-white">
+  <header class="post-header">
     <h1 class="post-title"><a class="post-link" href="/p/2015/raspberrypi-my-1st/">入手树莓派 Raspberry Pi 2 Model B</a></h1>
     
     <div class="post-meta">
@@ -301,44 +336,6 @@ WNDR4300 自带的固件速度比较慢，至少从路由器的管理界面的�
     </div>
     <div class="read-more">
       <a href="/p/2015/netgear-wndr4300-openwrt-shadowsocks-chinadns/" class="read-more-link">阅读全文</a>
-    </div>
-    
-  </div>
-</article>
-
-    
-      <article class="post bg-white">
-  <header class="post-header">
-    <h1 class="post-title"><a class="post-link" href="/p/2015/strongswan-ikev2-vpn/">用 strongSwan 搭建 IPsec IKEv2 VPN</a></h1>
-    
-    <div class="post-meta">
-      <time datetime="2015-09-28" class="post-time">
-        2015-09-28
-      </time>
-      <div class="post-category">
-          <a href="http://m.l2d.xyz/categories/digihome/"> digihome </a>
-          
-        </div>
-      
-      
-      
-    </div>
-  </header>
-  
-  <div class="post-content">
-    
-    <div class="post-summary">
-      VPS 推荐: BandwagonHost
-Shadowsocks 大部分时候都能满足翻墙的需求，只是最近感觉速度有点变慢，偶尔还出现错误，不知道是不是因为墙又加高了。以防万一，需要开发其它的翻墙姿势。
-下面介绍用 strongSwan 搭建 IPsec IKEv2 VPN。服务器端是 CentOS 7，其它 Linux 发行版的话只需要做相应修改即可。客户端是 Windows 和 Android 。
-1. 安装 strongSwan A. yum 安装 直接 yum 安装的话版本可能会比较老，可以从 这里 下载编译好的 RPM 包。或者使用 testing 源安装：
-wget http://dl.fedoraproject.org/pub/epel/7/x86_64/e/epel-release-7-5.noarch.rpm rpm -Uvh epel-release-7-5.noarch.rpm yum --enablerepo=epel-testing install strongswan  这样安装后的 strongSwan 可执行文件是 /usr/sbin/strongswan，配置文件在 /etc/strongswan 下。
-B. 源码编译安装 （推荐） 推荐直接从源码安装，因为这样能用上最新版，而且编译安装极其简单方便。
- 安装依赖包
-yum install gmp-devel openssl openssl-devel  从 strongSwan 官网 下载最新版本源代码，当前是 5.3.3，并用 md5sum 命令校验。
-    </div>
-    <div class="read-more">
-      <a href="/p/2015/strongswan-ikev2-vpn/" class="read-more-link">阅读全文</a>
     </div>
     
   </div>

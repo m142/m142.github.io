@@ -6,10 +6,29 @@
     <description>Recent content on 平波湛影</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Sat, 17 Nov 2018 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 18 Nov 2018 00:00:00 +0000</lastBuildDate>
     
         <atom:link href="http://m.l2d.xyz/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>WOE 和 IV 介绍</title>
+      <link>http://m.l2d.xyz/p/2018/woe_n_iv/</link>
+      <pubDate>Sun, 18 Nov 2018 00:00:00 +0000</pubDate>
+      
+      <guid>http://m.l2d.xyz/p/2018/woe_n_iv/</guid>
+      
+        <description>在金融相关领域的建模中，WOE 和 IV 用的比较多。之前参加的一次征信相关比赛最后的评估指标就是特征的 IV 值，用于发现征信模型中的重要特征。
+IV 值的计算是以 WOE 为基础的，因此先介绍 WOE，再引入 IV。
+WOE WOE 的全称是 Weight Of Evidence. 要对一个特征计算 WOE，尤其是连续型的数值特征，需要先对特征做离散化处理，也叫做分组或分箱。
+为方便叙述，假设共有 $M$ 个样本，其中正负样本数量分别为 $p_M$ 和 $n_M$ ，满足 $p_M + n_M = M$。只考虑单个特征，分组数量为 $N$，第 $i$ 个分组中正负样本数量分别为 $p_i$ 和 $n_i$。则对于第 $i$ 组，其 WOE 计算公式为：
+$$ WOE_i = \ln{\frac{P_{p_i}}{P_{n_i}}} = \ln{\frac{p_i/p_M}{n_i/n_M}}$$
+从公式中可以看出，WOE 表达的是当前分组中正样本占所有正样本的比例与当前分组中负样本占所有负样本的比例的比例关系。
+由于可能出现某个分组中正负样本某个值为零的可能，导致公式取值为正无穷或负无穷，因此实际使用中，一般会加上一个常数 $\epsilon$, 范围是 $[0, 1]$, 一般的，$\epsilon = 0.5$。WOE 调整为：
+$$ WOE_i = \ln{\frac{(p_i+ \epsilon)/p_M }{(n_i+\epsilon)/n_M}}$$
+IV 有了 WOE 的基础，IV 的引入就很顺利了。从 WOE 的计算公式可以看出，WOE 有正有负，分别表达了特征在该分组上与整体样本是正相关还是负相关。可以稍加变化，直接表达特征在分组上与整体样本分布的相关程度，因此引入 IV 的计算公式：</description>
+      
+    </item>
     
     <item>
       <title>黎明不要来</title>

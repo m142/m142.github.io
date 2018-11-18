@@ -60,7 +60,7 @@
 <meta property="og:description" content="平波湛影" />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="http://m.l2d.xyz/" />
-<meta property="og:updated_time" content="2018-11-17T00:00:00&#43;00:00"/>
+<meta property="og:updated_time" content="2018-11-18T00:00:00&#43;00:00"/>
 
 <meta itemprop="name" content="平波湛影">
 <meta itemprop="description" content="平波湛影">
@@ -236,6 +236,45 @@ if (!doNotTrack) {
     
       <article class="post bg-white">
   <header class="post-header">
+    <h1 class="post-title"><a class="post-link" href="/p/2018/woe_n_iv/">WOE 和 IV 介绍</a></h1>
+    
+    <div class="post-meta">
+      <time datetime="2018-11-18" class="post-time">
+        2018-11-18
+      </time>
+      <div class="post-category">
+          <a href="http://m.l2d.xyz/categories/rd/"> rd </a>
+          
+        </div>
+      
+      
+      
+    </div>
+  </header>
+  
+  <div class="post-content">
+    
+    <div class="post-summary">
+      在金融相关领域的建模中，WOE 和 IV 用的比较多。之前参加的一次征信相关比赛最后的评估指标就是特征的 IV 值，用于发现征信模型中的重要特征。
+IV 值的计算是以 WOE 为基础的，因此先介绍 WOE，再引入 IV。
+WOE WOE 的全称是 Weight Of Evidence. 要对一个特征计算 WOE，尤其是连续型的数值特征，需要先对特征做离散化处理，也叫做分组或分箱。
+为方便叙述，假设共有 $M$ 个样本，其中正负样本数量分别为 $p_M$ 和 $n_M$ ，满足 $p_M + n_M = M$。只考虑单个特征，分组数量为 $N$，第 $i$ 个分组中正负样本数量分别为 $p_i$ 和 $n_i$。则对于第 $i$ 组，其 WOE 计算公式为：
+$$ WOE_i = \ln{\frac{P_{p_i}}{P_{n_i}}} = \ln{\frac{p_i/p_M}{n_i/n_M}}$$
+从公式中可以看出，WOE 表达的是当前分组中正样本占所有正样本的比例与当前分组中负样本占所有负样本的比例的比例关系。
+由于可能出现某个分组中正负样本某个值为零的可能，导致公式取值为正无穷或负无穷，因此实际使用中，一般会加上一个常数 $\epsilon$, 范围是 $[0, 1]$, 一般的，$\epsilon = 0.5$。WOE 调整为：
+$$ WOE_i = \ln{\frac{(p_i+ \epsilon)/p_M }{(n_i+\epsilon)/n_M}}$$
+IV 有了 WOE 的基础，IV 的引入就很顺利了。从 WOE 的计算公式可以看出，WOE 有正有负，分别表达了特征在该分组上与整体样本是正相关还是负相关。可以稍加变化，直接表达特征在分组上与整体样本分布的相关程度，因此引入 IV 的计算公式：
+    </div>
+    <div class="read-more">
+      <a href="/p/2018/woe_n_iv/" class="read-more-link">阅读全文</a>
+    </div>
+    
+  </div>
+</article>
+
+    
+      <article class="post bg-white">
+  <header class="post-header">
     <h1 class="post-title"><a class="post-link" href="/p/2018/dawn_no_come/">黎明不要来</a></h1>
     
     <div class="post-meta">
@@ -305,41 +344,6 @@ GOOS=linux GOARCH=arm go build -o hugo --tags extended main.go  很不巧的是�
     </div>
     <div class="read-more">
       <a href="/p/2018/wrong-ways-about-themes/" class="read-more-link">阅读全文</a>
-    </div>
-    
-  </div>
-</article>
-
-    
-      <article class="post bg-white">
-  <header class="post-header">
-    <h1 class="post-title"><a class="post-link" href="/p/2018/fin_debj/">贷款基础知识之等额本金</a></h1>
-    
-    <div class="post-meta">
-      <time datetime="2018-11-11" class="post-time">
-        2018-11-11
-      </time>
-      <div class="post-category">
-          <a href="http://m.l2d.xyz/categories/fin/"> fin </a>
-          
-        </div>
-      
-      
-      
-    </div>
-  </header>
-  
-  <div class="post-content">
-    
-    <div class="post-summary">
-      前面已经讲过了等额本息，现在来看一下等额本金。
-等额本金比等额本息计算起来简单太多了。基本原理就是每月偿还固定比例的本金，以及剩余本金在当月产生的利息。如果手边有贷款合同的话，翻开就会看到等额本金的还款公式为：
-$$ 每月还款额 = \frac{借款本金}{还款总期数} + (借款本金-累计已还本金)\cdot 月利率 $$
-不妨假设贷款额，也就是本金为 $v$, 月利率为 $r$, 借款期数为 $n$, 第 $k$ 期还款额记为 $x_k$。 则可以列出下表。
-   期数 剩余本金 当月利息 月供     1 $v$ $v\cdot r$ $\frac{v}{n} + v\cdot r$   2 $\frac{n-1}{n}\cdot v$ $\frac{n-1}{n}\cdot v\cdot r$ $\frac{v}{n}+\frac{n-1}{n}\cdot v\cdot r$   3 $\frac{n-2}{n}\cdot v$ $\frac{n-2}{n}\cdot v\cdot r$ $\frac{v}{n}+\frac{n-2}{n}\cdot v\cdot r$   &hellip;      k $\frac{n-k+1}{n}\cdot v$ $\frac{n-k+1}{n}\cdot v\cdot r$ $\frac{v}{n}+\frac{n-k+1}{n}\cdot v\cdot r$   &hellip;      n $\frac{1}{n}\cdot v$ $\frac{1}{n}\cdot v\cdot r$ $\frac{v}{n}+\frac{1}{n}\cdot v\cdot r$    显然，等额本金还款方式下，月供逐渐降低，前期压力很大，后期压力越来越小。仍然举一个实际的例子：贷款100万元，贷款期限为20年，贷款年利率为最新基准利率上浮20%，也就是5.
-    </div>
-    <div class="read-more">
-      <a href="/p/2018/fin_debj/" class="read-more-link">阅读全文</a>
     </div>
     
   </div>
