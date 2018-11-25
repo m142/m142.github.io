@@ -1,22 +1,22 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Yy on 平波湛影</title>
-    <link>http://m.l2d.xyz/tags/yy/</link>
-    <description>Recent content in Yy on 平波湛影</description>
+    <title>Yy on 诗酒趁华年</title>
+    <link>http://m.sjchn.com/tags/yy/</link>
+    <description>Recent content in Yy on 诗酒趁华年</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
     <lastBuildDate>Sun, 27 Dec 2015 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="http://m.l2d.xyz/tags/yy/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="http://m.sjchn.com/tags/yy/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>关于熵的一点胡思乱想</title>
-      <link>http://m.l2d.xyz/p/2015/entropy-delusion/</link>
+      <link>http://m.sjchn.com/p/2015/entropy-delusion/</link>
       <pubDate>Sun, 27 Dec 2015 00:00:00 +0000</pubDate>
       
-      <guid>http://m.l2d.xyz/p/2015/entropy-delusion/</guid>
+      <guid>http://m.sjchn.com/p/2015/entropy-delusion/</guid>
       <description>前段时间的一个晚上看了点 PRML ，睡觉时突然考虑起一个问题来：为什么人应该有鲜明的观点，或者说为什么大部分人都喜欢有鲜明观点的人，而好好人、骑墙派则一般不太受欢迎。当时就想，也许可以用熵的概念来解释呢。
 在 热力学 中，通俗地，可以将熵看成是系统混乱程度的度量。在一个孤立的系统中，根据热力学第二定律，熵是倾向于逐渐增加的。一个不那么恰当的例子就是：如果房间很长时间都没有打扫整理的话，就会到处充满灰尘乱糟糟的，这就造成了熵的增加。
 在 信息论 中，熵是接收的每条消息中包含的信息的平均量。可以看成是不确定性的量度。例如，抛一枚均匀的硬币（正反面概率都是 0.5）的熵比抛一枚不均匀的硬币（正面概率大于反面概率）的熵要大。因为后者是正面的概率要大，而前者完全不能确定是正面还是反面（因为它们的概率一样大）。

@@ -1,22 +1,22 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>平波湛影</title>
-    <link>http://m.l2d.xyz/</link>
-    <description>Recent content on 平波湛影</description>
+    <title>诗酒趁华年</title>
+    <link>http://m.sjchn.com/</link>
+    <description>Recent content on 诗酒趁华年</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
     <lastBuildDate>Sun, 18 Nov 2018 00:00:00 +0000</lastBuildDate>
     
-        <atom:link href="http://m.l2d.xyz/index.xml" rel="self" type="application/rss+xml" />
+        <atom:link href="http://m.sjchn.com/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>WOE 和 IV 介绍</title>
-      <link>http://m.l2d.xyz/p/2018/woe_n_iv/</link>
+      <link>http://m.sjchn.com/p/2018/woe_n_iv/</link>
       <pubDate>Sun, 18 Nov 2018 00:00:00 +0000</pubDate>
       
-      <guid>http://m.l2d.xyz/p/2018/woe_n_iv/</guid>
+      <guid>http://m.sjchn.com/p/2018/woe_n_iv/</guid>
       
         <description>在金融相关领域的建模中，WOE 和 IV 用的比较多。之前参加的一次征信相关比赛最后的评估指标就是特征的 IV 值，用于发现征信模型中的重要特征。
 IV 值的计算是以 WOE 为基础的，因此先介绍 WOE，再引入 IV。
@@ -32,10 +32,10 @@ IV 有了 WOE 的基础，IV 的引入就很顺利了。从 WOE 的计算公式�
     
     <item>
       <title>黎明不要来</title>
-      <link>http://m.l2d.xyz/p/2018/dawn_no_come/</link>
+      <link>http://m.sjchn.com/p/2018/dawn_no_come/</link>
       <pubDate>Sat, 17 Nov 2018 00:00:00 +0000</pubDate>
       
-      <guid>http://m.l2d.xyz/p/2018/dawn_no_come/</guid>
+      <guid>http://m.sjchn.com/p/2018/dawn_no_come/</guid>
       
         <description>黎明请你不要来
 就让梦幻今晚永远存在
@@ -61,10 +61,10 @@ IV 有了 WOE 的基础，IV 的引入就很顺利了。从 WOE 的计算公式�
     
     <item>
       <title>反思一次低效的做事方式</title>
-      <link>http://m.l2d.xyz/p/2018/wrong-ways-about-themes/</link>
+      <link>http://m.sjchn.com/p/2018/wrong-ways-about-themes/</link>
       <pubDate>Tue, 13 Nov 2018 00:00:00 +0000</pubDate>
       
-      <guid>http://m.l2d.xyz/p/2018/wrong-ways-about-themes/</guid>
+      <guid>http://m.sjchn.com/p/2018/wrong-ways-about-themes/</guid>
       
         <description>周末的时候，想给小站换个主题，因为目前的主题有点太商务太传统，不够现代。大概浏览了一下，相中了 tale，特别简单的一个主题。然后就是下载，改配置，hugo server 的时候提示 hugo 版本太低，不支持 sass。这个简单，从这里直接下载最新版本即可。结果仍然提示不支持 sass，需要 extended 版本才支持，然而官方只提供了 Linux, Mac 和 Windows 平台的 extended 版本，树莓派的 arm 平台没有 extended 版本。没办法，只有自己动手编译了。
 问题就出在这里了。由于惯性思维，想当然地以为树莓派内存小可能编译 hugo 会失败，于是从一开始只考虑在 Mac 和 Linux 下编译。准备工作倒都还比较简单，把 repo clone 下来即可。编译的时候碰到了一点问题，因为官方文档不是很清楚，没有写怎么为其它平台编译，以及编译的各种选项等。于是摸索了一番，得到下面的编译命令：
@@ -75,10 +75,10 @@ GOOS=linux GOARCH=arm go build -o hugo --tags extended main.go  很不巧的是�
     
     <item>
       <title>贷款基础知识之等额本金</title>
-      <link>http://m.l2d.xyz/p/2018/fin_debj/</link>
+      <link>http://m.sjchn.com/p/2018/fin_debj/</link>
       <pubDate>Sun, 11 Nov 2018 00:00:00 +0000</pubDate>
       
-      <guid>http://m.l2d.xyz/p/2018/fin_debj/</guid>
+      <guid>http://m.sjchn.com/p/2018/fin_debj/</guid>
       
         <description>前面已经讲过了等额本息，现在来看一下等额本金。
 等额本金比等额本息计算起来简单太多了。基本原理就是每月偿还固定比例的本金，以及剩余本金在当月产生的利息。如果手边有贷款合同的话，翻开就会看到等额本金的还款公式为：
@@ -90,10 +90,10 @@ $$ 每月还款额 = \frac{借款本金}{还款总期数} + (借款本金-累计
     
     <item>
       <title>树莓派修改fstab文件无法启动</title>
-      <link>http://m.l2d.xyz/p/2018/raspberrypi_fstab_issue/</link>
+      <link>http://m.sjchn.com/p/2018/raspberrypi_fstab_issue/</link>
       <pubDate>Sat, 10 Nov 2018 08:24:09 +0800</pubDate>
       
-      <guid>http://m.l2d.xyz/p/2018/raspberrypi_fstab_issue/</guid>
+      <guid>http://m.sjchn.com/p/2018/raspberrypi_fstab_issue/</guid>
       
         <description>多年前买的树莓派2现在仍在正常工作着，主要用作下载机，然后开着samba服务，在小米盒子上放电影什么的，最近都是给小孩看动画片用。当然之前的sd卡内存比较小，加了一个U盘。因为树莓派放在路由器旁边，一年也难得启动一回，所以就没有给U盘配置自动mount。前几天打扫卫生，给路由器和树莓派的换了个小巧的插座，就重启了。然后当天小孩要看动画片的时候发现找不到。这才想起来要去手动mount U盘。
 于是晚上搜索了一下，基本思路是通过 blkid 命令查看U盘的UUID，然后在 /etc/fstab 里加上对应的条目即可，最后我加上了下面这条：
@@ -106,10 +106,10 @@ UUID=4e578159-c983-42f2-9ac8-e156e819afgf /home/dl/usb ext4 gid=dl,uid=dl 0 0  �
     
     <item>
       <title>贷款基础知识之等额本息</title>
-      <link>http://m.l2d.xyz/p/2018/fin_debx/</link>
+      <link>http://m.sjchn.com/p/2018/fin_debx/</link>
       <pubDate>Mon, 05 Nov 2018 00:00:00 +0000</pubDate>
       
-      <guid>http://m.l2d.xyz/p/2018/fin_debx/</guid>
+      <guid>http://m.sjchn.com/p/2018/fin_debx/</guid>
       
         <description>大家如果办过贷款，尤其是房贷的话，相信对等额本息不会陌生。与等额本息同时出现的，还有等额本金。本文先详细介绍等额本息，后面再介绍等额本金等。
 等额本息指的是还款期限内，每个月还款额（包括本金和利息）固定，其中本金部分逐月递增，利息部分逐月递减。
@@ -126,10 +126,10 @@ $$ 每月还款额 = \frac{1000000 \cdot 5.88\%/12 \cdot (1 + 5.88\%/12)^{240}}{
     
     <item>
       <title>PNPOLY: 射线法判断点是否在多边形区域内部</title>
-      <link>http://m.l2d.xyz/p/2018/pnpoly/</link>
+      <link>http://m.sjchn.com/p/2018/pnpoly/</link>
       <pubDate>Mon, 22 Oct 2018 00:00:00 +0000</pubDate>
       
-      <guid>http://m.l2d.xyz/p/2018/pnpoly/</guid>
+      <guid>http://m.sjchn.com/p/2018/pnpoly/</guid>
       
         <description>最近跟地图打交道，有个问题是判断点是否在某个多边形区域内（一般都是凸多边形）。 其实之前也知道一个算法：就是以要判断的点为起点，以区域的顶点为终点作线段或直线， 遍历所有区域顶点，判断直线扫过的角度，如果是360度，说明在区域内，否则就是在区域外。
 这次学到了一个新的算法 PNPOLY，代码非常简练，如下：
@@ -141,10 +141,10 @@ int pnpoly(int nvert, float *vertx, float *verty, float testx, float testy) { in
     
     <item>
       <title>记录新学到的一个词——自证预言</title>
-      <link>http://m.l2d.xyz/p/2018/self-fulfilling-prophecy/</link>
+      <link>http://m.sjchn.com/p/2018/self-fulfilling-prophecy/</link>
       <pubDate>Sun, 24 Jun 2018 00:00:00 +0000</pubDate>
       
-      <guid>http://m.l2d.xyz/p/2018/self-fulfilling-prophecy/</guid>
+      <guid>http://m.sjchn.com/p/2018/self-fulfilling-prophecy/</guid>
       
         <description>这段时间看《博弈与社会》，读到一个词 自证预言。还是贴一下英文原版的定义：
 The self-fulfilling prophecy is, in the beginning, a false definition of the situation evoking a new behavior which makes the original false conception come true. This specious validity of the self-fulfilling prophecy perpetuates a reign of error. For the prophet will cite the actual course of events as proof that he was right from the very beginning.
@@ -157,10 +157,10 @@ The self-fulfilling prophecy is, in the beginning, a false definition of the sit
     
     <item>
       <title>Python 中奇特的 else</title>
-      <link>http://m.l2d.xyz/p/2018/py-for-else/</link>
+      <link>http://m.sjchn.com/p/2018/py-for-else/</link>
       <pubDate>Mon, 28 May 2018 00:00:00 +0000</pubDate>
       
-      <guid>http://m.l2d.xyz/p/2018/py-for-else/</guid>
+      <guid>http://m.sjchn.com/p/2018/py-for-else/</guid>
       
         <description>今天看 Hacker News 发现了 Python 的一个小众特性：For - Else。
 原来 Python 里 else 还能跟 for 一起使用，当 for 循环正常退出（不是用 break 退出）时， else 里的语句会被执行。比如下面的代码：
@@ -171,10 +171,10 @@ for n in range(2, 10): for x in range(2, n): if n % x == 0: print( n, &#39;equal
     
     <item>
       <title>Mac 上 Excel 的一个恼人问题</title>
-      <link>http://m.l2d.xyz/p/2018/mac-excel-recover-issue/</link>
+      <link>http://m.sjchn.com/p/2018/mac-excel-recover-issue/</link>
       <pubDate>Wed, 23 May 2018 00:00:00 +0000</pubDate>
       
-      <guid>http://m.l2d.xyz/p/2018/mac-excel-recover-issue/</guid>
+      <guid>http://m.sjchn.com/p/2018/mac-excel-recover-issue/</guid>
       
         <description>就不提 Mac 上的 MS Office 有多难用了，而且时不时崩溃，体验和在 Windows 下完全没法比。 某一次 Excel 崩溃后，每次打开 Excel 文件，窗口都会暂时被锁定，并且弹出对话框： 在应用程序意外退出之前，Excel已保存了对文件的更改。 是否要打开此文件上次保存的版本？
 如下图所示。这个时候真的是想砸了电脑 🔨
@@ -186,10 +186,10 @@ rm &amp;quot;/Users/didi/Library/Group Containers/UBF8T346G9.Office/MicrosoftReg
     
     <item>
       <title>《原则》初读简记</title>
-      <link>http://m.l2d.xyz/p/2018/principles/</link>
+      <link>http://m.sjchn.com/p/2018/principles/</link>
       <pubDate>Mon, 21 May 2018 00:00:00 +0000</pubDate>
       
-      <guid>http://m.l2d.xyz/p/2018/principles/</guid>
+      <guid>http://m.sjchn.com/p/2018/principles/</guid>
       
         <description>其实在几个月前就收到了这本书，也不厚，不到 550 页，断断续续居然翻了两个月才读完，确实有点慢。 不过说实话，这本书不是那么好读，说不上来为什么。 看这种翻译的书，总是觉得怪怪的，很多时候读起来每个字都能看懂，也能理解其中的意思，但就是觉得有点怪，也许就是翻译还没有到雅的境界。
 这本书在金融界评价很高，很火热，可能跟作者的身份是有关的。 但说实话，对普通人而言，其实这本书不太友好。 本书主要由作者的自传、生活和工作原则三部分组成。 文中，穿插了及其多的细节性的各种原则，让人眼花缭乱， 要想看一遍就记住所有的原则条文，估计只有过目不忘的天才才能做到。 对于一个目前还处于把书看薄阶段的我来说，只要从中吸取最核心的部分就可以了。
@@ -200,10 +200,10 @@ rm &amp;quot;/Users/didi/Library/Group Containers/UBF8T346G9.Office/MicrosoftReg
     
     <item>
       <title>不要与喷子一般见识</title>
-      <link>http://m.l2d.xyz/p/2018/keyboard-man/</link>
+      <link>http://m.sjchn.com/p/2018/keyboard-man/</link>
       <pubDate>Sat, 19 May 2018 00:00:00 +0000</pubDate>
       
-      <guid>http://m.l2d.xyz/p/2018/keyboard-man/</guid>
+      <guid>http://m.sjchn.com/p/2018/keyboard-man/</guid>
       
         <description>A keyboard man or keyboard warrior (键盘侠) is someone who expresses and exhibits aggression against others on the internet. 1
 (图片来自网络，侵删) 最近发生了不少大事，比如空姐滴滴顺风车被害、川航挡风玻璃破裂，等等。 川航的事情倒是学会了一个新词，叫杠精。其实任何一件事情，有异议都是正常的，不然没有质疑没有争论社会就不会进步，科学也不会发展，因为历史上大的发现或发明很多都是对已有认知的颠覆，比如日心说颠覆了地心说、相对论在高速场景下对牛顿力学的颠覆、量子力学在微观场景下对牛顿力学的颠覆，等等，不一而足。 日常生活中，也总会碰到各种杠精，最好的办法就是不去搭理他们，这样他们就会自讨无趣，不然只会把自己的心情搞的一团糟。参见 新志异之十：安公。
@@ -214,10 +214,10 @@ rm &amp;quot;/Users/didi/Library/Group Containers/UBF8T346G9.Office/MicrosoftReg
     
     <item>
       <title>去香港打13价肺炎疫苗</title>
-      <link>http://m.l2d.xyz/p/2018/hongkong-pcv13/</link>
+      <link>http://m.sjchn.com/p/2018/hongkong-pcv13/</link>
       <pubDate>Mon, 14 May 2018 00:00:00 +0000</pubDate>
       
-      <guid>http://m.l2d.xyz/p/2018/hongkong-pcv13/</guid>
+      <guid>http://m.sjchn.com/p/2018/hongkong-pcv13/</guid>
       
         <description>其实在 2016 年底，药监局批准了 13 价肺炎疫苗（PCV13）上市，但针对的是 2 岁以内的幼儿，需要打 4 针，分别是 2、4、6、12~15 月龄的时候，费用不菲，并且如果错过第一针的时间（超过6个月），那么就不能再打了。
 由于前几年国内的自费疫苗出过一次事情，当时就没有打这个疫苗，现在孩子超过2岁了，也不能在内地打。 前段时间刚好去香港办点事，想着就顺便带小孩去打了这个疫苗。由于去香港打疫苗的人特别多，所以国内是有不少中介的，可以帮忙预约。但是当时我们通过中介预约的时候发现都约满了，可想而知有多火爆了…… 后来辗转得知一个网站 https://www.edr.hk/，上面有香港所有注册医生的资料，如果是打疫苗的话，随便一个普通科医生就好。搜索酒店附近的诊所，直接打电话预约就好了，一般都是能约上的。
@@ -228,10 +228,10 @@ rm &amp;quot;/Users/didi/Library/Group Containers/UBF8T346G9.Office/MicrosoftReg
     
     <item>
       <title>Bash 中 [ 和 [[ 整数比较的坑</title>
-      <link>http://m.l2d.xyz/p/2018/bash-cmp-pitfall/</link>
+      <link>http://m.sjchn.com/p/2018/bash-cmp-pitfall/</link>
       <pubDate>Sun, 06 May 2018 00:00:00 +0000</pubDate>
       
-      <guid>http://m.l2d.xyz/p/2018/bash-cmp-pitfall/</guid>
+      <guid>http://m.sjchn.com/p/2018/bash-cmp-pitfall/</guid>
       
         <description>最近碰到了 bash 中 [ 和 [[ 中数字比较的不同之处，踩了一个坑。
 旧的代码类似这样 [ &amp;quot;\$data_date&amp;quot; -gt &amp;quot;\$yesterday&amp;quot; ] &amp;amp;&amp;amp; echo &amp;quot;yes&amp;quot;， 已经正常运行很长时间了。 升级的时候改成了 [[ &amp;quot;\$data_date&amp;quot; -gt &amp;quot;\$yesterday&amp;quot; ] &amp;amp;&amp;amp; echo &amp;quot;yes&amp;quot;， 其中的 $data_date 和 $yesterday 是月和日的组合， 类似 date +&amp;quot;%m%d&amp;quot; 的输出结果 0506 这样。
@@ -242,10 +242,10 @@ $ [[ &amp;quot;0418&amp;quot; -gt &amp;quot;0417&amp;quot; ]] &amp;amp;&amp;amp;
     
     <item>
       <title>VPS 推荐</title>
-      <link>http://m.l2d.xyz/p/2018/vps-reco/</link>
+      <link>http://m.sjchn.com/p/2018/vps-reco/</link>
       <pubDate>Sat, 05 May 2018 00:00:00 +0000</pubDate>
       
-      <guid>http://m.l2d.xyz/p/2018/vps-reco/</guid>
+      <guid>http://m.sjchn.com/p/2018/vps-reco/</guid>
       
         <description>之前推荐过 DigitalOcean 的 VPS，后来其实又尝试过 Vultr 的，速度都很慢，Youtube 1080p 都看不了，虽然平时我也不怎么看，但就是很慢。
 最近偶然看到 搬瓦工 推出了 CN2 线路的 VPS，年付 $29.99。尝试了一下，可以直接安装 BBR 内核，速度的确快，Ping 值稳定在 170ms 左右，Youtube 4K 视频都没问题，网页也是秒开，真的是一下从绿皮火车升级成高铁了，太舒服了。
@@ -257,10 +257,10 @@ $ [[ &amp;quot;0418&amp;quot; -gt &amp;quot;0417&amp;quot; ]] &amp;amp;&amp;amp;
     
     <item>
       <title>About</title>
-      <link>http://m.l2d.xyz/about/</link>
+      <link>http://m.sjchn.com/about/</link>
       <pubDate>Tue, 01 May 2018 00:00:00 +0000</pubDate>
       
-      <guid>http://m.l2d.xyz/about/</guid>
+      <guid>http://m.sjchn.com/about/</guid>
       
         <description>关于未来，有什么想说的吗？
 VPS 推荐: 搬瓦工 BandwagonHost
@@ -273,10 +273,10 @@ VPS 推荐: 搬瓦工 BandwagonHost
     
     <item>
       <title>AUC 和 ROC</title>
-      <link>http://m.l2d.xyz/p/2016/auc-roc/</link>
+      <link>http://m.sjchn.com/p/2016/auc-roc/</link>
       <pubDate>Mon, 28 Mar 2016 00:00:00 +0000</pubDate>
       
-      <guid>http://m.l2d.xyz/p/2016/auc-roc/</guid>
+      <guid>http://m.sjchn.com/p/2016/auc-roc/</guid>
       
         <description>AUC 是点击率预估模型的常用评价指标，一般来说，AUC 越高，点击率模型越好，当然这也不是绝对的。虽然平时用 AUC 挺多的，但是一直没有深入去研究清楚，导致前几天被人问起的时候基本没答上来，很是忏愧。
 AUC 其实是 Area Under Curve，然后这个 Curve 就是 ROC，全称是 Receiver Operating Characteristic，通常又叫做 ROC Curve。AUC 其实就是这个曲线下的面积了。AUC 有一个很重要的统计特性：AUC 值等于分类器对随机选择的正样本的预测值高于对随机选择的负样本的预测值的概率。AUC 的详细介绍和分析可以看这篇论文：An introduction to ROC analysis.
@@ -288,10 +288,10 @@ $$ FPR = \frac{FP}{FP + TN}$$ $$ TPR = \frac{TP}{TP+FN} $$ 不妨来看图中的
     
     <item>
       <title>Python 相关的数据挖掘利器</title>
-      <link>http://m.l2d.xyz/p/2016/python-data-mining/</link>
+      <link>http://m.sjchn.com/p/2016/python-data-mining/</link>
       <pubDate>Thu, 25 Feb 2016 00:00:00 +0000</pubDate>
       
-      <guid>http://m.l2d.xyz/p/2016/python-data-mining/</guid>
+      <guid>http://m.sjchn.com/p/2016/python-data-mining/</guid>
       
         <description>首先需要反省一下自己，对新事物的好奇心不够强烈，很多时候都是浅尝辄止，没有深入去了解，以致错失了很多机会，也让我不能看透很多事情，很多方面不能形成自己的知识积累。是一个极大的缺点，需要改正。
 其实几年前就听说过 IPython，当时以为只是 Python 的另外一个 REPL 终端而已，没有深入去了解。
@@ -305,10 +305,10 @@ NumPy, matplotlib, xgboost 和 scikt-learn 以前也接触过，了解一些。�
     
     <item>
       <title>中国的地图偏移问题</title>
-      <link>http://m.l2d.xyz/p/2016/china-map-shift/</link>
+      <link>http://m.sjchn.com/p/2016/china-map-shift/</link>
       <pubDate>Mon, 25 Jan 2016 00:00:00 +0000</pubDate>
       
-      <guid>http://m.l2d.xyz/p/2016/china-map-shift/</guid>
+      <guid>http://m.sjchn.com/p/2016/china-map-shift/</guid>
       
         <description>今天偶然了解到一个好玩，或者说不那么好玩，甚至让人恶心反感的事情，那就是 GPS 在地图上定位的偏移问题。
 GPS 全称是 Global Positioning System (全球定位系统)，是接收卫星的信号，计算所在位置的经纬度，这个数据一般都是没问题的。但是要在地图上显示出来，就牵涉到地图的问了。
@@ -321,10 +321,10 @@ GPS 全称是 Global Positioning System (全球定位系统)，是接收卫星�
     
     <item>
       <title>aria2</title>
-      <link>http://m.l2d.xyz/p/2016/aria2/</link>
+      <link>http://m.sjchn.com/p/2016/aria2/</link>
       <pubDate>Sat, 09 Jan 2016 00:00:00 +0000</pubDate>
       
-      <guid>http://m.l2d.xyz/p/2016/aria2/</guid>
+      <guid>http://m.sjchn.com/p/2016/aria2/</guid>
       
         <description>用树莓派做下载机，除了速度慢点，其它都挺不错的，功耗低，也稳定。 aria2 是一款非常优秀的小下载工具，支持 http/https, ftp, sftp, bt, metalink 等协议，除了命令行外，也有 web ui，是 Linux 系统上下载的不二选择。
 1. 编译安装 下载最新的版本 1.19.3 ，并解压，进入目录并执行以下命令编译安装。
@@ -335,10 +335,10 @@ log=/tmp/aria2c.log dir=~/download # http check-certificate=false http-accept-gz
     
     <item>
       <title>关于熵的一点胡思乱想</title>
-      <link>http://m.l2d.xyz/p/2015/entropy-delusion/</link>
+      <link>http://m.sjchn.com/p/2015/entropy-delusion/</link>
       <pubDate>Sun, 27 Dec 2015 00:00:00 +0000</pubDate>
       
-      <guid>http://m.l2d.xyz/p/2015/entropy-delusion/</guid>
+      <guid>http://m.sjchn.com/p/2015/entropy-delusion/</guid>
       
         <description>前段时间的一个晚上看了点 PRML ，睡觉时突然考虑起一个问题来：为什么人应该有鲜明的观点，或者说为什么大部分人都喜欢有鲜明观点的人，而好好人、骑墙派则一般不太受欢迎。当时就想，也许可以用熵的概念来解释呢。
 在 热力学 中，通俗地，可以将熵看成是系统混乱程度的度量。在一个孤立的系统中，根据热力学第二定律，熵是倾向于逐渐增加的。一个不那么恰当的例子就是：如果房间很长时间都没有打扫整理的话，就会到处充满灰尘乱糟糟的，这就造成了熵的增加。
@@ -354,10 +354,10 @@ log=/tmp/aria2c.log dir=~/download # http check-certificate=false http-accept-gz
     
     <item>
       <title>数据库中如何保存密码</title>
-      <link>http://m.l2d.xyz/p/2015/how-to-store-password-in-db/</link>
+      <link>http://m.sjchn.com/p/2015/how-to-store-password-in-db/</link>
       <pubDate>Thu, 26 Nov 2015 00:00:00 +0000</pubDate>
       
-      <guid>http://m.l2d.xyz/p/2015/how-to-store-password-in-db/</guid>
+      <guid>http://m.sjchn.com/p/2015/how-to-store-password-in-db/</guid>
       
         <description>网站开发一般都会涉及到数据库设计，而数据库设计大多数情况都会涉及到密码的保存。近几年发生过多起网站用户信息泄露事件：CSDN 用户账号及明文密码泄露，网易邮箱过亿用户数据泄露 等等。通过这些事件，大家对网络安全也越来越重视，而信息安全中最重要的一项就是密码，用户如何选择密码和保存密码是另外一个话题，本文主要探讨服务器端（网站）是如何保存密码的。
 下面首先介绍三种安全性较差（不推荐）的保存方法，然后介绍安全性较好（推荐）的保存方法。
@@ -379,10 +379,10 @@ CSDN 事件中，官方声明泄露的数据是 2009 年的备份数据库。如
     
     <item>
       <title>路由器配置 DDNS</title>
-      <link>http://m.l2d.xyz/p/2015/openwrt-ddns/</link>
+      <link>http://m.sjchn.com/p/2015/openwrt-ddns/</link>
       <pubDate>Sun, 22 Nov 2015 00:00:00 +0000</pubDate>
       
-      <guid>http://m.l2d.xyz/p/2015/openwrt-ddns/</guid>
+      <guid>http://m.sjchn.com/p/2015/openwrt-ddns/</guid>
       
         <description>路由器已经刷了 OpenWrt，接下来可能会用树莓派做一些事情，比如 NAS，还有很多没想好的。由于路由器每次启动拨号得到的 ip 地址不一样，运营商也可能会隔段时间给分配个新的 ip，所以需要配置 DDNS。
 有个在 Namecheap 注册的域名，Namecheap 的文档还是比较不错的，比如有介绍 如何在 ddwrt 上配置 DDNS，还有 如何发送 http 请求实现 DDNS。
@@ -394,10 +394,10 @@ CSDN 事件中，官方声明泄露的数据是 2009 年的备份数据库。如
     
     <item>
       <title>入手树莓派 Raspberry Pi 2 Model B</title>
-      <link>http://m.l2d.xyz/p/2015/raspberrypi-my-1st/</link>
+      <link>http://m.sjchn.com/p/2015/raspberrypi-my-1st/</link>
       <pubDate>Sat, 21 Nov 2015 00:00:00 +0000</pubDate>
       
-      <guid>http://m.l2d.xyz/p/2015/raspberrypi-my-1st/</guid>
+      <guid>http://m.sjchn.com/p/2015/raspberrypi-my-1st/</guid>
       
         <description>近期入手了 树莓派 2 Model B，配件加了16G Micro SD 卡、透明外壳和风扇。电源可以用安卓手机的充电器，或者用USB Hub 加上一根Micro USB 线。打算再从退役的笔记本上拆下硬盘来接上，搭建简易的家用 NAS。
 如果比较熟悉 Linux 的相关操作，可以不用外接显示器、键盘、鼠标等。直接在 SD 卡中写入系统，插入树莓派，再给树莓派插上网线，连到路由器上，找到 ip，ssh 登录即可。如果不太熟悉的话，还是建议外接显示器来操作。
@@ -410,10 +410,10 @@ CSDN 事件中，官方声明泄露的数据是 2009 年的备份数据库。如
     
     <item>
       <title>用 Netgear WNDR4300 打造翻墙路由器</title>
-      <link>http://m.l2d.xyz/p/2015/netgear-wndr4300-openwrt-shadowsocks-chinadns/</link>
+      <link>http://m.sjchn.com/p/2015/netgear-wndr4300-openwrt-shadowsocks-chinadns/</link>
       <pubDate>Thu, 05 Nov 2015 00:00:00 +0000</pubDate>
       
-      <guid>http://m.l2d.xyz/p/2015/netgear-wndr4300-openwrt-shadowsocks-chinadns/</guid>
+      <guid>http://m.sjchn.com/p/2015/netgear-wndr4300-openwrt-shadowsocks-chinadns/</guid>
       
         <description>VPS 推荐: BandwagonHost
 前提：1. 有一台境外的 VPS 服务器，并且安装了 ShadowSocks 服务且能正常使用，如无特别说明，下文中将以 x.x.x.x 代表 VPS 的 ip ； 2. 熟悉路由器网络的基本配置。
@@ -427,10 +427,10 @@ WNDR4300 自带的固件速度比较慢，至少从路由器的管理界面的�
     
     <item>
       <title>用 strongSwan 搭建 IPsec IKEv2 VPN</title>
-      <link>http://m.l2d.xyz/p/2015/strongswan-ikev2-vpn/</link>
+      <link>http://m.sjchn.com/p/2015/strongswan-ikev2-vpn/</link>
       <pubDate>Mon, 28 Sep 2015 00:00:00 +0000</pubDate>
       
-      <guid>http://m.l2d.xyz/p/2015/strongswan-ikev2-vpn/</guid>
+      <guid>http://m.sjchn.com/p/2015/strongswan-ikev2-vpn/</guid>
       
         <description>VPS 推荐: BandwagonHost
 Shadowsocks 大部分时候都能满足翻墙的需求，只是最近感觉速度有点变慢，偶尔还出现错误，不知道是不是因为墙又加高了。以防万一，需要开发其它的翻墙姿势。
@@ -445,10 +445,10 @@ yum install gmp-devel openssl openssl-devel  从 strongSwan 官网 下载最新�
     
     <item>
       <title>Python 列表乘运算的一个陷阱</title>
-      <link>http://m.l2d.xyz/p/2015/python-list-multiplication-pitfall/</link>
+      <link>http://m.sjchn.com/p/2015/python-list-multiplication-pitfall/</link>
       <pubDate>Tue, 22 Sep 2015 00:00:00 +0000</pubDate>
       
-      <guid>http://m.l2d.xyz/p/2015/python-list-multiplication-pitfall/</guid>
+      <guid>http://m.sjchn.com/p/2015/python-list-multiplication-pitfall/</guid>
       
         <description>先来看下面这段代码：
 a = [[]] * 2 a[0].append(1)  也许你期望 a = [[1], []]，然而，实际上 a = [[1], [1]]。
@@ -462,10 +462,10 @@ a = [1] * 3 print [id(x) for x in a] print a a[0] += 1 print [id(x) for x in a] 
     
     <item>
       <title>Go 和 C/C&#43;&#43; 的运算符优先级问题</title>
-      <link>http://m.l2d.xyz/p/2015/go-cpp-op-precedence/</link>
+      <link>http://m.sjchn.com/p/2015/go-cpp-op-precedence/</link>
       <pubDate>Wed, 16 Sep 2015 00:00:00 +0000</pubDate>
       
-      <guid>http://m.l2d.xyz/p/2015/go-cpp-op-precedence/</guid>
+      <guid>http://m.sjchn.com/p/2015/go-cpp-op-precedence/</guid>
       
         <description>一般都是把 Go 看成是现代化的 C，在 C 的基础上做了很多改进，语法更简单，很多语句也更优美了（比如 for）。但是也埋下了一些坑，不注意就会踩到，比如下面的这个运算符优先级的问题。
 这个坑是在写加解密算法的时候碰到的，代码类似 这两行，如下：
@@ -477,10 +477,10 @@ v0 += ((v1 &amp;lt;&amp;lt; 4) + k0) ^ (v1 + sum) ^ ((v1 &amp;gt;&amp;gt; 5) + k
     
     <item>
       <title>Windows 下搭建 Spark 源代码阅读环境</title>
-      <link>http://m.l2d.xyz/p/2015/win-spark-src-env/</link>
+      <link>http://m.sjchn.com/p/2015/win-spark-src-env/</link>
       <pubDate>Mon, 14 Sep 2015 00:00:00 +0000</pubDate>
       
-      <guid>http://m.l2d.xyz/p/2015/win-spark-src-env/</guid>
+      <guid>http://m.sjchn.com/p/2015/win-spark-src-env/</guid>
       
         <description>用 Spark 做数据分析也有半年多了，觉得至少应该大致过一下源代码。在 Windows 下搭建环境还是有点不太方便的，把步骤记录一下。
 当然要用 Intellij IDEA (下文简称 Idea )，安装 Scala 插件。另外，也可以把 sbt 插件装上。
@@ -494,10 +494,10 @@ View -&amp;gt; Tool Window -&amp;gt; Maven Projects 选择 Spark Project Externa
     
     <item>
       <title>密码学基础简介</title>
-      <link>http://m.l2d.xyz/p/2015/crypt-intro/</link>
+      <link>http://m.sjchn.com/p/2015/crypt-intro/</link>
       <pubDate>Fri, 11 Sep 2015 00:00:00 +0000</pubDate>
       
-      <guid>http://m.l2d.xyz/p/2015/crypt-intro/</guid>
+      <guid>http://m.sjchn.com/p/2015/crypt-intro/</guid>
       
         <description>某天下午公司几个开发为一个接口的某个字段的安全性争论很久，为到底是用 AES 还是 MD5 还是 SHA1 争论，为 Java 和 Go 的 AES 加密结果为何不同调试很久……
 其实这也没啥，如果没有系统地学过或了解过密码学的相关知识，这些概念以及实际的开发是会遇到问题。下面就来简单介绍密码学的基础知识，大部分内容都是来自 Computer Networks (5th Edition) ，所以看书是最好的选择。
@@ -512,10 +512,10 @@ View -&amp;gt; Tool Window -&amp;gt; Maven Projects 选择 Spark Project Externa
     
     <item>
       <title>移动平台的用户标识</title>
-      <link>http://m.l2d.xyz/p/2015/mobi-ids/</link>
+      <link>http://m.sjchn.com/p/2015/mobi-ids/</link>
       <pubDate>Wed, 09 Sep 2015 00:00:00 +0000</pubDate>
       
-      <guid>http://m.l2d.xyz/p/2015/mobi-ids/</guid>
+      <guid>http://m.sjchn.com/p/2015/mobi-ids/</guid>
       
         <description>在 PC 平台上，一般是用 cookie 识别用户，更进一步（流氓）的有 evercookie，如果用户禁用了 cookie，还可以用浏览器的指纹。这些方法一般都能较准确地识别用户，目前 PC 上看到的个性化广告一般都是基于以上几种方法。
 到了移动平台上，情况就大不一样了。首先，第三方 cookie 一般默认是禁用的，然后，cookie 在 in-app 的广告中是没法取到的。这就要求换一种方法。
@@ -527,10 +527,10 @@ Android 平台则相对混乱得多。虽然 Google 提供了 Advertising ID，�
     
     <item>
       <title>Luhn algorithm</title>
-      <link>http://m.l2d.xyz/p/2015/luhn-algo/</link>
+      <link>http://m.sjchn.com/p/2015/luhn-algo/</link>
       <pubDate>Mon, 07 Sep 2015 00:00:00 +0000</pubDate>
       
-      <guid>http://m.l2d.xyz/p/2015/luhn-algo/</guid>
+      <guid>http://m.sjchn.com/p/2015/luhn-algo/</guid>
       
         <description>身份证号大家都很熟悉，最后的校验位可能取值是 0-9 和 X，其中的 X 一直被大家吐槽的比较多。根据维基百科上的描述，最后的校验位采用的是 ISO 7064:1983,MOD 11-2 算法，由于是模 11，所以有 10 个可能的取值，以 X 代替校验码 10。这其实给身份证号的数据库设计之类的带来挺多麻烦的，明明用数字就能解决的，非得还要加上字母 X。
 当年为什么采用 MOD 11-2 算法我们不得而知。但不妨来看相关历史，身份证是 1984 年之后才出现的，也就是说，这个算法是在 1984 年之后才选择的，那个年代有没有出现更合适的算法呢？
@@ -542,10 +542,10 @@ Luhn 算法对校验位的计算过程是这样的：
     
     <item>
       <title>使用 Hugo 搭建静态网站</title>
-      <link>http://m.l2d.xyz/p/2015/hugo-howto/</link>
+      <link>http://m.sjchn.com/p/2015/hugo-howto/</link>
       <pubDate>Thu, 03 Sep 2015 00:00:00 +0000</pubDate>
       
-      <guid>http://m.l2d.xyz/p/2015/hugo-howto/</guid>
+      <guid>http://m.sjchn.com/p/2015/hugo-howto/</guid>
       
         <description>静态网站生成一般 Jekll 和 Octopress 用的比较多，但是安装部署起来很麻烦。Hugo 是用 Go 语言实现的，安装部署非常简单，一个二进制文件就能用来调试和生成网站。
 安装 Hugo 安装 Hugo 可以参考官方文档，主要有以下两种方式：

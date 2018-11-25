@@ -1,22 +1,22 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>C&#43;&#43; on 平波湛影</title>
-    <link>http://m.l2d.xyz/tags/c&#43;&#43;/</link>
-    <description>Recent content in C&#43;&#43; on 平波湛影</description>
+    <title>C&#43;&#43; on 诗酒趁华年</title>
+    <link>http://m.sjchn.com/tags/c&#43;&#43;/</link>
+    <description>Recent content in C&#43;&#43; on 诗酒趁华年</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
     <lastBuildDate>Wed, 16 Sep 2015 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="http://m.l2d.xyz/tags/c++/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="http://m.sjchn.com/tags/c++/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Go 和 C/C&#43;&#43; 的运算符优先级问题</title>
-      <link>http://m.l2d.xyz/p/2015/go-cpp-op-precedence/</link>
+      <link>http://m.sjchn.com/p/2015/go-cpp-op-precedence/</link>
       <pubDate>Wed, 16 Sep 2015 00:00:00 +0000</pubDate>
       
-      <guid>http://m.l2d.xyz/p/2015/go-cpp-op-precedence/</guid>
+      <guid>http://m.sjchn.com/p/2015/go-cpp-op-precedence/</guid>
       <description>一般都是把 Go 看成是现代化的 C，在 C 的基础上做了很多改进，语法更简单，很多语句也更优美了（比如 for）。但是也埋下了一些坑，不注意就会踩到，比如下面的这个运算符优先级的问题。
 这个坑是在写加解密算法的时候碰到的，代码类似 这两行，如下：
 v0 += ((v1 &amp;lt;&amp;lt; 4) + k0) ^ (v1 + sum) ^ ((v1 &amp;gt;&amp;gt; 5) + k1) v1 += ((v0 &amp;lt;&amp;lt; 4) + k2) ^ (v0 + sum) ^ ((v0 &amp;gt;&amp;gt; 5) + k3)  上面的两行代码是正确的，忘了当初是忘记加哪个括号了，当时检查代码好久都没发现问题，直到后来一点点加上括号才找出问题来：原来在 Go 里，+ - 和 ^ 的优先级是一样的，而在 C/C++ 里，+ - 的优先级要高于 ^。

@@ -1,22 +1,22 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Mobi on 平波湛影</title>
-    <link>http://m.l2d.xyz/tags/mobi/</link>
-    <description>Recent content in Mobi on 平波湛影</description>
+    <title>Mobi on 诗酒趁华年</title>
+    <link>http://m.sjchn.com/tags/mobi/</link>
+    <description>Recent content in Mobi on 诗酒趁华年</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
     <lastBuildDate>Wed, 09 Sep 2015 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="http://m.l2d.xyz/tags/mobi/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="http://m.sjchn.com/tags/mobi/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>移动平台的用户标识</title>
-      <link>http://m.l2d.xyz/p/2015/mobi-ids/</link>
+      <link>http://m.sjchn.com/p/2015/mobi-ids/</link>
       <pubDate>Wed, 09 Sep 2015 00:00:00 +0000</pubDate>
       
-      <guid>http://m.l2d.xyz/p/2015/mobi-ids/</guid>
+      <guid>http://m.sjchn.com/p/2015/mobi-ids/</guid>
       <description>在 PC 平台上，一般是用 cookie 识别用户，更进一步（流氓）的有 evercookie，如果用户禁用了 cookie，还可以用浏览器的指纹。这些方法一般都能较准确地识别用户，目前 PC 上看到的个性化广告一般都是基于以上几种方法。
 到了移动平台上，情况就大不一样了。首先，第三方 cookie 一般默认是禁用的，然后，cookie 在 in-app 的广告中是没法取到的。这就要求换一种方法。
 iOS 平台上情况相对简单，目前 app 都能获得 IDFA (identifier for advertisers)，所以一般都是靠 IDFA 来识别用户的。但是需要注意的是，在设置里，用户可以重置 IDFA，让自己对外看起来是一个全新的用户。

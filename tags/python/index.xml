@@ -1,22 +1,22 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Python on 平波湛影</title>
-    <link>http://m.l2d.xyz/tags/python/</link>
-    <description>Recent content in Python on 平波湛影</description>
+    <title>Python on 诗酒趁华年</title>
+    <link>http://m.sjchn.com/tags/python/</link>
+    <description>Recent content in Python on 诗酒趁华年</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
     <lastBuildDate>Mon, 28 May 2018 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="http://m.l2d.xyz/tags/python/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="http://m.sjchn.com/tags/python/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Python 中奇特的 else</title>
-      <link>http://m.l2d.xyz/p/2018/py-for-else/</link>
+      <link>http://m.sjchn.com/p/2018/py-for-else/</link>
       <pubDate>Mon, 28 May 2018 00:00:00 +0000</pubDate>
       
-      <guid>http://m.l2d.xyz/p/2018/py-for-else/</guid>
+      <guid>http://m.sjchn.com/p/2018/py-for-else/</guid>
       <description>今天看 Hacker News 发现了 Python 的一个小众特性：For - Else。
 原来 Python 里 else 还能跟 for 一起使用，当 for 循环正常退出（不是用 break 退出）时， else 里的语句会被执行。比如下面的代码：
 for n in range(2, 10): for x in range(2, n): if n % x == 0: print( n, &#39;equals&#39;, x, &#39;*&#39;, n//x) break else: # loop fell through without finding a factor print(n, &#39;is a prime number&#39;)  输出如下。可以看出，当执行到 break 退出 for 循环时， else 语句没有执行；而 for 循环完整执行完后，else 语句执行了。
@@ -25,10 +25,10 @@ for n in range(2, 10): for x in range(2, n): if n % x == 0: print( n, &#39;equal
     
     <item>
       <title>Python 相关的数据挖掘利器</title>
-      <link>http://m.l2d.xyz/p/2016/python-data-mining/</link>
+      <link>http://m.sjchn.com/p/2016/python-data-mining/</link>
       <pubDate>Thu, 25 Feb 2016 00:00:00 +0000</pubDate>
       
-      <guid>http://m.l2d.xyz/p/2016/python-data-mining/</guid>
+      <guid>http://m.sjchn.com/p/2016/python-data-mining/</guid>
       <description>首先需要反省一下自己，对新事物的好奇心不够强烈，很多时候都是浅尝辄止，没有深入去了解，以致错失了很多机会，也让我不能看透很多事情，很多方面不能形成自己的知识积累。是一个极大的缺点，需要改正。
 其实几年前就听说过 IPython，当时以为只是 Python 的另外一个 REPL 终端而已，没有深入去了解。
 平时工作中的数据量都很大，一般都是存储在 HDFS 上，加载到单机上比较费劲，都是用 Spark (之前用 Pig) 去分析，偶尔也会写一些一次性的 Python 脚本，有作图需求时都是把数据分析出来导入 Excel。大部分情况下这样其实还可以。
@@ -40,10 +40,10 @@ NumPy, matplotlib, xgboost 和 scikt-learn 以前也接触过，了解一些。�
     
     <item>
       <title>Python 列表乘运算的一个陷阱</title>
-      <link>http://m.l2d.xyz/p/2015/python-list-multiplication-pitfall/</link>
+      <link>http://m.sjchn.com/p/2015/python-list-multiplication-pitfall/</link>
       <pubDate>Tue, 22 Sep 2015 00:00:00 +0000</pubDate>
       
-      <guid>http://m.l2d.xyz/p/2015/python-list-multiplication-pitfall/</guid>
+      <guid>http://m.sjchn.com/p/2015/python-list-multiplication-pitfall/</guid>
       <description>先来看下面这段代码：
 a = [[]] * 2 a[0].append(1)  也许你期望 a = [[1], []]，然而，实际上 a = [[1], [1]]。
 为了进一步分析原因，可以把 a 中每个元素的 id 打印出来：

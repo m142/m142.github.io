@@ -1,22 +1,22 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Digihome on 平波湛影</title>
-    <link>http://m.l2d.xyz/categories/digihome/</link>
-    <description>Recent content in Digihome on 平波湛影</description>
+    <title>Digihome on 诗酒趁华年</title>
+    <link>http://m.sjchn.com/categories/digihome/</link>
+    <description>Recent content in Digihome on 诗酒趁华年</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
     <lastBuildDate>Sun, 22 Nov 2015 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="http://m.l2d.xyz/categories/digihome/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="http://m.sjchn.com/categories/digihome/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>路由器配置 DDNS</title>
-      <link>http://m.l2d.xyz/p/2015/openwrt-ddns/</link>
+      <link>http://m.sjchn.com/p/2015/openwrt-ddns/</link>
       <pubDate>Sun, 22 Nov 2015 00:00:00 +0000</pubDate>
       
-      <guid>http://m.l2d.xyz/p/2015/openwrt-ddns/</guid>
+      <guid>http://m.sjchn.com/p/2015/openwrt-ddns/</guid>
       <description>路由器已经刷了 OpenWrt，接下来可能会用树莓派做一些事情，比如 NAS，还有很多没想好的。由于路由器每次启动拨号得到的 ip 地址不一样，运营商也可能会隔段时间给分配个新的 ip，所以需要配置 DDNS。
 有个在 Namecheap 注册的域名，Namecheap 的文档还是比较不错的，比如有介绍 如何在 ddwrt 上配置 DDNS，还有 如何发送 http 请求实现 DDNS。
 其实 OpenWrt 上就有 DDNS Client，并且有 UCI 配置界面。从 AA 12.09 版本开始就增加了对 Namecheap 的 DDNS 支持，所以可以直接使用 DDNS Client。按照 官方文档 给出的步骤一步步操作即可。
@@ -26,10 +26,10 @@
     
     <item>
       <title>用 Netgear WNDR4300 打造翻墙路由器</title>
-      <link>http://m.l2d.xyz/p/2015/netgear-wndr4300-openwrt-shadowsocks-chinadns/</link>
+      <link>http://m.sjchn.com/p/2015/netgear-wndr4300-openwrt-shadowsocks-chinadns/</link>
       <pubDate>Thu, 05 Nov 2015 00:00:00 +0000</pubDate>
       
-      <guid>http://m.l2d.xyz/p/2015/netgear-wndr4300-openwrt-shadowsocks-chinadns/</guid>
+      <guid>http://m.sjchn.com/p/2015/netgear-wndr4300-openwrt-shadowsocks-chinadns/</guid>
       <description>VPS 推荐: BandwagonHost
 前提：1. 有一台境外的 VPS 服务器，并且安装了 ShadowSocks 服务且能正常使用，如无特别说明，下文中将以 x.x.x.x 代表 VPS 的 ip ； 2. 熟悉路由器网络的基本配置。
 家里联网设备逐渐多了起来，最近又添加了两台电视，有必要实现路由器端自动翻墙，提供自由的网络。经过一番调研，决定入手 Netgear WNDR4300 并刷 OpenWrt ，再装 ChinaDNS 和 ShadowSocks 。
@@ -41,10 +41,10 @@ WNDR4300 自带的固件速度比较慢，至少从路由器的管理界面的�
     
     <item>
       <title>用 strongSwan 搭建 IPsec IKEv2 VPN</title>
-      <link>http://m.l2d.xyz/p/2015/strongswan-ikev2-vpn/</link>
+      <link>http://m.sjchn.com/p/2015/strongswan-ikev2-vpn/</link>
       <pubDate>Mon, 28 Sep 2015 00:00:00 +0000</pubDate>
       
-      <guid>http://m.l2d.xyz/p/2015/strongswan-ikev2-vpn/</guid>
+      <guid>http://m.sjchn.com/p/2015/strongswan-ikev2-vpn/</guid>
       <description>VPS 推荐: BandwagonHost
 Shadowsocks 大部分时候都能满足翻墙的需求，只是最近感觉速度有点变慢，偶尔还出现错误，不知道是不是因为墙又加高了。以防万一，需要开发其它的翻墙姿势。
 下面介绍用 strongSwan 搭建 IPsec IKEv2 VPN。服务器端是 CentOS 7，其它 Linux 发行版的话只需要做相应修改即可。客户端是 Windows 和 Android 。

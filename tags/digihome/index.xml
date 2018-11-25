@@ -1,22 +1,22 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Digihome on 平波湛影</title>
-    <link>http://m.l2d.xyz/tags/digihome/</link>
-    <description>Recent content in Digihome on 平波湛影</description>
+    <title>Digihome on 诗酒趁华年</title>
+    <link>http://m.sjchn.com/tags/digihome/</link>
+    <description>Recent content in Digihome on 诗酒趁华年</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
     <lastBuildDate>Sat, 10 Nov 2018 08:24:09 +0800</lastBuildDate>
     
-	<atom:link href="http://m.l2d.xyz/tags/digihome/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="http://m.sjchn.com/tags/digihome/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>树莓派修改fstab文件无法启动</title>
-      <link>http://m.l2d.xyz/p/2018/raspberrypi_fstab_issue/</link>
+      <link>http://m.sjchn.com/p/2018/raspberrypi_fstab_issue/</link>
       <pubDate>Sat, 10 Nov 2018 08:24:09 +0800</pubDate>
       
-      <guid>http://m.l2d.xyz/p/2018/raspberrypi_fstab_issue/</guid>
+      <guid>http://m.sjchn.com/p/2018/raspberrypi_fstab_issue/</guid>
       <description>多年前买的树莓派2现在仍在正常工作着，主要用作下载机，然后开着samba服务，在小米盒子上放电影什么的，最近都是给小孩看动画片用。当然之前的sd卡内存比较小，加了一个U盘。因为树莓派放在路由器旁边，一年也难得启动一回，所以就没有给U盘配置自动mount。前几天打扫卫生，给路由器和树莓派的换了个小巧的插座，就重启了。然后当天小孩要看动画片的时候发现找不到。这才想起来要去手动mount U盘。
 于是晚上搜索了一下，基本思路是通过 blkid 命令查看U盘的UUID，然后在 /etc/fstab 里加上对应的条目即可，最后我加上了下面这条：
 UUID=4e578159-c983-42f2-9ac8-e156e819afgf /home/dl/usb ext4 gid=dl,uid=dl 0 0  重启，然后就发现树莓派连接不上了，连接不上了，连接不上了！
@@ -27,10 +27,10 @@ UUID=4e578159-c983-42f2-9ac8-e156e819afgf /home/dl/usb ext4 gid=dl,uid=dl 0 0  �
     
     <item>
       <title>aria2</title>
-      <link>http://m.l2d.xyz/p/2016/aria2/</link>
+      <link>http://m.sjchn.com/p/2016/aria2/</link>
       <pubDate>Sat, 09 Jan 2016 00:00:00 +0000</pubDate>
       
-      <guid>http://m.l2d.xyz/p/2016/aria2/</guid>
+      <guid>http://m.sjchn.com/p/2016/aria2/</guid>
       <description>用树莓派做下载机，除了速度慢点，其它都挺不错的，功耗低，也稳定。 aria2 是一款非常优秀的小下载工具，支持 http/https, ftp, sftp, bt, metalink 等协议，除了命令行外，也有 web ui，是 Linux 系统上下载的不二选择。
 1. 编译安装 下载最新的版本 1.19.3 ，并解压，进入目录并执行以下命令编译安装。
 sudo apt-get install autoconf autopoint libtool ./configure make sudo checkinstall # uninstall: `sudo dpkg -r aria2`  2. 配置 aria2 的配置文件是 ~/.aria2/aria2.conf ，所有的配置项说明都可以在 这里 找到。我的配置如下所示。 其中，dir, rpc-listen-port, rpc-secret 等参数可以根据自己需要配置，各参数的含义见 文档 。
@@ -39,10 +39,10 @@ log=/tmp/aria2c.log dir=~/download # http check-certificate=false http-accept-gz
     
     <item>
       <title>入手树莓派 Raspberry Pi 2 Model B</title>
-      <link>http://m.l2d.xyz/p/2015/raspberrypi-my-1st/</link>
+      <link>http://m.sjchn.com/p/2015/raspberrypi-my-1st/</link>
       <pubDate>Sat, 21 Nov 2015 00:00:00 +0000</pubDate>
       
-      <guid>http://m.l2d.xyz/p/2015/raspberrypi-my-1st/</guid>
+      <guid>http://m.sjchn.com/p/2015/raspberrypi-my-1st/</guid>
       <description>近期入手了 树莓派 2 Model B，配件加了16G Micro SD 卡、透明外壳和风扇。电源可以用安卓手机的充电器，或者用USB Hub 加上一根Micro USB 线。打算再从退役的笔记本上拆下硬盘来接上，搭建简易的家用 NAS。
 如果比较熟悉 Linux 的相关操作，可以不用外接显示器、键盘、鼠标等。直接在 SD 卡中写入系统，插入树莓派，再给树莓派插上网线，连到路由器上，找到 ip，ssh 登录即可。如果不太熟悉的话，还是建议外接显示器来操作。
 安装系统 这里 列举了树莓派能用的系统，我用的是 Raspbian。需要首先下载镜像 Raspbian Wheezy，然后根据文档将镜像解压并写入 SD 卡。比如对于 Windows 系统，按照官方文档步骤一步步操作即可。
@@ -53,10 +53,10 @@ log=/tmp/aria2c.log dir=~/download # http check-certificate=false http-accept-gz
     
     <item>
       <title>用 Netgear WNDR4300 打造翻墙路由器</title>
-      <link>http://m.l2d.xyz/p/2015/netgear-wndr4300-openwrt-shadowsocks-chinadns/</link>
+      <link>http://m.sjchn.com/p/2015/netgear-wndr4300-openwrt-shadowsocks-chinadns/</link>
       <pubDate>Thu, 05 Nov 2015 00:00:00 +0000</pubDate>
       
-      <guid>http://m.l2d.xyz/p/2015/netgear-wndr4300-openwrt-shadowsocks-chinadns/</guid>
+      <guid>http://m.sjchn.com/p/2015/netgear-wndr4300-openwrt-shadowsocks-chinadns/</guid>
       <description>VPS 推荐: BandwagonHost
 前提：1. 有一台境外的 VPS 服务器，并且安装了 ShadowSocks 服务且能正常使用，如无特别说明，下文中将以 x.x.x.x 代表 VPS 的 ip ； 2. 熟悉路由器网络的基本配置。
 家里联网设备逐渐多了起来，最近又添加了两台电视，有必要实现路由器端自动翻墙，提供自由的网络。经过一番调研，决定入手 Netgear WNDR4300 并刷 OpenWrt ，再装 ChinaDNS 和 ShadowSocks 。

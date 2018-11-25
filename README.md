@@ -1,1 +1,1 @@
-repo for http://m.l2d.xyz/
+repo for http://m.sjchn.com/

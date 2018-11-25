@@ -1,22 +1,22 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Vpn on 平波湛影</title>
-    <link>http://m.l2d.xyz/tags/vpn/</link>
-    <description>Recent content in Vpn on 平波湛影</description>
+    <title>Vpn on 诗酒趁华年</title>
+    <link>http://m.sjchn.com/tags/vpn/</link>
+    <description>Recent content in Vpn on 诗酒趁华年</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
     <lastBuildDate>Sat, 05 May 2018 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="http://m.l2d.xyz/tags/vpn/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="http://m.sjchn.com/tags/vpn/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>VPS 推荐</title>
-      <link>http://m.l2d.xyz/p/2018/vps-reco/</link>
+      <link>http://m.sjchn.com/p/2018/vps-reco/</link>
       <pubDate>Sat, 05 May 2018 00:00:00 +0000</pubDate>
       
-      <guid>http://m.l2d.xyz/p/2018/vps-reco/</guid>
+      <guid>http://m.sjchn.com/p/2018/vps-reco/</guid>
       <description>之前推荐过 DigitalOcean 的 VPS，后来其实又尝试过 Vultr 的，速度都很慢，Youtube 1080p 都看不了，虽然平时我也不怎么看，但就是很慢。
 最近偶然看到 搬瓦工 推出了 CN2 线路的 VPS，年付 $29.99。尝试了一下，可以直接安装 BBR 内核，速度的确快，Ping 值稳定在 170ms 左右，Youtube 4K 视频都没问题，网页也是秒开，真的是一下从绿皮火车升级成高铁了，太舒服了。
 然后，我就把 DigitalOcean、Vultr 都退掉了。
@@ -26,10 +26,10 @@
     
     <item>
       <title>用 Netgear WNDR4300 打造翻墙路由器</title>
-      <link>http://m.l2d.xyz/p/2015/netgear-wndr4300-openwrt-shadowsocks-chinadns/</link>
+      <link>http://m.sjchn.com/p/2015/netgear-wndr4300-openwrt-shadowsocks-chinadns/</link>
       <pubDate>Thu, 05 Nov 2015 00:00:00 +0000</pubDate>
       
-      <guid>http://m.l2d.xyz/p/2015/netgear-wndr4300-openwrt-shadowsocks-chinadns/</guid>
+      <guid>http://m.sjchn.com/p/2015/netgear-wndr4300-openwrt-shadowsocks-chinadns/</guid>
       <description>VPS 推荐: BandwagonHost
 前提：1. 有一台境外的 VPS 服务器，并且安装了 ShadowSocks 服务且能正常使用，如无特别说明，下文中将以 x.x.x.x 代表 VPS 的 ip ； 2. 熟悉路由器网络的基本配置。
 家里联网设备逐渐多了起来，最近又添加了两台电视，有必要实现路由器端自动翻墙，提供自由的网络。经过一番调研，决定入手 Netgear WNDR4300 并刷 OpenWrt ，再装 ChinaDNS 和 ShadowSocks 。
@@ -41,10 +41,10 @@ WNDR4300 自带的固件速度比较慢，至少从路由器的管理界面的�
     
     <item>
       <title>用 strongSwan 搭建 IPsec IKEv2 VPN</title>
-      <link>http://m.l2d.xyz/p/2015/strongswan-ikev2-vpn/</link>
+      <link>http://m.sjchn.com/p/2015/strongswan-ikev2-vpn/</link>
       <pubDate>Mon, 28 Sep 2015 00:00:00 +0000</pubDate>
       
-      <guid>http://m.l2d.xyz/p/2015/strongswan-ikev2-vpn/</guid>
+      <guid>http://m.sjchn.com/p/2015/strongswan-ikev2-vpn/</guid>
       <description>VPS 推荐: BandwagonHost
 Shadowsocks 大部分时候都能满足翻墙的需求，只是最近感觉速度有点变慢，偶尔还出现错误，不知道是不是因为墙又加高了。以防万一，需要开发其它的翻墙姿势。
 下面介绍用 strongSwan 搭建 IPsec IKEv2 VPN。服务器端是 CentOS 7，其它 Linux 发行版的话只需要做相应修改即可。客户端是 Windows 和 Android 。
