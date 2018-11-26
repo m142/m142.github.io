@@ -60,7 +60,7 @@
 <meta property="og:description" content="诗酒趁华年" />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="http://m.sjchn.com/" />
-<meta property="og:updated_time" content="2018-11-11T00:00:00&#43;00:00"/>
+<meta property="og:updated_time" content="2018-11-13T00:00:00&#43;00:00"/>
 
 <meta itemprop="name" content="诗酒趁华年">
 <meta itemprop="description" content="诗酒趁华年">
@@ -236,6 +236,37 @@ if (!doNotTrack) {
     
       <article class="post bg-white">
   <header class="post-header">
+    <h1 class="post-title"><a class="post-link" href="/p/2018/wrong-ways-about-themes/">反思一次低效的做事方式</a></h1>
+    
+    <div class="post-meta">
+      <time datetime="2018-11-13" class="post-time">
+        2018-11-13
+      </time>
+      
+      
+      
+      
+    </div>
+  </header>
+  
+  <div class="post-content">
+    
+    <div class="post-summary">
+      周末的时候，想给小站换个主题，因为目前的主题有点太商务太传统，不够现代。大概浏览了一下，相中了 tale，特别简单的一个主题。然后就是下载，改配置，hugo server 的时候提示 hugo 版本太低，不支持 sass。这个简单，从这里直接下载最新版本即可。结果仍然提示不支持 sass，需要 extended 版本才支持，然而官方只提供了 Linux, Mac 和 Windows 平台的 extended 版本，树莓派的 arm 平台没有 extended 版本。没办法，只有自己动手编译了。
+问题就出在这里了。由于惯性思维，想当然地以为树莓派内存小可能编译 hugo 会失败，于是从一开始只考虑在 Mac 和 Linux 下编译。准备工作倒都还比较简单，把 repo clone 下来即可。编译的时候碰到了一点问题，因为官方文档不是很清楚，没有写怎么为其它平台编译，以及编译的各种选项等。于是摸索了一番，得到下面的编译命令：
+GOOS=linux GOARCH=arm go build -o hugo --tags extended main.go  很不巧的是，Linux 平台下报这样的错误：
+# github.com/wellington/go-libsass/libs ../../go/pkg/mod/github.com/wellington/go-libsass@v0.0.0-20180624165032-615eaa47ef79/libs/sass_number.go:8:9: undefined: SassNumber ../../go/pkg/mod/github.com/wellington/go-libsass@v0.0.0-20180624165032-615eaa47ef79/libs/sass_number.go:151:10: undefined: SassNumber ../../go/pkg/mod/github.com/wellington/go-libsass@v0.0.0-20180624165032-615eaa47ef79/libs/sass_number.go:153:9: undefined: SassNumber ../../go/pkg/mod/github.com/wellington/go-libsass@v0.0.0-20180624165032-615eaa47ef79/libs/sass_number.go:157:10: undefined: SassNumber ../../go/pkg/mod/github.com/wellington/go-libsass@v0.0.0-20180624165032-615eaa47ef79/libs/sass_number.go:159:9: undefined: SassNumber ../../go/pkg/mod/github.com/wellington/go-libsass@v0.0.0-20180624165032-615eaa47ef79/libs/sass_number.go:164:10: undefined: SassNumber ../../go/pkg/mod/github.com/wellington/go-libsass@v0.0.0-20180624165032-615eaa47ef79/libs/sass_number.go:166:9: undefined: SassNumber ../../go/pkg/mod/github.com/wellington/go-libsass@v0.0.0-20180624165032-615eaa47ef79/libs/sass_number.go:170:10: undefined: SassNumber ../../go/pkg/mod/github.com/wellington/go-libsass@v0.0.0-20180624165032-615eaa47ef79/libs/sass_number.go:175:28: undefined: SassNumber .
+    </div>
+    <div class="read-more">
+      <a href="/p/2018/wrong-ways-about-themes/" class="read-more-link">阅读全文</a>
+    </div>
+    
+  </div>
+</article>
+
+    
+      <article class="post bg-white">
+  <header class="post-header">
     <h1 class="post-title"><a class="post-link" href="/p/2018/fin_debj/">贷款基础知识之等额本金</a></h1>
     
     <div class="post-meta">
@@ -296,46 +327,6 @@ UUID=4e578159-c983-42f2-9ac8-e156e819afgf /home/dl/usb ext4 gid=dl,uid=dl 0 0  �
     </div>
     <div class="read-more">
       <a href="/p/2018/raspberrypi_fstab_issue/" class="read-more-link">阅读全文</a>
-    </div>
-    
-  </div>
-</article>
-
-    
-      <article class="post bg-white">
-  <header class="post-header">
-    <h1 class="post-title"><a class="post-link" href="/p/2018/fin_debx/">贷款基础知识之等额本息</a></h1>
-    
-    <div class="post-meta">
-      <time datetime="2018-11-05" class="post-time">
-        2018-11-05
-      </time>
-      <div class="post-category">
-          <a href="http://m.sjchn.com/categories/fin/"> fin </a>
-          
-        </div>
-      
-      
-      
-    </div>
-  </header>
-  
-  <div class="post-content">
-    
-    <div class="post-summary">
-      大家如果办过贷款，尤其是房贷的话，相信对等额本息不会陌生。与等额本息同时出现的，还有等额本金。本文先详细介绍等额本息，后面再介绍等额本金等。
-等额本息指的是还款期限内，每个月还款额（包括本金和利息）固定，其中本金部分逐月递增，利息部分逐月递减。
-如果手边有贷款合同的话，翻开就会看到每月的还款额计算公式为：
-$$ 每月还款额 = \frac{借款本金 \cdot 月利率 \cdot (1 + 月利率)^{还款总期数}}{(1 + 月利率)^{还款总期数} - 1} $$
-举个实际的例子，比如贷款100万元，贷款期限为20年，贷款年利率为最新基准利率上浮20%，也就是5.88%，那么代入公式得到每月还款额为7095.25元。
-$$ 每月还款额 = \frac{1000000 \cdot 5.88\%/12 \cdot (1 + 5.88\%/12)^{240}}{(1 + 5.88\%/12)^{240}-1} = 7095.25 $$
-好的，到现在为止，至少就有了 3 个问题：
- 每月还款额的公式是怎么推导出来的？ 每月还款额里本金和利息分别是多少？ 用年利率除以 12 得到月利率是否合理？  下面来逐个分析。
-每月还款额公式推导 不妨假设贷款额，也就是本金为 $v$, 月利率为 $r$, 借款期数为 $n$, 每月还款额为 $x$. 则可以列出下表。
-   期数 本金+利息 还款 剩余本金+利息     $1$ $v\cdot(1+r)$ $x$ $S_1 = v\cdot(1+r) - x$   $2$ $S_1\cdot(1+r)$ $x$ $S_2 = S_1\cdot(1+r)-x$   &hellip; &hellip; $x$ &hellip;   $n$ $S_{n-1}\cdot(1+r)$ $x$ $ S_n = S_{n-1}\cdot(1+r)-x$    从表中可以看出，第一期结束时，本金 $v$ 产生的利息为 $v \cdot r$，因此本金加利息为 $v\cdot(1+r)$ ，还款 $x$ 后，剩余金额为 $v\cdot(1+r) - x$，记为 $S_1$。依此类推，得到每期结束时的剩余金额 $S_i$，而要求的正是使得 $S_n = 0$ 的 $x$ 的值。不妨将 $S_n$ 展开，得到：
-    </div>
-    <div class="read-more">
-      <a href="/p/2018/fin_debx/" class="read-more-link">阅读全文</a>
     </div>
     
   </div>

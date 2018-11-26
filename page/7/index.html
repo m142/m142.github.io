@@ -60,7 +60,7 @@
 <meta property="og:description" content="诗酒趁华年" />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="http://m.sjchn.com/" />
-<meta property="og:updated_time" content="2016-01-09T00:00:00&#43;00:00"/>
+<meta property="og:updated_time" content="2016-01-25T00:00:00&#43;00:00"/>
 
 <meta itemprop="name" content="诗酒趁华年">
 <meta itemprop="description" content="诗酒趁华年">
@@ -236,6 +236,42 @@ if (!doNotTrack) {
     
       <article class="post bg-white">
   <header class="post-header">
+    <h1 class="post-title"><a class="post-link" href="/p/2016/china-map-shift/">中国的地图偏移问题</a></h1>
+    
+    <div class="post-meta">
+      <time datetime="2016-01-25" class="post-time">
+        2016-01-25
+      </time>
+      <div class="post-category">
+          <a href="http://m.sjchn.com/categories/rd/"> rd </a>
+          
+        </div>
+      
+      
+      
+    </div>
+  </header>
+  
+  <div class="post-content">
+    
+    <div class="post-summary">
+      今天偶然了解到一个好玩，或者说不那么好玩，甚至让人恶心反感的事情，那就是 GPS 在地图上定位的偏移问题。
+GPS 全称是 Global Positioning System (全球定位系统)，是接收卫星的信号，计算所在位置的经纬度，这个数据一般都是没问题的。但是要在地图上显示出来，就牵涉到地图的问了。
+地图，就是将坐标映射到图像中的点上。国际标准是 WGS-84，而中国出于所谓 国家安全 的考虑，制订了 GCJ-02 标准。该标准其实就是将 WGS-84 的数据通过某种算法（数学运算）加以混淆，对每个点都加上一定量的偏移。该算法设计比较“巧妙”，偏移是非线性的，各地偏移量和便宜方向都不定，没有算法直接复原。
+但是实际上，这种做法除了恶心自己人以外，基本没有任何作用。首先，由于有很多地方（民用）需要用到真实的地图坐标，因此混淆算法的泄露是必然的，代码见 这里。既然已经有算法了，以广大人民的无穷智慧，相应的从 GCJ-02 到 WGS-84 的复原算法也就出来了，代码见 这里。
+由于有这项规定在，国内合法公开的地图数据都是加过偏移的，如果使用原始的 GPS 数据，那肯定会造成偏移。但是大家又需要有正确的数据进行导航，因此导航软件会对 GPS 和地图数据做处理，尽量修复偏移。也就是说，这项 SB 规定除了让某些部门中饱私囊，恶心自己人，阻碍生产力发展外，没有任何用处。对国家安全其实起不到任何保护作用。
+类似的还有厂商在产品中内置加密后门，以达到某些目的。这种行为其实就是在安全领域干着明知不安全的事情。对此，无话可说。
+    </div>
+    <div class="read-more">
+      <a href="/p/2016/china-map-shift/" class="read-more-link">阅读全文</a>
+    </div>
+    
+  </div>
+</article>
+
+    
+      <article class="post bg-white">
+  <header class="post-header">
     <h1 class="post-title"><a class="post-link" href="/p/2016/aria2/">aria2</a></h1>
     
     <div class="post-meta">
@@ -295,51 +331,6 @@ log=/tmp/aria2c.log dir=~/download # http check-certificate=false http-accept-gz
     </div>
     <div class="read-more">
       <a href="/p/2015/entropy-delusion/" class="read-more-link">阅读全文</a>
-    </div>
-    
-  </div>
-</article>
-
-    
-      <article class="post bg-white">
-  <header class="post-header">
-    <h1 class="post-title"><a class="post-link" href="/p/2015/how-to-store-password-in-db/">数据库中如何保存密码</a></h1>
-    
-    <div class="post-meta">
-      <time datetime="2015-11-26" class="post-time">
-        2015-11-26
-      </time>
-      <div class="post-category">
-          <a href="http://m.sjchn.com/categories/rd/"> rd </a>
-          
-        </div>
-      
-      
-      
-    </div>
-  </header>
-  
-  <div class="post-content">
-    
-    <div class="post-summary">
-      网站开发一般都会涉及到数据库设计，而数据库设计大多数情况都会涉及到密码的保存。近几年发生过多起网站用户信息泄露事件：CSDN 用户账号及明文密码泄露，网易邮箱过亿用户数据泄露 等等。通过这些事件，大家对网络安全也越来越重视，而信息安全中最重要的一项就是密码，用户如何选择密码和保存密码是另外一个话题，本文主要探讨服务器端（网站）是如何保存密码的。
-下面首先介绍三种安全性较差（不推荐）的保存方法，然后介绍安全性较好（推荐）的保存方法。
-安全性较差 1. 明文保存 最简单的处理方式就是不做处理，用户密码是什么就保存什么。
-CSDN 事件中，官方声明泄露的数据是 2009 年的备份数据库。如果账号是在 2009 年之后注册的，那么就没有遭到泄露，而在那之前的则都泄露了。这就说明在 2009 年数据库备份之前，CSDN 的网站数据库中是把用户密码保存成明文的。
-明文保存当然是最不安全的，尤其是很多人同一个密码会用在多个网站上。而类似 CSDN 这样泄露的数据就会被人利用做成社工库，比如 这个 和 这个 。
-现在的数据库中绝对不应该保存明文密码！
-2. 加密保存 如无特别说明，本文所指的加密都是指可逆加密，如 AES, RSA 等算法的加密方式。
-有时候，为了某些特殊的原因，网站可能需要知道用户的明文密码。但是为了降低密码泄露的风险，会对密码做加密然后保存。在有需要的时候，再将保存的数据解密得到明文密码。
-相对于明文保存，这种方法看起来更安全。但实际上，安全性并没有提高多少。因为，现在安全的中心在于保护加密密钥的安全，一旦加密方法和加密密钥泄露出去了，数据库中加密后的密码就和明文无异了，所以这种方法只不过是将安全性转移了而已，除了为达到某些特殊的目的之外，并没有多大用处。
-根据网上公开的信息，很少看到有采用这种方法的。
-3. 简单哈希保存 相比前两种而言，这种方式在安全性上有很大的提升。因为一般来说哈希是不可逆的，所以即便拿到了数据库中的数据，从哈希值倒推回明文密码的可能性也是很小的。但是这并不意味着绝对安全，因为有其它方式可以破解出明文密码来。
-在实际的使用中，主要有两种不同的使用方法：只对明文密码做哈希；在明文密码上加 盐 ，再做哈希。很显然后一种方法的安全性较高。
-哈希方法的专业称呼是 KDF: Key Derivation Function。下面根据哈希算法的不同，分别介绍。
-3.1 MD5 在早期的网站设计中，由于 MD5 速度快，并且没有出现相应的攻击方法，因此应用最为广泛。然而，速度快是它的优点也是它的最大缺点。因为只需要构造一个表，把常见密码及其对应的 MD5 值保存下来，碰到 MD5 后的密码值，很容易查到原始的明文密码，尤其是在没有加盐或者盐比较简单的情况下。
-现在已经有一些网站提供查找 MD5 对应的原始串的服务，比如 https://crackstation.net/ , http://md5decrypt.net/en/ , https://isc.sans.edu/tools/reversehash.html 等。它们的原理其实就是维护 彩虹表 。比如输入 7cbb3252ba6b7e9c422fac5334d22054 查询出来的原始串是 q1w2e3 ，这也是很常见的一个密码。
-    </div>
-    <div class="read-more">
-      <a href="/p/2015/how-to-store-password-in-db/" class="read-more-link">阅读全文</a>
     </div>
     
   </div>

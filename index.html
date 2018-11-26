@@ -60,7 +60,7 @@
 <meta property="og:description" content="诗酒趁华年" />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="http://m.sjchn.com/" />
-<meta property="og:updated_time" content="2018-11-18T00:00:00&#43;00:00"/>
+<meta property="og:updated_time" content="2018-11-26T00:00:00&#43;00:00"/>
 
 <meta itemprop="name" content="诗酒趁华年">
 <meta itemprop="description" content="诗酒趁华年">
@@ -236,6 +236,49 @@ if (!doNotTrack) {
     
       <article class="post bg-white">
   <header class="post-header">
+    <h1 class="post-title"><a class="post-link" href="/p/2018/fin_dbdx/">贷款基础知识之等本等息</a></h1>
+    
+    <div class="post-meta">
+      <time datetime="2018-11-26" class="post-time">
+        2018-11-26
+      </time>
+      <div class="post-category">
+          <a href="http://m.sjchn.com/categories/fin/"> fin </a>
+          
+        </div>
+      
+      
+      
+    </div>
+  </header>
+  
+  <div class="post-content">
+    
+    <div class="post-summary">
+      前面已经讲过了等额本息和等额本金，现在来看一下不那么常见的等本等息。如果等本等息没有听过的话，那么信用卡的分期即便没用过，大部分人应该也是听过的，其实这两者基本上是一样的。
+缘由是前段时间接触到了一个装修贷，具体哪家公司的就不说了，贷款的利息还挺低的，从 6% 到 7% 不等，一开始我觉得还挺不错的，下面是不同的贷款额及利率下的还款计划图。
+其实一开始，我从图中也没有看出什么来，以为只是通常的等额本息还款，觉得这个利率还是挺给力、挺良心的。不过本着对金融机构不放心、不信任的原则，按照等额本息里的公式，计算了10万本金6%年利率12期条件下的月供为 8606.64，比 8833.33 少了 226.69。这就奇怪了，怎么会算出来不一致呢？然后又逐行仔细看了看，才发现了等本等息的字样。
+等本等息又是什么鬼？为什么算出来的值比等额本息要高呢？其实这就是金融机构玩的一个文字游戏和障眼法。用很低的利率值做诱饵，相同的月供值让用户自然想到等额本息，然后就被忽悠上当了。这个跟银行的分期是一样的手法。这种还款方式的本质是提前计算好利息，也就是按贷款额一次性计算好利息，然后每个月还相同数额的本金和利息，还款公式为：
+$$ 每月还款额 = \frac{借款本金}{还款总期数} + 借款本金\cdot 月利率 $$
+不妨对比看一下等额本金的还款公式：
+$$ 每月还款额 = \frac{借款本金}{还款总期数} + (借款本金-累计已还本金)\cdot 月利率 $$
+对比两个公式可以明显看出，二者每月归还的本金是相同的，区别只是在利息部分，等额本金计算利息时，只考虑未归还的本金，而等本等息方式下，使用的是借款本金！！！这就是鸡贼之处。
+那么对于等本等息，如果对应上等额本息的话，对应的利率应该是多少呢？后面我会介绍具体的计算方法，粗略的估算方法就是把利率乘 2，因为差不多只借了一半的钱，却还了所有的利息，这个用等差数列想一下就明白了。
+最后，给出具体的数值来：12 期 6% 的等本等息对应的等额本息利率是 10.896%，36 期 7% 对应的等额本息利率是 12.83%。仅仅一字之差，利率可是几乎差了一倍！
+如果可能，远离装修贷，慎用信用卡分期！
+远离装修贷，慎用信用卡分期！
+远离装修贷，慎用信用卡分期！
+    </div>
+    <div class="read-more">
+      <a href="/p/2018/fin_dbdx/" class="read-more-link">阅读全文</a>
+    </div>
+    
+  </div>
+</article>
+
+    
+      <article class="post bg-white">
+  <header class="post-header">
     <h1 class="post-title"><a class="post-link" href="/p/2018/woe_n_iv/">WOE 和 IV 介绍</a></h1>
     
     <div class="post-meta">
@@ -313,37 +356,6 @@ IV 有了 WOE 的基础，IV 的引入就很顺利了。从 WOE 的计算公式�
     </div>
     <div class="read-more">
       <a href="/p/2018/dawn_no_come/" class="read-more-link">阅读全文</a>
-    </div>
-    
-  </div>
-</article>
-
-    
-      <article class="post bg-white">
-  <header class="post-header">
-    <h1 class="post-title"><a class="post-link" href="/p/2018/wrong-ways-about-themes/">反思一次低效的做事方式</a></h1>
-    
-    <div class="post-meta">
-      <time datetime="2018-11-13" class="post-time">
-        2018-11-13
-      </time>
-      
-      
-      
-      
-    </div>
-  </header>
-  
-  <div class="post-content">
-    
-    <div class="post-summary">
-      周末的时候，想给小站换个主题，因为目前的主题有点太商务太传统，不够现代。大概浏览了一下，相中了 tale，特别简单的一个主题。然后就是下载，改配置，hugo server 的时候提示 hugo 版本太低，不支持 sass。这个简单，从这里直接下载最新版本即可。结果仍然提示不支持 sass，需要 extended 版本才支持，然而官方只提供了 Linux, Mac 和 Windows 平台的 extended 版本，树莓派的 arm 平台没有 extended 版本。没办法，只有自己动手编译了。
-问题就出在这里了。由于惯性思维，想当然地以为树莓派内存小可能编译 hugo 会失败，于是从一开始只考虑在 Mac 和 Linux 下编译。准备工作倒都还比较简单，把 repo clone 下来即可。编译的时候碰到了一点问题，因为官方文档不是很清楚，没有写怎么为其它平台编译，以及编译的各种选项等。于是摸索了一番，得到下面的编译命令：
-GOOS=linux GOARCH=arm go build -o hugo --tags extended main.go  很不巧的是，Linux 平台下报这样的错误：
-# github.com/wellington/go-libsass/libs ../../go/pkg/mod/github.com/wellington/go-libsass@v0.0.0-20180624165032-615eaa47ef79/libs/sass_number.go:8:9: undefined: SassNumber ../../go/pkg/mod/github.com/wellington/go-libsass@v0.0.0-20180624165032-615eaa47ef79/libs/sass_number.go:151:10: undefined: SassNumber ../../go/pkg/mod/github.com/wellington/go-libsass@v0.0.0-20180624165032-615eaa47ef79/libs/sass_number.go:153:9: undefined: SassNumber ../../go/pkg/mod/github.com/wellington/go-libsass@v0.0.0-20180624165032-615eaa47ef79/libs/sass_number.go:157:10: undefined: SassNumber ../../go/pkg/mod/github.com/wellington/go-libsass@v0.0.0-20180624165032-615eaa47ef79/libs/sass_number.go:159:9: undefined: SassNumber ../../go/pkg/mod/github.com/wellington/go-libsass@v0.0.0-20180624165032-615eaa47ef79/libs/sass_number.go:164:10: undefined: SassNumber ../../go/pkg/mod/github.com/wellington/go-libsass@v0.0.0-20180624165032-615eaa47ef79/libs/sass_number.go:166:9: undefined: SassNumber ../../go/pkg/mod/github.com/wellington/go-libsass@v0.0.0-20180624165032-615eaa47ef79/libs/sass_number.go:170:10: undefined: SassNumber ../../go/pkg/mod/github.com/wellington/go-libsass@v0.0.0-20180624165032-615eaa47ef79/libs/sass_number.go:175:28: undefined: SassNumber .
-    </div>
-    <div class="read-more">
-      <a href="/p/2018/wrong-ways-about-themes/" class="read-more-link">阅读全文</a>
     </div>
     
   </div>
