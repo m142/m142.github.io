@@ -60,7 +60,7 @@
 <meta property="og:description" content="诗酒趁华年" />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="http://m.sjchn.com/" />
-<meta property="og:updated_time" content="2016-02-25T00:00:00&#43;00:00"/>
+<meta property="og:updated_time" content="2015-09-03T00:00:00&#43;00:00"/>
 
 <meta itemprop="name" content="诗酒趁华年">
 <meta itemprop="description" content="诗酒趁华年">
@@ -236,84 +236,11 @@ if (!doNotTrack) {
     
       <article class="post bg-white">
   <header class="post-header">
-    <h1 class="post-title"><a class="post-link" href="/p/2016/python-data-mining/">Python 相关的数据挖掘利器</a></h1>
+    <h1 class="post-title"><a class="post-link" href="/p/2015/hugo-howto/">使用 Hugo 搭建静态网站</a></h1>
     
     <div class="post-meta">
-      <time datetime="2016-02-25" class="post-time">
-        2016-02-25
-      </time>
-      <div class="post-category">
-          <a href="http://m.sjchn.com/categories/rd/"> rd </a>
-          
-        </div>
-      
-      
-      
-    </div>
-  </header>
-  
-  <div class="post-content">
-    
-    <div class="post-summary">
-      首先需要反省一下自己，对新事物的好奇心不够强烈，很多时候都是浅尝辄止，没有深入去了解，以致错失了很多机会，也让我不能看透很多事情，很多方面不能形成自己的知识积累。是一个极大的缺点，需要改正。
-其实几年前就听说过 IPython，当时以为只是 Python 的另外一个 REPL 终端而已，没有深入去了解。
-平时工作中的数据量都很大，一般都是存储在 HDFS 上，加载到单机上比较费劲，都是用 Spark (之前用 Pig) 去分析，偶尔也会写一些一次性的 Python 脚本，有作图需求时都是把数据分析出来导入 Excel。大部分情况下这样其实还可以。
-只是最近试着参加了 kaggle 上的 Airbnb recruiting 比赛，见识到了 Python 系列工具在数据挖掘中的强大。而且也加深了对 IPython 的认识，尤其是 IPython Notebook (或者叫 Jupyter Notebook) 的强大和便捷。
-NumPy, matplotlib, xgboost 和 scikt-learn 以前也接触过，了解一些。但 Pandas, Seaborn 等还真没用过。看着别人把这些工具耍得贼熟，感觉自己像原始人一样站在一边…… 虽说用 Spark 来搞也没啥问题，但是毕竟有点麻烦。不学习一下真是说不过去，就会被别人远远地抛在后面。
-如果要用 Python 做数据分析相关工作，可以直接装 Anaconda。它打包了很多有用的库，另外可能需要单独装下 xgboost 和 seaborn（或者还有其它的包，试一下就知道）。完成这些后，基于 Python 的数据分析平台环境就搭建好了。具体 Pandas, xgboost, seaborn 等的应用可以查看各自的文档。话说 Pandas 里的 DataFrame 真是很强大，Spark 中新的 ml 库 (替换旧的 mllib) 也大量使用了 DataFrame。
-还有一个强大的工具，Jupyter Notebook.
-    </div>
-    <div class="read-more">
-      <a href="/p/2016/python-data-mining/" class="read-more-link">阅读全文</a>
-    </div>
-    
-  </div>
-</article>
-
-    
-      <article class="post bg-white">
-  <header class="post-header">
-    <h1 class="post-title"><a class="post-link" href="/p/2016/china-map-shift/">中国的地图偏移问题</a></h1>
-    
-    <div class="post-meta">
-      <time datetime="2016-01-25" class="post-time">
-        2016-01-25
-      </time>
-      <div class="post-category">
-          <a href="http://m.sjchn.com/categories/rd/"> rd </a>
-          
-        </div>
-      
-      
-      
-    </div>
-  </header>
-  
-  <div class="post-content">
-    
-    <div class="post-summary">
-      今天偶然了解到一个好玩，或者说不那么好玩，甚至让人恶心反感的事情，那就是 GPS 在地图上定位的偏移问题。
-GPS 全称是 Global Positioning System (全球定位系统)，是接收卫星的信号，计算所在位置的经纬度，这个数据一般都是没问题的。但是要在地图上显示出来，就牵涉到地图的问了。
-地图，就是将坐标映射到图像中的点上。国际标准是 WGS-84，而中国出于所谓 国家安全 的考虑，制订了 GCJ-02 标准。该标准其实就是将 WGS-84 的数据通过某种算法（数学运算）加以混淆，对每个点都加上一定量的偏移。该算法设计比较“巧妙”，偏移是非线性的，各地偏移量和便宜方向都不定，没有算法直接复原。
-但是实际上，这种做法除了恶心自己人以外，基本没有任何作用。首先，由于有很多地方（民用）需要用到真实的地图坐标，因此混淆算法的泄露是必然的，代码见 这里。既然已经有算法了，以广大人民的无穷智慧，相应的从 GCJ-02 到 WGS-84 的复原算法也就出来了，代码见 这里。
-由于有这项规定在，国内合法公开的地图数据都是加过偏移的，如果使用原始的 GPS 数据，那肯定会造成偏移。但是大家又需要有正确的数据进行导航，因此导航软件会对 GPS 和地图数据做处理，尽量修复偏移。也就是说，这项 SB 规定除了让某些部门中饱私囊，恶心自己人，阻碍生产力发展外，没有任何用处。对国家安全其实起不到任何保护作用。
-类似的还有厂商在产品中内置加密后门，以达到某些目的。这种行为其实就是在安全领域干着明知不安全的事情。对此，无话可说。
-    </div>
-    <div class="read-more">
-      <a href="/p/2016/china-map-shift/" class="read-more-link">阅读全文</a>
-    </div>
-    
-  </div>
-</article>
-
-    
-      <article class="post bg-white">
-  <header class="post-header">
-    <h1 class="post-title"><a class="post-link" href="/p/2016/aria2/">aria2</a></h1>
-    
-    <div class="post-meta">
-      <time datetime="2016-01-09" class="post-time">
-        2016-01-09
+      <time datetime="2015-09-03" class="post-time">
+        2015-09-03
       </time>
       
       
@@ -325,13 +252,19 @@ GPS 全称是 Global Positioning System (全球定位系统)，是接收卫星�
   <div class="post-content">
     
     <div class="post-summary">
-      用树莓派做下载机，除了速度慢点，其它都挺不错的，功耗低，也稳定。 aria2 是一款非常优秀的小下载工具，支持 http/https, ftp, sftp, bt, metalink 等协议，除了命令行外，也有 web ui，是 Linux 系统上下载的不二选择。
-1. 编译安装 下载最新的版本 1.19.3 ，并解压，进入目录并执行以下命令编译安装。
-sudo apt-get install autoconf autopoint libtool ./configure make sudo checkinstall # uninstall: `sudo dpkg -r aria2`  2. 配置 aria2 的配置文件是 ~/.aria2/aria2.conf ，所有的配置项说明都可以在 这里 找到。我的配置如下所示。 其中，dir, rpc-listen-port, rpc-secret 等参数可以根据自己需要配置，各参数的含义见 文档 。
-log=/tmp/aria2c.log dir=~/download # http check-certificate=false http-accept-gzip=true user-agent=uTorrent/2210(25130) # rpc rpc-allow-origin-all=true rpc-listen-port=6800 rpc-secret=secretstring # download max-concurrent-downloads=5 continue=true max-connection-per-server=5 min-split-size=10M split=10 # bt bt-enable-lpd=true bt-max-open-files=256 bt-max-peers=64 bt-prioritize-piece=head=4M,tail=4M bt-tracker-connect-timeout=16 bt-tracker-timeout=16 peer-id-prefix=-UT2210- # advanced #daemon=true # use `aria2c -D` to start daemon disk-cache=32M file-allocation=falloc log-level=notice  配置文件中之所以没有将 daemon 配置成 true，主要是考虑到有时候需要用命令行下载，如果将 aria2 默认启动为 daemon 则不太方便。同时，如果需要启动为 daemon，则加上 -D 参数即可，非常方便。
+      静态网站生成一般 Jekll 和 Octopress 用的比较多，但是安装部署起来很麻烦。Hugo 是用 Go 语言实现的，安装部署非常简单，一个二进制文件就能用来调试和生成网站。
+安装 Hugo 安装 Hugo 可以参考官方文档，主要有以下两种方式：
+1. 编译安装 下载安装 Go，Mercurial 和 Git
+下载 Hugo 源码并编译
+go get -u -v github.com/spf13/hugo  依赖的包都会下载到 $GOPATH/src 下，Hugo 的可执行文件在 $GOPATH/bin 下。
+2. 下载二进制可执行文件 从这里直接下载 Hugo 可执行文件
+创建网站 参考官方文档 quickstart
+如果要在 /path/to 下创建一个叫 site 的网站，需要执行的命令如下：
+hugo new site /path/to/site cd /path/to/site hugo new post/hello.md git clone --recursive https://github.com/spf13/hugoThemes themes  其中，git clone 这一步耗时很长，网络状况一般的话可能需要一个多小时…… 其实也没有必要把所有的模板都下载下来，只下载感兴趣的模板就行了。比如 hyde
+启动服务器 hugo server -t hyde -w  然后可以在浏览器里查看，比如 http://127.
     </div>
     <div class="read-more">
-      <a href="/p/2016/aria2/" class="read-more-link">阅读全文</a>
+      <a href="/p/2015/hugo-howto/" class="read-more-link">阅读全文</a>
     </div>
     
   </div>
@@ -387,7 +320,7 @@ log=/tmp/aria2c.log dir=~/download # http check-certificate=false http-accept-gz
         <a href="/page/6/">6</a>
       </li>
       
-      <li  class="active" >
+      <li >
         <a href="/page/7/">7</a>
       </li>
       
@@ -407,7 +340,7 @@ log=/tmp/aria2c.log dir=~/download # http check-certificate=false http-accept-gz
         <a href="/page/11/">11</a>
       </li>
       
-      <li >
+      <li  class="active" >
         <a href="/page/12/">12</a>
       </li>
       

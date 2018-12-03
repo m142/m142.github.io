@@ -6,10 +6,26 @@
     <description>Recent content in Posts on 诗酒趁华年</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Mon, 26 Nov 2018 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 03 Dec 2018 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="http://m.sjchn.com/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>再次尝试 Rime 输入法</title>
+      <link>http://m.sjchn.com/p/2018/rime/</link>
+      <pubDate>Mon, 03 Dec 2018 00:00:00 +0000</pubDate>
+      
+      <guid>http://m.sjchn.com/p/2018/rime/</guid>
+      <description> 为什么说再次尝试呢，因为第一次尝试很快就删掉，但没过几周又重新尝试了 😂
+好早前是在推薦一個神級輸入法——Rime这里知道 Rime 的，不过一直没有尝试。一是之前 Windows 上用的 Google 拼音输入法和后来的微软拼音也都还不错（还是想要点隐私的，所以搜狗不会考虑），后来用 Mac 了，一直用的默认输入法，实在是不太习惯，好多专业和流行的词都不能直接打出来，配置也很少，比如翻页就不能改成逗号和句号。于是尝试使用 Rime。
+Mac 上安装 Rime 很简单，直接 brew cask install squirrel 就可以了。不过这只是万里长征的第一步，后面还需要更多的配置，不然基本都没法使用。
+首先，是参考 https://github.com/hotoo/rime 下载了一些配置文件，然后从 https://github.com/xiaoTaoist/rime-dict 下载了搜狗、聊天、诗词等词库（虽然搜狗输入法不能用，但不可否认，它家的词库质量是很高的，这也都是大量的用户搜索积累下来的）。做完这两步后，就差不多了。对配置文件根据需求做些调整，选择简体输出，就可以了。整体输入界面还是很简洁的，如下图所示。
+装完后新鲜了一段时间，逐渐就会发现很多时候还是需要选词的，基本没有词的上下文联想功能，相比搜狗、微软等还是有一定的差距，而跟 Mac 系统的默认输入法相比应该是差不多的，都需要“调教”一段时间，把一些常用的词都记录下来了就会好很多。说实话我还是倾向于使用系统默认输入法的，但不爽的主要有两点：
+ 配置太少，比如翻页键不能设置，[ 和 ] 太远了 不知道词库被同步到哪里了，有时打过的词好像也没记住，不知道为什么，完全不可控  就这样，暂时先用着吧，说不定哪天受不就换回了系统默认输入法了 😀
+最后，我的配置文件可以从这里下载。另外附上所有的相关资料。
+相关资料  https://rime.im/ https://github.com/rime/home/wiki/RimeWithSchemata https://www.dreamxu.com/install-config-squirrel/ https://github.com/xiaoTaoist/rime-dict https://github.com/hotoo/rime https://github.com/m142/conf/tree/master/rime  </description>
+    </item>
     
     <item>
       <title>贷款基础知识之等本等息</title>

@@ -3,6 +3,11 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://m.sjchn.com/p/2018/rime/</loc>
+    <lastmod>2018-12-03T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>http://m.sjchn.com/p/2018/fin_dbdx/</loc>
     <lastmod>2018-11-26T00:00:00+00:00</lastmod>
   </url>
@@ -245,7 +250,7 @@
   
   <url>
     <loc>http://m.sjchn.com/tags/misc/</loc>
-    <lastmod>2018-11-17T00:00:00+00:00</lastmod>
+    <lastmod>2018-12-03T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -263,7 +268,7 @@
   
   <url>
     <loc>http://m.sjchn.com/post/</loc>
-    <lastmod>2018-11-26T00:00:00+00:00</lastmod>
+    <lastmod>2018-12-03T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -329,7 +334,7 @@
   
   <url>
     <loc>http://m.sjchn.com/</loc>
-    <lastmod>2018-11-26T00:00:00+00:00</lastmod>
+    <lastmod>2018-12-03T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   

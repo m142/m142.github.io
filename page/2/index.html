@@ -60,7 +60,7 @@
 <meta property="og:description" content="诗酒趁华年" />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="http://m.sjchn.com/" />
-<meta property="og:updated_time" content="2018-11-13T00:00:00&#43;00:00"/>
+<meta property="og:updated_time" content="2018-11-17T00:00:00&#43;00:00"/>
 
 <meta itemprop="name" content="诗酒趁华年">
 <meta itemprop="description" content="诗酒趁华年">
@@ -236,6 +236,52 @@ if (!doNotTrack) {
     
       <article class="post bg-white">
   <header class="post-header">
+    <h1 class="post-title"><a class="post-link" href="/p/2018/dawn_no_come/">黎明不要来</a></h1>
+    
+    <div class="post-meta">
+      <time datetime="2018-11-17" class="post-time">
+        2018-11-17
+      </time>
+      
+      
+      
+      
+    </div>
+  </header>
+  
+  <div class="post-content">
+    
+    <div class="post-summary">
+      黎明请你不要来
+就让梦幻今晚永远存在
+留此刻的一片真
+伴倾心的这份爱
+命令灵魂迎入进来
+请你唤黎明不要再不要来
+现在浪漫感觉放我浮世外
+而清风的温馨
+在冷雨中送热爱
+默默让痴情突破障碍
+不许红日 教人分开
+悠悠良夜不要变改
+不许红日 教人分开
+悠悠良夜不要变改
+请你命黎明不必要再显姿彩
+现在梦幻诗意永远难替代
+人闯开心扉
+在漆黑中抱着你
+莫让朝霞漏进来
+    </div>
+    <div class="read-more">
+      <a href="/p/2018/dawn_no_come/" class="read-more-link">阅读全文</a>
+    </div>
+    
+  </div>
+</article>
+
+    
+      <article class="post bg-white">
+  <header class="post-header">
     <h1 class="post-title"><a class="post-link" href="/p/2018/wrong-ways-about-themes/">反思一次低效的做事方式</a></h1>
     
     <div class="post-meta">
@@ -294,39 +340,6 @@ $$ 每月还款额 = \frac{借款本金}{还款总期数} + (借款本金-累计
     </div>
     <div class="read-more">
       <a href="/p/2018/fin_debj/" class="read-more-link">阅读全文</a>
-    </div>
-    
-  </div>
-</article>
-
-    
-      <article class="post bg-white">
-  <header class="post-header">
-    <h1 class="post-title"><a class="post-link" href="/p/2018/raspberrypi_fstab_issue/">树莓派修改fstab文件无法启动</a></h1>
-    
-    <div class="post-meta">
-      <time datetime="2018-11-10" class="post-time">
-        2018-11-10
-      </time>
-      
-      
-      
-      
-    </div>
-  </header>
-  
-  <div class="post-content">
-    
-    <div class="post-summary">
-      多年前买的树莓派2现在仍在正常工作着，主要用作下载机，然后开着samba服务，在小米盒子上放电影什么的，最近都是给小孩看动画片用。当然之前的sd卡内存比较小，加了一个U盘。因为树莓派放在路由器旁边，一年也难得启动一回，所以就没有给U盘配置自动mount。前几天打扫卫生，给路由器和树莓派的换了个小巧的插座，就重启了。然后当天小孩要看动画片的时候发现找不到。这才想起来要去手动mount U盘。
-于是晚上搜索了一下，基本思路是通过 blkid 命令查看U盘的UUID，然后在 /etc/fstab 里加上对应的条目即可，最后我加上了下面这条：
-UUID=4e578159-c983-42f2-9ac8-e156e819afgf /home/dl/usb ext4 gid=dl,uid=dl 0 0  重启，然后就发现树莓派连接不上了，连接不上了，连接不上了！
-那肯定就是因为改了 /etc/fstab 导致的。没办法，又去搜索 fstab 搞坏了怎么办。比较有用的是changed-the-fstab-file-now-stuck-in-a-reboot-loop 以及 emergecy-mode-bad-fstab。需要先把SD卡取出，放入读卡器（还好当时买树莓派送的读卡器没有丢），插上电脑，之后就有三种方法：
- 在 boot 分区内，找到 cmdline.txt 文件，该文件应该只有一行，在最后加上 init=/bin/sh，然后保存。再将SD卡插回树莓派，启动后就会进入紧急模式，修复 /etc/fstab 文件后再将SD卡取出，在电脑上将 cmdline.txt 文件复原即可。这种方法需要有外接显示器和键盘，操作起来比较费劲，我直接就放弃了。其实主要是因为我的Mac不知道什么原因插上读卡器后没反应，死活识别不了。一开始我还以为是读卡器的问题，后来用Windows电脑试了后才发现读卡器是OK的。 找到一台Linux机器，插上读卡器后，自动mount两个分区，一个是boot分区，另一个就是系统分区，然后直接修改树莓派系统的 /etc/fstab 文件，将错误的行注释或删掉即可。这个的难点是找了一圈也没找到Linux机器，后来没办法就找了一台Windows机器，装了Debian虚拟机，然后搞定。 重新刷一个新系统……  如果有Linux机器或者Windows上有装Linux虚拟机的话，第2种方法是最快的；其次是第1种方法，不过需要有外接显示器和USB键盘；如果没什么重要数据的话直接刷新系统也可以。
-回头有空再研究下 fstab 应该怎样写，目前试一次不成再改回成本有点高。
-    </div>
-    <div class="read-more">
-      <a href="/p/2018/raspberrypi_fstab_issue/" class="read-more-link">阅读全文</a>
     </div>
     
   </div>
@@ -400,6 +413,10 @@ UUID=4e578159-c983-42f2-9ac8-e156e819afgf /home/dl/usb ext4 gid=dl,uid=dl 0 0  �
       
       <li >
         <a href="/page/11/">11</a>
+      </li>
+      
+      <li >
+        <a href="/page/12/">12</a>
       </li>
       
     </ul>
