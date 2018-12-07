@@ -60,7 +60,7 @@
 <meta property="og:description" content="诗酒趁华年" />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="http://m.sjchn.com/" />
-<meta property="og:updated_time" content="2015-09-22T00:00:00&#43;00:00"/>
+<meta property="og:updated_time" content="2015-09-28T00:00:00&#43;00:00"/>
 
 <meta itemprop="name" content="诗酒趁华年">
 <meta itemprop="description" content="诗酒趁华年">
@@ -236,6 +236,44 @@ if (!doNotTrack) {
     
       <article class="post bg-white">
   <header class="post-header">
+    <h1 class="post-title"><a class="post-link" href="/p/2015/strongswan-ikev2-vpn/">用 strongSwan 搭建 IPsec IKEv2 VPN</a></h1>
+    
+    <div class="post-meta">
+      <time datetime="2015-09-28" class="post-time">
+        2015-09-28
+      </time>
+      <div class="post-category">
+          <a href="http://m.sjchn.com/categories/digihome/"> digihome </a>
+          
+        </div>
+      
+      
+      
+    </div>
+  </header>
+  
+  <div class="post-content">
+    
+    <div class="post-summary">
+      VPS 推荐: BandwagonHost
+Shadowsocks 大部分时候都能满足翻墙的需求，只是最近感觉速度有点变慢，偶尔还出现错误，不知道是不是因为墙又加高了。以防万一，需要开发其它的翻墙姿势。
+下面介绍用 strongSwan 搭建 IPsec IKEv2 VPN。服务器端是 CentOS 7，其它 Linux 发行版的话只需要做相应修改即可。客户端是 Windows 和 Android 。
+1. 安装 strongSwan A. yum 安装 直接 yum 安装的话版本可能会比较老，可以从 这里 下载编译好的 RPM 包。或者使用 testing 源安装：
+wget http://dl.fedoraproject.org/pub/epel/7/x86_64/e/epel-release-7-5.noarch.rpm rpm -Uvh epel-release-7-5.noarch.rpm yum --enablerepo=epel-testing install strongswan  这样安装后的 strongSwan 可执行文件是 /usr/sbin/strongswan，配置文件在 /etc/strongswan 下。
+B. 源码编译安装 （推荐） 推荐直接从源码安装，因为这样能用上最新版，而且编译安装极其简单方便。
+ 安装依赖包
+yum install gmp-devel openssl openssl-devel  从 strongSwan 官网 下载最新版本源代码，当前是 5.3.3，并用 md5sum 命令校验。
+    </div>
+    <div class="read-more">
+      <a href="/p/2015/strongswan-ikev2-vpn/" class="read-more-link">阅读全文</a>
+    </div>
+    
+  </div>
+</article>
+
+    
+      <article class="post bg-white">
+  <header class="post-header">
     <h1 class="post-title"><a class="post-link" href="/p/2015/python-list-multiplication-pitfall/">Python 列表乘运算的一个陷阱</a></h1>
     
     <div class="post-meta">
@@ -300,43 +338,6 @@ v0 += ((v1 &lt;&lt; 4) + k0) ^ (v1 + sum) ^ ((v1 &gt;&gt; 5) + k1) v1 += ((v0 &l
     </div>
     <div class="read-more">
       <a href="/p/2015/go-cpp-op-precedence/" class="read-more-link">阅读全文</a>
-    </div>
-    
-  </div>
-</article>
-
-    
-      <article class="post bg-white">
-  <header class="post-header">
-    <h1 class="post-title"><a class="post-link" href="/p/2015/win-spark-src-env/">Windows 下搭建 Spark 源代码阅读环境</a></h1>
-    
-    <div class="post-meta">
-      <time datetime="2015-09-14" class="post-time">
-        2015-09-14
-      </time>
-      <div class="post-category">
-          <a href="http://m.sjchn.com/categories/rd/"> rd </a>
-          
-        </div>
-      
-      
-      
-    </div>
-  </header>
-  
-  <div class="post-content">
-    
-    <div class="post-summary">
-      用 Spark 做数据分析也有半年多了，觉得至少应该大致过一下源代码。在 Windows 下搭建环境还是有点不太方便的，把步骤记录一下。
-当然要用 Intellij IDEA (下文简称 Idea )，安装 Scala 插件。另外，也可以把 sbt 插件装上。
-首先下载 Spark 1.5.0 源代码。
-然后在 Idea 里， File -&gt; New -&gt; Project From Existing Source 选择 Spark 解压后的目录， Import project from external model -&gt; Maven，然后一路 Next，等待处理完毕。
-视网络情况而定，不太好的话可能需要半个小时。然后就可以编译 Spark 了：Build -&gt; Rebuild Project
-当然不一定成功，如果报的错误是 Error:(44, 66) not found: type SparkFlumeProtocol val 的话，做如下处理：
-View -&gt; Tool Window -&gt; Maven Projects 选择 Spark Project External Flume Sink， 右键 -&gt; Generate Sources and Update Folders  之后一般就能编译成功了，会有很多 Warning，都可以忽略。
-    </div>
-    <div class="read-more">
-      <a href="/p/2015/win-spark-src-env/" class="read-more-link">阅读全文</a>
     </div>
     
   </div>
