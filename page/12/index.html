@@ -60,7 +60,7 @@
 <meta property="og:description" content="诗酒趁华年" />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="http://m.sjchn.com/" />
-<meta property="og:updated_time" content="2015-09-07T00:00:00&#43;00:00"/>
+<meta property="og:updated_time" content="2015-09-09T00:00:00&#43;00:00"/>
 
 <meta itemprop="name" content="诗酒趁华年">
 <meta itemprop="description" content="诗酒趁华年">
@@ -233,6 +233,41 @@ if (!doNotTrack) {
   <section id="posts" class="posts">
     
     
+    
+      <article class="post bg-white">
+  <header class="post-header">
+    <h1 class="post-title"><a class="post-link" href="/p/2015/mobi-ids/">移动平台的用户标识</a></h1>
+    
+    <div class="post-meta">
+      <time datetime="2015-09-09" class="post-time">
+        2015-09-09
+      </time>
+      <div class="post-category">
+          <a href="http://m.sjchn.com/categories/rd/"> rd </a>
+          
+        </div>
+      
+      
+      
+    </div>
+  </header>
+  
+  <div class="post-content">
+    
+    <div class="post-summary">
+      在 PC 平台上，一般是用 cookie 识别用户，更进一步（流氓）的有 evercookie，如果用户禁用了 cookie，还可以用浏览器的指纹。这些方法一般都能较准确地识别用户，目前 PC 上看到的个性化广告一般都是基于以上几种方法。
+到了移动平台上，情况就大不一样了。首先，第三方 cookie 一般默认是禁用的，然后，cookie 在 in-app 的广告中是没法取到的。这就要求换一种方法。
+iOS 平台上情况相对简单，目前 app 都能获得 IDFA (identifier for advertisers)，所以一般都是靠 IDFA 来识别用户的。但是需要注意的是，在设置里，用户可以重置 IDFA，让自己对外看起来是一个全新的用户。
+Android 平台则相对混乱得多。虽然 Google 提供了 Advertising ID，但是在国内的众多发行版中，Google 服务一般是被阉割的，所以自然没用。其它的有 Android ID，MAC， Device ID 等。stackoverflow 上的这个问题 提供了详细的解答：
+ 调用 TelephonyManager.getDeviceId() 总会返回一个值 带 SIM 卡的 GSM 设备调用 TelephonyManager.getSimSerialNumber() 会返回一个值 所有 CDMA 设备调用 TelephonyManager.getSimSerialNumber() 会返回空值 添加了 Google 账户的设备能取到 ANDROID_ID 添加了 Google 账户的 CDMA 设备 取到的 ANDROID_ID 和调用 TelephonyManager.getDeviceId() 取到的值是相同的  理论上来说 Android ID 是最好的选择，它可以通过下面的代码获取：
+    </div>
+    <div class="read-more">
+      <a href="/p/2015/mobi-ids/" class="read-more-link">阅读全文</a>
+    </div>
+    
+  </div>
+</article>
+
     
       <article class="post bg-white">
   <header class="post-header">

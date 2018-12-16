@@ -60,7 +60,7 @@
 <meta property="og:description" content="诗酒趁华年" />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="http://m.sjchn.com/" />
-<meta property="og:updated_time" content="2016-03-28T00:00:00&#43;00:00"/>
+<meta property="og:updated_time" content="2018-05-05T00:00:00&#43;00:00"/>
 
 <meta itemprop="name" content="诗酒趁华年">
 <meta itemprop="description" content="诗酒趁华年">
@@ -236,6 +236,38 @@ if (!doNotTrack) {
     
       <article class="post bg-white">
   <header class="post-header">
+    <h1 class="post-title"><a class="post-link" href="/p/2018/vps-reco/">VPS 推荐</a></h1>
+    
+    <div class="post-meta">
+      <time datetime="2018-05-05" class="post-time">
+        2018-05-05
+      </time>
+      
+      
+      
+      
+    </div>
+  </header>
+  
+  <div class="post-content">
+    
+    <div class="post-summary">
+      之前推荐过 DigitalOcean 的 VPS，后来其实又尝试过 Vultr 的，速度都很慢，Youtube 1080p 都看不了，虽然平时我也不怎么看，但就是很慢。
+最近偶然看到 搬瓦工 推出了 CN2 线路的 VPS，年付 $29.99。尝试了一下，可以直接安装 BBR 内核，速度的确快，Ping 值稳定在 170ms 左右，Youtube 4K 视频都没问题，网页也是秒开，真的是一下从绿皮火车升级成高铁了，太舒服了。
+然后，我就把 DigitalOcean、Vultr 都退掉了。
+最后附上搬瓦工优惠码：
+ BWH1ZBPVK (6.00%) IAMSMART5YA8FO (3.91%) IAMSMART5TDT48 (3.82%)  
+    </div>
+    <div class="read-more">
+      <a href="/p/2018/vps-reco/" class="read-more-link">阅读全文</a>
+    </div>
+    
+  </div>
+</article>
+
+    
+      <article class="post bg-white">
+  <header class="post-header">
     <h1 class="post-title"><a class="post-link" href="/p/2016/auc-roc/">AUC 和 ROC</a></h1>
     
     <div class="post-meta">
@@ -300,42 +332,6 @@ NumPy, matplotlib, xgboost 和 scikt-learn 以前也接触过，了解一些。�
     </div>
     <div class="read-more">
       <a href="/p/2016/python-data-mining/" class="read-more-link">阅读全文</a>
-    </div>
-    
-  </div>
-</article>
-
-    
-      <article class="post bg-white">
-  <header class="post-header">
-    <h1 class="post-title"><a class="post-link" href="/p/2016/china-map-shift/">中国的地图偏移问题</a></h1>
-    
-    <div class="post-meta">
-      <time datetime="2016-01-25" class="post-time">
-        2016-01-25
-      </time>
-      <div class="post-category">
-          <a href="http://m.sjchn.com/categories/rd/"> rd </a>
-          
-        </div>
-      
-      
-      
-    </div>
-  </header>
-  
-  <div class="post-content">
-    
-    <div class="post-summary">
-      今天偶然了解到一个好玩，或者说不那么好玩，甚至让人恶心反感的事情，那就是 GPS 在地图上定位的偏移问题。
-GPS 全称是 Global Positioning System (全球定位系统)，是接收卫星的信号，计算所在位置的经纬度，这个数据一般都是没问题的。但是要在地图上显示出来，就牵涉到地图的问了。
-地图，就是将坐标映射到图像中的点上。国际标准是 WGS-84，而中国出于所谓 国家安全 的考虑，制订了 GCJ-02 标准。该标准其实就是将 WGS-84 的数据通过某种算法（数学运算）加以混淆，对每个点都加上一定量的偏移。该算法设计比较“巧妙”，偏移是非线性的，各地偏移量和便宜方向都不定，没有算法直接复原。
-但是实际上，这种做法除了恶心自己人以外，基本没有任何作用。首先，由于有很多地方（民用）需要用到真实的地图坐标，因此混淆算法的泄露是必然的，代码见 这里。既然已经有算法了，以广大人民的无穷智慧，相应的从 GCJ-02 到 WGS-84 的复原算法也就出来了，代码见 这里。
-由于有这项规定在，国内合法公开的地图数据都是加过偏移的，如果使用原始的 GPS 数据，那肯定会造成偏移。但是大家又需要有正确的数据进行导航，因此导航软件会对 GPS 和地图数据做处理，尽量修复偏移。也就是说，这项 SB 规定除了让某些部门中饱私囊，恶心自己人，阻碍生产力发展外，没有任何用处。对国家安全其实起不到任何保护作用。
-类似的还有厂商在产品中内置加密后门，以达到某些目的。这种行为其实就是在安全领域干着明知不安全的事情。对此，无话可说。
-    </div>
-    <div class="read-more">
-      <a href="/p/2016/china-map-shift/" class="read-more-link">阅读全文</a>
     </div>
     
   </div>

@@ -6,10 +6,25 @@
     <description>Recent content in Algo on 诗酒趁华年</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Mon, 22 Oct 2018 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 16 Dec 2018 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="http://m.sjchn.com/tags/algo/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>如何计算真实的利率</title>
+      <link>http://m.sjchn.com/p/2018/real_rate/</link>
+      <pubDate>Sun, 16 Dec 2018 00:00:00 +0000</pubDate>
+      
+      <guid>http://m.sjchn.com/p/2018/real_rate/</guid>
+      <description>在前面贷款基础知识之等本等息中我们看到，对于等本等息或者信用卡分期来说，名义利率（也就是纸面上列出的数字）并不是真实的利率，真实的利率比名义利率是要高很多的。那么在实际生活中，如何才能不轻易上当，识破各种机构的隐藏陷阱呢？下面介绍几种方法。
+1. Excel RATE 函数 仍然举贷款基础知识之等本等息中的例子，贷款 10 万元，分 12 期偿还，每期还款 8833.33 元，名义利率 6%。RATE 公式的语法是：
+RATE(nper, pmt, pv, [fv], [type], [guess])
+其中，nper 是付款总期数；pmt 是每期的付款金额；pv 是现值；后面的 fv、type 和 guess 都是可选项，一般忽略即可。代入公式为：RATE(12, -8833.33, 100000) = 0.908% 即为每一期的利率，乘以 12 得到实际的年利率为 10.896%。
+需要注意的一点是，因为每个月的 $8833.33$ 元是支出，所以是负数。另外，关于 RATE 函数的更详细解释可以参考官方文档。
+2. 几十行 Pythond 代码 自己写代码时就不用那么严谨了，对于收入和支出的正负号不用那么讲究。粗略写了下，共 23 行代码。因为每月还款额都是一样的，所以用二分法去试利率，一般十多二十次都能收敛，对于未收敛的，直接返回 -1。具体代码如下所示：
+def rate(nper, pmt, pv): def _pmt(_rate): x = (1 + _rate)**nper return pv * _rate * x / (x - 1) max_iter_times = 64 lr, hr, i = 0, 1.</description>
+    </item>
     
     <item>
       <title>PNPOLY: 射线法判断点是否在多边形区域内部</title>

@@ -1,0 +1,562 @@
+<!DOCTYPE html>
+<html lang="zh-cn" itemscope itemtype="http://schema.org/WebPage">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>如何计算真实的利率 - 诗酒趁华年</title>
+  
+
+<meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta name="MobileOptimized" content="width"/>
+<meta name="HandheldFriendly" content="true"/>
+
+
+<meta name="applicable-device" content="pc,mobile">
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+<meta name="mobile-web-app-capable" content="yes">
+
+<meta name="author" content="m142" />
+  <meta name="description" content="在前面贷款基础知识之等本等息中我们看到，对于等本等息或者信用卡分期来说，名义利率（也就是纸面上列出的数字）并不是真实的利率，真实的利率比名义利率是要高很多的。那么在实际生活中，如何才能不轻易上当，识破各种机构的隐藏陷阱呢？下面介绍几种方法。
+1. Excel RATE 函数 仍然举贷款基础知识之等本等息中的例子，贷款 10 万元，分 12 期偿还，每期还款 8833.33 元，名义利率 6%。RATE 公式的语法是：
+RATE(nper, pmt, pv, [fv], [type], [guess])
+其中，nper 是付款总期数；pmt 是每期的付款金额；pv 是现值；后面的 fv、type 和 guess 都是可选项，一般忽略即可。代入公式为：RATE(12, -8833.33, 100000) = 0.908% 即为每一期的利率，乘以 12 得到实际的年利率为 10.896%。
+需要注意的一点是，因为每个月的 $8833.33$ 元是支出，所以是负数。另外，关于 RATE 函数的更详细解释可以参考官方文档。
+2. 几十行 Pythond 代码 自己写代码时就不用那么严谨了，对于收入和支出的正负号不用那么讲究。粗略写了下，共 23 行代码。因为每月还款额都是一样的，所以用二分法去试利率，一般十多二十次都能收敛，对于未收敛的，直接返回 -1。具体代码如下所示：
+def rate(nper, pmt, pv): def _pmt(_rate): x = (1 &#43; _rate)**nper return pv * _rate * x / (x - 1) max_iter_times = 64 lr, hr, i = 0, 1." />
+
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.52-DEV" />
+
+
+<link rel="canonical" href="http://m.sjchn.com/p/2018/real_rate/" />
+
+
+
+<link rel="icon" href="/favicon.ico" />
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/sass/jane.min.d2d48384ea7afb8fc635df7830f2434bae93b36a9f8512585839776cca2093da.css" integrity="sha256-0tSDhOp6&#43;4/GNd94MPJDS66Ts2qfhRJYWDl3bMogk9o=" media="screen">
+
+
+
+
+
+<meta property="og:title" content="如何计算真实的利率" />
+<meta property="og:description" content="在前面贷款基础知识之等本等息中我们看到，对于等本等息或者信用卡分期来说，名义利率（也就是纸面上列出的数字）并不是真实的利率，真实的利率比名义利率是要高很多的。那么在实际生活中，如何才能不轻易上当，识破各种机构的隐藏陷阱呢？下面介绍几种方法。
+1. Excel RATE 函数 仍然举贷款基础知识之等本等息中的例子，贷款 10 万元，分 12 期偿还，每期还款 8833.33 元，名义利率 6%。RATE 公式的语法是：
+RATE(nper, pmt, pv, [fv], [type], [guess])
+其中，nper 是付款总期数；pmt 是每期的付款金额；pv 是现值；后面的 fv、type 和 guess 都是可选项，一般忽略即可。代入公式为：RATE(12, -8833.33, 100000) = 0.908% 即为每一期的利率，乘以 12 得到实际的年利率为 10.896%。
+需要注意的一点是，因为每个月的 $8833.33$ 元是支出，所以是负数。另外，关于 RATE 函数的更详细解释可以参考官方文档。
+2. 几十行 Pythond 代码 自己写代码时就不用那么严谨了，对于收入和支出的正负号不用那么讲究。粗略写了下，共 23 行代码。因为每月还款额都是一样的，所以用二分法去试利率，一般十多二十次都能收敛，对于未收敛的，直接返回 -1。具体代码如下所示：
+def rate(nper, pmt, pv): def _pmt(_rate): x = (1 &#43; _rate)**nper return pv * _rate * x / (x - 1) max_iter_times = 64 lr, hr, i = 0, 1." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://m.sjchn.com/p/2018/real_rate/" /><meta property="article:published_time" content="2018-12-16T00:00:00&#43;00:00"/>
+<meta property="article:modified_time" content="2018-12-16T00:00:00&#43;00:00"/>
+
+<meta itemprop="name" content="如何计算真实的利率">
+<meta itemprop="description" content="在前面贷款基础知识之等本等息中我们看到，对于等本等息或者信用卡分期来说，名义利率（也就是纸面上列出的数字）并不是真实的利率，真实的利率比名义利率是要高很多的。那么在实际生活中，如何才能不轻易上当，识破各种机构的隐藏陷阱呢？下面介绍几种方法。
+1. Excel RATE 函数 仍然举贷款基础知识之等本等息中的例子，贷款 10 万元，分 12 期偿还，每期还款 8833.33 元，名义利率 6%。RATE 公式的语法是：
+RATE(nper, pmt, pv, [fv], [type], [guess])
+其中，nper 是付款总期数；pmt 是每期的付款金额；pv 是现值；后面的 fv、type 和 guess 都是可选项，一般忽略即可。代入公式为：RATE(12, -8833.33, 100000) = 0.908% 即为每一期的利率，乘以 12 得到实际的年利率为 10.896%。
+需要注意的一点是，因为每个月的 $8833.33$ 元是支出，所以是负数。另外，关于 RATE 函数的更详细解释可以参考官方文档。
+2. 几十行 Pythond 代码 自己写代码时就不用那么严谨了，对于收入和支出的正负号不用那么讲究。粗略写了下，共 23 行代码。因为每月还款额都是一样的，所以用二分法去试利率，一般十多二十次都能收敛，对于未收敛的，直接返回 -1。具体代码如下所示：
+def rate(nper, pmt, pv): def _pmt(_rate): x = (1 &#43; _rate)**nper return pv * _rate * x / (x - 1) max_iter_times = 64 lr, hr, i = 0, 1.">
+
+
+<meta itemprop="datePublished" content="2018-12-16T00:00:00&#43;00:00" />
+<meta itemprop="dateModified" content="2018-12-16T00:00:00&#43;00:00" />
+<meta itemprop="wordCount" content="450">
+
+
+
+<meta itemprop="keywords" content="fin,algo," />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="如何计算真实的利率"/>
+<meta name="twitter:description" content="在前面贷款基础知识之等本等息中我们看到，对于等本等息或者信用卡分期来说，名义利率（也就是纸面上列出的数字）并不是真实的利率，真实的利率比名义利率是要高很多的。那么在实际生活中，如何才能不轻易上当，识破各种机构的隐藏陷阱呢？下面介绍几种方法。
+1. Excel RATE 函数 仍然举贷款基础知识之等本等息中的例子，贷款 10 万元，分 12 期偿还，每期还款 8833.33 元，名义利率 6%。RATE 公式的语法是：
+RATE(nper, pmt, pv, [fv], [type], [guess])
+其中，nper 是付款总期数；pmt 是每期的付款金额；pv 是现值；后面的 fv、type 和 guess 都是可选项，一般忽略即可。代入公式为：RATE(12, -8833.33, 100000) = 0.908% 即为每一期的利率，乘以 12 得到实际的年利率为 10.896%。
+需要注意的一点是，因为每个月的 $8833.33$ 元是支出，所以是负数。另外，关于 RATE 函数的更详细解释可以参考官方文档。
+2. 几十行 Pythond 代码 自己写代码时就不用那么严谨了，对于收入和支出的正负号不用那么讲究。粗略写了下，共 23 行代码。因为每月还款额都是一样的，所以用二分法去试利率，一般十多二十次都能收敛，对于未收敛的，直接返回 -1。具体代码如下所示：
+def rate(nper, pmt, pv): def _pmt(_rate): x = (1 &#43; _rate)**nper return pv * _rate * x / (x - 1) max_iter_times = 64 lr, hr, i = 0, 1."/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-54041322-3', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">诗酒趁华年</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="http://m.sjchn.com/">Home</a>
+          
+        
+      </li><li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="http://m.sjchn.com/tags/">Tags</a>
+          
+        
+      </li><li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="http://m.sjchn.com/categories/">Categories</a>
+          
+        
+      </li><li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="http://m.sjchn.com/about/">About</a>
+          
+        
+      </li><li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="http://m.sjchn.com/post/">Posts</a>
+          
+        
+      </li>
+    
+  </ul>
+</nav>
+
+
+  
+
+  
+
+  <header id="header" class="header container">
+    <div class="logo-wrapper">
+  <a href="/" class="logo">
+    
+      诗酒趁华年
+    
+  </a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="http://m.sjchn.com/">Home</a>
+          
+
+        
+
+      </li>
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="http://m.sjchn.com/tags/">Tags</a>
+          
+
+        
+
+      </li>
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="http://m.sjchn.com/categories/">Categories</a>
+          
+
+        
+
+      </li>
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="http://m.sjchn.com/about/">About</a>
+          
+
+        
+
+      </li>
+    
+        <li class="menu-item active">
+        
+          
+          
+            <a class="menu-item-link" href="http://m.sjchn.com/post/">Posts</a>
+          
+
+        
+
+      </li>
+    
+    
+  </ul>
+</nav>
+
+  </header>
+
+  <div id="mobile-panel">
+    <main id="main" class="main bg-llight">
+      <div class="content-wrapper">
+        <div id="content" class="content container">
+          <article class="post bg-white">
+    
+    <header class="post-header">
+      <h1 class="post-title">如何计算真实的利率</h1>
+      
+      <div class="post-meta">
+        <time datetime="2018-12-16" class="post-time">
+          2018-12-16
+        </time>
+        <div class="post-category">
+            <a href="http://m.sjchn.com/categories/fin/"> fin </a>
+            
+          </div>
+        
+
+        
+        
+
+        
+        
+      </div>
+    </header>
+
+    
+    
+
+    
+    <div class="post-content">
+      
+
+<p>在前面<a href="/p/2018/fin_dbdx/">贷款基础知识之等本等息</a>中我们看到，对于等本等息或者信用卡分期来说，名义利率（也就是纸面上列出的数字）并不是真实的利率，真实的利率比名义利率是要高很多的。那么在实际生活中，如何才能不轻易上当，识破各种机构的隐藏陷阱呢？下面介绍几种方法。</p>
+
+<h2 id="1-excel-rate-函数">1. Excel RATE 函数</h2>
+
+<p>仍然举<a href="/p/2018/fin_dbdx/">贷款基础知识之等本等息</a>中的例子，贷款 10 万元，分 12 期偿还，每期还款 8833.33 元，名义利率 6%。<code>RATE</code> 公式的语法是：</p>
+
+<p><code>RATE(nper, pmt, pv, [fv], [type], [guess])</code></p>
+
+<p>其中，<code>nper</code> 是付款总期数；<code>pmt</code> 是每期的付款金额；<code>pv</code> 是现值；后面的 <code>fv</code>、<code>type</code> 和 <code>guess</code> 都是可选项，一般忽略即可。代入公式为：<code>RATE(12, -8833.33, 100000) = 0.908%</code> 即为每一期的利率，乘以 12 得到实际的年利率为 10.896%。</p>
+
+<p>需要注意的一点是，因为每个月的 $8833.33$ 元是支出，所以是负数。另外，关于 <code>RATE</code> 函数的更详细解释可以参考<a href="https://support.office.com/zh-cn/article/rate-%E5%87%BD%E6%95%B0-9f665657-4a7e-4bb7-a030-83fc59e748ce">官方文档</a>。</p>
+
+<h2 id="2-几十行-pythond-代码">2. 几十行 Pythond 代码</h2>
+
+<p>自己写代码时就不用那么严谨了，对于收入和支出的正负号不用那么讲究。粗略写了下，共 23 行代码。因为每月还款额都是一样的，所以用二分法去试利率，一般十多二十次都能收敛，对于未收敛的，直接返回 -1。具体代码如下所示：</p>
+
+<pre><code class="language-python">def rate(nper, pmt, pv):
+    def _pmt(_rate):
+        x = (1 + _rate)**nper
+        return pv * _rate * x / (x - 1)
+    max_iter_times = 64
+    lr, hr, i = 0, 1.0, 0
+    while _pmt(hr) &lt; pmt and i &lt; max_iter_times:
+        lr, hr, i = hr, 2*hr, i+1
+    if i == max_iter_times:
+        return -1
+    i = 0
+    while lr &lt; hr and i &lt; max_iter_times:
+        mr = (lr + hr) / 2.0
+        x = _pmt(mr)
+        if abs(x - pmt) &lt; 1e-2:
+            return mr
+        if x &lt; pmt:
+            lr = mr
+        else:
+            hr = mr
+        i += 1
+    if i == max_iter_times:
+        return -1
+</code></pre>
+
+<p>对于之前的例子，调用 <code>rate(12, 8833.33, 100000.0)</code> 得到结果 <code>0.00908</code>，与 Excel <code>RATE</code> 公式计算出来的结果是一样的。</p>
+
+<h2 id="3-改进的-python-代码">3. 改进的 Python 代码</h2>
+
+<p>虽然二分法在实际中是一个特别高效的算法，但对于这个问题，仍然不是最高效的，是时候祭出<a href="https://en.wikipedia.org/wiki/Newton%27s_method">牛顿法</a>了。</p>
+
+<p>最早接触牛顿法是在求开方这个问题上。在此，插个题外话，不得不提 <a href="*Quake III Arena*">Quake III</a> 里的一段神代码，如下。这段代码的作用是计算浮点数开方后的倒数，也即 $1/\sqrt{x}$，效率极其的高，只用了一次迭代就得到了很高的精度。想更深入地了解这段代码的话可以参考 <a href="https://www.lomont.org/Math/Papers/2003/InvSqrt.pdf">Fast Inverse Square Root</a> 这篇论文。</p>
+
+<pre><code class="language-c">float Q_rsqrt( float number )
+{
+    long i;
+    float x2, y;
+    const float threehalfs = 1.5F;
+
+    x2 = number * 0.5F;
+    y  = number;
+    i  = * ( long * ) &amp;y;                       // evil floating point bit level hacking
+    i  = 0x5f3759df - ( i &gt;&gt; 1 );               // what the fuck? 
+    y  = * ( float * ) &amp;i;
+    y  = y * ( threehalfs - ( x2 * y * y ) );   // 1st iteration
+//  y  = y * ( threehalfs - ( x2 * y * y ) );   // 2nd iteration, this can be removed
+
+    return y;
+}
+</code></pre>
+
+<p>小插曲之后继续回来，要求一个数的平方根，同样可以采用二分法，不断猜测并缩小范围，最终找到结果，但是这种方法的效率太低，需要迭代好多次。牛顿法能更高效地解决这个问题，基本原理是这样的，对于已知的曲线方程，比如 $f(x)$，要求零点，则可以随机选一个点，比如 $x_0$，然后在 $x_0$ 点作一条切线，切线与 $x$ 轴的交点记为 $x_1$，则满足方程 $f(x_0)-0= f&rsquo;(x_0)\cdot(x_0-x_1)$，则 $x_1 =  x_0 - f(x_0)/f&rsquo;(x_0)$。依此公式迭代即可。为了更好地理解这个过程，可以看下面的动画：</p>
+
+<p><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/NewtonIteration_Ani.gif/600px-NewtonIteration_Ani.gif"/></p>
+
+<p>当然，牛顿法也是有一定适用范围的，具体可以参考 <a href="https://en.wikipedia.org/wiki/Newton%27s_method">Wikipedia</a> 和<a href="https://www.zhihu.com/question/20690553">知乎上的介绍</a>。</p>
+
+<p>继续回到本文的问题，也就是求实际的利率，我们可以利用每个月的还款额来反推。从<a href="/p/2018/fin_debx/">贷款基础知识之等额本息</a>中我们知道等额本息的还款公式是：</p>
+
+<p>$$ pmt = \frac{pv\cdot rate\cdot(1+rate)^{nper}}{(1+rate)^{nper}-1}$$</p>
+
+<p>将待求的利率记为 $x$，同时，不妨记</p>
+
+<p>$$f(x) = \frac{pv\cdot x\cdot(1+x)^{nper}}{(1+x)^{nper}-1} - pmt = \frac{(pv\cdot x - pmt)\cdot(1+x)^{nper} + pmt}{(1+x)^{nper}-1}$$</p>
+
+<p>由于 $f(x)$  的分母部分恒大于 $0$，对于求零值没有影响，因此可以忽略，$f(x)$ 由此可以简化为：</p>
+
+<p>$$ f(x) = (pv\cdot x - pmt)\cdot(1+x)^{nper} + pmt$$</p>
+
+<p>对 $x$ 求导得到 $f&rsquo;(x)$，不妨记为 $g(x)$，因此：</p>
+
+<p>$$g(x) = f&rsquo;(x) = (1+x)^{nper - 1}\cdot(pv\cdot(1 + x + x\cdot nper) - pmt\cdot nper)$$</p>
+
+<p>根据前面的分析，迭代更新的公式为：</p>
+
+<p>$$ x_{n+1} = x_n - f(x)/g(x)$$</p>
+
+<p>因此，不难写出 Python 代码，如下所示：</p>
+
+<pre><code class="language-python">def rate_newton(nper, pmt, pv, guess=0.3/12):
+    f = lambda x: (pv*x - pmt)*(1 + x)**nper + pmt
+    g = lambda x: (1 + x)**(nper-1) * (pv*(1 + x + x * nper) - pmt * nper)
+    x = guess
+    i, max_iter_times = 0, 32
+    while i &lt; max_iter_times:
+        fx = f(x)
+        if abs(fx) &lt; 1e-2:
+            return x
+        x -= fx / g(x)
+        if x &lt; 0: # in case
+            x = -x/2
+        i += 1
+    return -1   # Didn't converge
+</code></pre>
+
+<p>对于前面的例子，调用 <code>rate_newton(12, 8833.33, 100000)</code> 同样可以得到结果 <code>0.00908</code>，而且迭代次数比二分法要少很多。</p>
+
+<hr />
+
+<p>本文介绍了几种计算真实利率的方法，Excel 的 <code>RATE</code> 函数是最简单的，如果想探究背后的计算方法，则可以自己写代码搞定，计算方法也介绍了二分和牛顿法两种，这两种算法思想也是有非常广泛的应用，最好都能熟练掌握。</p>
+
+    </div>
+
+    
+    
+
+    
+    
+
+    <footer class="post-footer">
+      <div class="post-tags">
+          <a href="http://m.sjchn.com/tags/fin/">fin</a>
+          <a href="http://m.sjchn.com/tags/algo/">algo</a>
+          
+        </div>
+
+      
+      <nav class="post-nav">
+        
+        
+          <a class="next" href="/p/2018/plastic/">
+            <span class="next-text nav-default">塑料基本知识</span>
+            <span class="prev-text nav-mobile">下一篇</span>
+            
+            <i class="iconfont">
+              <svg class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="18" height="18">
+  <path d="M332.091514 74.487481l-75.369571 89.491197c-10.963703 12.998035-10.285251 32.864502 1.499144 44.378743l286.278095 300.375162L266.565125 819.058374c-11.338233 12.190647-11.035334 32.285311 0.638543 44.850487l80.46666 86.564541c11.680017 12.583596 30.356378 12.893658 41.662889 0.716314l377.434212-421.426145c11.332093-12.183484 11.041474-32.266891-0.657986-44.844348l-80.46666-86.564541c-1.772366-1.910513-3.706415-3.533476-5.750981-4.877077L373.270379 71.774697C361.493148 60.273758 343.054193 61.470003 332.091514 74.487481z"></path>
+</svg>
+
+            </i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+
+  
+  
+
+  
+  
+
+  
+
+  
+
+  <div class="disqus-comment">
+  <div class="disqus-button" id="load_disqus" onclick="load_disqus()">
+    显示 Disqus 评论
+  </div>
+  <div id="disqus_thread"></div>
+  <script type="text/javascript">
+    var disqus_config = function () {
+      this.page.url = "http://m.sjchn.com/p/2018/real_rate/";
+    };
+    function load_disqus() {
+      
+      
+      if (window.location.hostname === 'localhost') return;
+
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      var disqus_shortname = 'm142';
+      dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+
+      $('#load_disqus').remove();
+    };
+  </script>
+  <noscript>Please enable JavaScript to view the
+    <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+  </noscript>
+  
+  </div>
+  
+    
+
+
+
+        </div>
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      
+
+<div class="copyright">
+  
+  <span class="copyright-year">
+    &copy;
+    
+      2015 -
+    2018
+  </span>&nbsp;
+  <span>All rights reserved</span>
+</div>
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  tex2jax: {
+  inlineMath: [['$','$'], ['\\(','\\)']],
+  displayMath: [['$$','$$']],
+  processEscapes: true,
+  processEnvironments: true,
+  skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+  TeX: { equationNumbers: { autoNumber: "AMS" }, extensions: ["AMSmath.js", "AMSsymbols.js"] }
+  }
+});
+</script>
+
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont">
+        
+        <svg class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="35" height="35">
+  <path d="M510.866688 227.694839 95.449397 629.218702l235.761562 0-2.057869 328.796468 362.40389 0L691.55698 628.188232l241.942331-3.089361L510.866688 227.694839zM63.840492 63.962777l894.052392 0 0 131.813095L63.840492 195.775872 63.840492 63.962777 63.840492 63.962777zM63.840492 63.962777"></path>
+</svg>
+
+      </i>
+    </div>
+  </div>
+  
+<script type="text/javascript" src="/lib/jquery/jquery-3.2.1.min.js"></script>
+  <script type="text/javascript" src="/lib/slideout/slideout-1.0.1.min.js"></script>
+
+
+
+
+<script type="text/javascript" src="/js/main.638251f4230630f0335d8c6748e53a96f94b72670920b60c09a56fdc8bece214.js" integrity="sha256-Y4JR9CMGMPAzXYxnSOU6lvlLcmcJILYMCaVv3Ivs4hQ="></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

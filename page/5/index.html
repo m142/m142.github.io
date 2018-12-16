@@ -60,7 +60,7 @@
 <meta property="og:description" content="诗酒趁华年" />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="http://m.sjchn.com/" />
-<meta property="og:updated_time" content="2018-05-23T00:00:00&#43;00:00"/>
+<meta property="og:updated_time" content="2018-05-28T00:00:00&#43;00:00"/>
 
 <meta itemprop="name" content="诗酒趁华年">
 <meta itemprop="description" content="诗酒趁华年">
@@ -236,6 +236,37 @@ if (!doNotTrack) {
     
       <article class="post bg-white">
   <header class="post-header">
+    <h1 class="post-title"><a class="post-link" href="/p/2018/py-for-else/">Python 中奇特的 else</a></h1>
+    
+    <div class="post-meta">
+      <time datetime="2018-05-28" class="post-time">
+        2018-05-28
+      </time>
+      
+      
+      
+      
+    </div>
+  </header>
+  
+  <div class="post-content">
+    
+    <div class="post-summary">
+      今天看 Hacker News 发现了 Python 的一个小众特性：For - Else。
+原来 Python 里 else 还能跟 for 一起使用，当 for 循环正常退出（不是用 break 退出）时， else 里的语句会被执行。比如下面的代码：
+for n in range(2, 10): for x in range(2, n): if n % x == 0: print( n, 'equals', x, '*', n//x) break else: # loop fell through without finding a factor print(n, 'is a prime number')  输出如下。可以看出，当执行到 break 退出 for 循环时， else 语句没有执行；而 for 循环完整执行完后，else 语句执行了。
+2 is a prime number 3 is a prime number 4 equals 2 * 2 5 is a prime number 6 equals 2 * 3 7 is a prime number 8 equals 2 * 4 9 equals 3 * 3  上面的代码如果不用 else，那就要这么写。代码量上稍微复杂一丢丢。
+    </div>
+    <div class="read-more">
+      <a href="/p/2018/py-for-else/" class="read-more-link">阅读全文</a>
+    </div>
+    
+  </div>
+</article>
+
+    
+      <article class="post bg-white">
+  <header class="post-header">
     <h1 class="post-title"><a class="post-link" href="/p/2018/mac-excel-recover-issue/">Mac 上 Excel 的一个恼人问题</a></h1>
     
     <div class="post-meta">
@@ -291,37 +322,6 @@ rm &quot;/Users/didi/Library/Group Containers/UBF8T346G9.Office/MicrosoftRegistr
     </div>
     <div class="read-more">
       <a href="/p/2018/principles/" class="read-more-link">阅读全文</a>
-    </div>
-    
-  </div>
-</article>
-
-    
-      <article class="post bg-white">
-  <header class="post-header">
-    <h1 class="post-title"><a class="post-link" href="/p/2018/keyboard-man/">不要与喷子一般见识</a></h1>
-    
-    <div class="post-meta">
-      <time datetime="2018-05-19" class="post-time">
-        2018-05-19
-      </time>
-      
-      
-      
-      
-    </div>
-  </header>
-  
-  <div class="post-content">
-    
-    <div class="post-summary">
-      A keyboard man or keyboard warrior (键盘侠) is someone who expresses and exhibits aggression against others on the internet. 1
-(图片来自网络，侵删) 最近发生了不少大事，比如空姐滴滴顺风车被害、川航挡风玻璃破裂，等等。 川航的事情倒是学会了一个新词，叫杠精。其实任何一件事情，有异议都是正常的，不然没有质疑没有争论社会就不会进步，科学也不会发展，因为历史上大的发现或发明很多都是对已有认知的颠覆，比如日心说颠覆了地心说、相对论在高速场景下对牛顿力学的颠覆、量子力学在微观场景下对牛顿力学的颠覆，等等，不一而足。 日常生活中，也总会碰到各种杠精，最好的办法就是不去搭理他们，这样他们就会自讨无趣，不然只会把自己的心情搞的一团糟。参见 新志异之十：安公。
-键盘侠如果把其中的侠给去掉呢，和杠精一起，我觉得可以称为喷子。 喷子也会有一些分类，比如有些完全不讲道理，撒赖放泼型的，语言毫无逻辑，出口成脏，人身攻击型的； 也有一些抓住一个小点疯狂攻击，只站在自己的立场上，只见树叶不见树木，更不用说见树林了； 还有一些是“ 引经据典”（类比某呼），看似有理，其实仔细推敲查阅，发现其实是一本正经的胡说八道。 有什么样的观点并不是最重要的，重要的是观点要能拿出来讨论分析和争论，但在喷子的世界观里， 只有黑白两种颜色，他们最喜欢做的事情是扣帽子，贴标签，比如：
- 你为 TA 说话，你是不是收了什么好处 你不喜欢 XXX，你批评 XXX，有本事你走啊/有本事你上啊 评价一台冰箱，难道还需要自己会制冷吗  争论一旦出现类似上面这些，如果还非要继续下去的话，往往会发展成谩骂。 碰到这种情况，不妨想想，如果一个人非要跟你争论关公能战胜秦琼，或者说北极熊生活在南极，这种情况下你会怎么办？ 当然是露出尴尬而不失礼貌的微笑，心里默念一句SB，然后走开喽。
-    </div>
-    <div class="read-more">
-      <a href="/p/2018/keyboard-man/" class="read-more-link">阅读全文</a>
     </div>
     
   </div>

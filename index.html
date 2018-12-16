@@ -60,7 +60,7 @@
 <meta property="og:description" content="诗酒趁华年" />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="http://m.sjchn.com/" />
-<meta property="og:updated_time" content="2018-12-07T00:00:00&#43;00:00"/>
+<meta property="og:updated_time" content="2018-12-16T00:00:00&#43;00:00"/>
 
 <meta itemprop="name" content="诗酒趁华年">
 <meta itemprop="description" content="诗酒趁华年">
@@ -236,6 +236,43 @@ if (!doNotTrack) {
     
       <article class="post bg-white">
   <header class="post-header">
+    <h1 class="post-title"><a class="post-link" href="/p/2018/real_rate/">如何计算真实的利率</a></h1>
+    
+    <div class="post-meta">
+      <time datetime="2018-12-16" class="post-time">
+        2018-12-16
+      </time>
+      <div class="post-category">
+          <a href="http://m.sjchn.com/categories/fin/"> fin </a>
+          
+        </div>
+      
+      
+      
+    </div>
+  </header>
+  
+  <div class="post-content">
+    
+    <div class="post-summary">
+      在前面贷款基础知识之等本等息中我们看到，对于等本等息或者信用卡分期来说，名义利率（也就是纸面上列出的数字）并不是真实的利率，真实的利率比名义利率是要高很多的。那么在实际生活中，如何才能不轻易上当，识破各种机构的隐藏陷阱呢？下面介绍几种方法。
+1. Excel RATE 函数 仍然举贷款基础知识之等本等息中的例子，贷款 10 万元，分 12 期偿还，每期还款 8833.33 元，名义利率 6%。RATE 公式的语法是：
+RATE(nper, pmt, pv, [fv], [type], [guess])
+其中，nper 是付款总期数；pmt 是每期的付款金额；pv 是现值；后面的 fv、type 和 guess 都是可选项，一般忽略即可。代入公式为：RATE(12, -8833.33, 100000) = 0.908% 即为每一期的利率，乘以 12 得到实际的年利率为 10.896%。
+需要注意的一点是，因为每个月的 $8833.33$ 元是支出，所以是负数。另外，关于 RATE 函数的更详细解释可以参考官方文档。
+2. 几十行 Pythond 代码 自己写代码时就不用那么严谨了，对于收入和支出的正负号不用那么讲究。粗略写了下，共 23 行代码。因为每月还款额都是一样的，所以用二分法去试利率，一般十多二十次都能收敛，对于未收敛的，直接返回 -1。具体代码如下所示：
+def rate(nper, pmt, pv): def _pmt(_rate): x = (1 + _rate)**nper return pv * _rate * x / (x - 1) max_iter_times = 64 lr, hr, i = 0, 1.
+    </div>
+    <div class="read-more">
+      <a href="/p/2018/real_rate/" class="read-more-link">阅读全文</a>
+    </div>
+    
+  </div>
+</article>
+
+    
+      <article class="post bg-white">
+  <header class="post-header">
     <h1 class="post-title"><a class="post-link" href="/p/2018/plastic/">塑料基本知识</a></h1>
     
     <div class="post-meta">
@@ -300,49 +337,6 @@ Mac 上安装 Rime 很简单，直接 brew cask install squirrel 就可以了。
     </div>
     <div class="read-more">
       <a href="/p/2018/rime/" class="read-more-link">阅读全文</a>
-    </div>
-    
-  </div>
-</article>
-
-    
-      <article class="post bg-white">
-  <header class="post-header">
-    <h1 class="post-title"><a class="post-link" href="/p/2018/fin_dbdx/">贷款基础知识之等本等息</a></h1>
-    
-    <div class="post-meta">
-      <time datetime="2018-11-26" class="post-time">
-        2018-11-26
-      </time>
-      <div class="post-category">
-          <a href="http://m.sjchn.com/categories/fin/"> fin </a>
-          
-        </div>
-      
-      
-      
-    </div>
-  </header>
-  
-  <div class="post-content">
-    
-    <div class="post-summary">
-      前面已经讲过了等额本息和等额本金，现在来看一下不那么常见的等本等息。如果等本等息没有听过的话，那么信用卡的分期即便没用过，大部分人应该也是听过的，其实这两者基本上是一样的。
-缘由是前段时间接触到了一个装修贷，具体哪家公司的就不说了，贷款的利息还挺低的，从 6% 到 7% 不等，一开始我觉得还挺不错的，下面是不同的贷款额及利率下的还款计划图。
-其实一开始，我从图中也没有看出什么来，以为只是通常的等额本息还款，觉得这个利率还是挺给力、挺良心的。不过本着对金融机构不放心、不信任的原则，按照等额本息里的公式，计算了10万本金6%年利率12期条件下的月供为 8606.64，比 8833.33 少了 226.69。这就奇怪了，怎么会算出来不一致呢？然后又逐行仔细看了看，才发现了等本等息的字样。
-等本等息又是什么鬼？为什么算出来的值比等额本息要高呢？其实这就是金融机构玩的一个文字游戏和障眼法。用很低的利率值做诱饵，相同的月供值让用户自然想到等额本息，然后就被忽悠上当了。这个跟银行的分期是一样的手法。这种还款方式的本质是提前计算好利息，也就是按贷款额一次性计算好利息，然后每个月还相同数额的本金和利息，还款公式为：
-$$ 每月还款额 = \frac{借款本金}{还款总期数} + 借款本金\cdot 月利率 $$
-不妨对比看一下等额本金的还款公式：
-$$ 每月还款额 = \frac{借款本金}{还款总期数} + (借款本金-累计已还本金)\cdot 月利率 $$
-对比两个公式可以明显看出，二者每月归还的本金是相同的，区别只是在利息部分，等额本金计算利息时，只考虑未归还的本金，而等本等息方式下，使用的是借款本金！！！这就是鸡贼之处。
-那么对于等本等息，如果对应上等额本息的话，对应的利率应该是多少呢？后面我会介绍具体的计算方法，粗略的估算方法就是把利率乘 2，因为差不多只借了一半的钱，却还了所有的利息，这个用等差数列想一下就明白了。
-最后，给出具体的数值来：12 期 6% 的等本等息对应的等额本息利率是 10.896%，36 期 7% 对应的等额本息利率是 12.83%。仅仅一字之差，利率可是几乎差了一倍！
-如果可能，远离装修贷，慎用信用卡分期！
-远离装修贷，慎用信用卡分期！
-远离装修贷，慎用信用卡分期！
-    </div>
-    <div class="read-more">
-      <a href="/p/2018/fin_dbdx/" class="read-more-link">阅读全文</a>
     </div>
     
   </div>
